@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Session — SophiaTV</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Agora Web SDK -->
+  <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+</head>
+<body class="session-page">
+
+  <!-- SESSION HEADER -->
+  <div class="session-header">
+    <a href="/" class="logo" style="text-decoration:none">
+      <span class="logo-play-sm" style="font-size:13px;color:var(--gold)">&#9654;</span>
+      <span style="font-size:16px;font-weight:900;color:var(--white)">Sophia<em style="color:var(--gold);font-style:normal">TV</em></span>
+    </a>
+    <div class="session-header-center">
+      <div id="sessionRoomName" class="session-room-name">Loading session…</div>
+      <div class="session-status-row">
+        <span class="session-live-dot" id="sessionLiveDot"></span>
+        <span id="sessionStatusText" style="font-size:12px;color:var(--muted)">Connecting…</span>
+        <span class="session-timer" id="sessionTimer">00:00</span>
+      </div>
+    </div>
+    <div class="session-header-right">
+      <div class="session-participants-badge" id="participantsBadge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span id="participantCount">1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="session-layout">
+
+    <!-- VIDEO GRID -->
+    <div class="session-video-area" id="videoArea">
+      <!-- Local video -->
+      <div class="video-tile video-tile-local" id="localTile">
+        <div class="video-stream" id="localVideo">
+          <div class="video-placeholder">
+            <div class="video-avatar-lg">YOU</div>
+            <div class="video-loading">Camera starting…</div>
+          </div>
+        </div>
+        <div class="video-tile-label">
+          <span>You</span>
+          <div class="video-tile-icons">
+            <span class="tile-icon" id="localMicIcon">🎙️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remote participants (added dynamically) -->
+      <div id="remoteVideos" class="remote-videos-container"></div>
+
+      <!-- Empty state -->
+      <div class="session-waiting" id="sessionWaiting">
+        <div class="waiting-spinner"></div>
+        <div class="waiting-title">Waiting for others to join…</div>
+        <div class="waiting-sub">Share the session link to invite participants</div>
+        <button class="btn-gold" onclick="copySessionLink()" style="margin-top:16px">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Copy Invite Link
+        </button>
+      </div>
+    </div>
+
+    <!-- CHAT SIDEBAR -->
+    <div class="session-sidebar" id="sessionSidebar">
+      <div class="sidebar-header">
+        <span style="font-size:14px;font-weight:700;color:var(--white)">Session Chat</span>
+        <button class="sidebar-close-btn" onclick="toggleSidebar()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="sidebar-messages" id="sidebarMessages">
+        <div class="chat-system-msg">Session started. Chat is end-to-end within this room.</div>
+      </div>
+      <div class="sidebar-input-row">
+        <input type="text" class="sidebar-input" id="chatInput" placeholder="Message…" maxlength="300" onkeydown="if(event.key==='Enter')sendChatMsg()" />
+        <button class="sidebar-send-btn" onclick="sendChatMsg()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLS BAR -->
+  <div class="session-controls">
+    <button class="ctrl-btn" id="micBtn" onclick="toggleMic()" title="Toggle microphone">
+      <svg id="micIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      <span>Mic</span>
+    </button>
+    <button class="ctrl-btn" id="camBtn" onclick="toggleCam()" title="Toggle camera">
+      <svg id="camIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span>Camera</span>
+    </button>
+    <button class="ctrl-btn" onclick="toggleSidebar()" title="Toggle chat">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Chat</span>
+    </button>
+    <button class="ctrl-btn" onclick="copySessionLink()" title="Share session link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      <span>Share</span>
+    </button>
+    <button class="ctrl-btn ctrl-btn-end" onclick="endSession()" title="End session">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.42 19.42 0 0 1 4.43 9.44 19.79 19.79 0 0 1 1.36 .78 2 2 0 0 1 3.33-1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.31 6.71"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+      <span>End</span>
+    </button>
+  </div>
+
+  <!-- END SESSION MODAL -->
+  <div class="end-modal-overlay" id="endModal" style="display:none">
+    <div class="end-modal">
+      <h3>End Session?</h3>
+      <p>Are you sure you want to leave this session?</p>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="btn-outline" style="flex:1" onclick="document.getElementById('endModal').style.display='none'">Stay</button>
+        <button class="btn-gold" style="flex:1;background:var(--red);border-color:var(--red)" onclick="confirmEndSession()">End Session</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =====================
+    // SESSION CONFIG
+    // =====================
+    const AGORA_APP_ID = '507f7bfe34054d7fb853b8a7965a04aa';
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomId = urlParams.get('room') || 'default-room-' + Math.random().toString(36).substr(2, 8);
+    const displayName = urlParams.get('name') || 'Participant';
+
+    document.getElementById('sessionRoomName').textContent = 'Session: ' + roomId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+    let client;
+    let localAudioTrack, localVideoTrack;
+    let micMuted = false, camOff = false;
+    let timerInterval;
+    let secondsElapsed = 0;
+    let remoteUsers = {};
+
+    // Timer
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        secondsElapsed++;
+        const m = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
+        const s = String(secondsElapsed % 60).padStart(2, '0');
+        document.getElementById('sessionTimer').textContent = m + ':' + s;
+      }, 1000);
+    }
+
+    // Init Agora
+    async function initAgora() {
+      try {
+        client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
+
+        // Event: remote user published
+        client.on('user-published', async (user, mediaType) => {
+          await client.subscribe(user, mediaType);
+          remoteUsers[user.uid] = user;
+          updateParticipantCount();
+          document.getElementById('sessionWaiting').style.display = 'none';
+
+          if (mediaType === 'video') {
+            addRemoteVideoTile(user);
+            user.videoTrack.play('remote-video-' + user.uid);
+          }
+          if (mediaType === 'audio') {
+            user.audioTrack && user.audioTrack.play();
+          }
+        });
+
+        client.on('user-unpublished', (user, mediaType) => {
+          if (mediaType === 'video') {
+            const tile = document.getElementById('remote-tile-' + user.uid);
+            if (tile) tile.remove();
+          }
+        });
+
+        client.on('user-left', (user) => {
+          delete remoteUsers[user.uid];
+          const tile = document.getElementById('remote-tile-' + user.uid);
+          if (tile) tile.remove();
+          updateParticipantCount();
+          addSystemMsg(user.uid + ' left the session');
+          if (Object.keys(remoteUsers).length === 0) {
+            document.getElementById('sessionWaiting').style.display = 'flex';
+          }
+        });
+
+        // Generate a token-free channel (for demo/testing without token server)
+        const uid = await client.join(AGORA_APP_ID, roomId, null, null);
+
+        // Create and publish local tracks
+        [localAudioTrack, localVideoTrack] = await AgoraRTC.createMicrophoneAndCameraTracks();
+
+        // Play local video
+        const localVideoEl = document.getElementById('localVideo');
+        localVideoEl.innerHTML = ''; // clear placeholder
+        localVideoTrack.play('localVideo');
+
+        await client.publish([localAudioTrack, localVideoTrack]);
+
+        setStatus('connected', 'Connected · Room: ' + roomId);
+        startTimer();
+
+      } catch (err) {
+        console.error('Agora init error:', err);
+        setStatus('error', 'Connection failed: ' + err.message);
+        // Show fallback demo UI
+        showDemoMode();
+      }
+    }
+
+    function showDemoMode() {
+      const localVideo = document.getElementById('localVideo');
+      localVideo.innerHTML = '<div class="video-placeholder"><div class="video-avatar-lg" style="background:var(--gold);color:#0a0a00">YOU</div><div class="video-loading" style="color:var(--gold)">Demo Mode</div></div>';
+      setStatus('demo', 'Demo mode — add Agora token server for production');
+      document.getElementById('sessionWaiting').style.display = 'flex';
+      startTimer();
+    }
+
+    function addRemoteVideoTile(user) {
+      const container = document.getElementById('remoteVideos');
+      const tile = document.createElement('div');
+      tile.className = 'video-tile video-tile-remote';
+      tile.id = 'remote-tile-' + user.uid;
+      tile.innerHTML = `
+        <div class="video-stream" id="remote-video-${user.uid}"></div>
+        <div class="video-tile-label">
+          <span>Participant ${user.uid}</span>
+          <div class="video-tile-icons"><span class="tile-icon">🎙️</span></div>
+        </div>`;
+      container.appendChild(tile);
+    }
+
+    function updateParticipantCount() {
+      document.getElementById('participantCount').textContent = Object.keys(remoteUsers).length + 1;
+    }
+
+    function setStatus(state, msg) {
+      const dot = document.getElementById('sessionLiveDot');
+      const text = document.getElementById('sessionStatusText');
+      text.textContent = msg;
+      dot.className = 'session-live-dot ' + (state === 'connected' ? 'dot-green' : state === 'error' ? 'dot-red' : 'dot-gold');
+    }
+
+    // Controls
+    async function toggleMic() {
+      micMuted = !micMuted;
+      if (localAudioTrack) await localAudioTrack.setMuted(micMuted);
+      const btn = document.getElementById('micBtn');
+      btn.classList.toggle('ctrl-btn-muted', micMuted);
+      btn.title = micMuted ? 'Unmute microphone' : 'Mute microphone';
+      btn.querySelector('span').textContent = micMuted ? 'Muted' : 'Mic';
+    }
+
+    async function toggleCam() {
+      camOff = !camOff;
+      if (localVideoTrack) await localVideoTrack.setMuted(camOff);
+      const btn = document.getElementById('camBtn');
+      btn.classList.toggle('ctrl-btn-muted', camOff);
+      btn.querySelector('span').textContent = camOff ? 'Cam Off' : 'Camera';
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sessionSidebar').classList.toggle('sidebar-open');
+    }
+
+    function copySessionLink() {
+      const link = window.location.origin + '/session?room=' + roomId;
+      navigator.clipboard.writeText(link).then(() => {
+        addSystemMsg('Session link copied to clipboard');
+      });
+    }
+
+    function endSession() {
+      document.getElementById('endModal').style.display = 'flex';
+    }
+
+    async function confirmEndSession() {
+      clearInterval(timerInterval);
+      if (localAudioTrack) localAudioTrack.close();
+      if (localVideoTrack) localVideoTrack.close();
+      if (client) await client.leave();
+      window.location.href = '/';
+    }
+
+    // Chat
+    function sendChatMsg() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      addChatMsg('You', text, true);
+    }
+
+    function addChatMsg(sender, text, isLocal) {
+      const container = document.getElementById('sidebarMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-msg ' + (isLocal ? 'chat-msg-local' : 'chat-msg-remote');
+      div.innerHTML = `<span class="chat-sender">${sender}</span><span class="chat-text">${escapeHTML(text)}</span>`;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function addSystemMsg(text) {
+      const container = document.getElementById('sidebarMessages');
+      const div = document.createElement('div');
+      div.className = 'chat-system-msg';
+      div.textContent = text;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Start
+    initAgora();
+  </script>
+</body>
+</html>

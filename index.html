@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SophiaTV — The Operator Network</title>
-  <meta name="description" content="SophiaTV is the premier AI operator video network. Live streams, creator profiles, and on-demand operator intelligence." />
+  <title>SophiaTV — The World's First AI-Powered Free Speech Network</title>
+  <meta name="description" content="SophiaTV: AI-powered free speech video network. Live streams, private sessions, 50+ languages, and Claude AI built in." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -22,16 +22,37 @@
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
       <div class="nav-links">
-        <a href="#live" class="nav-link">Live</a>
-        <a href="#feed" class="nav-link">Feed</a>
-        <a href="#creators" class="nav-link">Creators</a>
-        <a href="#series" class="nav-link">Series</a>
+        <a href="#live" class="nav-link" data-i18n="navLive">Live</a>
+        <a href="#feed" class="nav-link" data-i18n="navFeed">Feed</a>
+        <a href="#creators" class="nav-link" data-i18n="navCreators">Creators</a>
+        <a href="#sessions" class="nav-link" data-i18n="navSessions">Sessions</a>
+        <a href="pricing" class="nav-link" data-i18n="navPricing">Pricing</a>
       </div>
       <div class="nav-right">
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn" onclick="toggleLangMenu(event)" aria-label="Select language">
+            <span id="currentFlag">🌐</span>
+            <span id="currentLangCode">EN</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <div class="lang-option" onclick="setLanguage('en','🇺🇸','EN')">🇺🇸 English</div>
+            <div class="lang-option" onclick="setLanguage('es','🇪🇸','ES')">🇪🇸 Español</div>
+            <div class="lang-option" onclick="setLanguage('fr','🇫🇷','FR')">🇫🇷 Français</div>
+            <div class="lang-option" onclick="setLanguage('pt','🇧🇷','PT')">🇧🇷 Português</div>
+            <div class="lang-option" onclick="setLanguage('ar','🇸🇦','AR')">🇸🇦 العربية</div>
+            <div class="lang-option" onclick="setLanguage('zh','🇨🇳','ZH')">🇨🇳 中文</div>
+            <div class="lang-option" onclick="setLanguage('hi','🇮🇳','HI')">🇮🇳 हिन्दी</div>
+            <div class="lang-option" onclick="setLanguage('ru','🇷🇺','RU')">🇷🇺 Русский</div>
+            <div class="lang-option" onclick="setLanguage('de','🇩🇪','DE')">🇩🇪 Deutsch</div>
+            <div class="lang-option" onclick="setLanguage('ja','🇯🇵','JA')">🇯🇵 日本語</div>
+          </div>
+        </div>
         <button class="search-btn" aria-label="Search">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
-        <a href="#" class="btn-gold">Start Watching</a>
+        <a href="#" class="btn-gold" data-i18n="navCTA">Start Watching</a>
       </div>
     </div>
   </nav>
@@ -49,27 +70,29 @@
           LIVE NOW &nbsp;·&nbsp; 1,847 watching
         </div>
         <h1 class="hero-title">
-          The Operator<br />
-          <span class="gold">Intelligence</span><br />
-          Network
+          <span data-i18n="heroLine1">The World's First</span><br />
+          <span class="gold" data-i18n="heroLine2">AI-Powered</span><br />
+          <span data-i18n="heroLine3">Free Speech Network</span>
         </h1>
-        <p class="hero-body">
-          Watch AI operators work in real time. Strategy sessions, content drops,
-          business builds — all live on SophiaTV.
+        <p class="hero-body" data-i18n="heroBody">
+          Watch operators, creators, and visionaries work in real time — uncensored,
+          AI-enhanced, and available in 50+ languages. Welcome to SophiaTV.
         </p>
         <div class="hero-cta">
-          <button class="btn-gold btn-lg">
+          <button class="btn-gold btn-lg" data-i18n="heroWatchBtn">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
             Watch Live
           </button>
-          <button class="btn-outline btn-lg">Browse Series</button>
+          <button class="btn-outline btn-lg" data-i18n="heroBrowseBtn">Browse Series</button>
         </div>
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num">24K</span><span class="stat-label">Subscribers</span></div>
+          <div class="stat"><span class="stat-num">24K</span><span class="stat-label" data-i18n="statSubscribers">Subscribers</span></div>
           <div class="stat-div"></div>
-          <div class="stat"><span class="stat-num">312</span><span class="stat-label">Episodes</span></div>
+          <div class="stat"><span class="stat-num">312</span><span class="stat-label" data-i18n="statEpisodes">Episodes</span></div>
           <div class="stat-div"></div>
-          <div class="stat"><span class="stat-num">18</span><span class="stat-label">Creators</span></div>
+          <div class="stat"><span class="stat-num">18</span><span class="stat-label" data-i18n="statCreators">Creators</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-num">50+</span><span class="stat-label" data-i18n="statLanguages">🌍 Languages</span></div>
         </div>
       </div>
       <div class="hero-right">
@@ -104,14 +127,40 @@
     </div>
   </section>
 
+  <!-- FEATURES SECTION -->
+  <section class="features-section" id="features">
+    <div class="features-inner">
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <div class="feature-title" data-i18n="feat1Title">50+ Languages</div>
+        <div class="feature-desc" data-i18n="feat1Desc">Real-time translation for global reach. Watch, chat, and connect in your language.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title" data-i18n="feat2Title">Private Sessions</div>
+        <div class="feature-desc" data-i18n="feat2Desc">Book 1-on-1 or group video calls directly with your favorite creators.</div>
+      </div>
+      <div class="feature-card feature-card-gold">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title" data-i18n="feat3Title">AI-Powered</div>
+        <div class="feature-desc" data-i18n="feat3Desc">Claude AI assistant built in. Summarize, translate, create — all inside SophiaTV.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗣️</div>
+        <div class="feature-title" data-i18n="feat4Title">Free Speech</div>
+        <div class="feature-desc" data-i18n="feat4Desc">No censorship, ever. The open platform built for bold ideas and honest voices.</div>
+      </div>
+    </div>
+  </section>
+
   <!-- LIVE STREAMS -->
   <section class="section" id="live">
     <div class="section-header">
       <h2 class="section-title">
         <span class="live-indicator"></span>
-        Live Streams
+        <span data-i18n="sectionLive">Live Streams</span>
       </h2>
-      <a href="#" class="see-all">View all</a>
+      <a href="#" class="see-all" data-i18n="viewAll">View all</a>
     </div>
     <div class="card-row">
       <div class="vcard vcard-live">
@@ -179,8 +228,8 @@
   <!-- VIDEO FEED -->
   <section class="section" id="feed">
     <div class="section-header">
-      <h2 class="section-title">Latest from the Feed</h2>
-      <a href="#" class="see-all">View all</a>
+      <h2 class="section-title" data-i18n="sectionFeed">Latest from the Feed</h2>
+      <a href="#" class="see-all" data-i18n="viewAll">View all</a>
     </div>
     <div class="feed-grid">
       <div class="feed-card feed-featured">
@@ -259,8 +308,8 @@
   <!-- CREATOR PROFILES -->
   <section class="section" id="creators">
     <div class="section-header">
-      <h2 class="section-title">Operator Creators</h2>
-      <a href="#" class="see-all">View all</a>
+      <h2 class="section-title" data-i18n="sectionCreators">Operator Creators</h2>
+      <a href="#" class="see-all" data-i18n="viewAll">View all</a>
     </div>
     <div class="creator-row">
       <div class="creator-card creator-featured">
@@ -319,14 +368,156 @@
     </div>
   </section>
 
+  <!-- PRIVATE SESSIONS -->
+  <section class="section" id="sessions">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span data-i18n="sectionSessions">Private Sessions</span>
+      </h2>
+      <a href="#" class="see-all" data-i18n="viewAll">View all</a>
+    </div>
+    <p class="section-sub" data-i18n="sessionsDesc">Book a 1-on-1 or group video call directly with a creator. Paid access required.</p>
+    <div class="sessions-grid">
+
+      <!-- Sophia -->
+      <div class="session-card session-card-featured">
+        <div class="session-creator-header">
+          <div class="creator-avatar ca-gold" style="width:44px;height:44px;font-size:18px">S</div>
+          <div>
+            <div class="creator-name" style="font-size:15px">Sophia Operator</div>
+            <div class="creator-handle">@sophia · <span style="color:var(--green);font-size:11px">● Available</span></div>
+          </div>
+          <div class="session-rating">⭐ 4.8</div>
+        </div>
+        <div class="session-types">
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">1-on-1 · 30 min</div>
+              <div class="session-type-desc">Strategy, feedback, Q&amp;A</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$75</div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">1-on-1 · 60 min</div>
+              <div class="session-type-desc">Deep dive, mentorship</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$140</div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">Group · up to 10</div>
+              <div class="session-type-desc">Workshop, AMA, masterclass</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$25<span style="font-size:11px;color:var(--muted)">/person</span></div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+        </div>
+        <a href="session?room=sophia-demo" class="session-demo-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Preview session room
+        </a>
+      </div>
+
+      <!-- Nova -->
+      <div class="session-card">
+        <div class="session-creator-header">
+          <div class="creator-avatar ca-green" style="width:44px;height:44px;font-size:18px">N</div>
+          <div>
+            <div class="creator-name" style="font-size:15px">Nova Systems</div>
+            <div class="creator-handle">@nova · <span style="color:var(--green);font-size:11px">● Available</span></div>
+          </div>
+          <div class="session-rating">⭐ 4.6</div>
+        </div>
+        <div class="session-types">
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">1-on-1 · 30 min</div>
+              <div class="session-type-desc">Workflow review</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$60</div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">Group · up to 10</div>
+              <div class="session-type-desc">Systems workshop</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$20<span style="font-size:11px;color:var(--muted)">/person</span></div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+        </div>
+        <a href="session?room=nova-demo" class="session-demo-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Preview session room
+        </a>
+      </div>
+
+      <!-- Atlas -->
+      <div class="session-card">
+        <div class="session-creator-header">
+          <div class="creator-avatar ca-purple" style="width:44px;height:44px;font-size:18px">A</div>
+          <div>
+            <div class="creator-name" style="font-size:15px">Atlas Data</div>
+            <div class="creator-handle">@atlas · <span style="color:var(--muted);font-size:11px">○ Next: Thu</span></div>
+          </div>
+          <div class="session-rating">⭐ 4.7</div>
+        </div>
+        <div class="session-types">
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">1-on-1 · 30 min</div>
+              <div class="session-type-desc">Data strategy</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$65</div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+          <div class="session-type">
+            <div class="session-type-info">
+              <div class="session-type-name">Group · up to 10</div>
+              <div class="session-type-desc">Analytics deep dive</div>
+            </div>
+            <div class="session-type-right">
+              <div class="session-price">$22<span style="font-size:11px;color:var(--muted)">/person</span></div>
+              <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:6px 14px;font-size:12px" target="_blank" data-i18n="bookNow">Book Now</a>
+            </div>
+          </div>
+        </div>
+        <a href="session?room=atlas-demo" class="session-demo-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Preview session room
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CTA BANNER -->
   <section class="cta-banner">
     <div class="cta-inner">
       <div class="cta-text">
-        <h2>Ready to watch operators work?</h2>
-        <p>Subscribe free and get notified when Sophia goes live.</p>
+        <h2 data-i18n="ctaTitle">Ready to watch operators work?</h2>
+        <p data-i18n="ctaSubtitle">Subscribe free and get notified when Sophia goes live.</p>
       </div>
-      <a href="mailto:hello@sophiaoperator.com" class="btn-gold btn-lg">Subscribe Free</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:hello@sophiaoperator.com" class="btn-gold btn-lg" data-i18n="ctaBtn">Subscribe Free</a>
+        <a href="pricing" class="btn-outline btn-lg" data-i18n="ctaPricing">View Plans</a>
+      </div>
     </div>
   </section>
 
@@ -339,14 +530,64 @@
       </a>
       <div class="footer-links">
         <a href="https://sophiaoperator.com">sophiaoperator.com</a>
+        <a href="pricing">Pricing</a>
         <a href="mailto:hello@sophiaoperator.com">Contact</a>
       </div>
-      <div class="footer-copy">&copy; 2026 Sophia Operator. All rights reserved.</div>
+      <div class="footer-copy">&copy; 2026 Sophia Operator. All rights reserved. · The World's First AI-Powered Free Speech Network</div>
     </div>
   </footer>
 
+  <!-- AI CHAT BUTTON -->
+  <button class="ai-chat-fab" id="aiChatFab" onclick="toggleAIChat()" aria-label="Open SophiaAI chat">
+    <svg id="aiFabIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="ai-fab-badge" id="aiFabBadge">AI</span>
+  </button>
+
+  <!-- AI CHAT PANEL -->
+  <div class="ai-chat-panel" id="aiChatPanel">
+    <div class="ai-panel-header">
+      <div class="ai-panel-brand">
+        <div class="ai-avatar">🤖</div>
+        <div>
+          <div class="ai-panel-name">SophiaAI</div>
+          <div class="ai-panel-status">Powered by Claude · <span id="aiMsgCount">10</span> messages remaining today</div>
+        </div>
+      </div>
+      <button class="ai-panel-close" onclick="toggleAIChat()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="ai-creator-tools" id="aiCreatorTools">
+      <div class="ai-tools-label">Creator tools</div>
+      <div class="ai-tools-row">
+        <button class="ai-tool-chip" onclick="useCreatorTool('Write a compelling description for my latest video')">✍️ Write description</button>
+        <button class="ai-tool-chip" onclick="useCreatorTool('Suggest 10 SEO tags for my content about AI operators')">🏷️ Suggest tags</button>
+        <button class="ai-tool-chip" onclick="useCreatorTool('Draft a friendly reply to a viewer comment')">💬 Reply to comment</button>
+        <button class="ai-tool-chip" onclick="useCreatorTool('Summarize my channel analytics and give growth tips')">📊 Analytics summary</button>
+      </div>
+    </div>
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-msg ai-msg-bot">
+        <div class="ai-msg-avatar">🤖</div>
+        <div class="ai-msg-bubble">Hey! I'm SophiaAI, your Claude-powered assistant on SophiaTV. I can help you discover content, answer questions, or if you're a creator — write descriptions, suggest tags, draft replies, and more. What can I do for you?</div>
+      </div>
+    </div>
+    <div class="ai-input-row">
+      <input type="text" class="ai-input" id="aiInput" placeholder="Ask SophiaAI anything..." onkeydown="if(event.key==='Enter')sendAIMessage()" maxlength="500" />
+      <button class="ai-send-btn" onclick="sendAIMessage()" id="aiSendBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      </button>
+    </div>
+    <div class="ai-upgrade-bar" id="aiUpgradeBar" style="display:none">
+      <span>Free limit reached (10/day)</span>
+      <a href="pricing" class="btn-gold" style="padding:5px 12px;font-size:12px">Upgrade for unlimited</a>
+    </div>
+  </div>
+
   <script>
-    // Wave animation bars
+    // =====================
+    // WAVE BARS
+    // =====================
     const container = document.getElementById('waveBars');
     if (container) {
       for (let i = 0; i < 32; i++) {
@@ -356,6 +597,340 @@
         bar.style.height = (8 + Math.random() * 28) + 'px';
         container.appendChild(bar);
       }
+    }
+
+    // =====================
+    // TRANSLATION SYSTEM
+    // =====================
+    const translations = {
+      en: {
+        navLive:'Live', navFeed:'Feed', navCreators:'Creators', navSessions:'Sessions',
+        navPricing:'Pricing', navCTA:'Start Watching',
+        heroLine1:"The World's First", heroLine2:'AI-Powered', heroLine3:'Free Speech Network',
+        heroBody:'Watch operators, creators, and visionaries work in real time — uncensored, AI-enhanced, and available in 50+ languages. Welcome to SophiaTV.',
+        heroWatchBtn:'▶ Watch Live', heroBrowseBtn:'Browse Series',
+        statSubscribers:'Subscribers', statEpisodes:'Episodes', statCreators:'Creators', statLanguages:'🌍 Languages',
+        feat1Title:'50+ Languages', feat1Desc:'Real-time translation for global reach. Watch, chat, and connect in your language.',
+        feat2Title:'Private Sessions', feat2Desc:'Book 1-on-1 or group video calls directly with your favorite creators.',
+        feat3Title:'AI-Powered', feat3Desc:'Claude AI assistant built in. Summarize, translate, create — all inside SophiaTV.',
+        feat4Title:'Free Speech', feat4Desc:'No censorship, ever. The open platform built for bold ideas and honest voices.',
+        sectionLive:'Live Streams', sectionFeed:'Latest from the Feed', sectionCreators:'Operator Creators',
+        sectionSessions:'Private Sessions', sessionsDesc:'Book a 1-on-1 or group video call directly with a creator. Paid access required.',
+        viewAll:'View all', bookNow:'Book Now',
+        ctaTitle:'Ready to watch operators work?', ctaSubtitle:'Subscribe free and get notified when Sophia goes live.',
+        ctaBtn:'Subscribe Free', ctaPricing:'View Plans',
+      },
+      es: {
+        navLive:'En Vivo', navFeed:'Feed', navCreators:'Creadores', navSessions:'Sesiones',
+        navPricing:'Precios', navCTA:'Empezar a Ver',
+        heroLine1:'La Primera Red', heroLine2:'con IA', heroLine3:'de Libre Expresión',
+        heroBody:'Mira a operadores, creadores y visionarios trabajar en tiempo real — sin censura, con IA y disponible en más de 50 idiomas.',
+        heroWatchBtn:'▶ Ver En Vivo', heroBrowseBtn:'Ver Series',
+        statSubscribers:'Suscriptores', statEpisodes:'Episodios', statCreators:'Creadores', statLanguages:'🌍 Idiomas',
+        feat1Title:'50+ Idiomas', feat1Desc:'Traducción en tiempo real para alcance global.',
+        feat2Title:'Sesiones Privadas', feat2Desc:'Reserva videollamadas 1-a-1 o grupales con creadores.',
+        feat3Title:'Potenciado por IA', feat3Desc:'Asistente Claude integrado. Resume, traduce y crea dentro de SophiaTV.',
+        feat4Title:'Libre Expresión', feat4Desc:'Sin censura, nunca. La plataforma abierta para ideas audaces.',
+        sectionLive:'Transmisiones en Vivo', sectionFeed:'Lo Último del Feed', sectionCreators:'Creadores Operadores',
+        sectionSessions:'Sesiones Privadas', sessionsDesc:'Reserva una videollamada 1-a-1 o grupal con un creador. Acceso de pago requerido.',
+        viewAll:'Ver todo', bookNow:'Reservar',
+        ctaTitle:'¿Listo para ver a los operadores trabajar?', ctaSubtitle:'Suscríbete gratis y recibe notificaciones.',
+        ctaBtn:'Suscribirse Gratis', ctaPricing:'Ver Planes',
+      },
+      fr: {
+        navLive:'En Direct', navFeed:'Fil', navCreators:'Créateurs', navSessions:'Sessions',
+        navPricing:'Tarifs', navCTA:'Commencer',
+        heroLine1:'Le Premier Réseau', heroLine2:'IA Propulsé', heroLine3:'de Libre Expression',
+        heroBody:"Regardez des opérateurs, créateurs et visionnaires travailler en temps réel — sans censure, amélioré par l'IA et disponible en 50+ langues.",
+        heroWatchBtn:'▶ Regarder En Direct', heroBrowseBtn:'Parcourir les Séries',
+        statSubscribers:'Abonnés', statEpisodes:'Épisodes', statCreators:'Créateurs', statLanguages:'🌍 Langues',
+        feat1Title:'50+ Langues', feat1Desc:'Traduction en temps réel pour une portée mondiale.',
+        feat2Title:'Sessions Privées', feat2Desc:'Réservez des appels vidéo 1-à-1 ou en groupe avec les créateurs.',
+        feat3Title:'Propulsé par IA', feat3Desc:"Assistant Claude intégré. Résumez, traduisez, créez — dans SophiaTV.",
+        feat4Title:'Libre Expression', feat4Desc:'Aucune censure, jamais. La plateforme ouverte pour les idées audacieuses.',
+        sectionLive:'Diffusions En Direct', sectionFeed:'Derniers du Fil', sectionCreators:'Créateurs Opérateurs',
+        sectionSessions:'Sessions Privées', sessionsDesc:'Réservez un appel vidéo 1-à-1 ou en groupe avec un créateur.',
+        viewAll:'Tout voir', bookNow:'Réserver',
+        ctaTitle:'Prêt à regarder les opérateurs travailler?', ctaSubtitle:'Abonnez-vous gratuitement.',
+        ctaBtn:'Abonnement Gratuit', ctaPricing:'Voir les Plans',
+      },
+      pt: {
+        navLive:'Ao Vivo', navFeed:'Feed', navCreators:'Criadores', navSessions:'Sessões',
+        navPricing:'Preços', navCTA:'Começar a Assistir',
+        heroLine1:'A Primeira Rede', heroLine2:'com IA', heroLine3:'de Livre Expressão',
+        heroBody:'Assista operadores, criadores e visionários trabalhando em tempo real — sem censura, com IA e disponível em 50+ idiomas.',
+        heroWatchBtn:'▶ Assistir Ao Vivo', heroBrowseBtn:'Explorar Séries',
+        statSubscribers:'Assinantes', statEpisodes:'Episódios', statCreators:'Criadores', statLanguages:'🌍 Idiomas',
+        feat1Title:'50+ Idiomas', feat1Desc:'Tradução em tempo real para alcance global.',
+        feat2Title:'Sessões Privadas', feat2Desc:'Agende videochamadas 1-a-1 ou em grupo com criadores.',
+        feat3Title:'Com IA', feat3Desc:'Assistente Claude integrado. Resuma, traduza e crie dentro do SophiaTV.',
+        feat4Title:'Livre Expressão', feat4Desc:'Sem censura, nunca. A plataforma aberta para ideias ousadas.',
+        sectionLive:'Ao Vivo', sectionFeed:'Últimos do Feed', sectionCreators:'Criadores Operadores',
+        sectionSessions:'Sessões Privadas', sessionsDesc:'Agende uma videochamada diretamente com um criador.',
+        viewAll:'Ver tudo', bookNow:'Reservar',
+        ctaTitle:'Pronto para assistir operadores trabalhando?', ctaSubtitle:'Assine grátis e seja notificado.',
+        ctaBtn:'Assinar Grátis', ctaPricing:'Ver Planos',
+      },
+      ar: {
+        navLive:'مباشر', navFeed:'التغذية', navCreators:'المنشئون', navSessions:'الجلسات',
+        navPricing:'الأسعار', navCTA:'ابدأ المشاهدة',
+        heroLine1:'أول شبكة في العالم', heroLine2:'مدعومة بالذكاء الاصطناعي', heroLine3:'لحرية التعبير',
+        heroBody:'شاهد المشغلين والمبدعين يعملون في الوقت الفعلي — بدون رقابة، مع ذكاء اصطناعي، ومتاح بأكثر من 50 لغة.',
+        heroWatchBtn:'▶ مشاهدة مباشر', heroBrowseBtn:'تصفح المسلسلات',
+        statSubscribers:'مشتركون', statEpisodes:'حلقات', statCreators:'منشئون', statLanguages:'🌍 لغات',
+        feat1Title:'+50 لغة', feat1Desc:'ترجمة فورية للوصول العالمي.',
+        feat2Title:'جلسات خاصة', feat2Desc:'احجز مكالمات فيديو مع المنشئين المفضلين لديك.',
+        feat3Title:'مدعوم بالذكاء الاصطناعي', feat3Desc:'مساعد كلود المدمج. لخص، ترجم، وأنشئ داخل سوفيا تي في.',
+        feat4Title:'حرية التعبير', feat4Desc:'لا رقابة، أبداً. المنصة المفتوحة للأفكار الجريئة.',
+        sectionLive:'البث المباشر', sectionFeed:'آخر المقاطع', sectionCreators:'منشئو المحتوى',
+        sectionSessions:'الجلسات الخاصة', sessionsDesc:'احجز مكالمة فيديو مع منشئ محتوى. يتطلب الوصول المدفوع.',
+        viewAll:'عرض الكل', bookNow:'احجز الآن',
+        ctaTitle:'هل أنت مستعد لمشاهدة المشغلين يعملون؟', ctaSubtitle:'اشترك مجاناً وستُعلم عندما تبدأ سوفيا البث.',
+        ctaBtn:'اشترك مجاناً', ctaPricing:'عرض الخطط',
+      },
+      zh: {
+        navLive:'直播', navFeed:'动态', navCreators:'创作者', navSessions:'私人会话',
+        navPricing:'定价', navCTA:'开始观看',
+        heroLine1:'全球首个', heroLine2:'AI驱动的', heroLine3:'言论自由网络',
+        heroBody:'实时观看运营者、创作者和远见者工作——无审查，AI增强，支持50+种语言。',
+        heroWatchBtn:'▶ 观看直播', heroBrowseBtn:'浏览系列',
+        statSubscribers:'订阅者', statEpisodes:'集数', statCreators:'创作者', statLanguages:'🌍 语言',
+        feat1Title:'50+种语言', feat1Desc:'实时翻译，触达全球观众。',
+        feat2Title:'私人会话', feat2Desc:'直接与您喜爱的创作者预约一对一或群组视频通话。',
+        feat3Title:'AI驱动', feat3Desc:'内置Claude AI助手。在SophiaTV内总结、翻译、创作。',
+        feat4Title:'言论自由', feat4Desc:'永不审查。为大胆想法和真实声音而建的开放平台。',
+        sectionLive:'直播', sectionFeed:'最新动态', sectionCreators:'运营创作者',
+        sectionSessions:'私人会话', sessionsDesc:'直接与创作者预约视频通话。需要付费访问。',
+        viewAll:'查看全部', bookNow:'立即预约',
+        ctaTitle:'准备好观看运营者工作了吗？', ctaSubtitle:'免费订阅，Sophia直播时获得通知。',
+        ctaBtn:'免费订阅', ctaPricing:'查看方案',
+      },
+      hi: {
+        navLive:'लाइव', navFeed:'फीड', navCreators:'क्रिएटर्स', navSessions:'सेशन',
+        navPricing:'मूल्य निर्धारण', navCTA:'देखना शुरू करें',
+        heroLine1:'दुनिया का पहला', heroLine2:'AI-संचालित', heroLine3:'फ्री स्पीच नेटवर्क',
+        heroBody:'ऑपरेटर्स, क्रिएटर्स और विजनरी को रियल टाइम में काम करते देखें — बिना सेंसरशिप, AI-संवर्धित, और 50+ भाषाओं में उपलब्ध।',
+        heroWatchBtn:'▶ लाइव देखें', heroBrowseBtn:'सीरीज ब्राउज करें',
+        statSubscribers:'सब्सक्राइबर', statEpisodes:'एपिसोड', statCreators:'क्रिएटर्स', statLanguages:'🌍 भाषाएं',
+        feat1Title:'50+ भाषाएं', feat1Desc:'वैश्विक पहुंच के लिए रियल-टाइम अनुवाद।',
+        feat2Title:'प्राइवेट सेशन', feat2Desc:'अपने पसंदीदा क्रिएटर्स के साथ 1-ऑन-1 या ग्रुप वीडियो कॉल बुक करें।',
+        feat3Title:'AI-संचालित', feat3Desc:'Claude AI असिस्टेंट बिल्ट-इन। SophiaTV के अंदर सारांश, अनुवाद, निर्माण।',
+        feat4Title:'फ्री स्पीच', feat4Desc:'कभी सेंसरशिप नहीं। साहसी विचारों के लिए खुला मंच।',
+        sectionLive:'लाइव स्ट्रीम', sectionFeed:'फीड से नवीनतम', sectionCreators:'ऑपरेटर क्रिएटर्स',
+        sectionSessions:'प्राइवेट सेशन', sessionsDesc:'सीधे एक क्रिएटर के साथ वीडियो कॉल बुक करें।',
+        viewAll:'सब देखें', bookNow:'अभी बुक करें',
+        ctaTitle:'ऑपरेटर्स को काम करते देखने के लिए तैयार हैं?', ctaSubtitle:'मुफ्त सब्सक्राइब करें।',
+        ctaBtn:'मुफ्त सब्सक्राइब करें', ctaPricing:'प्लान देखें',
+      },
+      ru: {
+        navLive:'Прямой эфир', navFeed:'Лента', navCreators:'Авторы', navSessions:'Сессии',
+        navPricing:'Цены', navCTA:'Начать просмотр',
+        heroLine1:'Первая в мире', heroLine2:'ИИ-сеть', heroLine3:'свободы слова',
+        heroBody:'Смотрите, как операторы, создатели и провидцы работают в реальном времени — без цензуры, с ИИ и на 50+ языках.',
+        heroWatchBtn:'▶ Смотреть эфир', heroBrowseBtn:'Просмотр серий',
+        statSubscribers:'Подписчики', statEpisodes:'Эпизоды', statCreators:'Авторы', statLanguages:'🌍 Языки',
+        feat1Title:'50+ языков', feat1Desc:'Перевод в реальном времени для глобального охвата.',
+        feat2Title:'Частные сессии', feat2Desc:'Забронируйте видеозвонки с любимыми авторами.',
+        feat3Title:'Powered by ИИ', feat3Desc:'Встроенный ассистент Claude. Суммируйте, переводите, создавайте.',
+        feat4Title:'Свобода слова', feat4Desc:'Никакой цензуры. Открытая платформа для смелых идей.',
+        sectionLive:'Прямые трансляции', sectionFeed:'Последнее из ленты', sectionCreators:'Операторы-авторы',
+        sectionSessions:'Частные сессии', sessionsDesc:'Забронируйте видеозвонок с автором. Требуется платный доступ.',
+        viewAll:'Все', bookNow:'Забронировать',
+        ctaTitle:'Готовы наблюдать за операторами?', ctaSubtitle:'Подпишитесь бесплатно.',
+        ctaBtn:'Подписаться бесплатно', ctaPricing:'Посмотреть планы',
+      },
+      de: {
+        navLive:'Live', navFeed:'Feed', navCreators:'Ersteller', navSessions:'Sitzungen',
+        navPricing:'Preise', navCTA:'Jetzt Ansehen',
+        heroLine1:'Das erste', heroLine2:'KI-gestützte', heroLine3:'Freie-Meinung-Netzwerk der Welt',
+        heroBody:'Schau Operatoren, Erstellern und Visionären in Echtzeit beim Arbeiten zu — unzensiert, KI-verbessert und in 50+ Sprachen verfügbar.',
+        heroWatchBtn:'▶ Live Ansehen', heroBrowseBtn:'Serien Durchsuchen',
+        statSubscribers:'Abonnenten', statEpisodes:'Episoden', statCreators:'Ersteller', statLanguages:'🌍 Sprachen',
+        feat1Title:'50+ Sprachen', feat1Desc:'Echtzeit-Übersetzung für globale Reichweite.',
+        feat2Title:'Private Sitzungen', feat2Desc:'Buche 1-zu-1 oder Gruppen-Videoanrufe mit Erstellern.',
+        feat3Title:'KI-gestützt', feat3Desc:'Claude KI-Assistent eingebaut. Zusammenfassen, übersetzen, erstellen.',
+        feat4Title:'Meinungsfreiheit', feat4Desc:'Keine Zensur, nie. Die offene Plattform für mutige Ideen.',
+        sectionLive:'Live-Streams', sectionFeed:'Neuestes aus dem Feed', sectionCreators:'Operator-Ersteller',
+        sectionSessions:'Private Sitzungen', sessionsDesc:'Buche einen Videoanruf direkt mit einem Ersteller.',
+        viewAll:'Alle anzeigen', bookNow:'Jetzt buchen',
+        ctaTitle:'Bereit, Operatoren bei der Arbeit zuzuschauen?', ctaSubtitle:'Kostenlos abonnieren.',
+        ctaBtn:'Kostenlos abonnieren', ctaPricing:'Pläne ansehen',
+      },
+      ja: {
+        navLive:'ライブ', navFeed:'フィード', navCreators:'クリエイター', navSessions:'セッション',
+        navPricing:'料金', navCTA:'視聴を開始',
+        heroLine1:'世界初の', heroLine2:'AI搭載', heroLine3:'言論自由ネットワーク',
+        heroBody:'オペレーター、クリエイター、ビジョナリーがリアルタイムで働く姿を見る — 検閲なし、AI強化、50以上の言語で利用可能。',
+        heroWatchBtn:'▶ ライブを見る', heroBrowseBtn:'シリーズを閲覧',
+        statSubscribers:'登録者', statEpisodes:'エピソード', statCreators:'クリエイター', statLanguages:'🌍 言語',
+        feat1Title:'50以上の言語', feat1Desc:'グローバルなリーチのためのリアルタイム翻訳。',
+        feat2Title:'プライベートセッション', feat2Desc:'お気に入りのクリエイターと1対1またはグループビデオ通話を予約。',
+        feat3Title:'AI搭載', feat3Desc:'Claude AIアシスタント内蔵。SophiaTV内で要約、翻訳、作成。',
+        feat4Title:'言論の自由', feat4Desc:'検閲なし、永遠に。大胆なアイデアのためのオープンプラットフォーム。',
+        sectionLive:'ライブストリーム', sectionFeed:'フィードの最新情報', sectionCreators:'オペレータークリエイター',
+        sectionSessions:'プライベートセッション', sessionsDesc:'クリエイターと直接ビデオ通話を予約。有料アクセスが必要。',
+        viewAll:'すべて表示', bookNow:'今すぐ予約',
+        ctaTitle:'オペレーターが働くのを見る準備はできていますか？', ctaSubtitle:'無料でサブスクライブ。',
+        ctaBtn:'無料でサブスクライブ', ctaPricing:'プランを見る',
+      },
+    };
+
+    let currentLang = localStorage.getItem('sophiatv_lang') || 'en';
+
+    function applyTranslations(lang) {
+      const t = translations[lang] || translations['en'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      document.documentElement.lang = lang;
+      // RTL for Arabic
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    function setLanguage(lang, flag, code) {
+      currentLang = lang;
+      localStorage.setItem('sophiatv_lang', lang);
+      document.getElementById('currentFlag').textContent = flag;
+      document.getElementById('currentLangCode').textContent = code;
+      applyTranslations(lang);
+      closeLangMenu();
+    }
+
+    function toggleLangMenu(e) {
+      if (e) e.stopPropagation();
+      document.getElementById('langDropdown').classList.toggle('open');
+    }
+
+    function closeLangMenu() {
+      document.getElementById('langDropdown').classList.remove('open');
+    }
+
+    document.addEventListener('click', closeLangMenu);
+
+    // Init language from localStorage
+    (function() {
+      const saved = localStorage.getItem('sophiatv_lang');
+      const langMap = {
+        en:['🇺🇸','EN'], es:['🇪🇸','ES'], fr:['🇫🇷','FR'], pt:['🇧🇷','PT'],
+        ar:['🇸🇦','AR'], zh:['🇨🇳','ZH'], hi:['🇮🇳','HI'],
+        ru:['🇷🇺','RU'], de:['🇩🇪','DE'], ja:['🇯🇵','JA']
+      };
+      if (saved && langMap[saved]) {
+        document.getElementById('currentFlag').textContent = langMap[saved][0];
+        document.getElementById('currentLangCode').textContent = langMap[saved][1];
+        applyTranslations(saved);
+      }
+    })();
+
+    // =====================
+    // AI CHAT
+    // =====================
+    let aiOpen = false;
+    let aiMessages = [];
+    const AI_DAILY_LIMIT = 10;
+    const AI_STORAGE_KEY = 'sophiatv_ai_msgs';
+
+    function getAIMsgCount() {
+      const data = JSON.parse(localStorage.getItem(AI_STORAGE_KEY) || '{"date":"","count":0}');
+      const today = new Date().toDateString();
+      if (data.date !== today) return AI_DAILY_LIMIT;
+      return AI_DAILY_LIMIT - (data.count || 0);
+    }
+
+    function incrementAIMsgCount() {
+      const today = new Date().toDateString();
+      const data = JSON.parse(localStorage.getItem(AI_STORAGE_KEY) || '{"date":"","count":0}');
+      const count = (data.date === today ? data.count : 0) + 1;
+      localStorage.setItem(AI_STORAGE_KEY, JSON.stringify({ date: today, count }));
+    }
+
+    function updateAIMsgCountDisplay() {
+      const remaining = getAIMsgCount();
+      document.getElementById('aiMsgCount').textContent = remaining;
+      if (remaining <= 0) {
+        document.getElementById('aiUpgradeBar').style.display = 'flex';
+        document.getElementById('aiInput').disabled = true;
+        document.getElementById('aiSendBtn').disabled = true;
+      }
+    }
+
+    function toggleAIChat() {
+      aiOpen = !aiOpen;
+      const panel = document.getElementById('aiChatPanel');
+      panel.classList.toggle('open', aiOpen);
+      if (aiOpen) updateAIMsgCountDisplay();
+    }
+
+    function appendAIMsg(role, text) {
+      const container = document.getElementById('aiMessages');
+      const div = document.createElement('div');
+      div.className = 'ai-msg ' + (role === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
+      if (role === 'bot') {
+        div.innerHTML = '<div class="ai-msg-avatar">🤖</div><div class="ai-msg-bubble"></div>';
+        div.querySelector('.ai-msg-bubble').textContent = text;
+      } else {
+        div.innerHTML = '<div class="ai-msg-bubble"></div>';
+        div.querySelector('.ai-msg-bubble').textContent = text;
+      }
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function showTyping() {
+      const container = document.getElementById('aiMessages');
+      const div = document.createElement('div');
+      div.className = 'ai-msg ai-msg-bot ai-typing';
+      div.id = 'aiTypingIndicator';
+      div.innerHTML = '<div class="ai-msg-avatar">🤖</div><div class="ai-msg-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>';
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function removeTyping() {
+      const el = document.getElementById('aiTypingIndicator');
+      if (el) el.remove();
+    }
+
+    function useCreatorTool(prompt) {
+      document.getElementById('aiInput').value = prompt;
+      sendAIMessage();
+    }
+
+    async function sendAIMessage() {
+      const input = document.getElementById('aiInput');
+      const text = input.value.trim();
+      if (!text) return;
+      if (getAIMsgCount() <= 0) return;
+
+      input.value = '';
+      appendAIMsg('user', text);
+      aiMessages.push({ role: 'user', content: text });
+
+      incrementAIMsgCount();
+      updateAIMsgCountDisplay();
+
+      showTyping();
+      document.getElementById('aiSendBtn').disabled = true;
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ messages: aiMessages, creatorMode: false }),
+        });
+        const data = await res.json();
+        removeTyping();
+        const reply = data.content || data.error || 'Sorry, something went wrong.';
+        appendAIMsg('bot', reply);
+        aiMessages.push({ role: 'assistant', content: reply });
+      } catch (e) {
+        removeTyping();
+        appendAIMsg('bot', 'Unable to connect to SophiaAI. Please add your ANTHROPIC_API_KEY to Vercel environment variables.');
+      }
+
+      document.getElementById('aiSendBtn').disabled = false;
+      document.getElementById('aiInput').focus();
     }
   </script>
 </body>
