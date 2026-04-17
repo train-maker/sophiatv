@@ -503,7 +503,7 @@
     let activeRegion = "All";
 
     async function init() {
-      renderCountries(COUNTRIES);
+      renderCountries(COUNTRIES.slice().sort((a,b) => a.name.localeCompare(b.name)));
       renderCategories();
       try {
         const res = await fetch('/sample-listings.json');
@@ -549,7 +549,7 @@
       let filtered = COUNTRIES;
       if (activeRegion !== 'All') filtered = filtered.filter(c => c.region === activeRegion);
       if (q) filtered = filtered.filter(c => c.name.toLowerCase().includes(q.toLowerCase()));
-      renderCountries(filtered);
+      renderCountries(filtered.sort((a,b) => a.name.localeCompare(b.name)));
     }
 
     function selectCountry(name) {
