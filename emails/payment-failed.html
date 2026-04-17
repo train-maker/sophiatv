@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Update Needed — SophiaTV</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #0a0a0a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #e8e8e8; }
+    .wrapper { max-width: 600px; margin: 0 auto; background: #111111; }
+    .header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 40px 40px 30px; text-align: center; border-bottom: 2px solid #c9a84c; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #c9a84c; display: flex; align-items: center; justify-content: center; }
+    .logo-play { color: #c9a84c; font-size: 16px; margin-left: 2px; }
+    .logo-text { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .logo-text em { color: #c9a84c; font-style: normal; }
+    .hero { background: linear-gradient(135deg, #1a0808 0%, #111111 100%); padding: 50px 40px; text-align: center; }
+    .hero-icon { font-size: 48px; margin-bottom: 20px; }
+    .hero h1 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.2; }
+    .hero p { font-size: 16px; color: #aaa; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+    .alert-box { margin: 0 40px; background: linear-gradient(135deg, #1a0808, #110000); border: 1px solid #e05252; border-radius: 8px; padding: 20px; margin-top: 30px; }
+    .alert-box p { font-size: 14px; color: #e08888; line-height: 1.6; }
+    .alert-box strong { color: #ff8888; }
+    .section { padding: 40px; }
+    .section-title { font-size: 18px; font-weight: 700; color: #c9a84c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .what-happens { list-style: none; }
+    .what-happens li { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #1e1e1e; font-size: 14px; color: #aaa; }
+    .what-happens li:last-child { border-bottom: none; }
+    .what-happens .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-ok { background: #4caf50; }
+    .dot-warn { background: #ff9800; }
+    .dot-err { background: #f44336; }
+    .steps { list-style: none; }
+    .steps li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1e1e1e; }
+    .steps li:last-child { border-bottom: none; }
+    .step-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .step-text strong { display: block; color: #fff; font-size: 14px; margin-bottom: 3px; }
+    .step-text span { color: #888; font-size: 13px; line-height: 1.4; }
+    .cta-section { padding: 0 40px 40px; text-align: center; }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, #c9a84c, #f0c060); color: #0a0a0a; font-weight: 700; font-size: 15px; padding: 16px 40px; border-radius: 8px; text-decoration: none; letter-spacing: 0.5px; }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: #666; }
+    .help-section { padding: 30px 40px; background: #0d0d0d; }
+    .help-section p { font-size: 14px; color: #888; line-height: 1.6; }
+    .help-section a { color: #c9a84c; text-decoration: none; }
+    .footer { padding: 30px 40px; text-align: center; background: #0a0a0a; border-top: 1px solid #1e1e1e; }
+    .footer p { font-size: 12px; color: #555; line-height: 1.6; }
+    .footer a { color: #c9a84c; text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark"><span class="logo-play">&#9654;</span></div>
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-icon">&#128274;</div>
+    <h1>Quick Action Needed on Your Account</h1>
+    <p>We weren't able to process your most recent payment. Update your billing details to keep your SophiaTV access uninterrupted.</p>
+  </div>
+
+  <!-- Alert -->
+  <div class="alert-box">
+    <p>Your payment of <strong>${{AMOUNT}}</strong> for your <strong>{{PLAN_NAME}}</strong> subscription was declined on <strong>{{DATE}}</strong>. No worries — this happens! Updating your card takes less than a minute.</p>
+  </div>
+
+  <!-- What Happens Next -->
+  <div class="section">
+    <div class="section-title">What Happens Next</div>
+    <ul class="what-happens">
+      <li>
+        <div class="dot dot-ok"></div>
+        <span><strong style="color:#fff;">Now:</strong> Your account remains active. All features are available.</span>
+      </li>
+      <li>
+        <div class="dot dot-warn"></div>
+        <span><strong style="color:#fff;">In 3 days:</strong> We'll retry the payment automatically. Live streams and AI chat will still work.</span>
+      </li>
+      <li>
+        <div class="dot dot-warn"></div>
+        <span><strong style="color:#fff;">In 7 days:</strong> If unpaid, private sessions and downloads will be temporarily paused.</span>
+      </li>
+      <li>
+        <div class="dot dot-err"></div>
+        <span><strong style="color:#fff;">In 14 days:</strong> Subscription will be cancelled if no payment is received. Your content and settings are saved — you can reactivate anytime.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- How to Fix -->
+  <div class="section" style="padding-top: 0;">
+    <div class="section-title">How to Update Your Card</div>
+    <ul class="steps">
+      <li>
+        <div class="step-icon">1&#65039;&#8419;</div>
+        <div class="step-text">
+          <strong>Go to Your Dashboard</strong>
+          <span>Visit sophiaoperator.com/dashboard and click "Billing" in the sidebar.</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-icon">2&#65039;&#8419;</div>
+        <div class="step-text">
+          <strong>Click "Update Payment Method"</strong>
+          <span>Enter your new card details. We accept Visa, Mastercard, Amex, and all major debit cards.</span>
+        </div>
+      </li>
+      <li>
+        <div class="step-icon">3&#65039;&#8419;</div>
+        <div class="step-text">
+          <strong>We'll Retry Automatically</strong>
+          <span>Once your card is updated, we'll process the outstanding payment and send you a receipt.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <a href="https://sophiaoperator.com/dashboard" class="cta-btn">Update Payment Method &rarr;</a>
+    <p class="cta-sub">Takes less than 60 seconds.</p>
+  </div>
+
+  <!-- Help -->
+  <div class="help-section">
+    <p>Having trouble? We're here to help. Reply to this email or reach us at <a href="mailto:support@sophiaoperator.com">support@sophiaoperator.com</a>. We can also extend your access while you sort out billing — just ask.</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      You're receiving this because you have a subscription at <a href="https://sophiaoperator.com">sophiaoperator.com</a>.<br />
+      <a href="https://sophiaoperator.com/unsubscribe">Unsubscribe</a> &middot; <a href="https://sophiaoperator.com/privacy">Privacy Policy</a>
+    </p>
+    <p style="margin-top: 10px; color: #333;">&copy; 2026 SophiaTV. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SophiaMarket — Global Business Directory</title>
+  <meta name="description" content="Browse and connect with businesses worldwide. SophiaMarket: the global directory for wholesale, real estate, tech, food, and more — powered by SophiaTV." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== MARKET PAGE STYLES ===== */
+    .market-hero {
+      padding: 100px 36px 48px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(201,168,76,0.06) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .market-hero-icon { font-size: 56px; margin-bottom: 16px; }
+    .market-hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .market-hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin: 0 auto 28px; }
+    .market-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Steps */
+    .market-steps { max-width: 1360px; margin: 0 auto; padding: 48px 36px; }
+    .step-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    .step-badge {
+      background: var(--gold); color: #07070e; font-weight: 700;
+      font-size: 13px; width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .step-title { font-size: 20px; font-weight: 700; }
+    .step-sub { color: var(--muted); font-size: 14px; margin-left: auto; }
+
+    /* Country search */
+    .country-search-wrap { position: relative; max-width: 420px; margin-bottom: 24px; }
+    .country-search-wrap input {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 16px 10px 40px; border-radius: 8px;
+      font-size: 14px; font-family: inherit; outline: none;
+      transition: border 0.2s;
+    }
+    .country-search-wrap input:focus { border-color: var(--gold); }
+    .country-search-wrap .search-icon {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: 16px;
+    }
+
+    /* Country grid */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .country-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 10px;
+      text-align: center; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.1s;
+    }
+    .country-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
+    .country-card.active { border-color: var(--gold); background: var(--gold-dim); }
+    .country-flag { font-size: 28px; margin-bottom: 6px; }
+    .country-name { font-size: 12px; font-weight: 500; color: var(--text); }
+
+    /* Category grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .category-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 14px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s, transform 0.1s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .category-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
+    .category-card.active { border-color: var(--gold); background: var(--gold-dim); }
+    .category-icon { font-size: 22px; flex-shrink: 0; }
+    .category-label { font-size: 13px; font-weight: 500; }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+      margin-bottom: 24px; padding: 16px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .filter-bar select, .filter-bar input {
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 12px; border-radius: 6px;
+      font-size: 13px; font-family: inherit; outline: none;
+      transition: border 0.2s;
+    }
+    .filter-bar select:focus, .filter-bar input:focus { border-color: var(--gold); }
+    .filter-label { font-size: 13px; color: var(--muted); }
+    .filter-bar input { flex: 1; min-width: 180px; }
+
+    /* Listings grid */
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .listing-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+      transition: border-color 0.2s, transform 0.15s;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .listing-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+    .listing-card.featured {
+      border-color: var(--gold);
+      box-shadow: 0 0 18px rgba(201,168,76,0.18);
+    }
+    .listing-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .listing-name { font-size: 16px; font-weight: 700; }
+    .listing-flag { font-size: 20px; flex-shrink: 0; }
+    .badge-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .badge {
+      font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    }
+    .badge-cat { background: rgba(156,109,255,0.15); color: var(--purple); }
+    .badge-featured { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+    .listing-desc { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; }
+    .listing-location { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+    .listing-actions { display: flex; gap: 8px; margin-top: 4px; }
+    .listing-actions .btn-contact {
+      flex: 1; background: var(--gold); color: #07070e; border: none;
+      padding: 9px 12px; border-radius: 6px; font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: opacity 0.2s;
+    }
+    .listing-actions .btn-contact:hover { opacity: 0.88; }
+    .listing-actions .btn-profile {
+      flex: 1; background: transparent; color: var(--text); border: 1px solid var(--border);
+      padding: 9px 12px; border-radius: 6px; font-size: 13px; font-weight: 500;
+      cursor: pointer; font-family: inherit; text-align: center; text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .listing-actions .btn-profile:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Step sections */
+    .market-section { margin-bottom: 40px; }
+    .market-section.hidden { display: none; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+      z-index: 300; display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg2); border: 1px solid var(--gold-border); border-radius: 14px;
+      padding: 32px; max-width: 480px; width: 100%; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px; background: none; border: none;
+      color: var(--muted); cursor: pointer; font-size: 22px; line-height: 1;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .modal label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; color: var(--muted); }
+    .modal input, .modal textarea {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 12px; border-radius: 7px;
+      font-size: 14px; font-family: inherit; outline: none; margin-bottom: 14px;
+      transition: border 0.2s;
+    }
+    .modal input:focus, .modal textarea:focus { border-color: var(--gold); }
+    .modal textarea { resize: vertical; min-height: 80px; }
+    .modal .btn-gold {
+      width: 100%; padding: 12px; font-size: 15px; font-weight: 700;
+      background: var(--gold); color: #07070e; border: none; border-radius: 8px;
+      cursor: pointer; font-family: inherit; transition: opacity 0.2s;
+    }
+    .modal .btn-gold:hover { opacity: 0.88; }
+    .toast {
+      position: fixed; bottom: 28px; right: 28px; background: var(--green);
+      color: #07070e; padding: 12px 20px; border-radius: 8px; font-weight: 600;
+      font-size: 14px; z-index: 400; transform: translateY(60px); opacity: 0;
+      transition: all 0.3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    .results-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+    }
+    .results-count { font-size: 14px; color: var(--muted); }
+    .list-your-cta {
+      background: var(--gold-dim); border: 1px solid var(--gold-border);
+      border-radius: 10px; padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .list-your-cta p { font-size: 14px; color: var(--text); }
+    .list-your-cta strong { color: var(--gold); }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .empty-state .empty-icon { font-size: 48px; margin-bottom: 12px; }
+
+    /* Region tabs */
+    .region-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .region-tab {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--muted); padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .region-tab:hover { border-color: var(--gold); color: var(--text); }
+    .region-tab.active { border-color: var(--gold); background: var(--gold-dim); color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .market-hero { padding: 80px 20px 32px; }
+      .market-steps { padding: 32px 20px; }
+      .country-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon" style="width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#07070e;">S</div>
+        <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="/#live" class="nav-link">Live</a>
+        <a href="/#feed" class="nav-link">Feed</a>
+        <a href="/#creators" class="nav-link">Creators</a>
+        <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
+        <a href="/#sessions" class="nav-link">Sessions</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+      </div>
+      <div class="nav-right" style="margin-left:auto;display:flex;gap:10px;align-items:center;">
+        <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="market-hero">
+    <div class="market-hero-icon">🌐</div>
+    <h1>SophiaMarket — Global Business Directory</h1>
+    <p>Connect with businesses in 100+ countries. Browse by country and category, contact directly, or list your own business.</p>
+    <div class="market-cta-row">
+      <a href="/market-submit.html" class="btn-gold" style="padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">List Your Business — Free</a>
+      <a href="#step-country" class="btn-outline" style="padding:12px 28px;font-size:15px;border:1px solid var(--gold-border);color:var(--text);border-radius:8px;text-decoration:none;">Browse Businesses</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="market-steps" id="step-country">
+
+    <!-- STEP 1: COUNTRY -->
+    <div class="market-section" id="section-country">
+      <div class="step-header">
+        <div class="step-badge">1</div>
+        <div class="step-title">Choose a Country</div>
+        <div class="step-sub">or browse all</div>
+      </div>
+
+      <div class="region-tabs" id="regionTabs">
+        <button class="region-tab active" onclick="filterByRegion('All', this)">🌐 All</button>
+        <button class="region-tab" onclick="filterByRegion('Americas', this)">🌎 Americas</button>
+        <button class="region-tab" onclick="filterByRegion('Europe', this)">🌍 Europe</button>
+        <button class="region-tab" onclick="filterByRegion('Africa', this)">🌍 Africa</button>
+        <button class="region-tab" onclick="filterByRegion('Middle East', this)">🌏 Middle East</button>
+        <button class="region-tab" onclick="filterByRegion('Asia-Pacific', this)">🌏 Asia-Pacific</button>
+      </div>
+
+      <div class="country-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="countrySearch" placeholder="Search countries…" oninput="filterCountries(this.value)" />
+      </div>
+
+      <div class="country-grid" id="countryGrid">
+        <div class="country-card active" onclick="selectCountry('All')" id="country-All">
+          <div class="country-flag">🌐</div>
+          <div class="country-name">All Countries</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: CATEGORY (hidden initially) -->
+    <div class="market-section hidden" id="section-category">
+      <div class="step-header">
+        <div class="step-badge">2</div>
+        <div class="step-title">Choose a Category</div>
+        <div class="step-sub" id="selectedCountryLabel"></div>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </div>
+
+    <!-- STEP 3: LISTINGS -->
+    <div class="market-section hidden" id="section-listings">
+      <div class="step-header">
+        <div class="step-badge">3</div>
+        <div class="step-title">Browse Businesses</div>
+        <button onclick="resetToStep(1)" style="margin-left:auto;background:none;border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;">← Start Over</button>
+      </div>
+
+      <div class="list-your-cta">
+        <p>Is your business missing? <strong>List for free</strong> or get <strong>Featured</strong> from $29.99/mo.</p>
+        <a href="/market-submit.html" class="btn-gold" style="white-space:nowrap;padding:9px 20px;font-weight:700;font-size:13px;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">Sort by:</span>
+        <select id="sortSelect" onchange="renderListings()">
+          <option value="featured">Featured First</option>
+          <option value="newest">Newest</option>
+          <option value="name">A–Z</option>
+        </select>
+        <input type="text" id="listingSearch" placeholder="Search within results…" oninput="renderListings()" />
+      </div>
+
+      <div class="results-header">
+        <div class="results-count" id="resultsCount"></div>
+      </div>
+
+      <div class="listings-grid" id="listingsGrid"></div>
+
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">🔍</div>
+        <p>No listings found for this selection.</p>
+        <p style="margin-top:8px;font-size:13px;">Be the first to <a href="/market-submit.html" style="color:var(--gold);">list your business here</a>.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INQUIRY MODAL -->
+  <div class="modal-overlay" id="inquiryModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3 id="modalBizName">Contact Business</h3>
+      <p class="modal-sub" id="modalBizSub">Send an inquiry — they'll reply via email.</p>
+      <label>Your Name</label>
+      <input type="text" id="inquiryName" placeholder="Your full name" />
+      <label>Your Email</label>
+      <input type="email" id="inquiryEmail" placeholder="you@example.com" />
+      <label>Message</label>
+      <textarea id="inquiryMsg" placeholder="Describe what you're looking for…"></textarea>
+      <button class="btn-gold" onclick="sendInquiry()">Send Inquiry</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Inquiry sent!</div>
+
+  <script>
+    const COUNTRIES = [
+      // Americas
+      { code: "US", name: "United States", flag: "🇺🇸", region: "Americas" },
+      { code: "CA", name: "Canada", flag: "🇨🇦", region: "Americas" },
+      { code: "MX", name: "Mexico", flag: "🇲🇽", region: "Americas" },
+      { code: "BR", name: "Brazil", flag: "🇧🇷", region: "Americas" },
+      { code: "AR", name: "Argentina", flag: "🇦🇷", region: "Americas" },
+      { code: "CO", name: "Colombia", flag: "🇨🇴", region: "Americas" },
+      { code: "CL", name: "Chile", flag: "🇨🇱", region: "Americas" },
+      { code: "PE", name: "Peru", flag: "🇵🇪", region: "Americas" },
+      { code: "VE", name: "Venezuela", flag: "🇻🇪", region: "Americas" },
+      { code: "EC", name: "Ecuador", flag: "🇪🇨", region: "Americas" },
+      { code: "BO", name: "Bolivia", flag: "🇧🇴", region: "Americas" },
+      { code: "PY", name: "Paraguay", flag: "🇵🇾", region: "Americas" },
+      { code: "UY", name: "Uruguay", flag: "🇺🇾", region: "Americas" },
+      { code: "CR", name: "Costa Rica", flag: "🇨🇷", region: "Americas" },
+      { code: "PA", name: "Panama", flag: "🇵🇦", region: "Americas" },
+      { code: "GT", name: "Guatemala", flag: "🇬🇹", region: "Americas" },
+      { code: "CU", name: "Cuba", flag: "🇨🇺", region: "Americas" },
+      { code: "JM", name: "Jamaica", flag: "🇯🇲", region: "Americas" },
+      { code: "HT", name: "Haiti", flag: "🇭🇹", region: "Americas" },
+      { code: "DO", name: "Dominican Republic", flag: "🇩🇴", region: "Americas" },
+      // Europe
+      { code: "GB", name: "United Kingdom", flag: "🇬🇧", region: "Europe" },
+      { code: "DE", name: "Germany", flag: "🇩🇪", region: "Europe" },
+      { code: "FR", name: "France", flag: "🇫🇷", region: "Europe" },
+      { code: "IT", name: "Italy", flag: "🇮🇹", region: "Europe" },
+      { code: "ES", name: "Spain", flag: "🇪🇸", region: "Europe" },
+      { code: "PT", name: "Portugal", flag: "🇵🇹", region: "Europe" },
+      { code: "NL", name: "Netherlands", flag: "🇳🇱", region: "Europe" },
+      { code: "BE", name: "Belgium", flag: "🇧🇪", region: "Europe" },
+      { code: "CH", name: "Switzerland", flag: "🇨🇭", region: "Europe" },
+      { code: "AT", name: "Austria", flag: "🇦🇹", region: "Europe" },
+      { code: "SE", name: "Sweden", flag: "🇸🇪", region: "Europe" },
+      { code: "NO", name: "Norway", flag: "🇳🇴", region: "Europe" },
+      { code: "DK", name: "Denmark", flag: "🇩🇰", region: "Europe" },
+      { code: "FI", name: "Finland", flag: "🇫🇮", region: "Europe" },
+      { code: "PL", name: "Poland", flag: "🇵🇱", region: "Europe" },
+      { code: "CZ", name: "Czech Republic", flag: "🇨🇿", region: "Europe" },
+      { code: "HU", name: "Hungary", flag: "🇭🇺", region: "Europe" },
+      { code: "RO", name: "Romania", flag: "🇷🇴", region: "Europe" },
+      { code: "GR", name: "Greece", flag: "🇬🇷", region: "Europe" },
+      { code: "TR", name: "Turkey", flag: "🇹🇷", region: "Europe" },
+      { code: "RU", name: "Russia", flag: "🇷🇺", region: "Europe" },
+      { code: "UA", name: "Ukraine", flag: "🇺🇦", region: "Europe" },
+      { code: "IE", name: "Ireland", flag: "🇮🇪", region: "Europe" },
+      { code: "HR", name: "Croatia", flag: "🇭🇷", region: "Europe" },
+      { code: "RS", name: "Serbia", flag: "🇷🇸", region: "Europe" },
+      // Africa
+      { code: "NG", name: "Nigeria", flag: "🇳🇬", region: "Africa" },
+      { code: "ZA", name: "South Africa", flag: "🇿🇦", region: "Africa" },
+      { code: "KE", name: "Kenya", flag: "🇰🇪", region: "Africa" },
+      { code: "ET", name: "Ethiopia", flag: "🇪🇹", region: "Africa" },
+      { code: "GH", name: "Ghana", flag: "🇬🇭", region: "Africa" },
+      { code: "TZ", name: "Tanzania", flag: "🇹🇿", region: "Africa" },
+      { code: "UG", name: "Uganda", flag: "🇺🇬", region: "Africa" },
+      { code: "ZW", name: "Zimbabwe", flag: "🇿🇼", region: "Africa" },
+      { code: "ZM", name: "Zambia", flag: "🇿🇲", region: "Africa" },
+      { code: "MZ", name: "Mozambique", flag: "🇲🇿", region: "Africa" },
+      { code: "CM", name: "Cameroon", flag: "🇨🇲", region: "Africa" },
+      { code: "SN", name: "Senegal", flag: "🇸🇳", region: "Africa" },
+      { code: "CI", name: "Côte d'Ivoire", flag: "🇨🇮", region: "Africa" },
+      { code: "MA", name: "Morocco", flag: "🇲🇦", region: "Africa" },
+      { code: "DZ", name: "Algeria", flag: "🇩🇿", region: "Africa" },
+      { code: "TN", name: "Tunisia", flag: "🇹🇳", region: "Africa" },
+      { code: "LY", name: "Libya", flag: "🇱🇾", region: "Africa" },
+      { code: "EG", name: "Egypt", flag: "🇪🇬", region: "Africa" },
+      { code: "SD", name: "Sudan", flag: "🇸🇩", region: "Africa" },
+      { code: "AO", name: "Angola", flag: "🇦🇴", region: "Africa" },
+      { code: "MG", name: "Madagascar", flag: "🇲🇬", region: "Africa" },
+      { code: "RW", name: "Rwanda", flag: "🇷🇼", region: "Africa" },
+      { code: "BF", name: "Burkina Faso", flag: "🇧🇫", region: "Africa" },
+      { code: "ML", name: "Mali", flag: "🇲🇱", region: "Africa" },
+      { code: "NE", name: "Niger", flag: "🇳🇪", region: "Africa" },
+      // Middle East
+      { code: "SA", name: "Saudi Arabia", flag: "🇸🇦", region: "Middle East" },
+      { code: "AE", name: "UAE", flag: "🇦🇪", region: "Middle East" },
+      { code: "IL", name: "Israel", flag: "🇮🇱", region: "Middle East" },
+      { code: "JO", name: "Jordan", flag: "🇯🇴", region: "Middle East" },
+      { code: "LB", name: "Lebanon", flag: "🇱🇧", region: "Middle East" },
+      { code: "IQ", name: "Iraq", flag: "🇮🇶", region: "Middle East" },
+      { code: "IR", name: "Iran", flag: "🇮🇷", region: "Middle East" },
+      { code: "QA", name: "Qatar", flag: "🇶🇦", region: "Middle East" },
+      { code: "KW", name: "Kuwait", flag: "🇰🇼", region: "Middle East" },
+      { code: "OM", name: "Oman", flag: "🇴🇲", region: "Middle East" },
+      // Asia-Pacific
+      { code: "CN", name: "China", flag: "🇨🇳", region: "Asia-Pacific" },
+      { code: "JP", name: "Japan", flag: "🇯🇵", region: "Asia-Pacific" },
+      { code: "KR", name: "South Korea", flag: "🇰🇷", region: "Asia-Pacific" },
+      { code: "IN", name: "India", flag: "🇮🇳", region: "Asia-Pacific" },
+      { code: "PK", name: "Pakistan", flag: "🇵🇰", region: "Asia-Pacific" },
+      { code: "BD", name: "Bangladesh", flag: "🇧🇩", region: "Asia-Pacific" },
+      { code: "LK", name: "Sri Lanka", flag: "🇱🇰", region: "Asia-Pacific" },
+      { code: "NP", name: "Nepal", flag: "🇳🇵", region: "Asia-Pacific" },
+      { code: "MM", name: "Myanmar", flag: "🇲🇲", region: "Asia-Pacific" },
+      { code: "TH", name: "Thailand", flag: "🇹🇭", region: "Asia-Pacific" },
+      { code: "VN", name: "Vietnam", flag: "🇻🇳", region: "Asia-Pacific" },
+      { code: "PH", name: "Philippines", flag: "🇵🇭", region: "Asia-Pacific" },
+      { code: "ID", name: "Indonesia", flag: "🇮🇩", region: "Asia-Pacific" },
+      { code: "MY", name: "Malaysia", flag: "🇲🇾", region: "Asia-Pacific" },
+      { code: "SG", name: "Singapore", flag: "🇸🇬", region: "Asia-Pacific" },
+      { code: "TW", name: "Taiwan", flag: "🇹🇼", region: "Asia-Pacific" },
+      { code: "HK", name: "Hong Kong", flag: "🇭🇰", region: "Asia-Pacific" },
+      { code: "AU", name: "Australia", flag: "🇦🇺", region: "Asia-Pacific" },
+      { code: "NZ", name: "New Zealand", flag: "🇳🇿", region: "Asia-Pacific" },
+      { code: "KH", name: "Cambodia", flag: "🇰🇭", region: "Asia-Pacific" },
+      { code: "LA", name: "Laos", flag: "🇱🇦", region: "Asia-Pacific" },
+      { code: "MN", name: "Mongolia", flag: "🇲🇳", region: "Asia-Pacific" },
+      { code: "AF", name: "Afghanistan", flag: "🇦🇫", region: "Asia-Pacific" },
+      { code: "UZ", name: "Uzbekistan", flag: "🇺🇿", region: "Asia-Pacific" },
+      { code: "KZ", name: "Kazakhstan", flag: "🇰🇿", region: "Asia-Pacific" },
+    ];
+
+    const CATEGORIES = [
+      { icon: "🏭", label: "Wholesale & Manufacturing" },
+      { icon: "🏠", label: "Real Estate" },
+      { icon: "❤️", label: "Dating & Relationships" },
+      { icon: "🍽️", label: "Food & Restaurants" },
+      { icon: "💼", label: "Business Services" },
+      { icon: "🛒", label: "Retail & Shopping" },
+      { icon: "💻", label: "Tech & Software" },
+      { icon: "💄", label: "Beauty & Health" },
+      { icon: "🚗", label: "Automotive" },
+      { icon: "📚", label: "Education & Training" },
+      { icon: "🌾", label: "Agriculture & Farming" },
+      { icon: "💰", label: "Finance & Investment" },
+      { icon: "🚢", label: "Import/Export" },
+      { icon: "🏗️", label: "Construction" },
+      { icon: "👗", label: "Fashion & Apparel" },
+      { icon: "✈️", label: "Travel & Tourism" },
+      { icon: "🎬", label: "Entertainment & Media" },
+      { icon: "⚡", label: "Energy & Resources" }
+    ];
+
+    let allListings = [];
+    let selectedCountry = "All";
+    let selectedCategory = "All";
+    let activeListing = null;
+    let activeRegion = "All";
+
+    async function init() {
+      renderCountries(COUNTRIES);
+      renderCategories();
+      try {
+        const res = await fetch('/sample-listings.json');
+        allListings = await res.json();
+      } catch(e) {
+        allListings = [];
+      }
+    }
+
+    function renderCountries(list) {
+      const grid = document.getElementById('countryGrid');
+      const existing = document.getElementById('country-All');
+      grid.innerHTML = '';
+      grid.appendChild(existing || createAllCard());
+      list.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'country-card' + (selectedCountry === c.name ? ' active' : '');
+        div.id = 'country-' + c.code;
+        div.onclick = () => selectCountry(c.name);
+        div.innerHTML = `<div class="country-flag">${c.flag}</div><div class="country-name">${c.name}</div>`;
+        grid.appendChild(div);
+      });
+    }
+
+    function createAllCard() {
+      const div = document.createElement('div');
+      div.className = 'country-card active';
+      div.id = 'country-All';
+      div.onclick = () => selectCountry('All');
+      div.innerHTML = `<div class="country-flag">🌐</div><div class="country-name">All Countries</div>`;
+      return div;
+    }
+
+    function filterByRegion(region, btn) {
+      activeRegion = region;
+      document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const q = document.getElementById('countrySearch').value;
+      filterCountries(q);
+    }
+
+    function filterCountries(q) {
+      let filtered = COUNTRIES;
+      if (activeRegion !== 'All') filtered = filtered.filter(c => c.region === activeRegion);
+      if (q) filtered = filtered.filter(c => c.name.toLowerCase().includes(q.toLowerCase()));
+      renderCountries(filtered);
+    }
+
+    function selectCountry(name) {
+      selectedCountry = name;
+      document.querySelectorAll('.country-card').forEach(c => c.classList.remove('active'));
+      const card = document.getElementById('country-' + (name === 'All' ? 'All' : COUNTRIES.find(c=>c.name===name)?.code));
+      if (card) card.classList.add('active');
+      document.getElementById('selectedCountryLabel').textContent = name === 'All' ? 'All Countries' : name;
+      document.getElementById('section-category').classList.remove('hidden');
+      document.getElementById('section-listings').classList.add('hidden');
+      selectedCategory = 'All';
+      document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+      // If "All Countries" selected, go straight to listings
+      if (name === 'All') {
+        document.getElementById('section-category').classList.add('hidden');
+        showListings();
+      }
+      document.getElementById('section-category').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderCategories() {
+      const grid = document.getElementById('categoryGrid');
+      // All categories option
+      const allDiv = document.createElement('div');
+      allDiv.className = 'category-card';
+      allDiv.innerHTML = `<div class="category-icon">🌐</div><div class="category-label">All Categories</div>`;
+      allDiv.onclick = () => selectCategory('All', allDiv);
+      grid.appendChild(allDiv);
+      CATEGORIES.forEach(cat => {
+        const div = document.createElement('div');
+        div.className = 'category-card';
+        div.innerHTML = `<div class="category-icon">${cat.icon}</div><div class="category-label">${cat.label}</div>`;
+        div.onclick = () => selectCategory(cat.label, div);
+        grid.appendChild(div);
+      });
+    }
+
+    function selectCategory(label, el) {
+      selectedCategory = label;
+      document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      showListings();
+    }
+
+    function showListings() {
+      document.getElementById('section-listings').classList.remove('hidden');
+      renderListings();
+      document.getElementById('section-listings').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderListings() {
+      const sort = document.getElementById('sortSelect').value;
+      const q = document.getElementById('listingSearch').value.toLowerCase();
+      let filtered = allListings.filter(l => {
+        const matchCountry = selectedCountry === 'All' || l.country === selectedCountry;
+        const matchCat = selectedCategory === 'All' || l.category === selectedCategory;
+        const matchQ = !q || l.name.toLowerCase().includes(q) || l.description.toLowerCase().includes(q) || l.city.toLowerCase().includes(q);
+        return matchCountry && matchCat && matchQ;
+      });
+
+      if (sort === 'featured') {
+        filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      } else if (sort === 'newest') {
+        filtered.sort((a, b) => new Date(b.listed) - new Date(a.listed));
+      } else {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      document.getElementById('resultsCount').textContent = `${filtered.length} listing${filtered.length !== 1 ? 's' : ''} found`;
+      const grid = document.getElementById('listingsGrid');
+      const empty = document.getElementById('emptyState');
+
+      if (!filtered.length) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(l => `
+        <div class="listing-card ${l.featured ? 'featured' : ''}">
+          <div class="listing-top">
+            <div class="listing-name">${l.name}</div>
+            <div class="listing-flag">${l.flag}</div>
+          </div>
+          <div class="badge-row">
+            <span class="badge badge-cat">${l.category}</span>
+            ${l.featured ? '<span class="badge badge-featured">★ Featured</span>' : ''}
+          </div>
+          <div class="listing-desc">${l.description}</div>
+          <div class="listing-location">📍 ${l.city}, ${l.country}</div>
+          <div class="listing-actions">
+            <button class="btn-contact" onclick='openModal(${JSON.stringify(l)})'>Contact</button>
+            <a class="btn-profile" href="/market-listing.html?id=${l.id}">View Profile</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openModal(listing) {
+      activeListing = listing;
+      document.getElementById('modalBizName').textContent = 'Contact ' + listing.name;
+      document.getElementById('modalBizSub').textContent = `${listing.city}, ${listing.country} · ${listing.category}`;
+      document.getElementById('inquiryModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('inquiryModal').classList.remove('open');
+    }
+
+    function sendInquiry() {
+      const name = document.getElementById('inquiryName').value.trim();
+      const email = document.getElementById('inquiryEmail').value.trim();
+      const msg = document.getElementById('inquiryMsg').value.trim();
+      if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+      closeModal();
+      showToast('Inquiry sent to ' + activeListing.name + '!');
+      document.getElementById('inquiryName').value = '';
+      document.getElementById('inquiryEmail').value = '';
+      document.getElementById('inquiryMsg').value = '';
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    function resetToStep(step) {
+      if (step === 1) {
+        selectedCountry = 'All';
+        selectedCategory = 'All';
+        document.querySelectorAll('.country-card').forEach(c => c.classList.remove('active'));
+        const allCard = document.getElementById('country-All');
+        if (allCard) allCard.classList.add('active');
+        document.getElementById('section-category').classList.add('hidden');
+        document.getElementById('section-listings').classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    document.getElementById('inquiryModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('inquiryModal')) closeModal();
+    });
+
+    init();
+  </script>
+</body>
+</html>

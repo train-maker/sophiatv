@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome, Founder — SophiaTV</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #0a0a0a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #e8e8e8; }
+    .wrapper { max-width: 600px; margin: 0 auto; background: #111111; }
+    .header { background: linear-gradient(135deg, #1a1208 0%, #0d0d0d 100%); padding: 40px 40px 30px; text-align: center; border-bottom: 3px solid #c9a84c; position: relative; overflow: hidden; }
+    .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% -20%, #c9a84c22 0%, transparent 70%); pointer-events: none; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; position: relative; }
+    .logo-mark { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #c9a84c; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #c9a84c22, #c9a84c11); }
+    .logo-play { color: #c9a84c; font-size: 17px; margin-left: 2px; }
+    .logo-text { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .logo-text em { color: #c9a84c; font-style: normal; }
+    .founder-badge-wrap { margin-top: 18px; }
+    .founder-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #c9a84c, #f0c060); color: #0a0a0a; font-weight: 800; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 24px; }
+    .hero { background: linear-gradient(160deg, #1a1208 0%, #0f0f0f 50%, #111111 100%); padding: 54px 40px 44px; text-align: center; position: relative; }
+    .hero-crown { font-size: 52px; margin-bottom: 20px; filter: drop-shadow(0 0 20px #c9a84c88); }
+    .hero h1 { font-size: 34px; font-weight: 900; color: #fff; margin-bottom: 14px; line-height: 1.15; letter-spacing: -0.5px; }
+    .hero h1 span { color: #c9a84c; }
+    .hero p { font-size: 15px; color: #aaa; line-height: 1.7; max-width: 440px; margin: 0 auto; }
+    .gold-rule { height: 2px; background: linear-gradient(90deg, transparent, #c9a84c88, #c9a84c, #c9a84c88, transparent); margin: 0; }
+    .vip-section { padding: 44px 40px; background: linear-gradient(135deg, #14100a 0%, #111111 100%); }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: #c9a84c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 22px; }
+    .section-label::before, .section-label::after { content: ''; height: 1px; width: 24px; background: #c9a84c44; }
+    .perks-grid { display: flex; flex-direction: column; gap: 0; }
+    .perk { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid #1e1e1e; }
+    .perk:last-child { border-bottom: none; }
+    .perk-icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #c9a84c22, #c9a84c11); border: 1px solid #c9a84c44; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .perk-body strong { display: block; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .perk-body span { font-size: 13px; color: #888; line-height: 1.5; }
+    .perk-body .tag { display: inline-block; background: #c9a84c22; border: 1px solid #c9a84c44; color: #c9a84c; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; margin-top: 4px; }
+    .divider { height: 1px; background: #1e1e1e; }
+    .founders-club { padding: 40px; background: #0d0d0d; }
+    .founders-club h2 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .founders-club h2 span { color: #c9a84c; }
+    .founders-club p { font-size: 13px; color: #777; line-height: 1.6; margin-bottom: 20px; }
+    .founder-stats { display: flex; gap: 0; border: 1px solid #c9a84c33; border-radius: 10px; overflow: hidden; }
+    .stat { flex: 1; padding: 18px 14px; text-align: center; border-right: 1px solid #c9a84c22; }
+    .stat:last-child { border-right: none; }
+    .stat-val { font-size: 22px; font-weight: 900; color: #c9a84c; display: block; }
+    .stat-label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; display: block; }
+    .cta-section { padding: 40px; text-align: center; background: linear-gradient(135deg, #111111 0%, #14100a 100%); }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, #c9a84c, #f0c060); color: #0a0a0a; font-weight: 800; font-size: 15px; padding: 18px 44px; border-radius: 8px; text-decoration: none; letter-spacing: 0.5px; box-shadow: 0 4px 24px #c9a84c44; }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: #555; }
+    .personal-note { padding: 36px 40px; background: #0e0e0e; border-left: 3px solid #c9a84c; margin: 0 0; }
+    .personal-note p { font-size: 14px; color: #aaa; line-height: 1.8; font-style: italic; }
+    .personal-note .sig { margin-top: 18px; font-style: normal; }
+    .personal-note .sig strong { color: #fff; font-size: 14px; }
+    .personal-note .sig span { display: block; font-size: 12px; color: #c9a84c; letter-spacing: 0.5px; }
+    .help-section { padding: 30px 40px; background: #0d0d0d; }
+    .help-section h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .help-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .help-link { color: #c9a84c; font-size: 13px; text-decoration: none; }
+    .footer { padding: 30px 40px; text-align: center; background: #0a0a0a; border-top: 1px solid #1e1e1e; }
+    .footer p { font-size: 12px; color: #444; line-height: 1.6; }
+    .footer a { color: #c9a84c; text-decoration: none; }
+    .social-links { display: flex; justify-content: center; gap: 14px; margin-bottom: 20px; }
+    .social-link { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #222; display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; color: #666; transition: color 0.2s; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark"><span class="logo-play">&#9654;</span></div>
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </div>
+    <div class="founder-badge-wrap">
+      <span class="founder-badge">&#9733; Founder Member</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-crown">&#128081;</div>
+    <h1>You're a <span>Founding Member</span><br />of SophiaTV</h1>
+    <p>You didn't just subscribe — you helped build something. As a Founder, you get lifetime VIP access, direct input on our roadmap, and benefits no future subscriber will ever receive.</p>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- VIP Perks -->
+  <div class="vip-section">
+    <div class="section-label">Your Founder Perks</div>
+    <div class="perks-grid">
+      <div class="perk">
+        <div class="perk-icon">&#128081;</div>
+        <div class="perk-body">
+          <strong>Permanent Founder Badge</strong>
+          <span>Your profile displays the gold Founder crown forever — visible to all creators and members on the platform.</span>
+          <div class="tag">Lifetime</div>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">&#128204;</div>
+        <div class="perk-body">
+          <strong>Roadmap Vote &amp; Early Access</strong>
+          <span>You vote on every major feature before it ships. You also get early access to beta features — weeks before anyone else.</span>
+          <div class="tag">Exclusive</div>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">&#128247;</div>
+        <div class="perk-body">
+          <strong>Unlimited Private Sessions</strong>
+          <span>Book unlimited 1-on-1 and group sessions with any creator on the platform. No monthly cap. No waitlist.</span>
+          <div class="tag">Unlimited</div>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">&#129302;</div>
+        <div class="perk-body">
+          <strong>Unlimited AI Assistant</strong>
+          <span>Full Claude AI access — no daily message limits. Ask anything, translate anything, summarize any content on the platform.</span>
+          <div class="tag">No Limits</div>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">&#128172;</div>
+        <div class="perk-body">
+          <strong>Founders Private Channel</strong>
+          <span>Access to the invite-only Founders group chat — direct line to Tarence and the SophiaTV team. Your feedback shapes the platform.</span>
+          <div class="tag">Private</div>
+        </div>
+      </div>
+      <div class="perk">
+        <div class="perk-icon">&#127381;</div>
+        <div class="perk-body">
+          <strong>Locked-In Pricing Forever</strong>
+          <span>Your $49.99/mo rate is locked. As SophiaTV grows, prices increase — but yours never will.</span>
+          <div class="tag">Price Lock</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Founders Club Stats -->
+  <div class="founders-club">
+    <h2>The <span>Founders Club</span></h2>
+    <p>You're one of a very small group who joined at the very beginning. This is the inner circle that makes everything possible.</p>
+    <div class="founder-stats">
+      <div class="stat">
+        <span class="stat-val">&#60;50</span>
+        <span class="stat-label">Founders Total</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">&#8734;</span>
+        <span class="stat-label">Sessions/Month</span>
+      </div>
+      <div class="stat">
+        <span class="stat-val">&#9733;</span>
+        <span class="stat-label">VIP Status</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <a href="https://sophiaoperator.com/dashboard" class="cta-btn">Enter Your Dashboard &rarr;</a>
+    <p class="cta-sub">Your Founder badge and perks are already active.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Personal Note -->
+  <div class="personal-note">
+    <p>"Building SophiaTV is about creating a platform where the truth can be spoken freely — in any language, by anyone, anywhere. The fact that you believed in this early enough to be a Founder means everything. I'm personally committed to making sure you never regret this decision. Thank you."</p>
+    <div class="sig">
+      <strong>Tarence</strong>
+      <span>Founder &amp; Operator, SophiaTV</span>
+    </div>
+  </div>
+
+  <!-- Help -->
+  <div class="help-section">
+    <h3>Your Founder Resources</h3>
+    <div class="help-links">
+      <a href="https://sophiaoperator.com/dashboard" class="help-link">&#128100; My Dashboard</a>
+      <a href="https://sophiaoperator.com/session" class="help-link">&#127909; Book a Session</a>
+      <a href="mailto:tarence@sophiaoperator.com" class="help-link">&#9993; Direct Line to Tarence</a>
+      <a href="mailto:support@sophiaoperator.com" class="help-link">&#128231; Support</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="social-links">
+      <a href="#" class="social-link">&#120143;</a>
+      <a href="#" class="social-link">&#128249;</a>
+      <a href="#" class="social-link">&#127909;</a>
+    </div>
+    <p>
+      You're receiving this because you joined SophiaTV as a Founding Member at <a href="https://sophiaoperator.com">sophiaoperator.com</a>.<br />
+      <a href="https://sophiaoperator.com/unsubscribe">Unsubscribe</a> &middot; <a href="https://sophiaoperator.com/privacy">Privacy Policy</a>
+    </p>
+    <p style="margin-top: 10px; color: #2a2a2a;">&copy; 2026 SophiaTV. All rights reserved.</p>
+  </div>
+
+</div>
+</body>
+</html>

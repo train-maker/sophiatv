@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to SophiaTV</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #0a0a0a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #e8e8e8; }
+    .wrapper { max-width: 600px; margin: 0 auto; background: #111111; }
+    .header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 40px 40px 30px; text-align: center; border-bottom: 2px solid #c9a84c; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #c9a84c; display: flex; align-items: center; justify-content: center; }
+    .logo-play { color: #c9a84c; font-size: 16px; margin-left: 2px; }
+    .logo-text { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .logo-text em { color: #c9a84c; font-style: normal; }
+    .hero { background: linear-gradient(135deg, #1a1408 0%, #111111 100%); padding: 50px 40px; text-align: center; }
+    .hero-icon { font-size: 48px; margin-bottom: 20px; }
+    .hero h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.2; }
+    .hero h1 span { color: #c9a84c; }
+    .hero p { font-size: 16px; color: #aaa; line-height: 1.6; max-width: 420px; margin: 0 auto; }
+    .plan-badge { display: inline-block; background: linear-gradient(135deg, #c9a84c, #f0c060); color: #0a0a0a; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-top: 20px; }
+    .section { padding: 40px; }
+    .section-title { font-size: 18px; font-weight: 700; color: #c9a84c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .features { list-style: none; }
+    .features li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1e1e1e; }
+    .features li:last-child { border-bottom: none; }
+    .feature-icon { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #c9a84c22, #c9a84c11); border: 1px solid #c9a84c44; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+    .feature-text strong { display: block; color: #fff; font-size: 14px; margin-bottom: 2px; }
+    .feature-text span { color: #888; font-size: 13px; line-height: 1.4; }
+    .cta-section { padding: 0 40px 40px; text-align: center; }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, #c9a84c, #f0c060); color: #0a0a0a; font-weight: 700; font-size: 15px; padding: 16px 40px; border-radius: 8px; text-decoration: none; letter-spacing: 0.5px; }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: #666; }
+    .divider { height: 1px; background: #1e1e1e; margin: 0 40px; }
+    .help-section { padding: 30px 40px; background: #0d0d0d; }
+    .help-section h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .help-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .help-link { color: #c9a84c; font-size: 13px; text-decoration: none; }
+    .footer { padding: 30px 40px; text-align: center; background: #0a0a0a; border-top: 1px solid #1e1e1e; }
+    .footer p { font-size: 12px; color: #555; line-height: 1.6; }
+    .footer a { color: #c9a84c; text-decoration: none; }
+    .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+    .social-link { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #222; display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none; color: #888; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark"><span class="logo-play">&#9654;</span></div>
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-icon">&#127881;</div>
+    <h1>Welcome to <span>SophiaTV</span></h1>
+    <p>You're now part of the world's first AI-powered free speech network. Here's everything you need to get started.</p>
+    <div class="plan-badge">&#9733; Viewer Plan Active</div>
+  </div>
+
+  <!-- Plan Details -->
+  <div class="section">
+    <div class="section-title">Your Plan Includes</div>
+    <ul class="features">
+      <li>
+        <div class="feature-icon">&#127909;</div>
+        <div class="feature-text">
+          <strong>Unlimited Live Streams</strong>
+          <span>Watch any live stream from creators and operators around the world — no caps, no throttling.</span>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#127760;</div>
+        <div class="feature-text">
+          <strong>50+ Language Translation</strong>
+          <span>Real-time AI translation powered by Claude. Every stream, every video — in your language.</span>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#129302;</div>
+        <div class="feature-text">
+          <strong>AI Chat Assistant</strong>
+          <span>Ask questions, get summaries, and interact with content using the built-in Claude AI.</span>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">&#128274;</div>
+        <div class="feature-text">
+          <strong>Private Sessions</strong>
+          <span>Book 1-on-1 sessions with operators and creators for exclusive content and mentorship.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Getting Started -->
+  <div class="section">
+    <div class="section-title">Getting Started</div>
+    <ul class="features">
+      <li>
+        <div class="feature-icon">1</div>
+        <div class="feature-text">
+          <strong>Browse Live Streams</strong>
+          <span>Go to sophiaoperator.com and tap "Live" in the nav to see who's streaming right now.</span>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">2</div>
+        <div class="feature-text">
+          <strong>Follow Creators</strong>
+          <span>Click on any creator card and follow them to get notified when they go live.</span>
+        </div>
+      </li>
+      <li>
+        <div class="feature-icon">3</div>
+        <div class="feature-text">
+          <strong>Try AI Translation</strong>
+          <span>While watching any stream, click the language selector in the top right to switch languages instantly.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <a href="https://sophiaoperator.com" class="cta-btn">Start Watching Now &rarr;</a>
+    <p class="cta-sub">Questions? Reply to this email — we read every one.</p>
+  </div>
+
+  <!-- Help -->
+  <div class="help-section">
+    <h3>Need Help?</h3>
+    <div class="help-links">
+      <a href="https://sophiaoperator.com/dashboard" class="help-link">&#128100; My Dashboard</a>
+      <a href="https://sophiaoperator.com/pricing" class="help-link">&#11088; Upgrade Plan</a>
+      <a href="mailto:support@sophiaoperator.com" class="help-link">&#128231; Contact Support</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="social-links">
+      <a href="#" class="social-link">&#120143;</a>
+      <a href="#" class="social-link">&#128249;</a>
+      <a href="#" class="social-link">&#127909;</a>
+    </div>
+    <p>
+      You're receiving this because you signed up at <a href="https://sophiaoperator.com">sophiaoperator.com</a>.<br />
+      <a href="https://sophiaoperator.com/unsubscribe">Unsubscribe</a> &middot; <a href="https://sophiaoperator.com/privacy">Privacy Policy</a>
+    </p>
+    <p style="margin-top: 10px; color: #333;">&copy; 2026 SophiaTV. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>

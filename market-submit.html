@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Your Business — SophiaMarket</title>
+  <meta name="description" content="List your business on SophiaMarket — the global business directory by SophiaTV. Free basic listing or get Featured for $29.99/month." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .submit-wrap { max-width: 700px; margin: 0 auto; padding: 90px 36px 80px; }
+    .submit-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--muted); text-decoration: none;
+      margin-bottom: 24px; transition: color 0.2s;
+    }
+    .submit-back:hover { color: var(--gold); }
+
+    .submit-header { margin-bottom: 36px; }
+    .submit-header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .submit-header p { color: var(--muted); font-size: 15px; }
+
+    /* Tier selector */
+    .tier-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+    @media (max-width: 500px) { .tier-row { grid-template-columns: 1fr; } }
+    .tier-card {
+      border: 2px solid var(--border); border-radius: 12px; padding: 20px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .tier-card:hover { border-color: var(--gold-border); }
+    .tier-card.selected { border-color: var(--gold); background: var(--gold-dim); }
+    .tier-card input[type=radio] { position: absolute; opacity: 0; }
+    .tier-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .tier-price { font-size: 22px; font-weight: 800; color: var(--gold); margin-bottom: 8px; }
+    .tier-price span { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .tier-features { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .tier-badge {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--gold); color: #07070e; font-size: 11px; font-weight: 700;
+      padding: 3px 8px; border-radius: 4px;
+    }
+
+    .form-section { margin-bottom: 32px; }
+    .form-section-title {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--gold); margin-bottom: 16px;
+      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 500;
+      color: var(--muted); margin-bottom: 6px;
+    }
+    .form-group .required { color: var(--gold); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 13px; border-radius: 8px;
+      font-size: 14px; font-family: inherit; outline: none; transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select option { background: var(--bg2); }
+    .char-count { font-size: 11px; color: var(--muted); text-align: right; margin-top: 3px; }
+
+    /* Logo upload */
+    .logo-upload {
+      border: 2px dashed var(--border); border-radius: 10px; padding: 28px;
+      text-align: center; cursor: pointer; transition: border-color 0.2s;
+    }
+    .logo-upload:hover { border-color: var(--gold); }
+    .logo-upload input { display: none; }
+    .logo-upload-icon { font-size: 36px; margin-bottom: 8px; }
+    .logo-upload p { font-size: 13px; color: var(--muted); }
+    .logo-upload strong { color: var(--text); }
+
+    /* Submit */
+    .submit-footer { margin-top: 8px; }
+    .btn-submit {
+      width: 100%; padding: 14px; font-size: 16px; font-weight: 700;
+      background: var(--gold); color: #07070e; border: none; border-radius: 9px;
+      cursor: pointer; font-family: inherit; transition: opacity 0.2s; margin-bottom: 12px;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .submit-legal { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }
+    .submit-legal a { color: var(--gold); text-decoration: none; }
+
+    /* Success */
+    .success-screen {
+      text-align: center; padding: 60px 20px; display: none;
+    }
+    .success-icon { font-size: 64px; margin-bottom: 20px; }
+    .success-screen h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+    .success-screen p { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+
+    .word-count-warning { color: var(--red); font-size: 11px; display: none; }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon" style="width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#07070e;">S</div>
+        <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="/#live" class="nav-link">Live</a>
+        <a href="/#feed" class="nav-link">Feed</a>
+        <a href="/#creators" class="nav-link">Creators</a>
+        <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
+        <a href="/#sessions" class="nav-link">Sessions</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="submit-wrap">
+    <a href="/market.html" class="submit-back">← Back to SophiaMarket</a>
+
+    <div id="formView">
+      <div class="submit-header">
+        <h1>List Your Business</h1>
+        <p>Get discovered by buyers, investors, and partners in 30+ countries. Free to start — go Featured to stand out.</p>
+      </div>
+
+      <!-- TIER SELECTOR -->
+      <div class="tier-row">
+        <div class="tier-card selected" id="tierFree" onclick="selectTier('free')">
+          <input type="radio" name="tier" value="free" checked />
+          <div class="tier-name">Free Listing</div>
+          <div class="tier-price">$0 <span>/ forever</span></div>
+          <div class="tier-features">
+            ✓ Business name &amp; description<br/>
+            ✓ Contact email &amp; phone<br/>
+            ✓ Searchable in directory<br/>
+            ✗ No featured badge<br/>
+            ✗ No priority placement
+          </div>
+        </div>
+        <div class="tier-card" id="tierFeatured" onclick="selectTier('featured')">
+          <input type="radio" name="tier" value="featured" />
+          <div class="tier-badge">POPULAR</div>
+          <div class="tier-name">Featured</div>
+          <div class="tier-price">$29.99 <span>/ month</span></div>
+          <div class="tier-features">
+            ✓ Everything in Free<br/>
+            ✓ Gold "Featured" badge<br/>
+            ✓ Top of category listings<br/>
+            ✓ Full business profile<br/>
+            ✓ Logo &amp; gallery images
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form id="submitForm" onsubmit="handleSubmit(event)">
+
+        <!-- Business Info -->
+        <div class="form-section">
+          <div class="form-section-title">Business Information</div>
+          <div class="form-group">
+            <label>Business Name <span class="required">*</span></label>
+            <input type="text" id="bizName" placeholder="Your business or brand name" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Country <span class="required">*</span></label>
+              <select id="bizCountry" required>
+                <option value="">Select country…</option>
+                <option>United States</option><option>China</option><option>India</option>
+                <option>Brazil</option><option>Mexico</option><option>UK</option>
+                <option>Germany</option><option>Japan</option><option>South Korea</option>
+                <option>South Africa</option><option>Nigeria</option><option>Saudi Arabia</option>
+                <option>UAE</option><option>Canada</option><option>Australia</option>
+                <option>France</option><option>Italy</option><option>Russia</option>
+                <option>Malaysia</option><option>Thailand</option><option>Vietnam</option>
+                <option>Philippines</option><option>Indonesia</option><option>Pakistan</option>
+                <option>Bangladesh</option><option>Egypt</option><option>Kenya</option>
+                <option>Ghana</option><option>Ethiopia</option><option>Tanzania</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>City <span class="required">*</span></label>
+              <input type="text" id="bizCity" placeholder="City" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Category <span class="required">*</span></label>
+            <select id="bizCategory" required>
+              <option value="">Select category…</option>
+              <option>Wholesale &amp; Manufacturing</option>
+              <option>Real Estate</option>
+              <option>Dating &amp; Relationships</option>
+              <option>Food &amp; Restaurants</option>
+              <option>Business Services</option>
+              <option>Retail &amp; Shopping</option>
+              <option>Tech &amp; Software</option>
+              <option>Beauty &amp; Health</option>
+              <option>Automotive</option>
+              <option>Education &amp; Training</option>
+              <option>Agriculture &amp; Farming</option>
+              <option>Finance &amp; Investment</option>
+              <option>Import/Export</option>
+              <option>Construction</option>
+              <option>Fashion &amp; Apparel</option>
+              <option>Travel &amp; Tourism</option>
+              <option>Entertainment &amp; Media</option>
+              <option>Energy &amp; Resources</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Business Description <span class="required">*</span> <small style="font-weight:400;">(max 50 words)</small></label>
+            <textarea id="bizDesc" placeholder="Describe your business, products, or services…" oninput="countWords(this)" required></textarea>
+            <div class="char-count"><span id="wordCount">0</span> / 50 words</div>
+            <div class="word-count-warning" id="wordWarning">Description exceeds 50 words. Please shorten it.</div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="form-section">
+          <div class="form-section-title">Contact Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Contact Email <span class="required">*</span></label>
+              <input type="email" id="bizEmail" placeholder="contact@yourbusiness.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="bizPhone" placeholder="+1-555-000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Website URL</label>
+            <input type="url" id="bizWebsite" placeholder="https://yourbusiness.com" />
+          </div>
+        </div>
+
+        <!-- Logo (Featured only) -->
+        <div class="form-section" id="logoSection" style="display:none;">
+          <div class="form-section-title">Logo &amp; Branding</div>
+          <div class="logo-upload" onclick="document.getElementById('logoInput').click()">
+            <input type="file" id="logoInput" accept="image/*" onchange="previewLogo(this)" />
+            <div class="logo-upload-icon" id="logoPreview">🖼️</div>
+            <p><strong>Click to upload logo</strong></p>
+            <p>PNG, JPG, or SVG · max 2MB</p>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit-footer">
+          <button type="submit" class="btn-submit" id="submitBtn">Submit Free Listing</button>
+          <p class="submit-legal">
+            By submitting, you agree to our
+            <a href="#">Terms of Service</a> and <a href="#">Listing Guidelines</a>.
+            Featured listings are billed monthly via Stripe and can be cancelled anytime.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">🎉</div>
+      <h2>Listing Submitted!</h2>
+      <p id="successMsg">Your free listing has been submitted for review. You'll receive a confirmation email within 24 hours.</p>
+      <a href="/market.html" style="display:inline-block;padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">Browse SophiaMarket</a>
+    </div>
+  </div>
+
+  <script>
+    const STRIPE_FEATURED_LINK = 'https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d';
+    let selectedTier = 'free';
+
+    function selectTier(tier) {
+      selectedTier = tier;
+      document.getElementById('tierFree').classList.toggle('selected', tier === 'free');
+      document.getElementById('tierFeatured').classList.toggle('selected', tier === 'featured');
+      document.getElementById('logoSection').style.display = tier === 'featured' ? 'block' : 'none';
+      document.getElementById('submitBtn').textContent = tier === 'featured'
+        ? 'Continue to Payment — $29.99/mo'
+        : 'Submit Free Listing';
+    }
+
+    function countWords(el) {
+      const words = el.value.trim().split(/\s+/).filter(w => w.length > 0);
+      document.getElementById('wordCount').textContent = words.length;
+      const warn = document.getElementById('wordWarning');
+      warn.style.display = words.length > 50 ? 'block' : 'none';
+    }
+
+    function previewLogo(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const preview = document.getElementById('logoPreview');
+          preview.innerHTML = `<img src="${e.target.result}" style="max-width:100px;max-height:100px;border-radius:8px;" />`;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const desc = document.getElementById('bizDesc').value.trim();
+      const words = desc.split(/\s+/).filter(w => w.length > 0);
+      if (words.length > 50) { alert('Please shorten your description to 50 words or fewer.'); return; }
+
+      if (selectedTier === 'featured') {
+        // Collect form data then redirect to Stripe
+        const params = new URLSearchParams({
+          name: document.getElementById('bizName').value,
+          country: document.getElementById('bizCountry').value,
+          city: document.getElementById('bizCity').value,
+          category: document.getElementById('bizCategory').value,
+          email: document.getElementById('bizEmail').value
+        });
+        window.location.href = STRIPE_FEATURED_LINK;
+        return;
+      }
+
+      // Free tier — show success
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('successScreen').style.display = 'block';
+      document.getElementById('successMsg').textContent =
+        `Your free listing for "${document.getElementById('bizName').value}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
+    }
+  </script>
+</body>
+</html>

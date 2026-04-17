@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — SophiaTV</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    .dash-page { padding: 80px 36px 60px; max-width: 1100px; margin: 0 auto; }
+    .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+    .dash-greeting h1 { font-size: 1.6rem; font-weight: 700; }
+    .dash-greeting p { color: var(--muted); margin-top: 4px; font-size: 0.9rem; }
+    .tier-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--gold-dim); border: 1px solid var(--gold-border); border-radius: 20px; padding: 5px 14px; font-size: 0.8rem; font-weight: 600; color: var(--gold); margin-top: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .btn-signout { background: transparent; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; color: var(--muted); font-size: 0.85rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .btn-signout:hover { border-color: var(--red); color: var(--red); }
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 36px; }
+    .dash-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .dash-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--gold-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 1.2rem; }
+    .dash-card-title { font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+    .dash-card-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+    .btn-card { display: inline-block; margin-top: 14px; padding: 8px 16px; background: var(--gold); color: #000; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s; font-family: inherit; }
+    .btn-card:hover { opacity: 0.85; }
+    .btn-card-outline { background: transparent; border: 1px solid var(--gold-border); color: var(--gold); }
+    .btn-card-outline:hover { background: var(--gold-dim); }
+    .plan-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 36px; }
+    .plan-section-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 20px; }
+    .plan-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+    .plan-item { border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; transition: all 0.2s; }
+    .plan-item.current { border-color: var(--gold); background: var(--gold-dim); }
+    .plan-item-name { font-weight: 600; font-size: 0.9rem; }
+    .plan-item-price { color: var(--gold); font-size: 0.8rem; margin-top: 4px; }
+    .plan-item-label { font-size: 0.7rem; color: var(--green); font-weight: 600; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .loading-state { text-align: center; padding: 80px 20px; color: var(--muted); }
+    .ai-chat-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .ai-chat-section-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+    .ai-chat-desc { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; }
+    .mini-chat { background: var(--bg3); border-radius: 10px; padding: 16px; min-height: 120px; font-size: 0.85rem; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark"><div class="logo-ring"></div><span class="logo-play">&#9654;</span></div>
+        <span class="logo-text">Sophia<em>TV</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="loadingState" class="loading-state">Loading your dashboard...</div>
+
+  <div id="dashContent" class="dash-page" style="display:none;">
+    <div class="dash-header">
+      <div class="dash-greeting">
+        <h1 id="greetingName">Welcome back!</h1>
+        <p id="greetingEmail"></p>
+        <div class="tier-badge" id="tierBadge">Free</div>
+      </div>
+      <button class="btn-signout" onclick="handleSignOut()">Sign Out</button>
+    </div>
+
+    <div class="dash-grid">
+      <div class="dash-card">
+        <div class="dash-card-icon">📺</div>
+        <div class="dash-card-title">Watch Live</div>
+        <div class="dash-card-desc">Tune into live streams, uncensored content, and exclusive sessions.</div>
+        <a href="/" class="btn-card">Go to Feed</a>
+      </div>
+      <div class="dash-card" id="sessionCard">
+        <div class="dash-card-icon">🎥</div>
+        <div class="dash-card-title">Private Sessions</div>
+        <div class="dash-card-desc">Book a 1-on-1 private video session with a creator.</div>
+        <a href="/session" class="btn-card" id="sessionBtn">Book Session</a>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-icon">🤖</div>
+        <div class="dash-card-title">SophiaAI</div>
+        <div class="dash-card-desc">Ask AI anything — content ideas, platform help, or just chat.</div>
+        <a href="/#ai-chat" class="btn-card btn-card-outline">Open Chat</a>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-icon">⚙️</div>
+        <div class="dash-card-title">Account Settings</div>
+        <div class="dash-card-desc">Update your profile, password, and notification preferences.</div>
+        <button class="btn-card btn-card-outline" onclick="alert('Account settings coming soon!')">Settings</button>
+      </div>
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-section-title">Your Subscription Plan</div>
+      <div class="plan-compare">
+        <div class="plan-item" id="plan-free">
+          <div class="plan-item-name">Free Viewer</div>
+          <div class="plan-item-price">$0/mo</div>
+        </div>
+        <div class="plan-item" id="plan-fan">
+          <div class="plan-item-name">Fan</div>
+          <div class="plan-item-price">$9/mo</div>
+        </div>
+        <div class="plan-item" id="plan-creator_basic">
+          <div class="plan-item-name">Creator Basic</div>
+          <div class="plan-item-price">$29/mo</div>
+        </div>
+        <div class="plan-item" id="plan-creator_pro">
+          <div class="plan-item-name">Creator Pro</div>
+          <div class="plan-item-price">$79/mo</div>
+        </div>
+        <div class="plan-item" id="plan-founder">
+          <div class="plan-item-name">Founder</div>
+          <div class="plan-item-price">$199/mo</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <a href="/pricing" class="btn-card">Upgrade Plan</a>
+      </div>
+    </div>
+
+    <div class="ai-chat-section">
+      <div class="ai-chat-section-title">SophiaAI Creator Tools</div>
+      <div class="ai-chat-desc">Get AI-powered help with content, titles, descriptions, and more.</div>
+      <div class="mini-chat">
+        <span>Open the full SophiaAI chat from the home page → <a href="/#ai-chat" style="color:var(--gold)">launch chat</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://wftxhojlvrymtdtekhdx.supabase.co';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // Replace in Vercel env vars
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const TIER_LABELS = {
+      free: 'Free Viewer',
+      fan: 'Fan',
+      creator_basic: 'Creator Basic',
+      creator_pro: 'Creator Pro',
+      founder: 'Founder',
+    };
+
+    async function initDashboard() {
+      const { data: { session }, error } = await supabase.auth.getSession();
+
+      if (error || !session) {
+        window.location.href = '/login';
+        return;
+      }
+
+      const user = session.user;
+      const name = user.user_metadata?.full_name || user.email.split('@')[0];
+      const tier = user.user_metadata?.tier || 'free';
+
+      // Try to get profile from profiles table
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single();
+
+      const actualTier = profile?.tier || tier;
+
+      document.getElementById('greetingName').textContent = `Welcome back, ${name}!`;
+      document.getElementById('greetingEmail').textContent = user.email;
+      document.getElementById('tierBadge').textContent = TIER_LABELS[actualTier] || 'Free Viewer';
+
+      // Highlight current plan
+      document.querySelectorAll('.plan-item').forEach(el => el.classList.remove('current'));
+      const currentPlanEl = document.getElementById(`plan-${actualTier}`);
+      if (currentPlanEl) {
+        currentPlanEl.classList.add('current');
+        currentPlanEl.innerHTML += '<div class="plan-item-label">Current Plan</div>';
+      }
+
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('dashContent').style.display = 'block';
+    }
+
+    async function handleSignOut() {
+      await supabase.auth.signOut();
+      window.location.href = '/';
+    }
+
+    initDashboard();
+  </script>
+</body>
+</html>
