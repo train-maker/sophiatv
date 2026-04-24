@@ -421,6 +421,211 @@
 </script>
 
 <!-- /SOPHIA_TESLA -->
+<!-- SOPHIA_SHENZHEN -->
+<!-- Shenzhen night-market layer — neon signs, matrix rain, skyline, bilingual tickers -->
+<style id="sophia-shenzhen-css">
+  /* Neon glow on brand-accent text */
+  .neon-cyan, .neon-cyan * {
+    color: #67e8f9 !important;
+    text-shadow: 0 0 4px rgba(103,232,249,0.9), 0 0 12px rgba(103,232,249,0.6), 0 0 24px rgba(103,232,249,0.35);
+  }
+  .neon-pink, .neon-pink * {
+    color: #f472b6 !important;
+    text-shadow: 0 0 4px rgba(244,114,182,0.9), 0 0 12px rgba(244,114,182,0.6), 0 0 24px rgba(244,114,182,0.35);
+  }
+  .neon-green, .neon-green * {
+    color: #34d399 !important;
+    text-shadow: 0 0 4px rgba(52,211,153,0.9), 0 0 12px rgba(52,211,153,0.6), 0 0 24px rgba(52,211,153,0.35);
+  }
+  .neon-gold, .neon-gold * {
+    color: #fde047 !important;
+    text-shadow: 0 0 4px rgba(253,224,71,0.9), 0 0 12px rgba(253,224,71,0.6), 0 0 24px rgba(253,224,71,0.35);
+  }
+
+  /* Flickering neon sign animation */
+  @keyframes flicker {
+    0%,19%,21%,23%,25%,54%,56%,100% { text-shadow: 0 0 4px rgba(103,232,249,.9), 0 0 12px rgba(103,232,249,.6), 0 0 24px rgba(103,232,249,.35); opacity:1; }
+    20%,24%,55% { text-shadow: none; opacity: 0.6; }
+  }
+  .flicker { animation: flicker 6s infinite; }
+
+  /* Top + bottom bilingual tickers */
+  .sz-ticker-bar {
+    position: fixed; left:0; right:0; height:32px; z-index: 99;
+    background: linear-gradient(90deg, rgba(5,7,13,0.95) 0%, rgba(10,14,26,0.85) 50%, rgba(5,7,13,0.95) 100%);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(103,232,249,0.3);
+    border-bottom: 1px solid rgba(103,232,249,0.3);
+    overflow: hidden;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    display: flex; align-items: center;
+    pointer-events: none;
+  }
+  .sz-ticker-bar.top { top: 0; }
+  .sz-ticker-bar.bottom { bottom: 0; }
+  .sz-ticker-bar .reel {
+    display: inline-flex; gap: 48px; white-space: nowrap;
+    animation: ticker 90s linear infinite;
+    padding-left: 100%;
+  }
+  .sz-ticker-bar.bottom .reel { animation-direction: reverse; animation-duration: 120s; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  .sz-ticker-bar .tick { color: #67e8f9; text-shadow: 0 0 6px rgba(103,232,249,0.5); }
+  .sz-ticker-bar .tick.pink { color: #f472b6; text-shadow: 0 0 6px rgba(244,114,182,0.5); }
+  .sz-ticker-bar .tick.gold { color: #fde047; text-shadow: 0 0 6px rgba(253,224,71,0.5); }
+  .sz-ticker-bar .tick.green { color: #34d399; text-shadow: 0 0 6px rgba(52,211,153,0.5); }
+
+  /* Skyline silhouette at bottom — fixed, subtle */
+  #sz-skyline {
+    position: fixed; bottom: 32px; left: 0; right: 0; height: 80px;
+    z-index: -1; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'><path fill='%23042f1f' opacity='0.55' d='M0,80 L0,50 L40,50 L40,30 L60,30 L60,45 L90,45 L90,15 L110,15 L110,35 L150,35 L150,25 L170,25 L170,40 L200,40 L200,20 L230,20 L230,50 L260,50 L260,10 L290,10 L290,30 L320,30 L320,45 L360,45 L360,25 L390,25 L390,5 L410,5 L410,35 L450,35 L450,55 L490,55 L490,20 L520,20 L520,40 L550,40 L550,15 L580,15 L580,50 L620,50 L620,30 L650,30 L650,60 L690,60 L690,25 L720,25 L720,10 L750,10 L750,40 L790,40 L790,55 L820,55 L820,30 L850,30 L850,20 L880,20 L880,45 L920,45 L920,15 L950,15 L950,35 L990,35 L990,50 L1030,50 L1030,25 L1060,25 L1060,5 L1090,5 L1090,40 L1130,40 L1130,30 L1170,30 L1170,55 L1200,55 L1200,80 Z'/></svg>");
+    background-repeat: no-repeat; background-size: cover;
+  }
+
+  /* Matrix rain canvas (behind everything) */
+  #sz-matrix { position: fixed; inset: 0; z-index: -3; opacity: 0.12; pointer-events: none; }
+
+  /* Neon storefront signs scattered */
+  .sz-neon-sign {
+    position: fixed;
+    padding: 6px 14px;
+    background: rgba(0,0,0,0.6);
+    border: 1.5px solid currentColor;
+    border-radius: 4px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 12px currentColor, inset 0 0 8px currentColor;
+    opacity: 0.75;
+  }
+
+  /* Accent rail: vertical blinking */
+  @keyframes vblink { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+  .sz-vrail {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    width: 4px; height: 140px;
+    background: linear-gradient(180deg, #67e8f9, #f472b6, #fde047);
+    animation: vblink 1.5s ease-in-out infinite;
+    z-index: 0; pointer-events: none;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(103,232,249,0.7);
+  }
+  .sz-vrail.left { left: 8px; }
+  .sz-vrail.right { right: 8px; }
+
+  /* QR-ish corner accents */
+  .sz-corner {
+    position: fixed; width: 44px; height: 44px;
+    border: 2px solid #67e8f9; z-index: 1; pointer-events: none;
+    box-shadow: 0 0 10px rgba(103,232,249,0.5);
+  }
+  .sz-corner.tl { top: 40px; left: 8px; border-right: 0; border-bottom: 0; }
+  .sz-corner.tr { top: 40px; right: 8px; border-left: 0; border-bottom: 0; }
+  .sz-corner.bl { bottom: 48px; left: 8px; border-right: 0; border-top: 0; }
+  .sz-corner.br { bottom: 48px; right: 8px; border-left: 0; border-top: 0; }
+
+  /* Body content padding for ticker bars */
+  body { padding-top: 32px !important; padding-bottom: 32px !important; }
+</style>
+
+<!-- Matrix rain -->
+<canvas id="sz-matrix"></canvas>
+
+<!-- Tickers -->
+<div class="sz-ticker-bar top">
+  <div class="reel" id="sz-top-reel">
+    <span class="tick">●</span>
+    <span class="tick">SHENZHEN 深圳 0823 ↑</span>
+    <span class="tick pink">LAGOS 拉各斯 0419 ↑</span>
+    <span class="tick gold">DUBAI 迪拜 0551 ↑</span>
+    <span class="tick green">GLOBAL B2B · 59 COUNTRIES</span>
+    <span class="tick">●</span>
+    <span class="tick pink">MUMBAI 孟买 0617 ↑</span>
+    <span class="tick gold">LONDON 伦敦 0145 ↓</span>
+    <span class="tick">TOKYO 东京 0952 ↑</span>
+    <span class="tick green">SOPHIA MARKET — LIVE</span>
+    <span class="tick">●</span>
+    <span class="tick pink">SÃO PAULO 0333 ↑</span>
+    <span class="tick gold">BERLIN 柏林 0247 ↑</span>
+    <span class="tick">CAIRO 开罗 0512 ↑</span>
+    <span class="tick green">120 VERIFIED BUSINESSES</span>
+  </div>
+</div>
+
+<div class="sz-ticker-bar bottom">
+  <div class="reel" id="sz-bot-reel">
+    <span class="tick pink">◢◣◥◤ SHENZHEN CORE ◢◣◥◤</span>
+    <span class="tick">FEATURED $29.99/mo · vs ALIBABA $3000/yr</span>
+    <span class="tick gold">▲ 120 LISTINGS · 59 COUNTRIES · 12 CATEGORIES</span>
+    <span class="tick green">深圳 · 东京 · 孟买 · 拉各斯 · 迪拜 · 伦敦 · 柏林 · 圣保罗</span>
+    <span class="tick pink">◢◣◥◤ DEAL DIRECT · 直接交易 ◢◣◥◤</span>
+    <span class="tick gold">▲ 无中间商 · NO MIDDLEMEN</span>
+  </div>
+</div>
+
+<!-- Skyline -->
+<div id="sz-skyline"></div>
+
+<!-- QR-ish corner accents -->
+<div class="sz-corner tl"></div>
+<div class="sz-corner tr"></div>
+<div class="sz-corner bl"></div>
+<div class="sz-corner br"></div>
+
+<!-- Vertical neon rails -->
+<div class="sz-vrail left"></div>
+<div class="sz-vrail right"></div>
+
+<!-- Neon storefront signs -->
+<div class="sz-neon-sign flicker" style="top: 80px; left: 60px; color: #67e8f9;">深圳 · SOPHIA</div>
+<div class="sz-neon-sign" style="top: 120px; right: 60px; color: #f472b6;">B2B 市场</div>
+<div class="sz-neon-sign" style="bottom: 140px; right: 60px; color: #fde047;">OPEN 24/7</div>
+
+<script>
+(function(){
+  // Matrix rain
+  const canvas = document.getElementById('sz-matrix');
+  if (!canvas || !canvas.getContext) return;
+  const ctx = canvas.getContext('2d');
+  function size(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+  size(); addEventListener('resize', size);
+
+  const chars = '深圳全球市場0123456789ABCDEFSOPHIAMARKET你好世界全球贸易'.split('');
+  const fontSize = 14;
+  const cols = Math.floor(innerWidth / fontSize);
+  const drops = Array(cols).fill(0).map(() => Math.random() * innerHeight);
+
+  function drawMatrix() {
+    ctx.fillStyle = 'rgba(5,7,13,0.08)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#34d399';
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const ch = chars[Math.floor(Math.random()*chars.length)];
+      ctx.fillText(ch, i * fontSize, drops[i]);
+      if (drops[i] > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i] += fontSize;
+    }
+  }
+  setInterval(drawMatrix, 70);
+
+  // Duplicate ticker content for seamless loop
+  ['sz-top-reel','sz-bot-reel'].forEach(id => {
+    const reel = document.getElementById(id);
+    if (reel) reel.innerHTML += reel.innerHTML + reel.innerHTML;
+  });
+})();
+</script>
+
+<!-- /SOPHIA_SHENZHEN -->
+
 
 <!-- SOPHIA_GLOBE_HERO -->
 <!-- Spinning 3D globe with clickable country dots — drop-in for /market hero -->
