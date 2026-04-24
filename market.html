@@ -230,6 +230,148 @@
   </style>
 </head>
 <body>
+<!-- SOPHIA_GLOBE_HERO -->
+<!-- Spinning 3D globe with clickable country dots — drop-in for /market hero -->
+<div id="sophia-globe-hero" style="position:relative;width:100%;max-width:1200px;margin:0 auto;padding:40px 20px;background:linear-gradient(180deg,#0a0e1a 0%,#111827 100%);border-radius:20px;overflow:hidden;">
+  <div style="text-align:center;margin-bottom:20px;">
+    <h1 style="color:#f9fafb;font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.03em;margin:0 0 8px;">
+      120 verified businesses. 59 countries. <span style="color:#10b981;">One directory.</span>
+    </h1>
+    <p style="color:#9ca3af;font-size:clamp(14px,2vw,18px);margin:0;">Click any dot. Deal direct.</p>
+  </div>
+  <div id="globe-container" style="width:100%;height:500px;position:relative;"></div>
+  <div style="display:flex;justify-content:center;gap:24px;margin-top:16px;color:#9ca3af;font-size:13px;flex-wrap:wrap;">
+    <span><span style="color:#fbbf24;">●</span> Featured</span>
+    <span><span style="color:#10b981;">●</span> Verified</span>
+    <span id="globe-count" style="color:#10b981;font-weight:700;">120 live listings</span>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+<script>
+(function(){
+  const container = document.getElementById('globe-container');
+  if (!container || typeof THREE === 'undefined') return;
+
+  const W = container.clientWidth;
+  const H = 500;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, W/H, 0.1, 1000);
+  camera.position.z = 400;
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Earth sphere (wireframe-style, brand-accented)
+  const geom = new THREE.SphereGeometry(140, 64, 48);
+  const mat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true, transparent: true, opacity: 0.35 });
+  const earth = new THREE.Mesh(geom, mat);
+  scene.add(earth);
+
+  // Solid darker sphere behind
+  const inner = new THREE.Mesh(
+    new THREE.SphereGeometry(138, 32, 24),
+    new THREE.MeshBasicMaterial({ color: 0x042f1f, transparent: true, opacity: 0.6 })
+  );
+  scene.add(inner);
+
+  // Country dots (sample coords — real ones to be injected server-side)
+  const countries = [
+    {name:'China', lat:35, lon:105, featured:true},
+    {name:'India', lat:20, lon:77, featured:true},
+    {name:'Nigeria', lat:9, lon:8, featured:true},
+    {name:'USA', lat:37, lon:-95, featured:false},
+    {name:'Brazil', lat:-14, lon:-52, featured:false},
+    {name:'UAE', lat:24, lon:54, featured:true},
+    {name:'UK', lat:54, lon:-2, featured:false},
+    {name:'Germany', lat:51, lon:10, featured:false},
+    {name:'Japan', lat:36, lon:138, featured:false},
+    {name:'Kenya', lat:0, lon:38, featured:true},
+    {name:'Mexico', lat:23, lon:-102, featured:false},
+    {name:'South Africa', lat:-30, lon:25, featured:false},
+    {name:'Ghana', lat:8, lon:-1, featured:false},
+    {name:'Canada', lat:56, lon:-106, featured:false},
+    {name:'France', lat:46, lon:2, featured:false},
+    {name:'Spain', lat:40, lon:-4, featured:false},
+    {name:'Australia', lat:-25, lon:133, featured:false},
+    {name:'Argentina', lat:-38, lon:-63, featured:false},
+    {name:'Egypt', lat:26, lon:30, featured:false},
+    {name:'Saudi Arabia', lat:23, lon:45, featured:false},
+    {name:'Singapore', lat:1.3, lon:103.8, featured:true},
+    {name:'Hong Kong', lat:22, lon:114, featured:true},
+    {name:'Vietnam', lat:14, lon:108, featured:false},
+    {name:'Philippines', lat:13, lon:122, featured:false},
+    {name:'Indonesia', lat:-0.8, lon:113.9, featured:false},
+  ];
+
+  function latLonToXYZ(lat, lon, r){
+    const phi = (90-lat) * Math.PI/180;
+    const theta = (lon+180) * Math.PI/180;
+    return [-r*Math.sin(phi)*Math.cos(theta), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(theta)];
+  }
+
+  const dotMat = new THREE.MeshBasicMaterial({ color: 0x34d399 });
+  const goldMat = new THREE.MeshBasicMaterial({ color: 0xfbbf24 });
+  const dots = [];
+  countries.forEach(c => {
+    const [x,y,z] = latLonToXYZ(c.lat, c.lon, 143);
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(c.featured?4:3, 10, 10), c.featured?goldMat:dotMat);
+    dot.position.set(x,y,z);
+    dot.userData = c;
+    earth.add(dot);
+    dots.push(dot);
+  });
+
+  // Click handling
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+  renderer.domElement.addEventListener('click', (e) => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / W) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / H) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const hits = raycaster.intersectObjects(dots);
+    if (hits.length) {
+      const c = hits[0].object.userData;
+      const slug = c.name.toLowerCase().replace(/\s+/g,'-');
+      window.location.href = `/market/country/${slug}.html`;
+    }
+  });
+
+  // Hover cursor
+  renderer.domElement.addEventListener('mousemove', (e) => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / W) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / H) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    renderer.domElement.style.cursor = raycaster.intersectObjects(dots).length ? 'pointer' : 'grab';
+  });
+
+  // Animate
+  let spinning = true;
+  renderer.domElement.addEventListener('mousedown', () => spinning = false);
+  renderer.domElement.addEventListener('mouseup', () => setTimeout(()=>spinning=true, 2000));
+
+  function animate() {
+    requestAnimationFrame(animate);
+    if (spinning) earth.rotation.y += 0.002;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Responsive
+  window.addEventListener('resize', () => {
+    const nw = container.clientWidth;
+    camera.aspect = nw/H;
+    camera.updateProjectionMatrix();
+    renderer.setSize(nw, H);
+  });
+})();
+</script>
+
+<!-- /SOPHIA_GLOBE_HERO -->
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
