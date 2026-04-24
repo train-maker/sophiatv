@@ -371,6 +371,95 @@
 </script>
 
 <!-- /SOPHIA_GLOBE_HERO -->
+<!-- SOPHIA_CATEGORIES -->
+<!-- Categories showcase — expandable business verticals -->
+<section id="sophia-categories" style="max-width:1200px;margin:40px auto;padding:0 20px;">
+  <h2 style="color:#f9fafb;font-size:24px;font-weight:800;margin:0 0 16px;letter-spacing:-0.02em;">
+    Explore by category
+  </h2>
+  <p style="color:#9ca3af;font-size:15px;margin:0 0 20px;">
+    12 sectors. 59 countries. Click to drill in.
+  </p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
+    <a href="#cat-wholesale" onclick="filterCategory('Wholesale & Manufacturing');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🏭</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Wholesale &amp; Manufacturing</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Factory-direct, OEM, export</div>
+    </a>
+    <a href="#cat-real-estate" onclick="filterCategory('Real Estate');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🏢</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Real Estate</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Residential, commercial, diaspora</div>
+    </a>
+    <a href="#cat-tech" onclick="filterCategory('Technology');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">💻</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Technology</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Dev shops, SaaS, AI, FinTech</div>
+    </a>
+    <a href="#cat-energy" onclick="filterCategory('Energy');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">⚡</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Energy &amp; Green</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Solar, wind, sustainability</div>
+    </a>
+    <a href="#cat-food" onclick="filterCategory('Food');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🍽️</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Food &amp; Beverage</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Spices, specialty, import</div>
+    </a>
+    <a href="#cat-fashion" onclick="filterCategory('Fashion');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">👗</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Fashion &amp; Textiles</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Apparel, accessories, crafts</div>
+    </a>
+    <a href="#cat-legal" onclick="filterCategory('Legal');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">⚖️</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Legal &amp; Professional</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Law, accounting, consult</div>
+    </a>
+    <a href="#cat-travel" onclick="filterCategory('Travel');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">✈️</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Travel &amp; Hospitality</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Concierge, tours, lodging</div>
+    </a>
+    <a href="#cat-edu" onclick="filterCategory('Education');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🎓</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Education &amp; EdTech</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Platforms, tutoring, skills</div>
+    </a>
+    <a href="#cat-health" onclick="filterCategory('Health');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🏥</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Health &amp; Wellness</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Clinics, supplements, fitness</div>
+    </a>
+    <a href="#cat-media" onclick="filterCategory('Media');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">📹</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Media &amp; Content</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Video, publishing, studios</div>
+    </a>
+    <a href="#cat-logistics" onclick="filterCategory('Logistics');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
+      <div style="font-size:28px;">🚚</div>
+      <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Logistics &amp; Shipping</div>
+      <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Freight, customs, warehousing</div>
+    </a>
+  </div>
+</section>
+
+<script>
+window.filterCategory = window.filterCategory || function(cat) {
+  // Try to hit existing filter if page provides one, else scroll to listings grid
+  if (typeof window.applyFilter === 'function') {
+    window.applyFilter({ category: cat });
+  } else {
+    const listings = document.querySelector('[data-listings], #listings, .listings-grid');
+    if (listings) listings.scrollIntoView({behavior:'smooth'});
+  }
+  // Also set a URL hash so deep links work
+  history.replaceState(null, '', '#category=' + encodeURIComponent(cat));
+};
+</script>
+
+<!-- /SOPHIA_CATEGORIES -->
+
 
   <!-- NAV -->
   <nav class="nav">
