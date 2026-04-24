@@ -687,4 +687,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
+
+  <url><loc>https://sophiatv.vercel.app/blog/</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://sophiatv.vercel.app/blog/alibaba-alternatives-2026</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://sophiatv.vercel.app/blog/how-to-find-global-suppliers</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://sophiatv.vercel.app/blog/list-your-business-sophiamarket</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>
