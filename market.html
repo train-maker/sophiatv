@@ -511,6 +511,13 @@
       } catch(e) {
         allListings = [];
       }
+      // Auto-show all listings on page load so visitors see the
+      // directory immediately (they can still filter to narrow).
+      selectedCountry = 'All';
+      selectedCategory = 'All';
+      document.getElementById('selectedCountryLabel').textContent = 'All Countries';
+      document.getElementById('section-category').classList.add('hidden');
+      showListings();
     }
 
     function renderCountries(list) {
