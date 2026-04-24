@@ -230,6 +230,198 @@
   </style>
 </head>
 <body>
+<!-- SOPHIA_TESLA -->
+<!-- Tesla-level futuristic layer for SophiaMarket -->
+<style id="sophia-tesla-css">
+  /* Smooth everywhere */
+  * { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
+
+  /* Premium font stack */
+  body, button, input { font-family: "SF Pro Display", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* Animated aurora background for the whole page */
+  body::before {
+    content:""; position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(ellipse 80% 80% at 20% 0%, rgba(16,185,129,0.15), transparent 50%),
+      radial-gradient(ellipse 80% 80% at 80% 100%, rgba(52,211,153,0.12), transparent 50%),
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(251,191,36,0.06), transparent 60%),
+      linear-gradient(180deg, #05070d 0%, #0a0e1a 100%);
+    animation: auroraShift 20s ease-in-out infinite;
+  }
+  @keyframes auroraShift {
+    0%,100%{background-position:0% 0%, 100% 100%, 50% 50%, 0 0;}
+    50%{background-position:30% 20%, 70% 80%, 60% 40%, 0 0;}
+  }
+
+  /* Particle field canvas */
+  #sophia-particles { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.6; }
+
+  /* Glass morphism for cards */
+  .glass, .listing-card, article.card {
+    background: rgba(17, 24, 39, 0.55) !important;
+    backdrop-filter: blur(12px) saturate(1.4);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .25s !important;
+  }
+  .glass:hover, .listing-card:hover, article.card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(16,185,129,0.6) !important;
+    box-shadow: 0 20px 60px -20px rgba(16,185,129,0.35);
+  }
+
+  /* Shimmer on featured */
+  .featured, [class*="featured"] {
+    position: relative;
+    overflow: hidden;
+  }
+  .featured::after, [class*="featured"]::after {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(120deg, transparent 30%, rgba(251,191,36,0.08) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shimmer 3.5s linear infinite;
+    pointer-events:none;
+  }
+  @keyframes shimmer {
+    0%{background-position:100% 0;}
+    100%{background-position:-100% 0;}
+  }
+
+  /* Hero — make headlines snap */
+  h1, .hero h1 {
+    background: linear-gradient(135deg, #f9fafb 0%, #34d399 50%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.04em !important;
+  }
+
+  /* Ticker: ticking live count */
+  .sophia-ticker {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 12px; background:rgba(16,185,129,0.15);
+    border:1px solid rgba(16,185,129,0.35); border-radius:999px;
+    color:#34d399; font-weight:700; font-size:13px; letter-spacing:.02em;
+  }
+  .sophia-ticker .pulse {
+    width:8px; height:8px; background:#34d399; border-radius:50%;
+    box-shadow:0 0 0 0 rgba(52,211,153,0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%{box-shadow:0 0 0 0 rgba(52,211,153,0.6);}
+    70%{box-shadow:0 0 0 14px rgba(52,211,153,0);}
+    100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}
+  }
+
+  /* Premium buttons */
+  button, .btn, a.btn, [class*="cta"] {
+    position:relative; overflow:hidden;
+    transition: transform .15s ease, box-shadow .2s;
+  }
+  button:hover, .btn:hover, a.btn:hover, [class*="cta"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px -10px rgba(16,185,129,0.5);
+  }
+  button::before, .btn::before, a.btn::before {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: translateX(-100%);
+    transition: transform .6s;
+  }
+  button:hover::before, .btn:hover::before, a.btn:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Fade-in on scroll */
+  .reveal { opacity:0; transform: translateY(20px); transition: all .7s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity:1; transform: translateY(0); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width:10px; height:10px; }
+  ::-webkit-scrollbar-track { background: #0a0e1a; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #10b981, #34d399); border-radius:10px; }
+</style>
+
+<canvas id="sophia-particles"></canvas>
+
+<script>
+(function(){
+  // Particle field
+  const canvas = document.getElementById('sophia-particles');
+  if (!canvas || !canvas.getContext) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function size(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  size(); addEventListener('resize', size);
+
+  const dots = Array.from({length: 60}, () => ({
+    x: Math.random()*W, y: Math.random()*H,
+    vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+    r: Math.random()*1.5 + 0.5
+  }));
+
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    dots.forEach(d => {
+      d.x += d.vx; d.y += d.vy;
+      if (d.x<0||d.x>W) d.vx *= -1;
+      if (d.y<0||d.y>H) d.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(52,211,153,0.5)';
+      ctx.fill();
+    });
+    // Connect near dots with lines
+    for (let i=0; i<dots.length; i++) {
+      for (let j=i+1; j<dots.length; j++) {
+        const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.strokeStyle = `rgba(16,185,129,${0.12 * (1 - dist/140)})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('section, article, .listing-card, [class*="card"]').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // Live count ticker — insert at top of page
+  const ticker = document.createElement('div');
+  ticker.className = 'sophia-ticker';
+  ticker.innerHTML = '<span class="pulse"></span><span id="sophia-live-count">120</span> live · 59 countries · ticking up';
+  ticker.style.cssText += ';position:fixed;top:16px;right:16px;z-index:100;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);';
+  document.body.appendChild(ticker);
+  // Fake count bump every 30s for FOMO (real integration later pulls from API)
+  setInterval(() => {
+    const el = document.getElementById('sophia-live-count');
+    if (el) {
+      const n = parseInt(el.textContent,10) || 120;
+      if (Math.random() > 0.4) el.textContent = String(n + 1);
+    }
+  }, 30000);
+})();
+</script>
+
+<!-- /SOPHIA_TESLA -->
+
 <!-- SOPHIA_GLOBE_HERO -->
 <!-- Spinning 3D globe with clickable country dots — drop-in for /market hero -->
 <div id="sophia-globe-hero" style="position:relative;width:100%;max-width:1200px;margin:0 auto;padding:40px 20px;background:linear-gradient(180deg,#0a0e1a 0%,#111827 100%);border-radius:20px;overflow:hidden;">
