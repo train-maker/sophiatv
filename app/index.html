@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia Connect">
+<title>Sophia Connect — 120 verified businesses across 59 countries</title>
+<link rel="manifest" href="/app/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/app/icon-192.png">
+<meta property="og:title" content="Sophia Connect — Global Business Directory">
+<meta property="og:description" content="Discover verified businesses across 59 countries. Message sellers directly. Save favorites. Mobile-first.">
+<meta property="og:image" content="https://sophiatv.vercel.app/og-image.png">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --surface-2: #1f2937;
+    --border: #374151;
+    --text: #f9fafb;
+    --text-dim: #9ca3af;
+    --accent: #10b981;
+    --accent-2: #34d399;
+    --danger: #ef4444;
+    --gold: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif; overscroll-behavior: none; }
+  body { padding-bottom: 80px; }
+
+  /* Top bar */
+  .topbar { position: sticky; top: 0; z-index: 50; background: rgba(10,14,26,.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: env(safe-area-inset-top,0) 16px 0; }
+  .topbar-inner { display: flex; align-items: center; gap: 12px; height: 56px; }
+  .logo { font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  .search { flex: 1; position: relative; }
+  .search input { width: 100%; height: 40px; padding: 0 14px 0 38px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 15px; outline: none; }
+  .search input:focus { border-color: var(--accent); }
+  .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--text-dim); }
+
+  /* Filter chips */
+  .chips { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: 0 0 auto; padding: 8px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text); font-size: 13px; font-weight: 500; white-space: nowrap; cursor: pointer; }
+  .chip.active { background: var(--accent); border-color: var(--accent); color: #042f1f; font-weight: 700; }
+
+  /* Hero */
+  .hero { padding: 20px 16px 8px; }
+  .hero h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
+  .hero p { color: var(--text-dim); margin-top: 6px; font-size: 14px; }
+
+  /* Listings */
+  .grid { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 12px 16px; }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 8px; transition: transform .1s ease; cursor: pointer; }
+  .card:active { transform: scale(.98); }
+  .card.featured { border: 1px solid var(--gold); background: linear-gradient(180deg, rgba(251,191,36,.06), var(--surface)); }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .card-title { font-weight: 700; font-size: 16px; letter-spacing: -0.02em; }
+  .card-flag { font-size: 22px; line-height: 1; }
+  .card-meta { display: flex; gap: 6px; align-items: center; color: var(--text-dim); font-size: 12px; }
+  .card-desc { color: var(--text-dim); font-size: 13px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 11px; padding: 3px 8px; background: var(--surface-2); border-radius: 6px; color: var(--text-dim); }
+  .badge-featured { position: absolute; top: 10px; right: 10px; font-size: 10px; font-weight: 700; color: #3f2604; background: var(--gold); padding: 3px 7px; border-radius: 999px; }
+  .card { position: relative; }
+  .fav { position: absolute; top: 10px; right: 10px; background: var(--surface-2); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 999px; display: grid; place-items: center; cursor: pointer; color: var(--text-dim); }
+  .fav.on { color: var(--danger); }
+  .fav svg { width: 16px; height: 16px; }
+
+  /* Bottom nav */
+  .bottom { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(10,14,26,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); height: calc(60px + env(safe-area-inset-bottom,0)); padding-bottom: env(safe-area-inset-bottom,0); z-index: 40; }
+  .bottom button { background: none; border: 0; color: var(--text-dim); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; cursor: pointer; }
+  .bottom button.active { color: var(--accent); }
+  .bottom svg { width: 22px; height: 22px; }
+
+  /* Modal */
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.7); display: none; align-items: flex-end; z-index: 100; }
+  .modal.open { display: flex; }
+  .sheet { width: 100%; background: var(--surface); border-radius: 20px 20px 0 0; max-height: 92vh; overflow-y: auto; padding: 20px 18px calc(20px + env(safe-area-inset-bottom,0)); animation: slide .25s ease; }
+  @keyframes slide { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .sheet h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .sheet .meta { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+  .sheet .desc { margin: 14px 0; line-height: 1.55; }
+  .sheet .row { display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--border); font-size: 14px; }
+  .sheet .row span:first-child { color: var(--text-dim); }
+  .btn { width: 100%; height: 48px; background: var(--accent); color: #042f1f; border: 0; border-radius: 12px; font-weight: 700; font-size: 15px; margin-top: 14px; cursor: pointer; }
+  .btn.secondary { background: var(--surface-2); color: var(--text); }
+  .close { position: absolute; right: 18px; top: 18px; width: 32px; height: 32px; border-radius: 999px; background: var(--surface-2); border: 0; color: var(--text); font-size: 18px; cursor: pointer; display: grid; place-items: center; }
+
+  /* Empty state */
+  .empty { text-align: center; padding: 60px 20px; color: var(--text-dim); }
+  .empty h3 { color: var(--text); font-size: 18px; margin-bottom: 8px; }
+
+  /* Install prompt */
+  .install { position: fixed; bottom: 80px; left: 16px; right: 16px; background: var(--accent); color: #042f1f; padding: 12px 14px; border-radius: 12px; display: none; align-items: center; gap: 10px; z-index: 60; box-shadow: 0 10px 30px rgba(0,0,0,.4); font-weight: 600; font-size: 14px; }
+  .install.show { display: flex; }
+  .install button { margin-left: auto; background: rgba(0,0,0,.2); color: #042f1f; border: 0; padding: 6px 12px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">Sophia<span>Connect</span></div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="q" placeholder="Search businesses, countries…" autocomplete="off">
+    </div>
+  </div>
+  <div class="chips" id="chips"></div>
+</header>
+
+<section class="hero">
+  <h1>120 verified businesses</h1>
+  <p>Across 59 countries. Message sellers. Save favorites. Deal direct.</p>
+</section>
+
+<main class="grid" id="grid"></main>
+
+<div class="install" id="install">
+  <span>📲 Add Sophia Connect to your home screen</span>
+  <button onclick="installApp()">Install</button>
+</div>
+
+<nav class="bottom">
+  <button class="active" onclick="setView('all')" id="nav-all">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+    Browse
+  </button>
+  <button onclick="setView('featured')" id="nav-featured">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    Featured
+  </button>
+  <button onclick="setView('favorites')" id="nav-fav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Saved
+  </button>
+  <button onclick="location.href='/pricing.html'">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+    List Yours
+  </button>
+</nav>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+const API = '/sample-listings.json';
+let ALL = [], VIEW = 'all', CATEGORY = 'All', FAVORITES = JSON.parse(localStorage.getItem('fav') || '[]');
+
+async function load() {
+  try {
+    const r = await fetch(API);
+    ALL = await r.json();
+  } catch (e) {
+    document.getElementById('grid').innerHTML = '<div class="empty"><h3>Cannot load listings</h3><p>Check your connection.</p></div>';
+    return;
+  }
+  renderChips();
+  render();
+}
+
+function renderChips() {
+  const cats = ['All', ...new Set(ALL.map(l => l.category))];
+  document.getElementById('chips').innerHTML = cats.map(c =>
+    `<button class="chip ${c===CATEGORY?'active':''}" onclick="setCategory('${c.replace(/'/g,"\\'")}')">${c}</button>`
+  ).join('');
+}
+
+function setCategory(c) { CATEGORY = c; renderChips(); render(); }
+function setView(v) {
+  VIEW = v;
+  ['all','featured','fav'].forEach(id => document.getElementById('nav-'+id).classList.toggle('active', (id==='fav'?'favorites':id)===v));
+  render();
+}
+
+function filtered() {
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  let list = ALL;
+  if (VIEW === 'featured') list = list.filter(l => l.featured);
+  if (VIEW === 'favorites') list = list.filter(l => FAVORITES.includes(l.id));
+  if (CATEGORY !== 'All') list = list.filter(l => l.category === CATEGORY);
+  if (q) list = list.filter(l =>
+    l.name.toLowerCase().includes(q) ||
+    l.country.toLowerCase().includes(q) ||
+    l.description.toLowerCase().includes(q) ||
+    (l.tags||[]).some(t => t.toLowerCase().includes(q))
+  );
+  return list;
+}
+
+function render() {
+  const list = filtered();
+  const g = document.getElementById('grid');
+  if (!list.length) {
+    g.innerHTML = `<div class="empty"><h3>${VIEW==='favorites'?'No favorites yet':'No matches'}</h3><p>${VIEW==='favorites'?'Tap the heart on any card to save it.':'Try a different search or category.'}</p></div>`;
+    return;
+  }
+  g.innerHTML = list.map(l => `
+    <article class="card ${l.featured?'featured':''}" onclick="openDetail(${l.id})">
+      ${l.featured?'<span class="badge-featured">FEATURED</span>':''}
+      <button class="fav ${FAVORITES.includes(l.id)?'on':''}" onclick="event.stopPropagation();toggleFav(${l.id})" aria-label="Save">
+        <svg viewBox="0 0 24 24" fill="${FAVORITES.includes(l.id)?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <div class="card-head">
+        <div>
+          <div class="card-title">${l.name}</div>
+          <div class="card-meta">${l.flag||''} ${l.city?l.city+', ':''}${l.country} · ${l.category}</div>
+        </div>
+      </div>
+      <div class="card-desc">${l.description}</div>
+      <div class="card-tags">${(l.tags||[]).slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+    </article>
+  `).join('');
+}
+
+function toggleFav(id) {
+  const i = FAVORITES.indexOf(id);
+  if (i>=0) FAVORITES.splice(i,1); else FAVORITES.push(id);
+  localStorage.setItem('fav', JSON.stringify(FAVORITES));
+  render();
+}
+
+function openDetail(id) {
+  const l = ALL.find(x => x.id === id);
+  if (!l) return;
+  document.getElementById('sheet').innerHTML = `
+    <button class="close" onclick="closeModal()">&times;</button>
+    <h2>${l.name}</h2>
+    <div class="meta">${l.flag||''} ${l.city?l.city+', ':''}${l.country} · ${l.category}</div>
+    <p class="desc">${l.description}</p>
+    ${l.phone?`<div class="row"><span>Phone</span><span>${l.phone}</span></div>`:''}
+    ${l.contact?`<div class="row"><span>Email</span><span>${l.contact}</span></div>`:''}
+    ${l.website?`<div class="row"><span>Website</span><span><a href="${l.website}" target="_blank" rel="noopener" style="color:var(--accent-2)">Visit →</a></span></div>`:''}
+    ${l.tags?.length?`<div class="row"><span>Tags</span><span>${l.tags.join(', ')}</span></div>`:''}
+    ${l.contact?`<a class="btn" href="mailto:${l.contact}?subject=Inquiry via Sophia Connect">Message Seller</a>`:''}
+    ${l.phone?`<a class="btn secondary" href="tel:${l.phone}">Call ${l.phone}</a>`:''}
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+// PWA install prompt
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => document.getElementById('install').classList.add('show'), 3000);
+});
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { deferredPrompt = null; document.getElementById('install').classList.remove('show'); });
+  }
+}
+
+// Search debounce
+let T; document.getElementById('q').addEventListener('input', () => { clearTimeout(T); T = setTimeout(render, 120); });
+
+// Register service worker
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/app/sw.js').catch(()=>{});
+
+load();
+</script>
+
+</body>
+</html>
