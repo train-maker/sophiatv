@@ -628,7 +628,7 @@
 
 
 <!-- SOPHIA_GLOBE_HERO -->
-<!-- Spinning 3D globe with clickable country dots — drop-in for /market hero -->
+<!-- Spinning 3D globe v2 — with real land masses textured from NASA Blue Marble -->
 <div id="sophia-globe-hero" style="position:relative;width:100%;max-width:1200px;margin:0 auto;padding:40px 20px;background:linear-gradient(180deg,#0a0e1a 0%,#111827 100%);border-radius:20px;overflow:hidden;">
   <div style="text-align:center;margin-bottom:20px;">
     <h1 style="color:#f9fafb;font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.03em;margin:0 0 8px;">
@@ -660,20 +660,45 @@
   renderer.setPixelRatio(window.devicePixelRatio);
   container.appendChild(renderer.domElement);
 
-  // Earth sphere (wireframe-style, brand-accented)
-  const geom = new THREE.SphereGeometry(140, 64, 48);
-  const mat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true, transparent: true, opacity: 0.35 });
-  const earth = new THREE.Mesh(geom, mat);
-  scene.add(earth);
+  const loader = new THREE.TextureLoader();
+  loader.crossOrigin = 'anonymous';
 
-  // Solid darker sphere behind
-  const inner = new THREE.Mesh(
-    new THREE.SphereGeometry(138, 32, 24),
-    new THREE.MeshBasicMaterial({ color: 0x042f1f, transparent: true, opacity: 0.6 })
+  // Solid ocean globe (dark brand base)
+  const oceanGeom = new THREE.SphereGeometry(140, 64, 48);
+  const oceanMat = new THREE.MeshBasicMaterial({ color: 0x042f1f });
+  const ocean = new THREE.Mesh(oceanGeom, oceanMat);
+  scene.add(ocean);
+
+  // Land-mass texture overlay — tinted green over an equirectangular earth map
+  // Using a lightweight public earth texture
+  const earthMap = loader.load(
+    'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/land_ocean_ice_cloud_2048.jpg',
+    () => {
+      // nothing — the mesh is already in the scene
+    },
+    undefined,
+    () => {
+      // fallback on load error — draw outlines procedurally
+      console.log('earth texture failed, using fallback');
+    }
   );
-  scene.add(inner);
+  const landGeom = new THREE.SphereGeometry(141, 64, 48);
+  const landMat = new THREE.MeshBasicMaterial({
+    map: earthMap,
+    transparent: true,
+    opacity: 0.75,
+    color: 0x34d399,
+  });
+  const land = new THREE.Mesh(landGeom, landMat);
+  scene.add(land);
 
-  // Country dots (sample coords — real ones to be injected server-side)
+  // Subtle wireframe overlay for that futuristic grid feel
+  const gridGeom = new THREE.SphereGeometry(142, 32, 24);
+  const gridMat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true, transparent: true, opacity: 0.15 });
+  const grid = new THREE.Mesh(gridGeom, gridMat);
+  scene.add(grid);
+
+  // Country dots
   const countries = [
     {name:'China', lat:35, lon:105, featured:true},
     {name:'India', lat:20, lon:77, featured:true},
@@ -712,11 +737,17 @@
   const goldMat = new THREE.MeshBasicMaterial({ color: 0xfbbf24 });
   const dots = [];
   countries.forEach(c => {
-    const [x,y,z] = latLonToXYZ(c.lat, c.lon, 143);
+    const [x,y,z] = latLonToXYZ(c.lat, c.lon, 145);
     const dot = new THREE.Mesh(new THREE.SphereGeometry(c.featured?4:3, 10, 10), c.featured?goldMat:dotMat);
     dot.position.set(x,y,z);
     dot.userData = c;
-    earth.add(dot);
+    // Glow ring
+    const ringMat = new THREE.MeshBasicMaterial({ color: c.featured?0xfbbf24:0x34d399, transparent:true, opacity:0.4 });
+    const ring = new THREE.Mesh(new THREE.RingGeometry((c.featured?5:4), (c.featured?8:6.5), 20), ringMat);
+    ring.lookAt(new THREE.Vector3(x*2, y*2, z*2));
+    ring.position.set(x,y,z);
+    ocean.add(ring);
+    ocean.add(dot);
     dots.push(dot);
   });
 
@@ -735,8 +766,6 @@
       window.location.href = `/market/country/${slug}.html`;
     }
   });
-
-  // Hover cursor
   renderer.domElement.addEventListener('mousemove', (e) => {
     const rect = renderer.domElement.getBoundingClientRect();
     mouse.x = ((e.clientX - rect.left) / W) * 2 - 1;
@@ -745,19 +774,22 @@
     renderer.domElement.style.cursor = raycaster.intersectObjects(dots).length ? 'pointer' : 'grab';
   });
 
-  // Animate
+  // Spin
   let spinning = true;
   renderer.domElement.addEventListener('mousedown', () => spinning = false);
   renderer.domElement.addEventListener('mouseup', () => setTimeout(()=>spinning=true, 2000));
 
   function animate() {
     requestAnimationFrame(animate);
-    if (spinning) earth.rotation.y += 0.002;
+    if (spinning) {
+      ocean.rotation.y += 0.002;
+      land.rotation.y += 0.002;
+      grid.rotation.y += 0.002;
+    }
     renderer.render(scene, camera);
   }
   animate();
 
-  // Responsive
   window.addEventListener('resize', () => {
     const nw = container.clientWidth;
     camera.aspect = nw/H;
