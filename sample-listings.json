@@ -12,8 +12,15 @@
     "contact": "sales@dragongatewholesale.com",
     "phone": "+86-755-8800-1234",
     "website": "https://dragongatewholesale.com",
-    "social": { "linkedin": "#", "wechat": "dragongate_biz" },
-    "tags": ["Electronics", "OEM", "Export"],
+    "social": {
+      "linkedin": "#",
+      "wechat": "dragongate_biz"
+    },
+    "tags": [
+      "Electronics",
+      "OEM",
+      "Export"
+    ],
     "listed": "2026-03-01"
   },
   {
@@ -29,8 +36,15 @@
     "contact": "info@lagosprimeproperties.ng",
     "phone": "+234-801-555-7890",
     "website": "https://lagosprimeproperties.ng",
-    "social": { "instagram": "#", "facebook": "#" },
-    "tags": ["Residential", "Commercial", "Diaspora"],
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
     "listed": "2026-02-14"
   },
   {
@@ -46,8 +60,14 @@
     "contact": "hello@spiceroutefoods.in",
     "phone": "+91-22-4455-6677",
     "website": "https://spiceroutefoods.in",
-    "social": { "instagram": "#" },
-    "tags": ["Catering", "Restaurant", "Halal"],
+    "social": {
+      "instagram": "#"
+    },
+    "tags": [
+      "Catering",
+      "Restaurant",
+      "Halal"
+    ],
     "listed": "2026-01-20"
   },
   {
@@ -63,8 +83,14 @@
     "contact": "trade@gulfnexusdubai.com",
     "phone": "+971-4-321-9900",
     "website": "https://gulfnexusdubai.com",
-    "social": { "linkedin": "#" },
-    "tags": ["Free Zone", "Commodities", "Luxury"],
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Free Zone",
+      "Commodities",
+      "Luxury"
+    ],
     "listed": "2026-03-10"
   },
   {
@@ -80,8 +106,15 @@
     "contact": "enroll@brightpathedtech.com",
     "phone": "+1-512-800-4321",
     "website": "https://brightpathedtech.com",
-    "social": { "linkedin": "#", "youtube": "#" },
-    "tags": ["Online Learning", "Certificates", "Corporate"],
+    "social": {
+      "linkedin": "#",
+      "youtube": "#"
+    },
+    "tags": [
+      "Online Learning",
+      "Certificates",
+      "Corporate"
+    ],
     "listed": "2025-12-01"
   },
   {
@@ -97,8 +130,15 @@
     "contact": "contact@solaredgekenya.co.ke",
     "phone": "+254-700-123-456",
     "website": "https://solaredgekenya.co.ke",
-    "social": { "twitter": "#", "facebook": "#" },
-    "tags": ["Solar", "Off-grid", "East Africa"],
+    "social": {
+      "twitter": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Solar",
+      "Off-grid",
+      "East Africa"
+    ],
     "listed": "2026-01-05"
   },
   {
@@ -114,8 +154,14 @@
     "contact": "vendas@spautoparts.com.br",
     "phone": "+55-11-3300-8800",
     "website": "https://spautoparts.com.br",
-    "social": { "instagram": "#" },
-    "tags": ["OEM Parts", "Wholesale", "Latin America"],
+    "social": {
+      "instagram": "#"
+    },
+    "tags": [
+      "OEM Parts",
+      "Wholesale",
+      "Latin America"
+    ],
     "listed": "2026-02-28"
   },
   {
@@ -131,8 +177,14 @@
     "contact": "info@berlinfintechsolutions.de",
     "phone": "+49-30-5500-7700",
     "website": "https://berlinfintechsolutions.de",
-    "social": { "linkedin": "#" },
-    "tags": ["FinTech", "Compliance", "SEPA"],
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "FinTech",
+      "Compliance",
+      "SEPA"
+    ],
     "listed": "2026-01-15"
   },
   {
@@ -148,8 +200,15 @@
     "contact": "orders@manilafashionhub.ph",
     "phone": "+63-2-8888-5500",
     "website": "https://manilafashionhub.ph",
-    "social": { "instagram": "#", "tiktok": "#" },
-    "tags": ["Custom Garments", "Export", "Designer"],
+    "social": {
+      "instagram": "#",
+      "tiktok": "#"
+    },
+    "tags": [
+      "Custom Garments",
+      "Export",
+      "Designer"
+    ],
     "listed": "2026-03-05"
   },
   {
@@ -165,8 +224,15 @@
     "contact": "hello@accratechbuilders.com",
     "phone": "+233-30-200-7788",
     "website": "https://accratechbuilders.com",
-    "social": { "linkedin": "#", "github": "#" },
-    "tags": ["Mobile Apps", "Fintech", "Remote"],
+    "social": {
+      "linkedin": "#",
+      "github": "#"
+    },
+    "tags": [
+      "Mobile Apps",
+      "Fintech",
+      "Remote"
+    ],
     "listed": "2026-02-01"
   },
   {
@@ -182,8 +248,15 @@
     "contact": "export@seoulbeautywholesale.kr",
     "phone": "+82-2-1234-5678",
     "website": "https://seoulbeautywholesale.kr",
-    "social": { "instagram": "#", "kakao": "seoulbeauty" },
-    "tags": ["K-Beauty", "Private Label", "Wholesale"],
+    "social": {
+      "instagram": "#",
+      "kakao": "seoulbeauty"
+    },
+    "tags": [
+      "K-Beauty",
+      "Private Label",
+      "Wholesale"
+    ],
     "listed": "2026-01-28"
   },
   {
@@ -199,8 +272,14 @@
     "contact": "projects@riyadhconstructiongroup.sa",
     "phone": "+966-11-400-8800",
     "website": "https://riyadhconstructiongroup.sa",
-    "social": { "linkedin": "#" },
-    "tags": ["GCC", "Vision 2030", "Commercial"],
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "GCC",
+      "Vision 2030",
+      "Commercial"
+    ],
     "listed": "2026-02-10"
   },
   {
@@ -216,8 +295,15 @@
     "contact": "book@sydneytravelescapes.com.au",
     "phone": "+61-2-9900-4455",
     "website": "https://sydneytravelescapes.com.au",
-    "social": { "instagram": "#", "facebook": "#" },
-    "tags": ["Luxury", "Corporate", "Pacific"],
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Corporate",
+      "Pacific"
+    ],
     "listed": "2026-03-12"
   },
   {
@@ -233,8 +319,14 @@
     "contact": "export@hcmagexports.vn",
     "phone": "+84-28-3800-6677",
     "website": "https://hcmagexports.vn",
-    "social": { "linkedin": "#" },
-    "tags": ["Coffee", "GlobalGAP", "Direct Farm"],
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Coffee",
+      "GlobalGAP",
+      "Direct Farm"
+    ],
     "listed": "2025-11-20"
   },
   {
@@ -250,8 +342,14 @@
     "contact": "consult@torontobusinesslawyers.ca",
     "phone": "+1-416-555-9900",
     "website": "https://torontobusinesslawyers.ca",
-    "social": { "linkedin": "#" },
-    "tags": ["Immigration", "M&A", "Corporate"],
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Immigration",
+      "M&A",
+      "Corporate"
+    ],
     "listed": "2026-02-22"
   },
   {
@@ -267,8 +365,15 @@
     "contact": "biz@klretailco.com.my",
     "phone": "+60-3-2200-8833",
     "website": "https://klretailco.com.my",
-    "social": { "facebook": "#", "instagram": "#" },
-    "tags": ["Franchise", "Multi-brand", "Lifestyle"],
+    "social": {
+      "facebook": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Franchise",
+      "Multi-brand",
+      "Lifestyle"
+    ],
     "listed": "2026-01-10"
   },
   {
@@ -284,8 +389,15 @@
     "contact": "studio@parisluxuryconnect.fr",
     "phone": "+33-1-4400-9900",
     "website": "https://parisluxuryconnect.fr",
-    "social": { "instagram": "#", "linkedin": "#" },
-    "tags": ["Influencer", "Luxury Brands", "Talent Agency"],
+    "social": {
+      "instagram": "#",
+      "linkedin": "#"
+    },
+    "tags": [
+      "Influencer",
+      "Luxury Brands",
+      "Talent Agency"
+    ],
     "listed": "2026-03-08"
   },
   {
@@ -301,8 +413,14 @@
     "contact": "connect@jakartamatchmakers.id",
     "phone": "+62-21-5500-3344",
     "website": "https://jakartamatchmakers.id",
-    "social": { "instagram": "#" },
-    "tags": ["Matchmaking", "Diaspora", "Coaching"],
+    "social": {
+      "instagram": "#"
+    },
+    "tags": [
+      "Matchmaking",
+      "Diaspora",
+      "Coaching"
+    ],
     "listed": "2026-02-05"
   },
   {
@@ -318,8 +436,15 @@
     "contact": "estate@capetownvineyard.co.za",
     "phone": "+27-21-800-6655",
     "website": "https://capetownvineyard.co.za",
-    "social": { "instagram": "#", "facebook": "#" },
-    "tags": ["Wine", "Events", "Farm Restaurant"],
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Wine",
+      "Events",
+      "Farm Restaurant"
+    ],
     "listed": "2026-01-30"
   },
   {
@@ -335,8 +460,2386 @@
     "contact": "pitch@londonaiventures.co.uk",
     "phone": "+44-20-7946-0100",
     "website": "https://londonaiventures.co.uk",
-    "social": { "linkedin": "#", "twitter": "#" },
-    "tags": ["VC", "AI", "Climate Tech"],
+    "social": {
+      "linkedin": "#",
+      "twitter": "#"
+    },
+    "tags": [
+      "VC",
+      "AI",
+      "Climate Tech"
+    ],
     "listed": "2026-03-15"
+  },
+  {
+    "id": 21,
+    "name": "Harare Industrial Co.",
+    "country": "Zimbabwe",
+    "flag": "🇿🇼",
+    "category": "Wholesale & Manufacturing",
+    "description": "Contract manufacturer serving global brands. ISO 9001 certified. MOQ from 500 units. OEM/ODM capable. Ships to 40+ countries.",
+    "city": "Harare",
+    "featured": false,
+    "logo": null,
+    "contact": "info@harareindustrialco.co.zw",
+    "phone": "+263-242-743-9928",
+    "website": "https://harareindustrialco.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "OEM",
+      "ISO 9001",
+      "Wholesale"
+    ],
+    "listed": "2026-03-29"
+  },
+  {
+    "id": 22,
+    "name": "Durban Realty Partners",
+    "country": "South Africa",
+    "flag": "🇿🇦",
+    "category": "Real Estate",
+    "description": "Full-service brokerage: residential, commercial, and land. Licensed agents, multilingual team. Trusted by local and diaspora investors.",
+    "city": "Durban",
+    "featured": false,
+    "logo": null,
+    "contact": "info@durbanrealtypartners.co.za",
+    "phone": "+27-11-724-7924",
+    "website": "https://durbanrealtypartners.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
+    "listed": "2026-02-19"
+  },
+  {
+    "id": 23,
+    "name": "Abuja Organic Market",
+    "country": "Nigeria",
+    "flag": "🇳🇬",
+    "category": "Food & Restaurants",
+    "description": "Certified organic grocer and meal-prep subscription service. Partnered with local farms. Weekly produce boxes.",
+    "city": "Abuja",
+    "featured": false,
+    "logo": null,
+    "contact": "info@abujaorganicmarket.ng",
+    "phone": "+234-1-109-6881",
+    "website": "https://abujaorganicmarket.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Organic",
+      "Farm-to-table",
+      "Subscription"
+    ],
+    "listed": "2026-04-18"
+  },
+  {
+    "id": 24,
+    "name": "Antananarivo Global Trade",
+    "country": "Madagascar",
+    "flag": "🇲🇬",
+    "category": "Import/Export",
+    "description": "End-to-end import/export services: customs brokerage, freight forwarding, trade finance. Licensed and bonded.",
+    "city": "Antananarivo",
+    "featured": true,
+    "logo": null,
+    "contact": "info@antananarivoglobaltrade.mg",
+    "phone": "+261-20-954-7201",
+    "website": "https://antananarivoglobaltrade.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Customs",
+      "Freight",
+      "Bonded"
+    ],
+    "listed": "2026-03-09"
+  },
+  {
+    "id": 25,
+    "name": "Cairo Online Academy",
+    "country": "Egypt",
+    "flag": "🇪🇬",
+    "category": "Education & Training",
+    "description": "Online professional certificates in business, AI, and trades. Industry-recognized credentials. Pay-what-you-can tier.",
+    "city": "Cairo",
+    "featured": true,
+    "logo": null,
+    "contact": "info@cairoonlineacademy.com.eg",
+    "phone": "+20-2-0731-2139",
+    "website": "https://cairoonlineacademy.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Online",
+      "Certificates",
+      "Affordable"
+    ],
+    "listed": "2026-03-01"
+  },
+  {
+    "id": 26,
+    "name": "Dar es Salaam Solar Systems",
+    "country": "Tanzania",
+    "flag": "🇹🇿",
+    "category": "Energy & Resources",
+    "description": "Residential and commercial solar installation. Financing available. Off-grid and grid-tied solutions.",
+    "city": "Dar es Salaam",
+    "featured": false,
+    "logo": null,
+    "contact": "info@daressalaamsolarsystems.co.tz",
+    "phone": "+255-22-399-5554",
+    "website": "https://daressalaamsolarsystems.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Solar",
+      "Residential",
+      "Financing"
+    ],
+    "listed": "2026-03-18"
+  },
+  {
+    "id": 27,
+    "name": "Dar es Salaam Auto Group",
+    "country": "Tanzania",
+    "flag": "🇹🇿",
+    "category": "Automotive",
+    "description": "New and certified pre-owned vehicles. Service center with factory-trained technicians. Fleet sales division.",
+    "city": "Dar es Salaam",
+    "featured": false,
+    "logo": null,
+    "contact": "info@daressalaamautogroup.co.tz",
+    "phone": "+255-22-633-3803",
+    "website": "https://daressalaamautogroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "New",
+      "CPO",
+      "Fleet"
+    ],
+    "listed": "2026-03-03"
+  },
+  {
+    "id": 28,
+    "name": "Mombasa Capital Advisors",
+    "country": "Kenya",
+    "flag": "🇰🇪",
+    "category": "Finance & Investment",
+    "description": "Wealth management and corporate advisory for founders, operators, and family offices. Independent and fiduciary.",
+    "city": "Mombasa",
+    "featured": false,
+    "logo": null,
+    "contact": "info@mombasacapitaladvisors.co.ke",
+    "phone": "+254-20-711-6313",
+    "website": "https://mombasacapitaladvisors.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Wealth",
+      "Fiduciary",
+      "Advisory"
+    ],
+    "listed": "2026-02-07"
+  },
+  {
+    "id": 29,
+    "name": "Antananarivo Boutique Collective",
+    "country": "Madagascar",
+    "flag": "🇲🇬",
+    "category": "Fashion & Apparel",
+    "description": "Multi-brand boutique featuring local designers. E-commerce plus flagship store. Wholesale accounts open.",
+    "city": "Antananarivo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@antananarivoboutiquecoll.mg",
+    "phone": "+261-20-077-4456",
+    "website": "https://antananarivoboutiquecoll.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Designers",
+      "Multi-brand",
+      "Wholesale"
+    ],
+    "listed": "2026-04-13"
+  },
+  {
+    "id": 30,
+    "name": "Durban AI Labs",
+    "country": "South Africa",
+    "flag": "🇿🇦",
+    "category": "Tech & Software",
+    "description": "Applied AI consulting for enterprises. LLM integration, custom model training, production deployment. US-based engineering leads.",
+    "city": "Durban",
+    "featured": true,
+    "logo": null,
+    "contact": "info@durbanailabs.co.za",
+    "phone": "+27-11-915-8517",
+    "website": "https://durbanailabs.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "AI",
+      "LLM",
+      "Enterprise"
+    ],
+    "listed": "2026-02-17"
+  },
+  {
+    "id": 31,
+    "name": "Luanda Beauty Distributors",
+    "country": "Angola",
+    "flag": "🇦🇴",
+    "category": "Beauty & Health",
+    "description": "B2B distributor of professional beauty brands. Stocking 400+ SKUs. Salon accounts welcome.",
+    "city": "Luanda",
+    "featured": false,
+    "logo": null,
+    "contact": "info@luandabeautydistributors.ao",
+    "phone": "+244-2-0929-7543",
+    "website": "https://luandabeautydistributors.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "B2B",
+      "Salon",
+      "Professional"
+    ],
+    "listed": "2026-02-17"
+  },
+  {
+    "id": 32,
+    "name": "Antananarivo Build Group",
+    "country": "Madagascar",
+    "flag": "🇲🇬",
+    "category": "Construction",
+    "description": "General contractor for residential, commercial, and public-sector projects. Bonded and insured to $20M per project.",
+    "city": "Antananarivo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@antananarivobuildgroup.mg",
+    "phone": "+261-20-166-3621",
+    "website": "https://antananarivobuildgroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "General Contractor",
+      "Bonded",
+      "Commercial"
+    ],
+    "listed": "2026-03-26"
+  },
+  {
+    "id": 33,
+    "name": "Abidjan Concierge Travel",
+    "country": "Ivory Coast",
+    "flag": "🇨🇮",
+    "category": "Travel & Tourism",
+    "description": "Luxury travel concierge for honeymoons, milestone trips, and private group travel. Virtuoso affiliated.",
+    "city": "Abidjan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@abidjanconciergetravel.ci",
+    "phone": "+225-551-005119",
+    "website": "https://abidjanconciergetravel.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Virtuoso",
+      "Concierge"
+    ],
+    "listed": "2026-02-01"
+  },
+  {
+    "id": 34,
+    "name": "Johannesburg Fresh Produce",
+    "country": "South Africa",
+    "flag": "🇿🇦",
+    "category": "Agriculture & Farming",
+    "description": "Direct-from-farm fruit and vegetable wholesaler. Cold chain logistics. Retail and HORECA accounts.",
+    "city": "Johannesburg",
+    "featured": true,
+    "logo": null,
+    "contact": "info@johannesburgfreshproduce.co.za",
+    "phone": "+27-11-797-6573",
+    "website": "https://johannesburgfreshproduce.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Cold Chain",
+      "Wholesale",
+      "HORECA"
+    ],
+    "listed": "2026-03-27"
+  },
+  {
+    "id": 35,
+    "name": "Kigali HR Consultants",
+    "country": "Rwanda",
+    "flag": "🇷🇼",
+    "category": "Business Services",
+    "description": "End-to-end HR services for growing businesses: recruiting, payroll, compliance, culture. 15+ years experience.",
+    "city": "Kigali",
+    "featured": false,
+    "logo": null,
+    "contact": "info@kigalihrconsultants.rw",
+    "phone": "+250-7279-009201",
+    "website": "https://kigalihrconsultants.example",
+    "social": {
+      "facebook": "#"
+    },
+    "tags": [
+      "HR",
+      "Recruiting",
+      "Compliance"
+    ],
+    "listed": "2026-04-05"
+  },
+  {
+    "id": 36,
+    "name": "Algiers Marketplace",
+    "country": "Algeria",
+    "flag": "🇩🇿",
+    "category": "Retail & Shopping",
+    "description": "Omnichannel retailer: brick-and-mortar, e-commerce, and social commerce. Specializing in household and lifestyle goods.",
+    "city": "Algiers",
+    "featured": false,
+    "logo": null,
+    "contact": "info@algiersmarketplace.dz",
+    "phone": "+213-21-166-7126",
+    "website": "https://algiersmarketplace.example",
+    "social": {},
+    "tags": [
+      "Omnichannel",
+      "Lifestyle",
+      "Retail"
+    ],
+    "listed": "2026-04-10"
+  },
+  {
+    "id": 37,
+    "name": "Port Harcourt Media Agency",
+    "country": "Nigeria",
+    "flag": "🇳🇬",
+    "category": "Entertainment & Media",
+    "description": "Integrated media buying and creative agency. Digital, OOH, print, influencer. Data-driven campaign measurement.",
+    "city": "Port Harcourt",
+    "featured": true,
+    "logo": null,
+    "contact": "info@portharcourtmediaagency.ng",
+    "phone": "+234-1-510-1319",
+    "website": "https://portharcourtmediaagency.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Media Buying",
+      "Digital",
+      "Creative"
+    ],
+    "listed": "2026-03-18"
+  },
+  {
+    "id": 38,
+    "name": "Abuja Matchmakers",
+    "country": "Nigeria",
+    "flag": "🇳🇬",
+    "category": "Dating & Relationships",
+    "description": "Professional matchmaking service for busy professionals. Hand-vetted introductions. Confidential and thorough.",
+    "city": "Abuja",
+    "featured": true,
+    "logo": null,
+    "contact": "info@abujamatchmakers.ng",
+    "phone": "+234-1-256-2290",
+    "website": "https://abujamatchmakers.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Matchmaking",
+      "Professional",
+      "Confidential"
+    ],
+    "listed": "2026-04-03"
+  },
+  {
+    "id": 39,
+    "name": "Johannesburg Industrial Co.",
+    "country": "South Africa",
+    "flag": "🇿🇦",
+    "category": "Wholesale & Manufacturing",
+    "description": "Contract manufacturer serving global brands. ISO 9001 certified. MOQ from 500 units. OEM/ODM capable. Ships to 40+ countries.",
+    "city": "Johannesburg",
+    "featured": false,
+    "logo": null,
+    "contact": "info@johannesburgindustrialco.co.za",
+    "phone": "+27-11-141-8787",
+    "website": "https://johannesburgindustrialco.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "OEM",
+      "ISO 9001",
+      "Wholesale"
+    ],
+    "listed": "2026-02-21"
+  },
+  {
+    "id": 40,
+    "name": "Kumasi Realty Partners",
+    "country": "Ghana",
+    "flag": "🇬🇭",
+    "category": "Real Estate",
+    "description": "Full-service brokerage: residential, commercial, and land. Licensed agents, multilingual team. Trusted by local and diaspora investors.",
+    "city": "Kumasi",
+    "featured": false,
+    "logo": null,
+    "contact": "info@kumasirealtypartners.com.gh",
+    "phone": "+233-30-961-9835",
+    "website": "https://kumasirealtypartners.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
+    "listed": "2026-02-25"
+  },
+  {
+    "id": 41,
+    "name": "Dar es Salaam Organic Market",
+    "country": "Tanzania",
+    "flag": "🇹🇿",
+    "category": "Food & Restaurants",
+    "description": "Certified organic grocer and meal-prep subscription service. Partnered with local farms. Weekly produce boxes.",
+    "city": "Dar es Salaam",
+    "featured": false,
+    "logo": null,
+    "contact": "info@daressalaamorganicmarket.co.tz",
+    "phone": "+255-22-458-9479",
+    "website": "https://daressalaamorganicmarket.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Organic",
+      "Farm-to-table",
+      "Subscription"
+    ],
+    "listed": "2026-03-03"
+  },
+  {
+    "id": 42,
+    "name": "Douala Global Trade",
+    "country": "Cameroon",
+    "flag": "🇨🇲",
+    "category": "Import/Export",
+    "description": "End-to-end import/export services: customs brokerage, freight forwarding, trade finance. Licensed and bonded.",
+    "city": "Douala",
+    "featured": true,
+    "logo": null,
+    "contact": "info@doualaglobaltrade.cm",
+    "phone": "+237-2-0612-4608",
+    "website": "https://doualaglobaltrade.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Customs",
+      "Freight",
+      "Bonded"
+    ],
+    "listed": "2026-04-21"
+  },
+  {
+    "id": 43,
+    "name": "Lusaka Skills Institute",
+    "country": "Zambia",
+    "flag": "🇿🇲",
+    "category": "Education & Training",
+    "description": "In-person and hybrid vocational training. Graduates placed with 120+ employer partners. Government-subsidized options.",
+    "city": "Lusaka",
+    "featured": false,
+    "logo": null,
+    "contact": "info@lusakaskillsinstitute.co.zm",
+    "phone": "+260-21-082-9423",
+    "website": "https://lusakaskillsinstitute.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Vocational",
+      "Placement",
+      "Subsidized"
+    ],
+    "listed": "2026-04-26"
+  },
+  {
+    "id": 44,
+    "name": "Abuja Green Energy",
+    "country": "Nigeria",
+    "flag": "🇳🇬",
+    "category": "Energy & Resources",
+    "description": "Renewable energy advisory and project development. Wind, solar, hydro. Partner with utilities and independent producers.",
+    "city": "Abuja",
+    "featured": false,
+    "logo": null,
+    "contact": "info@abujagreenenergy.ng",
+    "phone": "+234-1-258-8749",
+    "website": "https://abujagreenenergy.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Renewables",
+      "Utilities",
+      "Development"
+    ],
+    "listed": "2026-02-24"
+  },
+  {
+    "id": 45,
+    "name": "Abidjan Parts Supply",
+    "country": "Ivory Coast",
+    "flag": "🇨🇮",
+    "category": "Automotive",
+    "description": "Aftermarket parts wholesaler. Nationwide same-day shipping. B2B accounts with extended credit terms.",
+    "city": "Abidjan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@abidjanpartssupply.ci",
+    "phone": "+225-488-001887",
+    "website": "https://abidjanpartssupply.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Aftermarket",
+      "B2B",
+      "Same-day"
+    ],
+    "listed": "2026-04-23"
+  },
+  {
+    "id": 46,
+    "name": "Osaka Capital Advisors",
+    "country": "Japan",
+    "flag": "🇯🇵",
+    "category": "Finance & Investment",
+    "description": "Wealth management and corporate advisory for founders, operators, and family offices. Independent and fiduciary.",
+    "city": "Osaka",
+    "featured": false,
+    "logo": null,
+    "contact": "info@osakacapitaladvisors.jp",
+    "phone": "+81-3-0426-8956",
+    "website": "https://osakacapitaladvisors.example",
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Wealth",
+      "Fiduciary",
+      "Advisory"
+    ],
+    "listed": "2026-03-23"
+  },
+  {
+    "id": 47,
+    "name": "Busan Boutique Collective",
+    "country": "South Korea",
+    "flag": "🇰🇷",
+    "category": "Fashion & Apparel",
+    "description": "Multi-brand boutique featuring local designers. E-commerce plus flagship store. Wholesale accounts open.",
+    "city": "Busan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@busanboutiquecollective.kr",
+    "phone": "+82-2-0281-8454",
+    "website": "https://busanboutiquecollective.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Designers",
+      "Multi-brand",
+      "Wholesale"
+    ],
+    "listed": "2026-04-12"
+  },
+  {
+    "id": 48,
+    "name": "Chennai Dev Studio",
+    "country": "India",
+    "flag": "🇮🇳",
+    "category": "Tech & Software",
+    "description": "Mobile and web development agency. React, React Native, Node.js, Python. Agile sprints, transparent pricing.",
+    "city": "Chennai",
+    "featured": true,
+    "logo": null,
+    "contact": "info@chennaidevstudio.in",
+    "phone": "+91-069-9883-9883",
+    "website": "https://chennaidevstudio.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Mobile",
+      "Web",
+      "Agile"
+    ],
+    "listed": "2026-03-12"
+  },
+  {
+    "id": 49,
+    "name": "Chennai Wellness Clinic",
+    "country": "India",
+    "flag": "🇮🇳",
+    "category": "Beauty & Health",
+    "description": "Integrative health clinic: functional medicine, aesthetics, wellness coaching. Telehealth available.",
+    "city": "Chennai",
+    "featured": true,
+    "logo": null,
+    "contact": "info@chennaiwellnessclinic.in",
+    "phone": "+91-068-9320-9320",
+    "website": "https://chennaiwellnessclinic.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Functional",
+      "Aesthetics",
+      "Telehealth"
+    ],
+    "listed": "2026-02-23"
+  },
+  {
+    "id": 50,
+    "name": "Dhaka Design & Build",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "category": "Construction",
+    "description": "Design-build firm specializing in boutique hotels, restaurants, and mid-rise residential. Award-winning team.",
+    "city": "Dhaka",
+    "featured": false,
+    "logo": null,
+    "contact": "info@dhakadesignbuild.com.bd",
+    "phone": "+880-2-0132-5033",
+    "website": "https://dhakadesignbuild.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Design-Build",
+      "Hospitality",
+      "Award-winning"
+    ],
+    "listed": "2026-02-05"
+  },
+  {
+    "id": 51,
+    "name": "Chiang Mai Concierge Travel",
+    "country": "Thailand",
+    "flag": "🇹🇭",
+    "category": "Travel & Tourism",
+    "description": "Luxury travel concierge for honeymoons, milestone trips, and private group travel. Virtuoso affiliated.",
+    "city": "Chiang Mai",
+    "featured": true,
+    "logo": null,
+    "contact": "info@chiangmaiconciergetravel.co.th",
+    "phone": "+66-2-967-5272",
+    "website": "https://chiangmaiconciergetravel.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Virtuoso",
+      "Concierge"
+    ],
+    "listed": "2026-03-12"
+  },
+  {
+    "id": 52,
+    "name": "Delhi Fresh Produce",
+    "country": "India",
+    "flag": "🇮🇳",
+    "category": "Agriculture & Farming",
+    "description": "Direct-from-farm fruit and vegetable wholesaler. Cold chain logistics. Retail and HORECA accounts.",
+    "city": "Delhi",
+    "featured": false,
+    "logo": null,
+    "contact": "info@delhifreshproduce.in",
+    "phone": "+91-478-6180-6180",
+    "website": "https://delhifreshproduce.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Cold Chain",
+      "Wholesale",
+      "HORECA"
+    ],
+    "listed": "2026-02-09"
+  },
+  {
+    "id": 53,
+    "name": "Bangkok Legal Group",
+    "country": "Thailand",
+    "flag": "🇹🇭",
+    "category": "Business Services",
+    "description": "Corporate law firm: entity formation, contracts, M&A, dispute resolution. Multilingual attorneys. Fixed-fee packages available.",
+    "city": "Bangkok",
+    "featured": true,
+    "logo": null,
+    "contact": "info@bangkoklegalgroup.co.th",
+    "phone": "+66-2-085-9808",
+    "website": "https://bangkoklegalgroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Corporate",
+      "M&A",
+      "Fixed-fee"
+    ],
+    "listed": "2026-03-05"
+  },
+  {
+    "id": 54,
+    "name": "Bangalore Marketplace",
+    "country": "India",
+    "flag": "🇮🇳",
+    "category": "Retail & Shopping",
+    "description": "Omnichannel retailer: brick-and-mortar, e-commerce, and social commerce. Specializing in household and lifestyle goods.",
+    "city": "Bangalore",
+    "featured": true,
+    "logo": null,
+    "contact": "info@bangaloremarketplace.in",
+    "phone": "+91-388-5669-5669",
+    "website": "https://bangaloremarketplace.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Omnichannel",
+      "Lifestyle",
+      "Retail"
+    ],
+    "listed": "2026-04-10"
+  },
+  {
+    "id": 55,
+    "name": "Melbourne Productions",
+    "country": "Australia",
+    "flag": "🇦🇺",
+    "category": "Entertainment & Media",
+    "description": "Full-service video production: commercials, documentaries, corporate films. Own equipment, 4K/8K capable.",
+    "city": "Melbourne",
+    "featured": false,
+    "logo": null,
+    "contact": "info@melbourneproductions.com.au",
+    "phone": "+61-693-5905-5905",
+    "website": "https://melbourneproductions.example",
+    "social": {
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Production",
+      "4K",
+      "Commercial"
+    ],
+    "listed": "2026-02-13"
+  },
+  {
+    "id": 56,
+    "name": "Chiang Mai Matchmakers",
+    "country": "Thailand",
+    "flag": "🇹🇭",
+    "category": "Dating & Relationships",
+    "description": "Professional matchmaking service for busy professionals. Hand-vetted introductions. Confidential and thorough.",
+    "city": "Chiang Mai",
+    "featured": false,
+    "logo": null,
+    "contact": "info@chiangmaimatchmakers.co.th",
+    "phone": "+66-2-770-3546",
+    "website": "https://chiangmaimatchmakers.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Matchmaking",
+      "Professional",
+      "Confidential"
+    ],
+    "listed": "2026-04-18"
+  },
+  {
+    "id": 57,
+    "name": "Busan Sourcing Group",
+    "country": "South Korea",
+    "flag": "🇰🇷",
+    "category": "Wholesale & Manufacturing",
+    "description": "Full-service sourcing and supplier vetting across South Korea and regional partners. Quality inspection on every shipment.",
+    "city": "Busan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@busansourcinggroup.kr",
+    "phone": "+82-2-0527-9004",
+    "website": "https://busansourcinggroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Sourcing",
+      "QC",
+      "B2B"
+    ],
+    "listed": "2026-02-06"
+  },
+  {
+    "id": 58,
+    "name": "Tokyo Realty Partners",
+    "country": "Japan",
+    "flag": "🇯🇵",
+    "category": "Real Estate",
+    "description": "Full-service brokerage: residential, commercial, and land. Licensed agents, multilingual team. Trusted by local and diaspora investors.",
+    "city": "Tokyo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@tokyorealtypartners.jp",
+    "phone": "+81-3-0351-3143",
+    "website": "https://tokyorealtypartners.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
+    "listed": "2026-03-05"
+  },
+  {
+    "id": 59,
+    "name": "Street Chiang Mai Kitchen",
+    "country": "Thailand",
+    "flag": "🇹🇭",
+    "category": "Food & Restaurants",
+    "description": "Street-food empire with 6 locations and growing. Franchise opportunities open for qualified operators.",
+    "city": "Chiang Mai",
+    "featured": true,
+    "logo": null,
+    "contact": "info@streetchiangmaikitchen.co.th",
+    "phone": "+66-2-019-2832",
+    "website": "https://streetchiangmaikitchen.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Franchise",
+      "Street Food",
+      "Growth"
+    ],
+    "listed": "2026-02-19"
+  },
+  {
+    "id": 60,
+    "name": "Dhaka Global Trade",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "category": "Import/Export",
+    "description": "End-to-end import/export services: customs brokerage, freight forwarding, trade finance. Licensed and bonded.",
+    "city": "Dhaka",
+    "featured": true,
+    "logo": null,
+    "contact": "info@dhakaglobaltrade.com.bd",
+    "phone": "+880-2-0450-3088",
+    "website": "https://dhakaglobaltrade.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Customs",
+      "Freight",
+      "Bonded"
+    ],
+    "listed": "2026-03-18"
+  },
+  {
+    "id": 61,
+    "name": "Osaka Skills Institute",
+    "country": "Japan",
+    "flag": "🇯🇵",
+    "category": "Education & Training",
+    "description": "In-person and hybrid vocational training. Graduates placed with 120+ employer partners. Government-subsidized options.",
+    "city": "Osaka",
+    "featured": false,
+    "logo": null,
+    "contact": "info@osakaskillsinstitute.jp",
+    "phone": "+81-3-0225-5088",
+    "website": "https://osakaskillsinstitute.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Vocational",
+      "Placement",
+      "Subsidized"
+    ],
+    "listed": "2026-03-17"
+  },
+  {
+    "id": 62,
+    "name": "Shanghai Solar Systems",
+    "country": "China",
+    "flag": "🇨🇳",
+    "category": "Energy & Resources",
+    "description": "Residential and commercial solar installation. Financing available. Off-grid and grid-tied solutions.",
+    "city": "Shanghai",
+    "featured": false,
+    "logo": null,
+    "contact": "info@shanghaisolarsystems.cn",
+    "phone": "+86-957-4878-4878",
+    "website": "https://shanghaisolarsystems.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Solar",
+      "Residential",
+      "Financing"
+    ],
+    "listed": "2026-02-22"
+  },
+  {
+    "id": 63,
+    "name": "Hong Kong Parts Supply",
+    "country": "Hong Kong",
+    "flag": "🇭🇰",
+    "category": "Automotive",
+    "description": "Aftermarket parts wholesaler. Nationwide same-day shipping. B2B accounts with extended credit terms.",
+    "city": "Hong Kong",
+    "featured": false,
+    "logo": null,
+    "contact": "info@hongkongpartssupply.hk",
+    "phone": "+852-0811-7745",
+    "website": "https://hongkongpartssupply.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Aftermarket",
+      "B2B",
+      "Same-day"
+    ],
+    "listed": "2026-03-03"
+  },
+  {
+    "id": 64,
+    "name": "Dhaka Capital Advisors",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "category": "Finance & Investment",
+    "description": "Wealth management and corporate advisory for founders, operators, and family offices. Independent and fiduciary.",
+    "city": "Dhaka",
+    "featured": false,
+    "logo": null,
+    "contact": "info@dhakacapitaladvisors.com.bd",
+    "phone": "+880-2-0889-8711",
+    "website": "https://dhakacapitaladvisors.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Wealth",
+      "Fiduciary",
+      "Advisory"
+    ],
+    "listed": "2026-03-30"
+  },
+  {
+    "id": 65,
+    "name": "Guangzhou Apparel House",
+    "country": "China",
+    "flag": "🇨🇳",
+    "category": "Fashion & Apparel",
+    "description": "Private-label clothing manufacturer. Full-package production from design to delivery. MOQ 300 units per style.",
+    "city": "Guangzhou",
+    "featured": false,
+    "logo": null,
+    "contact": "info@guangzhouapparelhouse.cn",
+    "phone": "+86-034-4164-4164",
+    "website": "https://guangzhouapparelhouse.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Private Label",
+      "OEM",
+      "300 MOQ"
+    ],
+    "listed": "2026-03-07"
+  },
+  {
+    "id": 66,
+    "name": "Tokyo CloudOps",
+    "country": "Japan",
+    "flag": "🇯🇵",
+    "category": "Tech & Software",
+    "description": "DevOps and cloud-infrastructure consultancy. AWS, GCP, Azure certified engineers. 24/7 SRE support tier.",
+    "city": "Tokyo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@tokyocloudops.jp",
+    "phone": "+81-3-0531-7548",
+    "website": "https://tokyocloudops.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "DevOps",
+      "SRE",
+      "Multi-cloud"
+    ],
+    "listed": "2026-04-09"
+  },
+  {
+    "id": 67,
+    "name": "Busan Beauty Distributors",
+    "country": "South Korea",
+    "flag": "🇰🇷",
+    "category": "Beauty & Health",
+    "description": "B2B distributor of professional beauty brands. Stocking 400+ SKUs. Salon accounts welcome.",
+    "city": "Busan",
+    "featured": true,
+    "logo": null,
+    "contact": "info@busanbeautydistributors.kr",
+    "phone": "+82-2-0192-5349",
+    "website": "https://busanbeautydistributors.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "B2B",
+      "Salon",
+      "Professional"
+    ],
+    "listed": "2026-04-17"
+  },
+  {
+    "id": 68,
+    "name": "Panama City Design & Build",
+    "country": "Panama",
+    "flag": "🇵🇦",
+    "category": "Construction",
+    "description": "Design-build firm specializing in boutique hotels, restaurants, and mid-rise residential. Award-winning team.",
+    "city": "Panama City",
+    "featured": false,
+    "logo": null,
+    "contact": "info@panamacitydesignbuild.com.pa",
+    "phone": "+507-529-6067",
+    "website": "https://panamacitydesignbuild.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Design-Build",
+      "Hospitality",
+      "Award-winning"
+    ],
+    "listed": "2026-03-13"
+  },
+  {
+    "id": 69,
+    "name": "Havana Concierge Travel",
+    "country": "Cuba",
+    "flag": "🇨🇺",
+    "category": "Travel & Tourism",
+    "description": "Luxury travel concierge for honeymoons, milestone trips, and private group travel. Virtuoso affiliated.",
+    "city": "Havana",
+    "featured": false,
+    "logo": null,
+    "contact": "info@havanaconciergetravel.cu",
+    "phone": "+53-7-690-7211",
+    "website": "https://havanaconciergetravel.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Virtuoso",
+      "Concierge"
+    ],
+    "listed": "2026-02-22"
+  },
+  {
+    "id": 70,
+    "name": "Vancouver Agri Cooperative",
+    "country": "Canada",
+    "flag": "🇨🇦",
+    "category": "Agriculture & Farming",
+    "description": "Farmer-owned cooperative supplying grains, coffee, and specialty crops to domestic and export buyers. Fair-trade certified.",
+    "city": "Vancouver",
+    "featured": true,
+    "logo": null,
+    "contact": "info@vancouveragricooperative.ca",
+    "phone": "+1-416-555-0321",
+    "website": "https://vancouveragricooperative.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Fair Trade",
+      "Cooperative",
+      "Export"
+    ],
+    "listed": "2026-04-15"
+  },
+  {
+    "id": 71,
+    "name": "Lima HR Consultants",
+    "country": "Peru",
+    "flag": "🇵🇪",
+    "category": "Business Services",
+    "description": "End-to-end HR services for growing businesses: recruiting, payroll, compliance, culture. 15+ years experience.",
+    "city": "Lima",
+    "featured": false,
+    "logo": null,
+    "contact": "info@limahrconsultants.pe",
+    "phone": "+51-1-228-9375",
+    "website": "https://limahrconsultants.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "HR",
+      "Recruiting",
+      "Compliance"
+    ],
+    "listed": "2026-02-21"
+  },
+  {
+    "id": 72,
+    "name": "Montevideo Specialty Store",
+    "country": "Uruguay",
+    "flag": "🇺🇾",
+    "category": "Retail & Shopping",
+    "description": "Curated specialty retail serving locals and visitors. Strong Instagram following. Private label merchandise available.",
+    "city": "Montevideo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@montevideospecialtystore.com.uy",
+    "phone": "+598-2-105-4848",
+    "website": "https://montevideospecialtystore.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Specialty",
+      "Curated",
+      "Private Label"
+    ],
+    "listed": "2026-02-28"
+  },
+  {
+    "id": 73,
+    "name": "Rio de Janeiro Media Agency",
+    "country": "Brazil",
+    "flag": "🇧🇷",
+    "category": "Entertainment & Media",
+    "description": "Integrated media buying and creative agency. Digital, OOH, print, influencer. Data-driven campaign measurement.",
+    "city": "Rio de Janeiro",
+    "featured": false,
+    "logo": null,
+    "contact": "info@riodejaneiromediaagency.com.br",
+    "phone": "+55-11-0635-2193",
+    "website": "https://riodejaneiromediaagency.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Media Buying",
+      "Digital",
+      "Creative"
+    ],
+    "listed": "2026-04-21"
+  },
+  {
+    "id": 74,
+    "name": "Buenos Aires Relationship Coaching",
+    "country": "Argentina",
+    "flag": "🇦🇷",
+    "category": "Dating & Relationships",
+    "description": "Certified coaches for singles, couples, and blended families. In-person and virtual. Sliding-scale options.",
+    "city": "Buenos Aires",
+    "featured": false,
+    "logo": null,
+    "contact": "info@buenosairesrelationshipc.com.ar",
+    "phone": "+54-11-0259-3417",
+    "website": "https://buenosairesrelationshipc.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Coaching",
+      "Couples",
+      "Virtual"
+    ],
+    "listed": "2026-01-31"
+  },
+  {
+    "id": 75,
+    "name": "Los Angeles Sourcing Group",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "category": "Wholesale & Manufacturing",
+    "description": "Full-service sourcing and supplier vetting across United States and regional partners. Quality inspection on every shipment.",
+    "city": "Los Angeles",
+    "featured": false,
+    "logo": null,
+    "contact": "info@losangelessourcinggroup.com",
+    "phone": "+1-212-555-0234",
+    "website": "https://losangelessourcinggroup.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Sourcing",
+      "QC",
+      "B2B"
+    ],
+    "listed": "2026-04-07"
+  },
+  {
+    "id": 76,
+    "name": "Quito Realty Partners",
+    "country": "Ecuador",
+    "flag": "🇪🇨",
+    "category": "Real Estate",
+    "description": "Full-service brokerage: residential, commercial, and land. Licensed agents, multilingual team. Trusted by local and diaspora investors.",
+    "city": "Quito",
+    "featured": false,
+    "logo": null,
+    "contact": "info@quitorealtypartners.ec",
+    "phone": "+593-2-0477-3184",
+    "website": "https://quitorealtypartners.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
+    "listed": "2026-04-26"
+  },
+  {
+    "id": 77,
+    "name": "New York Organic Market",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "category": "Food & Restaurants",
+    "description": "Certified organic grocer and meal-prep subscription service. Partnered with local farms. Weekly produce boxes.",
+    "city": "New York",
+    "featured": false,
+    "logo": null,
+    "contact": "info@newyorkorganicmarket.com",
+    "phone": "+1-212-555-0637",
+    "website": "https://newyorkorganicmarket.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Organic",
+      "Farm-to-table",
+      "Subscription"
+    ],
+    "listed": "2026-04-11"
+  },
+  {
+    "id": 78,
+    "name": "Havana Commodity Traders",
+    "country": "Cuba",
+    "flag": "🇨🇺",
+    "category": "Import/Export",
+    "description": "Licensed commodity traders specializing in grains, coffee, and metals. FX-hedged contracts. Serving industrial buyers.",
+    "city": "Havana",
+    "featured": false,
+    "logo": null,
+    "contact": "info@havanacommoditytraders.cu",
+    "phone": "+53-7-275-5050",
+    "website": "https://havanacommoditytraders.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Commodities",
+      "FX-hedged",
+      "B2B"
+    ],
+    "listed": "2026-03-07"
+  },
+  {
+    "id": 79,
+    "name": "Kingston Skills Institute",
+    "country": "Jamaica",
+    "flag": "🇯🇲",
+    "category": "Education & Training",
+    "description": "In-person and hybrid vocational training. Graduates placed with 120+ employer partners. Government-subsidized options.",
+    "city": "Kingston",
+    "featured": false,
+    "logo": null,
+    "contact": "info@kingstonskillsinstitute.com.jm",
+    "phone": "+1-876-555-0460",
+    "website": "https://kingstonskillsinstitute.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Vocational",
+      "Placement",
+      "Subsidized"
+    ],
+    "listed": "2026-03-02"
+  },
+  {
+    "id": 80,
+    "name": "Rio de Janeiro Solar Systems",
+    "country": "Brazil",
+    "flag": "🇧🇷",
+    "category": "Energy & Resources",
+    "description": "Residential and commercial solar installation. Financing available. Off-grid and grid-tied solutions.",
+    "city": "Rio de Janeiro",
+    "featured": false,
+    "logo": null,
+    "contact": "info@riodejaneirosolarsystems.com.br",
+    "phone": "+55-11-0164-4788",
+    "website": "https://riodejaneirosolarsystems.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Solar",
+      "Residential",
+      "Financing"
+    ],
+    "listed": "2026-02-19"
+  },
+  {
+    "id": 81,
+    "name": "Santiago Parts Supply",
+    "country": "Chile",
+    "flag": "🇨🇱",
+    "category": "Automotive",
+    "description": "Aftermarket parts wholesaler. Nationwide same-day shipping. B2B accounts with extended credit terms.",
+    "city": "Santiago",
+    "featured": true,
+    "logo": null,
+    "contact": "info@santiagopartssupply.cl",
+    "phone": "+56-2-0435-2020",
+    "website": "https://santiagopartssupply.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Aftermarket",
+      "B2B",
+      "Same-day"
+    ],
+    "listed": "2026-03-25"
+  },
+  {
+    "id": 82,
+    "name": "Quito Capital Advisors",
+    "country": "Ecuador",
+    "flag": "🇪🇨",
+    "category": "Finance & Investment",
+    "description": "Wealth management and corporate advisory for founders, operators, and family offices. Independent and fiduciary.",
+    "city": "Quito",
+    "featured": false,
+    "logo": null,
+    "contact": "info@quitocapitaladvisors.ec",
+    "phone": "+593-2-0887-7232",
+    "website": "https://quitocapitaladvisors.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Wealth",
+      "Fiduciary",
+      "Advisory"
+    ],
+    "listed": "2026-03-17"
+  },
+  {
+    "id": 83,
+    "name": "Miami Boutique Collective",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "category": "Fashion & Apparel",
+    "description": "Multi-brand boutique featuring local designers. E-commerce plus flagship store. Wholesale accounts open.",
+    "city": "Miami",
+    "featured": false,
+    "logo": null,
+    "contact": "info@miamiboutiquecollective.com",
+    "phone": "+1-212-555-0561",
+    "website": "https://miamiboutiquecollective.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Designers",
+      "Multi-brand",
+      "Wholesale"
+    ],
+    "listed": "2026-02-28"
+  },
+  {
+    "id": 84,
+    "name": "Medellín AI Labs",
+    "country": "Colombia",
+    "flag": "🇨🇴",
+    "category": "Tech & Software",
+    "description": "Applied AI consulting for enterprises. LLM integration, custom model training, production deployment. US-based engineering leads.",
+    "city": "Medellín",
+    "featured": false,
+    "logo": null,
+    "contact": "info@medellínailabs.com.co",
+    "phone": "+57-1-354-7624",
+    "website": "https://medellínailabs.example",
+    "social": {},
+    "tags": [
+      "AI",
+      "LLM",
+      "Enterprise"
+    ],
+    "listed": "2026-03-31"
+  },
+  {
+    "id": 85,
+    "name": "Panama City Beauty Distributors",
+    "country": "Panama",
+    "flag": "🇵🇦",
+    "category": "Beauty & Health",
+    "description": "B2B distributor of professional beauty brands. Stocking 400+ SKUs. Salon accounts welcome.",
+    "city": "Panama City",
+    "featured": true,
+    "logo": null,
+    "contact": "info@panamacitybeautydistribu.com.pa",
+    "phone": "+507-616-1444",
+    "website": "https://panamacitybeautydistribu.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "B2B",
+      "Salon",
+      "Professional"
+    ],
+    "listed": "2026-03-26"
+  },
+  {
+    "id": 86,
+    "name": "Medellín Design & Build",
+    "country": "Colombia",
+    "flag": "🇨🇴",
+    "category": "Construction",
+    "description": "Design-build firm specializing in boutique hotels, restaurants, and mid-rise residential. Award-winning team.",
+    "city": "Medellín",
+    "featured": false,
+    "logo": null,
+    "contact": "info@medellíndesignbuild.com.co",
+    "phone": "+57-1-345-4467",
+    "website": "https://medellíndesignbuild.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Design-Build",
+      "Hospitality",
+      "Award-winning"
+    ],
+    "listed": "2026-03-15"
+  },
+  {
+    "id": 87,
+    "name": "Vancouver Concierge Travel",
+    "country": "Canada",
+    "flag": "🇨🇦",
+    "category": "Travel & Tourism",
+    "description": "Luxury travel concierge for honeymoons, milestone trips, and private group travel. Virtuoso affiliated.",
+    "city": "Vancouver",
+    "featured": false,
+    "logo": null,
+    "contact": "info@vancouverconciergetravel.ca",
+    "phone": "+1-416-555-0268",
+    "website": "https://vancouverconciergetravel.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Virtuoso",
+      "Concierge"
+    ],
+    "listed": "2026-04-10"
+  },
+  {
+    "id": 88,
+    "name": "Munich Agri Cooperative",
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "category": "Agriculture & Farming",
+    "description": "Farmer-owned cooperative supplying grains, coffee, and specialty crops to domestic and export buyers. Fair-trade certified.",
+    "city": "Munich",
+    "featured": false,
+    "logo": null,
+    "contact": "info@munichagricooperative.de",
+    "phone": "+49-30-0806-3683",
+    "website": "https://munichagricooperative.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Fair Trade",
+      "Cooperative",
+      "Export"
+    ],
+    "listed": "2026-02-13"
+  },
+  {
+    "id": 89,
+    "name": "Edinburgh Accounting Partners",
+    "country": "United Kingdom",
+    "flag": "🇬🇧",
+    "category": "Business Services",
+    "description": "Bookkeeping, tax, and CFO services for SMEs. Cloud-based workflow via QuickBooks and Xero. Monthly retainers.",
+    "city": "Edinburgh",
+    "featured": true,
+    "logo": null,
+    "contact": "info@edinburghaccountingpartn.co.uk",
+    "phone": "+44-20-0416-4249",
+    "website": "https://edinburghaccountingpartn.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Bookkeeping",
+      "Tax",
+      "CFO"
+    ],
+    "listed": "2026-04-21"
+  },
+  {
+    "id": 90,
+    "name": "Manchester Marketplace",
+    "country": "United Kingdom",
+    "flag": "🇬🇧",
+    "category": "Retail & Shopping",
+    "description": "Omnichannel retailer: brick-and-mortar, e-commerce, and social commerce. Specializing in household and lifestyle goods.",
+    "city": "Manchester",
+    "featured": false,
+    "logo": null,
+    "contact": "info@manchestermarketplace.co.uk",
+    "phone": "+44-20-0825-1672",
+    "website": "https://manchestermarketplace.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Omnichannel",
+      "Lifestyle",
+      "Retail"
+    ],
+    "listed": "2026-03-26"
+  },
+  {
+    "id": 91,
+    "name": "Rome Productions",
+    "country": "Italy",
+    "flag": "🇮🇹",
+    "category": "Entertainment & Media",
+    "description": "Full-service video production: commercials, documentaries, corporate films. Own equipment, 4K/8K capable.",
+    "city": "Rome",
+    "featured": false,
+    "logo": null,
+    "contact": "info@romeproductions.it",
+    "phone": "+39-02-0879-7882",
+    "website": "https://romeproductions.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Production",
+      "4K",
+      "Commercial"
+    ],
+    "listed": "2026-02-13"
+  },
+  {
+    "id": 92,
+    "name": "Milan Relationship Coaching",
+    "country": "Italy",
+    "flag": "🇮🇹",
+    "category": "Dating & Relationships",
+    "description": "Certified coaches for singles, couples, and blended families. In-person and virtual. Sliding-scale options.",
+    "city": "Milan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@milanrelationshipcoachin.it",
+    "phone": "+39-02-0734-3506",
+    "website": "https://milanrelationshipcoachin.example",
+    "social": {
+      "instagram": "#"
+    },
+    "tags": [
+      "Coaching",
+      "Couples",
+      "Virtual"
+    ],
+    "listed": "2026-04-07"
+  },
+  {
+    "id": 93,
+    "name": "Prime Manchester Factory Direct",
+    "country": "United Kingdom",
+    "flag": "🇬🇧",
+    "category": "Wholesale & Manufacturing",
+    "description": "Direct-from-factory wholesale pricing on consumer electronics, appliances, and household goods. Container loads available.",
+    "city": "Manchester",
+    "featured": false,
+    "logo": null,
+    "contact": "info@primemanchesterfactorydi.co.uk",
+    "phone": "+44-20-0803-8921",
+    "website": "https://primemanchesterfactorydi.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Factory Direct",
+      "Electronics",
+      "Container"
+    ],
+    "listed": "2026-04-16"
+  },
+  {
+    "id": 94,
+    "name": "Bucharest Realty Partners",
+    "country": "Romania",
+    "flag": "🇷🇴",
+    "category": "Real Estate",
+    "description": "Full-service brokerage: residential, commercial, and land. Licensed agents, multilingual team. Trusted by local and diaspora investors.",
+    "city": "Bucharest",
+    "featured": false,
+    "logo": null,
+    "contact": "info@bucharestrealtypartners.ro",
+    "phone": "+40-21-295-8385",
+    "website": "https://bucharestrealtypartners.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Residential",
+      "Commercial",
+      "Diaspora"
+    ],
+    "listed": "2026-03-31"
+  },
+  {
+    "id": 95,
+    "name": "Madrid Organic Market",
+    "country": "Spain",
+    "flag": "🇪🇸",
+    "category": "Food & Restaurants",
+    "description": "Certified organic grocer and meal-prep subscription service. Partnered with local farms. Weekly produce boxes.",
+    "city": "Madrid",
+    "featured": true,
+    "logo": null,
+    "contact": "info@madridorganicmarket.es",
+    "phone": "+34-91-881-6325",
+    "website": "https://madridorganicmarket.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Organic",
+      "Farm-to-table",
+      "Subscription"
+    ],
+    "listed": "2026-02-27"
+  },
+  {
+    "id": 96,
+    "name": "Rome Commodity Traders",
+    "country": "Italy",
+    "flag": "🇮🇹",
+    "category": "Import/Export",
+    "description": "Licensed commodity traders specializing in grains, coffee, and metals. FX-hedged contracts. Serving industrial buyers.",
+    "city": "Rome",
+    "featured": false,
+    "logo": null,
+    "contact": "info@romecommoditytraders.it",
+    "phone": "+39-02-0579-1166",
+    "website": "https://romecommoditytraders.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Commodities",
+      "FX-hedged",
+      "B2B"
+    ],
+    "listed": "2026-02-24"
+  },
+  {
+    "id": 97,
+    "name": "Madrid Online Academy",
+    "country": "Spain",
+    "flag": "🇪🇸",
+    "category": "Education & Training",
+    "description": "Online professional certificates in business, AI, and trades. Industry-recognized credentials. Pay-what-you-can tier.",
+    "city": "Madrid",
+    "featured": false,
+    "logo": null,
+    "contact": "info@madridonlineacademy.es",
+    "phone": "+34-91-717-8800",
+    "website": "https://madridonlineacademy.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Online",
+      "Certificates",
+      "Affordable"
+    ],
+    "listed": "2026-04-03"
+  },
+  {
+    "id": 98,
+    "name": "Copenhagen Green Energy",
+    "country": "Denmark",
+    "flag": "🇩🇰",
+    "category": "Energy & Resources",
+    "description": "Renewable energy advisory and project development. Wind, solar, hydro. Partner with utilities and independent producers.",
+    "city": "Copenhagen",
+    "featured": false,
+    "logo": null,
+    "contact": "info@copenhagengreenenergy.dk",
+    "phone": "+45-718-004986",
+    "website": "https://copenhagengreenenergy.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Renewables",
+      "Utilities",
+      "Development"
+    ],
+    "listed": "2026-04-15"
+  },
+  {
+    "id": 99,
+    "name": "Hamburg Parts Supply",
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "category": "Automotive",
+    "description": "Aftermarket parts wholesaler. Nationwide same-day shipping. B2B accounts with extended credit terms.",
+    "city": "Hamburg",
+    "featured": false,
+    "logo": null,
+    "contact": "info@hamburgpartssupply.de",
+    "phone": "+49-30-0370-8434",
+    "website": "https://hamburgpartssupply.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Aftermarket",
+      "B2B",
+      "Same-day"
+    ],
+    "listed": "2026-03-04"
+  },
+  {
+    "id": 100,
+    "name": "Prague Capital Advisors",
+    "country": "Czech Republic",
+    "flag": "🇨🇿",
+    "category": "Finance & Investment",
+    "description": "Wealth management and corporate advisory for founders, operators, and family offices. Independent and fiduciary.",
+    "city": "Prague",
+    "featured": false,
+    "logo": null,
+    "contact": "info@praguecapitaladvisors.cz",
+    "phone": "+420-2-0206-4545",
+    "website": "https://praguecapitaladvisors.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Wealth",
+      "Fiduciary",
+      "Advisory"
+    ],
+    "listed": "2026-03-07"
+  },
+  {
+    "id": 101,
+    "name": "Milan Boutique Collective",
+    "country": "Italy",
+    "flag": "🇮🇹",
+    "category": "Fashion & Apparel",
+    "description": "Multi-brand boutique featuring local designers. E-commerce plus flagship store. Wholesale accounts open.",
+    "city": "Milan",
+    "featured": false,
+    "logo": null,
+    "contact": "info@milanboutiquecollective.it",
+    "phone": "+39-02-0112-4180",
+    "website": "https://milanboutiquecollective.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Designers",
+      "Multi-brand",
+      "Wholesale"
+    ],
+    "listed": "2026-03-18"
+  },
+  {
+    "id": 102,
+    "name": "Oslo AI Labs",
+    "country": "Norway",
+    "flag": "🇳🇴",
+    "category": "Tech & Software",
+    "description": "Applied AI consulting for enterprises. LLM integration, custom model training, production deployment. US-based engineering leads.",
+    "city": "Oslo",
+    "featured": false,
+    "logo": null,
+    "contact": "info@osloailabs.no",
+    "phone": "+47-22-56-1893",
+    "website": "https://osloailabs.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "AI",
+      "LLM",
+      "Enterprise"
+    ],
+    "listed": "2026-02-16"
+  },
+  {
+    "id": 103,
+    "name": "Amsterdam Wellness Clinic",
+    "country": "Netherlands",
+    "flag": "🇳🇱",
+    "category": "Beauty & Health",
+    "description": "Integrative health clinic: functional medicine, aesthetics, wellness coaching. Telehealth available.",
+    "city": "Amsterdam",
+    "featured": false,
+    "logo": null,
+    "contact": "info@amsterdamwellnessclinic.nl",
+    "phone": "+31-20-597-5658",
+    "website": "https://amsterdamwellnessclinic.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Functional",
+      "Aesthetics",
+      "Telehealth"
+    ],
+    "listed": "2026-03-28"
+  },
+  {
+    "id": 104,
+    "name": "Warsaw Design & Build",
+    "country": "Poland",
+    "flag": "🇵🇱",
+    "category": "Construction",
+    "description": "Design-build firm specializing in boutique hotels, restaurants, and mid-rise residential. Award-winning team.",
+    "city": "Warsaw",
+    "featured": false,
+    "logo": null,
+    "contact": "info@warsawdesignbuild.pl",
+    "phone": "+48-22-126-2070",
+    "website": "https://warsawdesignbuild.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Design-Build",
+      "Hospitality",
+      "Award-winning"
+    ],
+    "listed": "2026-02-09"
+  },
+  {
+    "id": 105,
+    "name": "Barcelona Concierge Travel",
+    "country": "Spain",
+    "flag": "🇪🇸",
+    "category": "Travel & Tourism",
+    "description": "Luxury travel concierge for honeymoons, milestone trips, and private group travel. Virtuoso affiliated.",
+    "city": "Barcelona",
+    "featured": true,
+    "logo": null,
+    "contact": "info@barcelonaconciergetravel.es",
+    "phone": "+34-91-097-5066",
+    "website": "https://barcelonaconciergetravel.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Luxury",
+      "Virtuoso",
+      "Concierge"
+    ],
+    "listed": "2026-03-25"
+  },
+  {
+    "id": 106,
+    "name": "Kuwait City Agri Cooperative",
+    "country": "Kuwait",
+    "flag": "🇰🇼",
+    "category": "Agriculture & Farming",
+    "description": "Farmer-owned cooperative supplying grains, coffee, and specialty crops to domestic and export buyers. Fair-trade certified.",
+    "city": "Kuwait City",
+    "featured": false,
+    "logo": null,
+    "contact": "info@kuwaitcityagricooperativ.com.kw",
+    "phone": "+965-2650-4457",
+    "website": "https://kuwaitcityagricooperativ.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Fair Trade",
+      "Cooperative",
+      "Export"
+    ],
+    "listed": "2026-02-10"
+  },
+  {
+    "id": 107,
+    "name": "Tel Aviv Legal Group",
+    "country": "Israel",
+    "flag": "🇮🇱",
+    "category": "Business Services",
+    "description": "Corporate law firm: entity formation, contracts, M&A, dispute resolution. Multilingual attorneys. Fixed-fee packages available.",
+    "city": "Tel Aviv",
+    "featured": false,
+    "logo": null,
+    "contact": "info@telavivlegalgroup.co.il",
+    "phone": "+972-3-428-8381",
+    "website": "https://telavivlegalgroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Corporate",
+      "M&A",
+      "Fixed-fee"
+    ],
+    "listed": "2026-04-01"
+  },
+  {
+    "id": 108,
+    "name": "Doha Specialty Store",
+    "country": "Qatar",
+    "flag": "🇶🇦",
+    "category": "Retail & Shopping",
+    "description": "Curated specialty retail serving locals and visitors. Strong Instagram following. Private label merchandise available.",
+    "city": "Doha",
+    "featured": false,
+    "logo": null,
+    "contact": "info@dohaspecialtystore.qa",
+    "phone": "+974-4082-4824",
+    "website": "https://dohaspecialtystore.example",
+    "social": {
+      "linkedin": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Specialty",
+      "Curated",
+      "Private Label"
+    ],
+    "listed": "2026-04-21"
+  },
+  {
+    "id": 109,
+    "name": "Doha Productions",
+    "country": "Qatar",
+    "flag": "🇶🇦",
+    "category": "Entertainment & Media",
+    "description": "Full-service video production: commercials, documentaries, corporate films. Own equipment, 4K/8K capable.",
+    "city": "Doha",
+    "featured": false,
+    "logo": null,
+    "contact": "info@dohaproductions.qa",
+    "phone": "+974-4567-4683",
+    "website": "https://dohaproductions.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "facebook": "#"
+    },
+    "tags": [
+      "Production",
+      "4K",
+      "Commercial"
+    ],
+    "listed": "2026-03-06"
+  },
+  {
+    "id": 110,
+    "name": "Istanbul Relationship Coaching",
+    "country": "Turkey",
+    "flag": "🇹🇷",
+    "category": "Dating & Relationships",
+    "description": "Certified coaches for singles, couples, and blended families. In-person and virtual. Sliding-scale options.",
+    "city": "Istanbul",
+    "featured": false,
+    "logo": null,
+    "contact": "info@istanbulrelationshipcoac.com.tr",
+    "phone": "+90-212-619-5728",
+    "website": "https://istanbulrelationshipcoac.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Coaching",
+      "Couples",
+      "Virtual"
+    ],
+    "listed": "2026-03-31"
+  },
+  {
+    "id": 111,
+    "name": "Prime Amman Factory Direct",
+    "country": "Jordan",
+    "flag": "🇯🇴",
+    "category": "Wholesale & Manufacturing",
+    "description": "Direct-from-factory wholesale pricing on consumer electronics, appliances, and household goods. Container loads available.",
+    "city": "Amman",
+    "featured": false,
+    "logo": null,
+    "contact": "info@primeammanfactorydirect.jo",
+    "phone": "+962-6-562-9090",
+    "website": "https://primeammanfactorydirect.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Factory Direct",
+      "Electronics",
+      "Container"
+    ],
+    "listed": "2026-04-17"
+  },
+  {
+    "id": 112,
+    "name": "Tel Aviv Property Management",
+    "country": "Israel",
+    "flag": "🇮🇱",
+    "category": "Real Estate",
+    "description": "Professional property management for owners and absentee landlords. Tenant screening, maintenance, 24/7 reporting.",
+    "city": "Tel Aviv",
+    "featured": false,
+    "logo": null,
+    "contact": "info@telavivpropertymanagemen.co.il",
+    "phone": "+972-3-036-2496",
+    "website": "https://telavivpropertymanagemen.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Management",
+      "Rentals",
+      "Investor"
+    ],
+    "listed": "2026-04-14"
+  },
+  {
+    "id": 113,
+    "name": "Istanbul Organic Market",
+    "country": "Turkey",
+    "flag": "🇹🇷",
+    "category": "Food & Restaurants",
+    "description": "Certified organic grocer and meal-prep subscription service. Partnered with local farms. Weekly produce boxes.",
+    "city": "Istanbul",
+    "featured": false,
+    "logo": null,
+    "contact": "info@istanbulorganicmarket.com.tr",
+    "phone": "+90-212-600-1659",
+    "website": "https://istanbulorganicmarket.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Organic",
+      "Farm-to-table",
+      "Subscription"
+    ],
+    "listed": "2026-02-22"
+  },
+  {
+    "id": 114,
+    "name": "Amman Global Trade",
+    "country": "Jordan",
+    "flag": "🇯🇴",
+    "category": "Import/Export",
+    "description": "End-to-end import/export services: customs brokerage, freight forwarding, trade finance. Licensed and bonded.",
+    "city": "Amman",
+    "featured": false,
+    "logo": null,
+    "contact": "info@ammanglobaltrade.jo",
+    "phone": "+962-6-609-8141",
+    "website": "https://ammanglobaltrade.example",
+    "social": {
+      "instagram": "#"
+    },
+    "tags": [
+      "Customs",
+      "Freight",
+      "Bonded"
+    ],
+    "listed": "2026-04-03"
+  },
+  {
+    "id": 115,
+    "name": "Amman Skills Institute",
+    "country": "Jordan",
+    "flag": "🇯🇴",
+    "category": "Education & Training",
+    "description": "In-person and hybrid vocational training. Graduates placed with 120+ employer partners. Government-subsidized options.",
+    "city": "Amman",
+    "featured": false,
+    "logo": null,
+    "contact": "info@ammanskillsinstitute.jo",
+    "phone": "+962-6-696-2713",
+    "website": "https://ammanskillsinstitute.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Vocational",
+      "Placement",
+      "Subsidized"
+    ],
+    "listed": "2026-03-14"
+  },
+  {
+    "id": 116,
+    "name": "Jeddah Green Energy",
+    "country": "Saudi Arabia",
+    "flag": "🇸🇦",
+    "category": "Energy & Resources",
+    "description": "Renewable energy advisory and project development. Wind, solar, hydro. Partner with utilities and independent producers.",
+    "city": "Jeddah",
+    "featured": false,
+    "logo": null,
+    "contact": "info@jeddahgreenenergy.sa",
+    "phone": "+966-11-843-1601",
+    "website": "https://jeddahgreenenergy.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Renewables",
+      "Utilities",
+      "Development"
+    ],
+    "listed": "2026-03-12"
+  },
+  {
+    "id": 117,
+    "name": "Amman Auto Group",
+    "country": "Jordan",
+    "flag": "🇯🇴",
+    "category": "Automotive",
+    "description": "New and certified pre-owned vehicles. Service center with factory-trained technicians. Fleet sales division.",
+    "city": "Amman",
+    "featured": false,
+    "logo": null,
+    "contact": "info@ammanautogroup.jo",
+    "phone": "+962-6-683-9889",
+    "website": "https://ammanautogroup.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "New",
+      "CPO",
+      "Fleet"
+    ],
+    "listed": "2026-02-06"
+  },
+  {
+    "id": 118,
+    "name": "Manama Fintech Solutions",
+    "country": "Bahrain",
+    "flag": "🇧🇭",
+    "category": "Finance & Investment",
+    "description": "Payment infrastructure and lending platform for SMEs. API-first, PCI-DSS compliant. Serving 12,000+ businesses.",
+    "city": "Manama",
+    "featured": true,
+    "logo": null,
+    "contact": "info@manamafintechsolutions.bh",
+    "phone": "+973-0788-1845",
+    "website": "https://manamafintechsolutions.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Payments",
+      "SME",
+      "API"
+    ],
+    "listed": "2026-04-11"
+  },
+  {
+    "id": 119,
+    "name": "Dammam Boutique Collective",
+    "country": "Saudi Arabia",
+    "flag": "🇸🇦",
+    "category": "Fashion & Apparel",
+    "description": "Multi-brand boutique featuring local designers. E-commerce plus flagship store. Wholesale accounts open.",
+    "city": "Dammam",
+    "featured": false,
+    "logo": null,
+    "contact": "info@dammamboutiquecollective.sa",
+    "phone": "+966-11-134-1472",
+    "website": "https://dammamboutiquecollective.example",
+    "social": {
+      "linkedin": "#"
+    },
+    "tags": [
+      "Designers",
+      "Multi-brand",
+      "Wholesale"
+    ],
+    "listed": "2026-04-18"
+  },
+  {
+    "id": 120,
+    "name": "Muscat Dev Studio",
+    "country": "Oman",
+    "flag": "🇴🇲",
+    "category": "Tech & Software",
+    "description": "Mobile and web development agency. React, React Native, Node.js, Python. Agile sprints, transparent pricing.",
+    "city": "Muscat",
+    "featured": true,
+    "logo": null,
+    "contact": "info@muscatdevstudio.om",
+    "phone": "+968-2575-7684",
+    "website": "https://muscatdevstudio.example",
+    "social": {
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    "tags": [
+      "Mobile",
+      "Web",
+      "Agile"
+    ],
+    "listed": "2026-02-14"
   }
 ]
