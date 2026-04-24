@@ -847,5 +847,96 @@
 
     init();
   </script>
+
+<!-- SOPHIA_NEWS_VIDEO -->
+<!-- Global Business News + Featured Video block -->
+<section id="sophia-news-video" style="max-width:1200px;margin:40px auto;padding:0 20px;">
+  <div style="display:grid;grid-template-columns:1fr;gap:24px;">
+
+    <!-- NEWS FEED -->
+    <div style="background:#111827;border:1px solid #374151;border-radius:16px;padding:24px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
+          🌐 Global Business Pulse
+        </h2>
+        <span style="color:#9ca3af;font-size:12px;">Updated daily</span>
+      </div>
+      <div id="sophia-news" style="display:grid;gap:12px;">
+        <div style="color:#9ca3af;padding:20px;text-align:center;">Loading feed…</div>
+      </div>
+    </div>
+
+    <!-- VIDEO HIGHLIGHT -->
+    <div style="background:linear-gradient(135deg,#042f1f 0%,#111827 100%);border:1px solid #10b981;border-radius:16px;padding:24px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
+          📺 Spotlight
+        </h2>
+        <span style="color:#34d399;font-size:12px;font-weight:600;">NEW</span>
+      </div>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;">
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLbpi6ZahtOH5dZ_5Ml0GOKSAhZdokjsEt&autoplay=0&rel=0"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p style="color:#9ca3af;font-size:14px;margin:12px 0 0;">
+        Global trade documentaries, emerging-market deep-dives, founder stories.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  // Pull free global business headlines (no auth) — Google News RSS via rss2json (free tier)
+  const FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=global+business+trade+emerging+markets&hl=en-US&gl=US&ceid=US:en');
+  const container = document.getElementById('sophia-news');
+  if (!container) return;
+  fetch(FEED)
+    .then(r => r.json())
+    .then(d => {
+      const items = (d.items || []).slice(0, 5);
+      if (!items.length) {
+        container.innerHTML = '<div style="color:#9ca3af;padding:20px;text-align:center;">News feed temporarily unavailable. Check back soon.</div>';
+        return;
+      }
+      container.innerHTML = items.map(i => {
+        const date = new Date(i.pubDate);
+        const rel = timeAgo(date);
+        const src = (i.source && i.source.name) || i.author || 'News';
+        return `
+          <a href="${i.link}" target="_blank" rel="noopener noreferrer"
+             style="display:block;padding:14px;background:#1f2937;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:border-color .15s;"
+             onmouseover="this.style.borderColor='#10b981'"
+             onmouseout="this.style.borderColor='#374151'">
+            <div style="color:#f9fafb;font-weight:600;font-size:15px;line-height:1.4;margin-bottom:6px;">
+              ${escapeHtml(i.title)}
+            </div>
+            <div style="color:#9ca3af;font-size:12px;display:flex;gap:10px;">
+              <span>${escapeHtml(src)}</span><span>·</span><span>${rel}</span>
+            </div>
+          </a>
+        `;
+      }).join('');
+    })
+    .catch(() => {
+      container.innerHTML = '<div style="color:#9ca3af;padding:20px;text-align:center;">News feed offline.</div>';
+    });
+
+  function escapeHtml(s){return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function timeAgo(date){
+    const s = Math.floor((Date.now() - date.getTime()) / 1000);
+    if (s < 60) return 'just now';
+    if (s < 3600) return Math.floor(s/60) + 'm ago';
+    if (s < 86400) return Math.floor(s/3600) + 'h ago';
+    return Math.floor(s/86400) + 'd ago';
+  }
+})();
+</script>
+
+<!-- /SOPHIA_NEWS_VIDEO -->
 </body>
 </html>
