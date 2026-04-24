@@ -1,0 +1,15 @@
+{
+  "name": "sophiatv",
+  "version": "1.0.0",
+  "description": "SophiaTV + SophiaMarket — global business directory across 105 countries",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "seo": "node scripts/generate-seo-pages.cjs && node scripts/generate-sitemap.cjs",
+    "listings": "node scripts/generate-listings.py"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "stripe": "^17.4.0"
+  }
+}
