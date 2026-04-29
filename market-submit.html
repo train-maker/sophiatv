@@ -6,6 +6,13 @@
   <title>Start Listing — Sophia Market</title>
   <meta name="description" content="Start a Sophia Market listing for global business discovery, translated inquiry paths, and cross-border trust." />
   <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+
+  <!-- Performance: preconnect to critical third-party origins -->
+  <link rel="preconnect" href="https://wftxhojlvrymtdtekhdx.supabase.co" crossorigin />
+  <link rel="preconnect" href="https://js.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://buy.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://api.anthropic.com" crossorigin />
+
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
@@ -361,7 +368,7 @@
   </main>
 
   <script>
-    const STRIPE_FEATURED_LINK = 'https://buy.stripe.com/eVq4gA2swfq0aGdgjrds40f';
+    const STRIPE_FEATURED_LINK = '';
     let selectedTier = 'free';
 
     function selectTier(tier) {
@@ -411,11 +418,16 @@
         return;
       }
 
-      // Free listing — show success screen until backend intake opens.
+      // Show success screen until backend intake opens.
       document.getElementById('formView').style.display = 'none';
       document.getElementById('successScreen').style.display = 'block';
       const businessName = document.getElementById('bizName').value.trim();
-      document.getElementById('successMsg').textContent = `Your free listing for "${businessName}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
+      const contactEmail = document.getElementById('bizEmail').value;
+      if (selectedTier === 'featured') {
+        document.getElementById('successMsg').textContent = `Your featured placement request for "${businessName}" has been submitted for review. You'll receive a confirmation at ${contactEmail} within 24 hours.`;
+      } else {
+        document.getElementById('successMsg').textContent = `Your free listing for "${businessName}" has been submitted for review. You'll receive a confirmation at ${contactEmail} within 24 hours.`;
+      }
     }
   </script>
   <script src="future.js" defer></script>

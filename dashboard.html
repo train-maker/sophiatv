@@ -6,6 +6,13 @@
   <title>Dashboard — SophiaTV</title>
   <meta name="robots" content="noindex" />
   <meta name="description" content="Sophia member dashboard for access, market signals, room workflows, and account setup." />
+
+  <!-- Performance: preconnect to critical third-party origins -->
+  <link rel="preconnect" href="https://wftxhojlvrymtdtekhdx.supabase.co" crossorigin />
+  <link rel="preconnect" href="https://js.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://buy.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://api.anthropic.com" crossorigin />
+
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
@@ -52,11 +59,75 @@
     .loading-state { text-align: center; padding: 120px 20px; color: var(--sv-bone-2, var(--muted)); }
     .ai-chat-desc { color: var(--sv-bone-2, var(--muted)); font-size: 0.85rem; margin-bottom: 18px; }
     .mini-chat { background: rgba(255,255,255,0.035); border: 1px solid rgba(200,162,74,0.14); border-radius: 2px; padding: 16px; min-height: 120px; font-size: 0.85rem; color: var(--sv-bone-2, var(--muted)); display: flex; align-items: center; justify-content: center; }
+
+    /* Featured subscriber sections */
+    .featured-section {
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), transparent 34%), linear-gradient(145deg, rgba(17,18,23,0.94), rgba(7,8,12,0.99));
+      border: 1px solid rgba(200,162,74,0.18); border-radius: 4px; padding: 28px; margin-bottom: 24px;
+      box-shadow: var(--sv-shadow-card, 0 20px 44px rgba(0,0,0,0.32));
+    }
+    .featured-section-title { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; color: var(--sv-gold, var(--gold)); }
+    .featured-section-sub { color: var(--sv-bone-3, rgba(245,241,230,0.4)); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+    .perf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+    .perf-stat { border: 1px solid rgba(200,162,74,0.16); border-radius: 2px; padding: 16px; background: rgba(255,255,255,0.02); }
+    .perf-stat-label { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sv-bone-3, rgba(245,241,230,0.4)); margin-bottom: 8px; }
+    .perf-stat-num { font-family: var(--sv-mono, monospace); font-size: 1.6rem; color: var(--sv-bone, #f5f1e6); font-weight: 600; letter-spacing: 0.04em; }
+    .perf-stat-tag { font-size: 0.62rem; color: var(--sv-gold, var(--gold)); margin-top: 6px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+
+    .inquiry-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .inquiry-table th { text-align: left; padding: 10px 12px; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sv-bone-3, rgba(245,241,230,0.4)); border-bottom: 1px solid rgba(200,162,74,0.14); font-weight: 600; }
+    .inquiry-table td { padding: 14px 12px; border-bottom: 1px solid rgba(200,162,74,0.08); color: var(--sv-bone-2, var(--muted)); vertical-align: middle; }
+    .inquiry-empty { text-align: center; padding: 40px 16px; color: var(--sv-bone-3, rgba(245,241,230,0.4)); font-size: 0.85rem; font-style: italic; }
+    .btn-mini { display: inline-block; padding: 6px 14px; background: transparent; border: 1px solid rgba(200,162,74,0.32); color: var(--sv-gold, var(--gold)); border-radius: 2px; font-size: 0.72rem; font-weight: 600; cursor: pointer; font-family: inherit; text-decoration: none; transition: all 0.2s; }
+    .btn-mini:hover { background: rgba(200,162,74,0.12); }
+
+    .listing-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .listing-toolbar .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid rgba(200,162,74,0.22); border-radius: 999px; font-size: 0.78rem; color: var(--sv-bone-2, var(--muted)); }
+    .listing-toolbar .pill strong { color: var(--sv-gold, var(--gold)); font-weight: 700; }
+    .btn-danger-outline { background: transparent; border: 1px solid rgba(220,80,80,0.4); color: #e08585; border-radius: 2px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-danger-outline:hover { background: rgba(220,80,80,0.1); border-color: #e08585; }
+
+    .sophia-ai-form { display: flex; flex-direction: column; gap: 14px; }
+    .sophia-ai-form textarea {
+      width: 100%; min-height: 110px; padding: 14px; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,162,74,0.2); border-radius: 2px; color: var(--sv-bone, #f5f1e6);
+      font-family: inherit; font-size: 0.9rem; resize: vertical;
+    }
+    .sophia-ai-form textarea:focus { outline: none; border-color: var(--sv-gold, var(--gold)); }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 6px 12px; background: rgba(200,162,74,0.08); border: 1px solid rgba(200,162,74,0.22);
+      border-radius: 999px; font-size: 0.75rem; color: var(--sv-bone-2, var(--muted)); cursor: pointer;
+      font-family: inherit; transition: all 0.2s;
+    }
+    .chip:hover { background: rgba(200,162,74,0.18); color: var(--sv-bone, #f5f1e6); }
+
+    /* Cancel modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.78); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      max-width: 460px; width: 100%; background: linear-gradient(145deg, rgba(17,18,23,0.98), rgba(7,8,12,1));
+      border: 1px solid rgba(200,162,74,0.32); border-radius: 4px; padding: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    }
+    .modal-title { font-family: var(--sv-display, Georgia, serif); font-size: 1.4rem; color: var(--sv-bone, #f5f1e6); margin-bottom: 12px; }
+    .modal-body { color: var(--sv-bone-2, var(--muted)); font-size: 0.9rem; line-height: 1.55; margin-bottom: 18px; }
+    .modal-body a { color: var(--sv-gold, var(--gold)); text-decoration: none; }
+    .modal-body a:hover { text-decoration: underline; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
     @media (max-width: 720px) {
       .dash-page { padding: 118px 16px 56px; }
       .dash-header { align-items: flex-start; gap: 18px; flex-direction: column; }
       .btn-signout { width: 100%; }
       .dash-grid { grid-template-columns: 1fr; }
+      .perf-grid { grid-template-columns: repeat(2, 1fr); }
+      .inquiry-table thead { display: none; }
+      .inquiry-table, .inquiry-table tbody, .inquiry-table tr, .inquiry-table td { display: block; width: 100%; }
+      .inquiry-table tr { border: 1px solid rgba(200,162,74,0.14); margin-bottom: 10px; padding: 8px; border-radius: 2px; }
+      .inquiry-table td { border: none; padding: 6px 4px; }
+      .listing-toolbar { flex-direction: column; align-items: stretch; }
+      .listing-toolbar .pill, .listing-toolbar .btn-card, .listing-toolbar .btn-danger-outline { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -111,6 +182,115 @@
         <div class="dash-card-title">Account Settings</div>
         <div class="dash-card-desc">Update your profile, password, and notification preferences.</div>
         <a href="/settings.html" class="btn-card btn-card-outline">Settings</a>
+      </div>
+    </div>
+
+    <!-- Featured subscriber: Listing Performance -->
+    <div class="featured-section" id="listingPerfSection">
+      <div class="featured-section-title">Listing Performance</div>
+      <div class="featured-section-sub">Connect analytics to activate this panel</div>
+      <div class="perf-grid">
+        <!-- TODO: wire to real analytics endpoint (e.g. /api/listing-stats) -->
+        <div class="perf-stat">
+          <div class="perf-stat-label">Views</div>
+          <div class="perf-stat-num" id="statViews">--</div>
+          <div class="perf-stat-tag">pending connection</div>
+        </div>
+        <div class="perf-stat">
+          <div class="perf-stat-label">Inquiries Sent</div>
+          <div class="perf-stat-num" id="statInquiries">--</div>
+          <div class="perf-stat-tag">pending connection</div>
+        </div>
+        <div class="perf-stat">
+          <div class="perf-stat-label">Contact Clicks</div>
+          <div class="perf-stat-num" id="statClicks">--</div>
+          <div class="perf-stat-tag">pending connection</div>
+        </div>
+        <div class="perf-stat">
+          <div class="perf-stat-label">Conversion Rate</div>
+          <div class="perf-stat-num" id="statConversion">--</div>
+          <div class="perf-stat-tag">pending connection</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured subscriber: Listing controls -->
+    <div class="featured-section">
+      <div class="featured-section-title">Your Listing</div>
+      <div class="featured-section-sub">Manage your market presence</div>
+      <div class="listing-toolbar">
+        <span class="pill">Status: <strong>Active</strong></span>
+        <a href="/market-submit.html?edit=true" class="btn-card">Edit Listing</a>
+        <a href="/market.html" class="btn-card btn-card-outline">View Public Listing</a>
+      </div>
+    </div>
+
+    <!-- Featured subscriber: Inquiry inbox -->
+    <div class="featured-section">
+      <div class="featured-section-title">Inquiry Inbox</div>
+      <div class="featured-section-sub">Direct buyer messages appear after inquiry routing is connected</div>
+      <!-- TODO: wire to /api/inquiries -->
+      <table class="inquiry-table" id="inquiryTable">
+        <thead>
+          <tr>
+            <th>Sender</th>
+            <th>Country</th>
+            <th>Interest</th>
+            <th>Received</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="inquiryBody">
+          <tr><td colspan="5" class="inquiry-empty">No inquiries yet. When buyers contact you, they'll appear here.</td></tr>
+          <!-- Example placeholder rows (commented out until /api/inquiries is wired):
+          <tr>
+            <td>—</td><td>—</td><td>—</td><td>—</td>
+            <td><button class="btn-mini">Reply</button></td>
+          </tr>
+          -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Featured subscriber: Sophia AI panel -->
+    <div class="featured-section">
+      <div class="featured-section-title">Sophia AI Listing Assistant</div>
+      <div class="featured-section-sub">Tell Sophia how to sharpen your market signal</div>
+      <form class="sophia-ai-form" id="sophiaAiForm" onsubmit="handleSophiaAi(event)">
+        <textarea id="sophiaAiPrompt" placeholder="Ask Sophia to improve your listing — e.g. 'Rewrite my market signal for an English-speaking buyer in Singapore.'"></textarea>
+        <div class="chip-row">
+          <button type="button" class="chip" onclick="fillPrompt(this)">Rewrite my listing for clarity</button>
+          <button type="button" class="chip" onclick="fillPrompt(this)">Translate my listing into Mandarin</button>
+        </div>
+        <div>
+          <button type="submit" class="btn-card">Ask Sophia to improve your listing</button>
+        </div>
+        <div id="sophiaAiOut" style="display:none; margin-top:10px; padding:14px; background:rgba(255,255,255,0.035); border:1px solid rgba(200,162,74,0.14); border-radius:2px; font-size:0.85rem; color:var(--sv-bone-2, var(--muted)); white-space:pre-wrap;"></div>
+      </form>
+    </div>
+
+    <!-- Featured subscriber: Plan controls -->
+    <div class="featured-section">
+      <div class="featured-section-title">Plan & Billing</div>
+      <div class="featured-section-sub">Manage your subscription</div>
+      <div class="listing-toolbar">
+        <span class="pill" id="currentPlanPill">Current: <strong id="currentPlanLabel">Featured · $29.99/mo</strong></span>
+        <a href="/pricing.html" class="btn-card">Upgrade</a>
+        <button type="button" class="btn-danger-outline" onclick="openCancelModal()">Cancel Subscription</button>
+      </div>
+    </div>
+
+    <!-- Cancel confirmation modal -->
+    <div class="modal-overlay" id="cancelModal" role="dialog" aria-modal="true" aria-labelledby="cancelModalTitle">
+      <div class="modal-card">
+        <div class="modal-title" id="cancelModalTitle">Cancel your subscription</div>
+        <div class="modal-body">
+          To cancel, please email <a href="mailto:t.rain@sophiaoperator.com">t.rain@sophiaoperator.com</a> from the address on your account. We'll confirm cancellation within 24 hours and prorate any unused time.
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-mini" onclick="closeCancelModal()">Close</button>
+          <a href="mailto:t.rain@sophiaoperator.com?subject=Cancel%20my%20Sophia%20subscription" class="btn-card">Open Email</a>
+        </div>
       </div>
     </div>
 
@@ -204,9 +384,61 @@
         currentPlanEl.innerHTML += '<div class="plan-item-label">Current Plan</div>';
       }
 
+      setCurrentPlanLabel(actualTier);
+
       document.getElementById('loadingState').style.display = 'none';
       document.getElementById('dashContent').style.display = 'block';
     }
+
+    const PLAN_PRICE_LABELS = {
+      free: 'Observer · Free',
+      fan: 'Member Pass · $9/mo',
+      creator_basic: 'Featured · $29.99/mo',
+      creator_pro: 'Operator Pro · $79/mo',
+      founder: 'Founder Seat · $199/mo',
+    };
+
+    function setCurrentPlanLabel(tier) {
+      const el = document.getElementById('currentPlanLabel');
+      if (el) el.textContent = PLAN_PRICE_LABELS[tier] || PLAN_PRICE_LABELS.creator_basic;
+    }
+
+    function fillPrompt(btn) {
+      const ta = document.getElementById('sophiaAiPrompt');
+      if (ta) { ta.value = btn.textContent.trim(); ta.focus(); }
+    }
+
+    async function handleSophiaAi(e) {
+      e.preventDefault();
+      const ta = document.getElementById('sophiaAiPrompt');
+      const out = document.getElementById('sophiaAiOut');
+      const prompt = (ta?.value || '').trim();
+      if (!prompt) return;
+      out.style.display = 'block';
+      out.textContent = 'Sophia is thinking...';
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, context: 'listing-assistant' }),
+        });
+        if (!res.ok) throw new Error('Sophia is offline. Try again shortly.');
+        const data = await res.json().catch(() => ({}));
+        out.textContent = data.reply || data.message || 'Sophia received your request.';
+      } catch (err) {
+        out.textContent = err.message || 'Could not reach Sophia right now.';
+      }
+    }
+
+    function openCancelModal() {
+      document.getElementById('cancelModal')?.classList.add('open');
+    }
+    function closeCancelModal() {
+      document.getElementById('cancelModal')?.classList.remove('open');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCancelModal();
+    });
 
     async function handleSignOut() {
       if (!sophiaAuth) {
