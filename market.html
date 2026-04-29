@@ -1559,7 +1559,15 @@ window.filterCategory = window.filterCategory || function(cat) {
       `).join('');
     }
 
+    // Folder names already on disk under /market/country/ — match these exactly.
+    // The original generator slugged some names lossy (e.g., "Côte d'Ivoire" → "c-te-d-ivoire").
+    // Keep the override map until those folders are regenerated cleanly.
+    const COUNTRY_SLUG_OVERRIDES = {
+      "Côte d'Ivoire": "c-te-d-ivoire"
+    };
+
     function countrySlug(name) {
+      if (COUNTRY_SLUG_OVERRIDES[name]) return COUNTRY_SLUG_OVERRIDES[name];
       return name.toLowerCase()
         .normalize('NFD').replace(/[̀-ͯ]/g, '')
         .replace(/['']/g, '')
