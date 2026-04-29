@@ -229,17 +229,19 @@
           <input type="radio" name="tier" value="featured" aria-label="Featured listing" />
           <div class="tier-badge">POPULAR</div>
           <div class="tier-name">Featured</div>
-          <div class="tier-price">$0 <span>/ first 30 days</span></div>
+          <div class="tier-price">$29.99 <span>/ month</span></div>
           <div class="tier-features">
             Included: everything in Free<br/>
             Included: gold Featured badge<br/>
             Included: top of category listings<br/>
             Included: full business profile<br/>
             Included: logo &amp; gallery images<br/>
-            Then $29.99/month after launch trial
+            Included: AI priority in search results
           </div>
         </div>
       </div>
+
+      <p class="tier-trust-line" style="margin:-18px 0 30px;font-size:12px;letter-spacing:0.04em;color:var(--muted);text-align:center;opacity:0.88;">Cancel anytime &middot; No contracts &middot; 7-day refund &middot; Stripe-secured payments</p>
 
       <!-- FORM -->
       <form id="submitForm" onsubmit="handleSubmit(event)">
@@ -339,6 +341,7 @@
         <!-- Submit -->
         <div class="submit-footer">
           <button type="submit" class="btn-submit" id="submitBtn">Submit Free Listing</button>
+          <p class="stripe-lockup" style="margin:0 0 10px;text-align:center;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.78;">Payments processed by Stripe</p>
           <p class="submit-legal">
             By submitting, you agree to our
             <a href="/terms.html">Terms of Service</a> and <a href="/listing-guidelines.html">Listing Guidelines</a>.
@@ -358,7 +361,7 @@
   </main>
 
   <script>
-    const STRIPE_FEATURED_LINK = '';
+    const STRIPE_FEATURED_LINK = 'https://buy.stripe.com/eVq4gA2swfq0aGdgjrds40f';
     let selectedTier = 'free';
 
     function selectTier(tier) {
@@ -367,7 +370,7 @@
       document.getElementById('tierFeatured').classList.toggle('selected', tier === 'featured');
       document.getElementById('logoSection').style.display = tier === 'featured' ? 'block' : 'none';
       document.getElementById('submitBtn').textContent = tier === 'featured'
-        ? 'Request Featured Review'
+        ? 'Get Featured — $29.99/mo'
         : 'Submit Free Listing';
     }
 
@@ -403,13 +406,16 @@
         return;
       }
 
-      // Submission preview — show success until the backend intake opens.
+      if (selectedTier === 'featured' && STRIPE_FEATURED_LINK) {
+        window.location.href = STRIPE_FEATURED_LINK;
+        return;
+      }
+
+      // Free listing — show success screen until backend intake opens.
       document.getElementById('formView').style.display = 'none';
       document.getElementById('successScreen').style.display = 'block';
       const businessName = document.getElementById('bizName').value.trim();
-      document.getElementById('successMsg').textContent = selectedTier === 'featured'
-        ? `Your featured placement request for "${businessName}" has been captured for review. Featured placement is free for the first 30 days after launch; confirmation goes to ${document.getElementById('bizEmail').value}.`
-        : `Your free listing for "${businessName}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
+      document.getElementById('successMsg').textContent = `Your free listing for "${businessName}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
     }
   </script>
   <script src="future.js" defer></script>
