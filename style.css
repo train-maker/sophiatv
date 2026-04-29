@@ -1355,3 +1355,61 @@ body {
   .trust-num { font-size: 1.3rem; }
   .trust-label { font-size: 0.7rem; }
 }
+
+/* =====================
+   LAYOUTS §10 — MOBILE FIXES (additive only)
+   ===================== */
+
+/* A) Hero typography — stack CTAs full-width at <=640px */
+@media (max-width: 640px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .hero-cta .btn-gold,
+  .hero-cta .btn-outline,
+  .hero-cta .btn-gold.btn-lg,
+  .hero-cta .btn-outline.btn-lg,
+  .hero-cta a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* A) Hero typography — clamp tighter at <=480px */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(28px, 7vw, 44px);
+    line-height: 1.06;
+  }
+  .hero-body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .hero {
+    padding: 88px 18px 36px;
+  }
+}
+
+/* D) Form inputs — 16px font-size on mobile prevents iOS zoom */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea,
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .country-search-wrap input,
+  .sidebar-input,
+  .ai-input {
+    font-size: 16px !important;
+  }
+}

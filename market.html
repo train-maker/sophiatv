@@ -6,6 +6,13 @@
   <title>Sophia Market — Global Business Floor</title>
   <meta name="description" content="Explore Sophia Market, a global business floor for listings, country discovery, translation-ready contact, and cross-border trust." />
   <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+
+  <!-- Performance: preconnect to critical third-party origins -->
+  <link rel="preconnect" href="https://wftxhojlvrymtdtekhdx.supabase.co" crossorigin />
+  <link rel="preconnect" href="https://js.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://buy.stripe.com" crossorigin />
+  <link rel="preconnect" href="https://api.anthropic.com" crossorigin />
+
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
@@ -21,13 +28,8 @@
     #sophia-globe-hero,
     #sophia-categories,
     #sophia-particles,
-    #sz-matrix,
-    #sz-skyline,
     .sophia-ticker,
-    .sz-ticker-bar,
-    .sz-neon-sign,
-    .sz-corner,
-    .sz-vrail {
+    .legacy-route-layer {
       display: none !important;
     }
 
@@ -508,9 +510,39 @@
         background: linear-gradient(180deg, transparent, rgba(2, 3, 10, 0.92));
       }
     }
+
+    /* LAYOUTS §10 — country grid mobile breakpoints (additive) */
+    @media (max-width: 640px) {
+      .country-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+      .country-flag {
+        font-size: 22px;
+      }
+    }
+    @media (max-width: 400px) {
+      .country-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+      .country-flag {
+        font-size: 26px;
+      }
+      .country-name {
+        font-size: 13px;
+      }
+    }
+
   </style>
 </head>
 <body>
+  <noscript>
+    <div style="position:relative;padding:14px 18px;background:#0a0e15;border-bottom:1px solid #c9a84c;color:#f5f1e6;font-size:14px;line-height:1.5;text-align:center;font-family:system-ui,-apple-system,sans-serif;">
+      <strong style="color:#c9a84c;">SophiaMarket</strong> is the global business directory across 105 countries.
+      Enable JavaScript to browse listings, or visit
+      <a href="/market/country/index.html" style="color:#c9a84c;text-decoration:underline;">/market/country/index.html</a>
+      for the static directory.
+    </div>
+  </noscript>
   <script>window.__SOPHIA_LEGACY_EFFECTS_DISABLED = true;</script>
   <a class="skip-main" href="#main-content">Skip to main content</a>
 <!-- SOPHIA_TESLA -->
@@ -677,10 +709,10 @@
     io.observe(el);
   });
 
-  // Launch-status ticker. Keep this honest until real telemetry exists.
+  // Build-status ticker. Keep this honest until real telemetry exists.
   const ticker = document.createElement('div');
   ticker.className = 'sophia-ticker';
-  ticker.innerHTML = '<span>May 15 build</span> · global directory · translation-ready';
+  ticker.innerHTML = '<span>Directory build</span> · global floor · translation-ready';
   ticker.style.cssText += ';position:fixed;top:16px;right:16px;z-index:100;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);';
   document.body.appendChild(ticker);
 })();
@@ -850,7 +882,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       <span><strong>105</strong> countries</span>
       <span><strong>18</strong> market categories</span>
       <span><strong>50+</strong> language layer</span>
-      <span><strong>0</strong> fake live metrics</span>
+      <span><strong>No</strong> artificial activity claims</span>
     </div>
   </section>
 
@@ -957,8 +989,10 @@ window.filterCategory = window.filterCategory || function(cat) {
       </div>
 
       <div class="listings-grid" id="listingsGrid"></div>
+      <!-- LAYOUTS §8 — IntersectionObserver sentinel for infinite scroll -->
+      <div id="listingsSentinel" aria-hidden="true" style="height:1px;margin-top:8px;"></div>
       <div class="market-load-more" id="loadMoreWrap" style="display:none;text-align:center;margin-top:22px;">
-        <button type="button" class="btn-outline" onclick="showMoreListings()" style="padding:10px 22px;border:1px solid var(--gold-border);border-radius:8px;background:transparent;color:var(--text);font-weight:700;cursor:pointer;">Show more listings</button>
+        <button type="button" class="btn-outline" onclick="showMoreListings()" style="padding:10px 22px;border:1px solid var(--gold-border);border-radius:8px;background:transparent;color:var(--text);font-weight:700;cursor:pointer;">Show more (or just keep scrolling)</button>
       </div>
 
       <div class="empty-state hidden" id="emptyState">
@@ -973,7 +1007,7 @@ window.filterCategory = window.filterCategory || function(cat) {
   <!-- INQUIRY MODAL -->
   <div class="modal-overlay" id="inquiryModal">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">Close</button>
       <h3 id="modalBizName">Contact Business</h3>
       <p class="modal-sub" id="modalBizSub">Send an inquiry — they'll reply via email.</p>
       <label>Your Name</label>
@@ -1468,6 +1502,31 @@ window.filterCategory = window.filterCategory || function(cat) {
       renderListings();
     }
 
+    // LAYOUTS §8 — IntersectionObserver-based infinite scroll on a sentinel.
+    // When the sentinel is within 400px of the viewport, render the next batch.
+    (function setupInfiniteScroll() {
+      if (typeof IntersectionObserver === 'undefined') return;
+      function arm() {
+        var sentinel = document.getElementById('listingsSentinel');
+        var loadMore = document.getElementById('loadMoreWrap');
+        if (!sentinel) return;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            // Only auto-load if there's more to show (i.e. the manual load-more is visible).
+            if (!loadMore || loadMore.style.display === 'none') return;
+            try { showMoreListings(); } catch (e) { /* swallow */ }
+          });
+        }, { rootMargin: '400px 0px 400px 0px', threshold: 0.01 });
+        io.observe(sentinel);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', arm, { once: true });
+      } else {
+        arm();
+      }
+    })();
+
     function renderListings() {
       const sort = document.getElementById('sortSelect').value;
       const q = document.getElementById('listingSearch').value.toLowerCase();
@@ -1511,7 +1570,7 @@ window.filterCategory = window.filterCategory || function(cat) {
           </div>
           <div class="badge-row">
             <span class="badge badge-cat">${l.category}</span>
-            ${l.featured ? '<span class="badge badge-featured">★ Featured</span>' : ''}
+            ${l.featured ? '<span class="badge badge-featured">Featured</span>' : ''}
           </div>
           <div class="listing-desc">${l.description}</div>
           <div class="listing-location">${formatLocation(l)}</div>
@@ -1591,7 +1650,7 @@ window.filterCategory = window.filterCategory || function(cat) {
         <p style="margin:0 0 8px;color:#e8c978;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;">Market intelligence</p>
         <h2 style="color:#f9fafb;font-size:clamp(24px,4vw,36px);font-family:var(--sv-display,Georgia,serif);font-weight:500;margin:0;letter-spacing:0;">Operator field notes</h2>
       </div>
-      <span style="color:#9ca3af;font-size:12px;border:1px solid rgba(232,201,120,.22);border-radius:999px;padding:8px 12px;">Local preview content</span>
+      <span style="color:#9ca3af;font-size:12px;border:1px solid rgba(232,201,120,.22);border-radius:999px;padding:8px 12px;">Local field notes</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
       <article style="background:rgba(255,255,255,.035);border:1px solid rgba(232,201,120,.16);border-radius:4px;padding:18px;">
