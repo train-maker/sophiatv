@@ -3,16 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing — SophiaTV</title>
-  <meta name="description" content="Choose your Sophia plan for marketplace access, translation workflows, creator publishing, and guided business pages." />
+  <title>Pricing — SophiaTV Marketplace</title>
+  <meta name="description" content="Three marketplace plans: Free, Featured, and Enterprise. List your business in front of cross-border buyers with translation, AI lead qualification, and country-level placement." />
   <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== Marketplace tiers — local polish on top of existing tokens ===== */
+    .mkt-hero{padding:96px 24px 48px;text-align:center;position:relative}
+    .mkt-hero-inner{max-width:920px;margin:0 auto}
+    .mkt-pill{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--sv-gold-rule);color:var(--sv-gold);border-radius:999px;margin-bottom:20px;background:var(--sv-gold-soft)}
+    .mkt-title{font-family:var(--sv-display);font-size:clamp(40px,6vw,72px);line-height:1.05;margin:0 0 18px;letter-spacing:-.01em}
+    .mkt-title .gold{color:var(--sv-gold)}
+    .mkt-sub{font-size:18px;line-height:1.6;color:var(--sv-bone-2);max-width:720px;margin:0 auto}
+
+    .mkt-grid-section{padding:24px 24px 80px}
+    .mkt-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+    @media (max-width:1024px){.mkt-grid{grid-template-columns:1fr;max-width:520px}}
+
+    .mkt-card{
+      position:relative;display:flex;flex-direction:column;
+      background:linear-gradient(180deg,rgba(11,13,18,.94) 0%,rgba(6,7,10,.96) 100%);
+      border:1px solid rgba(245,241,230,.08);
+      border-radius:6px;padding:36px 28px 32px;
+      box-shadow:var(--sv-shadow-card);
+      transition:transform .35s var(--sv-ease),border-color .35s var(--sv-ease),box-shadow .35s var(--sv-ease);
+    }
+    .mkt-card:hover{transform:translateY(-4px);border-color:var(--sv-gold-rule);box-shadow:var(--sv-shadow-card-hover)}
+
+    .mkt-card-featured{
+      border:1.5px solid var(--sv-gold);
+      background:linear-gradient(180deg,rgba(28,22,8,.96) 0%,rgba(8,7,4,.98) 100%);
+      box-shadow:0 0 0 1px var(--sv-gold-soft),0 32px 80px -32px rgba(200,162,74,.45),inset 0 1px 0 rgba(255,236,180,.08);
+      transform:scale(1.02);
+    }
+    .mkt-card-featured:hover{transform:translateY(-4px) scale(1.02);border-color:var(--sv-gold)}
+    @media (max-width:1024px){.mkt-card-featured{transform:none}.mkt-card-featured:hover{transform:translateY(-4px)}}
+
+    .mkt-popular-ribbon{
+      position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+      background:linear-gradient(90deg,#d8b85e 0%,#c8a24a 50%,#a8862e 100%);
+      color:#0a0905;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+      padding:7px 18px;border-radius:999px;
+      box-shadow:0 6px 16px -4px rgba(200,162,74,.55),inset 0 1px 0 rgba(255,255,255,.35);
+      white-space:nowrap;
+    }
+
+    .mkt-tier{font-family:var(--sv-display);font-size:28px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
+    .mkt-card-featured .mkt-tier{color:var(--sv-gold)}
+    .mkt-tagline{font-size:13px;color:var(--sv-bone-2);line-height:1.55;min-height:38px;margin:0 0 22px}
+
+    .mkt-price-row{display:flex;align-items:baseline;gap:8px;margin:0 0 6px}
+    .mkt-amount{font-family:var(--sv-display);font-size:54px;font-weight:600;letter-spacing:-.02em;line-height:1}
+    .mkt-card-featured .mkt-amount{color:var(--sv-gold)}
+    .mkt-period{font-size:14px;color:var(--sv-bone-3);letter-spacing:.02em}
+    .mkt-billing-note{font-size:12px;color:var(--sv-bone-3);margin:0 0 20px;letter-spacing:.02em}
+
+    .mkt-cta{
+      display:block;width:100%;text-align:center;padding:14px 18px;
+      font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      border-radius:3px;text-decoration:none;
+      transition:transform .2s var(--sv-ease),box-shadow .2s var(--sv-ease),background .2s var(--sv-ease);
+      margin:0 0 24px;
+    }
+    .mkt-cta-outline{
+      border:1px solid var(--sv-gold-rule);color:var(--sv-bone);background:transparent;
+    }
+    .mkt-cta-outline:hover{border-color:var(--sv-gold);color:var(--sv-gold);background:var(--sv-gold-soft)}
+    .mkt-cta-gold{
+      background:linear-gradient(90deg,#d8b85e 0%,#c8a24a 100%);
+      color:#0a0905;border:1px solid var(--sv-gold);
+      box-shadow:0 8px 24px -8px rgba(200,162,74,.55);
+    }
+    .mkt-cta-gold:hover{transform:translateY(-1px);box-shadow:0 12px 32px -8px rgba(200,162,74,.7)}
+    .mkt-cta-dark{
+      background:rgba(245,241,230,.06);border:1px solid rgba(245,241,230,.18);color:var(--sv-bone);
+    }
+    .mkt-cta-dark:hover{background:rgba(245,241,230,.1);border-color:var(--sv-bone-3)}
+
+    .mkt-trust{
+      font-size:11px;color:var(--sv-bone-3);letter-spacing:.04em;line-height:1.6;
+      text-align:center;margin:0 0 22px;padding:10px 0;
+      border-top:1px solid rgba(200,162,74,.18);border-bottom:1px solid rgba(200,162,74,.18);
+    }
+
+    .mkt-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}
+    .mkt-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--sv-bone)}
+    .mkt-features li::before{
+      content:"";flex:0 0 16px;width:16px;height:16px;margin-top:3px;border-radius:50%;
+      background:var(--sv-gold-soft);border:1px solid var(--sv-gold-rule);
+      background-image:linear-gradient(135deg,transparent 45%,var(--sv-gold) 45% 55%,transparent 55%),linear-gradient(45deg,transparent 45%,var(--sv-gold) 45% 55%,transparent 55%);
+      background-size:8px 2px,8px 2px;background-repeat:no-repeat;background-position:center;
+    }
+    .mkt-features li.feat-strong{color:var(--sv-bone);font-weight:600}
+    .mkt-features-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sv-bone-3);margin:0 0 12px}
+
+    /* ===== Compare strip ===== */
+    .mkt-compare{padding:48px 24px 80px;border-top:1px solid rgba(245,241,230,.06)}
+    .mkt-compare-inner{max-width:1100px;margin:0 auto}
+    .mkt-compare h2{font-family:var(--sv-display);font-size:clamp(28px,3.4vw,40px);text-align:center;margin:0 0 8px;letter-spacing:-.01em}
+    .mkt-compare-sub{text-align:center;color:var(--sv-bone-2);font-size:15px;margin:0 0 36px}
+    .mkt-table-wrap{overflow-x:auto;border:1px solid rgba(245,241,230,.08);border-radius:6px}
+    .mkt-table{width:100%;border-collapse:collapse;min-width:680px}
+    .mkt-table th,.mkt-table td{padding:14px 18px;text-align:left;font-size:14px;border-bottom:1px solid rgba(245,241,230,.06)}
+    .mkt-table thead th{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sv-bone-2);background:rgba(245,241,230,.03);font-weight:600}
+    .mkt-table th.col-gold{color:var(--sv-gold)}
+    .mkt-table tr:last-child td{border-bottom:0}
+    .mkt-table td.cell-gold{color:var(--sv-gold);font-weight:600}
+
+    /* ===== Demoted creator/operator section ===== */
+    .secondary-tiers{padding:80px 24px;border-top:1px solid rgba(245,241,230,.06);background:rgba(6,7,10,.6)}
+    .secondary-inner{max-width:1240px;margin:0 auto}
+    .secondary-head{text-align:center;margin-bottom:40px}
+    .secondary-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sv-gold);margin:0 0 10px}
+    .secondary-head h2{font-family:var(--sv-display);font-size:clamp(26px,3vw,36px);margin:0 0 10px;letter-spacing:-.01em}
+    .secondary-head p{color:var(--sv-bone-2);font-size:15px;max-width:680px;margin:0 auto;line-height:1.6}
+
+    .secondary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .secondary-card{
+      background:rgba(11,13,18,.6);border:1px solid rgba(245,241,230,.07);border-radius:5px;
+      padding:24px 20px;display:flex;flex-direction:column;gap:8px;
+      transition:border-color .25s ease,transform .25s ease;
+    }
+    .secondary-card:hover{border-color:var(--sv-gold-rule);transform:translateY(-2px)}
+    .secondary-card.is-popular{border-color:var(--sv-gold-rule)}
+    .sc-tier{font-family:var(--sv-display);font-size:18px;font-weight:600;margin:0}
+    .sc-price{font-size:22px;font-weight:600;color:var(--sv-bone);margin:2px 0 4px}
+    .sc-price small{font-size:12px;color:var(--sv-bone-3);font-weight:400;letter-spacing:.02em}
+    .sc-desc{font-size:13px;color:var(--sv-bone-2);line-height:1.55;margin:0 0 12px;min-height:42px}
+    .sc-list{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:6px}
+    .sc-list li{font-size:12px;color:var(--sv-bone-2);padding-left:14px;position:relative;line-height:1.5}
+    .sc-list li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--sv-gold)}
+    .sc-cta{margin-top:auto;display:inline-block;text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:10px 14px;border-radius:3px;border:1px solid var(--sv-gold-rule);color:var(--sv-bone);text-decoration:none;transition:all .2s ease}
+    .sc-cta:hover{border-color:var(--sv-gold);color:var(--sv-gold);background:var(--sv-gold-soft)}
+
+    /* ===== FAQ ===== */
+    .mkt-faq{padding:64px 24px 96px;border-top:1px solid rgba(245,241,230,.06)}
+    .mkt-faq-inner{max-width:900px;margin:0 auto}
+    .mkt-faq h2{font-family:var(--sv-display);font-size:clamp(28px,3.4vw,40px);text-align:center;margin:0 0 36px;letter-spacing:-.01em}
+    .mkt-faq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .mkt-faq-item{background:rgba(11,13,18,.5);border:1px solid rgba(245,241,230,.06);border-radius:5px;padding:22px 22px 20px}
+    .mkt-faq-q{font-size:15px;font-weight:600;color:var(--sv-bone);margin:0 0 8px}
+    .mkt-faq-a{font-size:14px;color:var(--sv-bone-2);line-height:1.6;margin:0}
+  </style>
 </head>
 <body>
+
+  <a href="#main-content" class="skip-main">Skip to main content</a>
 
   <!-- NAV -->
   <nav class="nav">
@@ -28,7 +168,7 @@
         <a href="/#creators" class="nav-link">Builders</a>
         <a href="/#sessions" class="nav-link">Access</a>
         <a href="/control-center.html" class="nav-link">Control</a>
-        <a href="/pricing.html" class="nav-link" style="color:var(--gold)">Pricing</a>
+        <a href="/pricing.html" class="nav-link" style="color:var(--sv-gold)">Pricing</a>
       </div>
       <div class="nav-right">
         <a href="/market-submit.html" class="btn-gold">Start Listing</a>
@@ -37,386 +177,235 @@
   </nav>
 
   <main id="main-content" tabindex="-1">
-  <!-- PRICING HERO -->
-  <section class="pricing-hero">
-    <div class="pricing-hero-inner">
-      <div class="pricing-pill">Launch Offer: Free First 30 Days</div>
-      <h1 class="pricing-title" data-text="Choose Your Sophia Access">Choose Your <span class="gold">Sophia</span> Access</h1>
-      <p class="pricing-subtitle">Every access tier begins with the free first 30 days so the launch can prove value before billing. Sophia is priced as a global operating floor: directory presence, translation workflows, market proof, and trusted human access.</p>
-    </div>
-  </section>
 
-  <!-- VALUE ARCHITECTURE -->
-  <section class="pricing-value-architecture" aria-labelledby="pricingValueTitle">
-    <div class="pricing-value-inner">
-      <div class="pricing-value-copy">
-        <span class="sv-kicker">Commercial Architecture</span>
-        <h2 id="pricingValueTitle">The product is designed to compound.</h2>
-        <p>Pricing is not the business model by itself. The larger value comes from becoming the repeated path for people who need to be found, understood, trusted, and contacted across countries.</p>
+    <!-- HERO -->
+    <section class="mkt-hero">
+      <div class="mkt-hero-inner">
+        <div class="mkt-pill">SophiaTV Marketplace</div>
+        <h1 class="mkt-title">Three plans. <span class="gold">One marketplace.</span></h1>
+        <p class="mkt-sub">List your business on the global Sophia floor. Pick Free to be discoverable, Featured to win the country page, or Enterprise to operate across regions with a dedicated AI agent qualifying every lead.</p>
       </div>
-      <div class="pricing-value-grid" aria-label="Sophia value architecture">
-        <article>
-          <span>DIR</span>
-          <strong>Directory Gravity</strong>
-          <p>Country, category, and listing pages create durable discovery surfaces instead of one-time campaign traffic.</p>
+    </section>
+
+    <!-- THREE MARKETPLACE TIERS -->
+    <section class="mkt-grid-section" aria-labelledby="marketplaceTiersTitle">
+      <h2 id="marketplaceTiersTitle" class="visually-hidden">Marketplace plans</h2>
+      <div class="mkt-grid">
+
+        <!-- FREE -->
+        <article class="mkt-card" aria-labelledby="tier-free">
+          <div class="mkt-tier" id="tier-free">Free</div>
+          <p class="mkt-tagline">Get on the map. Standard placement and a contact form so buyers can reach you.</p>
+          <div class="mkt-price-row">
+            <span class="mkt-amount">$0</span>
+            <span class="mkt-period">/month</span>
+          </div>
+          <p class="mkt-billing-note">No card required. Forever-free tier.</p>
+          <a href="/market-submit.html?plan=free" class="mkt-cta mkt-cta-outline">Create Free Listing</a>
+          <div class="mkt-features-label">Includes</div>
+          <ul class="mkt-features">
+            <li>Basic public listing</li>
+            <li>Standard placement in directory</li>
+            <li>Contact form for inbound inquiries</li>
+            <li>1 country, 1 category</li>
+            <li>Logo + short description</li>
+          </ul>
         </article>
-        <article>
-          <span>LANG</span>
-          <strong>Language Access</strong>
-          <p>Translation workflows make every plan more useful as more countries and operators join the floor.</p>
+
+        <!-- FEATURED — MOST POPULAR -->
+        <article class="mkt-card mkt-card-featured" aria-labelledby="tier-featured">
+          <div class="mkt-popular-ribbon">Most Popular</div>
+          <div class="mkt-tier" id="tier-featured">Featured</div>
+          <p class="mkt-tagline">Top of country listings, sticky on the homepage carousel, and AI-recommendation priority.</p>
+          <div class="mkt-price-row">
+            <span class="mkt-amount">$29.99</span>
+            <span class="mkt-period">/month</span>
+          </div>
+          <p class="mkt-billing-note">Billed monthly via Stripe. Cancel from your dashboard.</p>
+          <a href="https://buy.stripe.com/eVq4gA2swfq0aGdgjrds40f" class="mkt-cta mkt-cta-gold" target="_blank" rel="noopener">Get Featured</a>
+          <p class="mkt-trust">Cancel anytime &middot; No contracts &middot; 7-day refund &middot; Stripe-secured payments</p>
+          <div class="mkt-features-label">Everything in Free, plus</div>
+          <ul class="mkt-features">
+            <li class="feat-strong">Gold-bordered featured card</li>
+            <li class="feat-strong">Top of country listing pages</li>
+            <li class="feat-strong">Sticky on homepage carousel</li>
+            <li class="feat-strong">AI-recommendation priority</li>
+            <li>Up to 5 category tags</li>
+            <li>Logo, gallery, and social links</li>
+            <li>Inbound message inbox</li>
+          </ul>
         </article>
-        <article>
-          <span>TRUST</span>
-          <strong>Trust Workflow</strong>
-          <p>Profiles, sessions, proof libraries, and feedback routes lower the risk of cross-border conversation.</p>
+
+        <!-- ENTERPRISE -->
+        <article class="mkt-card" aria-labelledby="tier-enterprise">
+          <div class="mkt-tier" id="tier-enterprise">Enterprise</div>
+          <p class="mkt-tagline">Operate across regions with a dedicated AI agent qualifying every lead before it reaches your team.</p>
+          <div class="mkt-price-row">
+            <span class="mkt-amount">$299</span>
+            <span class="mkt-period">/month</span>
+          </div>
+          <p class="mkt-billing-note">Billed monthly. Annual discount available on request.</p>
+          <a href="mailto:hello@sophiaoperator.com?subject=SophiaTV%20Enterprise%20Plan" class="mkt-cta mkt-cta-dark">Talk to Sophia</a>
+          <div class="mkt-features-label">Everything in Featured, plus</div>
+          <ul class="mkt-features">
+            <li class="feat-strong">Multi-country listings (up to 20)</li>
+            <li class="feat-strong">Access to all 18 categories</li>
+            <li class="feat-strong">Dedicated AI agent for lead qualification</li>
+            <li class="feat-strong">Priority human support</li>
+            <li>Custom analytics dashboard</li>
+            <li>Translation across 50+ languages</li>
+            <li>Featured placement in every active country</li>
+          </ul>
         </article>
-        <article>
-          <span>ANCHOR</span>
-          <strong>Anchor Seats</strong>
-          <p>High-signal operators can become visible country and category anchors without inventing their own platform.</p>
-        </article>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MARKETPLACE TIERS -->
-  <section class="pricing-section" aria-labelledby="marketplaceTiersTitle" style="padding-top:0;">
-    <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
-      <span class="sv-kicker" style="display:block;margin-bottom:12px;">Sophia Market — Global Listing Plans</span>
-      <h2 id="marketplaceTiersTitle" style="font-family:var(--sv-display,Georgia,serif);font-size:clamp(28px,4vw,44px);font-weight:500;color:var(--sv-bone,#f5f1e6);margin:0 0 14px;">List your business in 105 countries.</h2>
-      <p style="color:var(--sv-bone-2,var(--muted));font-size:16px;line-height:1.65;margin:0;">One plan puts your business in front of buyers, importers, and partners across every region. No contracts.</p>
-    </div>
-    <div class="pricing-grid" style="max-width:900px;margin:0 auto;grid-template-columns:repeat(3,1fr);">
-
-      <!-- LISTING FREE -->
-      <div class="pricing-card">
-        <div class="pricing-tier-name">Listing — Free</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount">$0</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="pricing-desc">Basic directory presence. Good for kicking the tires before you commit.</div>
-        <a href="/market-submit.html?tier=free" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free Listing</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Business name &amp; description</li>
-          <li class="feat-yes">Contact email &amp; phone</li>
-          <li class="feat-yes">Searchable directory presence</li>
-          <li class="feat-yes">Included in country pages</li>
-          <li class="feat-no">Featured gold border</li>
-          <li class="feat-no">Top placement in category</li>
-          <li class="feat-no">Sticky on homepage</li>
-          <li class="feat-no">AI lead prioritization</li>
-          <li class="feat-no">Logo &amp; gallery images</li>
-        </ul>
-      </div>
-
-      <!-- LISTING FEATURED — MOST POPULAR -->
-      <div class="pricing-card pricing-card-popular" style="transform:scale(1.03);z-index:1;">
-        <div class="pricing-popular-badge">Most Popular</div>
-        <div class="pricing-tier-name">Listing — Featured</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount" style="color:var(--gold);">$29.99</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="pricing-desc">Gold border, top placement, sticky on homepage. Your business seen first.</div>
-        <a href="https://buy.stripe.com/eVq4gA2swfq0aGdgjrds40f" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 8px;display:block;padding:12px 0;">Get Featured</a>
-        <p style="font-size:11px;color:var(--muted);text-align:center;margin:0 0 16px;">Cancel anytime · No contracts · 7-day refund</p>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Free</li>
-          <li class="feat-yes">Gold featured border</li>
-          <li class="feat-yes">Top of category placement</li>
-          <li class="feat-yes">Sticky on homepage</li>
-          <li class="feat-yes">AI lead prioritization</li>
-          <li class="feat-yes">Logo &amp; gallery images</li>
-          <li class="feat-yes">Up to 5 tags + social links</li>
-          <li class="feat-yes">Full business profile</li>
-          <li class="feat-no">Multi-country listings</li>
-        </ul>
-      </div>
-
-      <!-- LISTING ENTERPRISE -->
-      <div class="pricing-card pricing-card-founder">
-        <div class="pricing-founder-badge">Enterprise</div>
-        <div class="pricing-tier-name" style="color:var(--gold)">Listing — Enterprise</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount" style="color:var(--gold)">$299</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="pricing-desc">Multi-country, multi-category presence with priority support and a dedicated AI agent.</div>
-        <a href="/signup.html?plan=enterprise" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 8px;display:block;padding:12px 0;box-shadow:0 0 24px rgba(201,168,76,0.4)">Apply for Enterprise</a>
-        <p style="font-size:11px;color:var(--muted);text-align:center;margin:0 0 16px;">Cancel anytime · No contracts · 7-day refund</p>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Featured</li>
-          <li class="feat-yes">Listings in multiple countries</li>
-          <li class="feat-yes">Multiple category listings</li>
-          <li class="feat-yes">Priority support</li>
-          <li class="feat-yes">Dedicated Sophia AI agent</li>
-          <li class="feat-yes">Anchor seat eligibility</li>
-          <li class="feat-yes">Early access to features</li>
-          <li class="feat-yes">Enterprise onboarding</li>
-          <li class="feat-yes">Custom partnership terms</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;margin-top:28px;">
-      <p style="font-size:13px;color:var(--muted);max-width:480px;margin:0 auto;">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="vertical-align:-2px;margin-right:4px;" aria-hidden="true"><rect x="1" y="4" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 4V3a3 3 0 016 0v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        Payments secured by Stripe · Cancel anytime · No contracts · 7-day refund
-      </p>
-    </div>
-  </section>
-
-  <!-- CREATOR & OPERATOR PLANS -->
-  <section class="pricing-section" aria-labelledby="creatorTiersTitle" style="background:rgba(255,255,255,0.018);border-top:1px solid rgba(200,162,74,0.12);padding-top:72px;">
-    <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
-      <span class="sv-kicker" style="display:block;margin-bottom:12px;">Creator &amp; Operator</span>
-      <h2 id="creatorTiersTitle" style="font-family:var(--sv-display,Georgia,serif);font-size:clamp(22px,3vw,34px);font-weight:500;color:var(--sv-bone-2,var(--muted));margin:0 0 12px;">Creator &amp; Operator Plans</h2>
-      <p style="color:var(--sv-bone-2,var(--muted));font-size:15px;line-height:1.6;margin:0;">For builders, publishers, and operators building a presence on the platform.</p>
-    </div>
-    <div class="pricing-grid">
-
-      <!-- FREE -->
-      <div class="pricing-card">
-        <div class="pricing-tier-name">Observer</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount">$0</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="pricing-desc">Public access for exploring Sophia's global directory and proof library.</div>
-        <a href="/" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Explore Sophia</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Browse global signals</li>
-          <li class="feat-yes">Access public directory feed</li>
-          <li class="feat-yes">Follow builder profiles</li>
-          <li class="feat-yes">Local Sophia guide</li>
-          <li class="feat-yes">Standard media quality</li>
-          <li class="feat-no">Ad-free experience</li>
-          <li class="feat-no">Private access booking</li>
-          <li class="feat-no">Publish media</li>
-          <li class="feat-no">Creator publishing</li>
-          <li class="feat-no">Managed page setup</li>
-        </ul>
-      </div>
-
-      <!-- MEMBER PASS -->
-      <div class="pricing-card">
-        <div class="pricing-tier-name">Member Pass</div>
-        <div class="launch-price-badge">Free first 30 days</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount">$4.99</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
-        <div class="pricing-desc">A clean member layer for people who want Sophia without noise.</div>
-        <a href="/signup.html?plan=fan" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Free</li>
-          <li class="feat-yes">Ad-free experience</li>
-          <li class="feat-yes">Unlimited local guide access</li>
-          <li class="feat-yes">Supporter badge on profile</li>
-          <li class="feat-yes">HD media quality</li>
-          <li class="feat-no">Private access booking</li>
-          <li class="feat-no">Publish media</li>
-          <li class="feat-no">Creator publishing</li>
-          <li class="feat-no">Managed page setup</li>
-        </ul>
-      </div>
-
-      <!-- BUILDER BASIC -->
-      <div class="pricing-card">
-        <div class="pricing-tier-name">Builder Basic</div>
-        <div class="launch-price-badge">Free first 30 days</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount">$9.99</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
-        <div class="pricing-desc">Start building a public presence with guided setup and publishing tools.</div>
-        <a href="/signup.html?plan=creator_basic" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Fan Pass</li>
-          <li class="feat-yes">Publish media (unlimited)</li>
-          <li class="feat-yes">Creator dashboard</li>
-          <li class="feat-yes">Guided creator setup</li>
-          <li class="feat-yes">Channel analytics</li>
-          <li class="feat-yes">Subscriber management</li>
-          <li class="feat-no">Creator publishing events</li>
-          <li class="feat-no">Private sessions</li>
-          <li class="feat-no">Managed page setup</li>
-        </ul>
-      </div>
-
-      <!-- OPERATOR PRO — MOST POPULAR -->
-      <div class="pricing-card pricing-card-popular">
-        <div class="pricing-popular-badge">Operator</div>
-        <div class="pricing-tier-name">Operator Pro</div>
-        <div class="launch-price-badge">Free first 30 days</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount">$19.99</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
-        <div class="pricing-desc">For serious operators who need publishing, translation, sessions, and workflow depth.</div>
-        <a href="/signup.html?plan=creator_pro" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Creator Basic</li>
-          <li class="feat-yes">Creator publishing events</li>
-          <li class="feat-yes">Private access booking</li>
-          <li class="feat-yes">Full guided workflow suite</li>
-          <li class="feat-yes">Multi-language translation</li>
-          <li class="feat-yes">Priority support</li>
-          <li class="feat-yes">Custom builder badge</li>
-          <li class="feat-yes">Revenue sharing</li>
-          <li class="feat-no">Managed page setup</li>
-          <li class="feat-no">Founders badge</li>
-        </ul>
-      </div>
-
-      <!-- FOUNDER TIER -->
-      <div class="pricing-card pricing-card-founder">
-        <div class="pricing-founder-badge">Founder</div>
-        <div class="pricing-tier-name" style="color:var(--gold)">Founder Seat</div>
-        <div class="launch-price-badge">Free first 30 days</div>
-        <div class="pricing-price-row">
-          <span class="pricing-amount" style="color:var(--gold)">$49.99</span>
-          <span class="pricing-period">/month</span>
-        </div>
-        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
-        <div class="pricing-desc">Managed setup for founders who want Sophia built around their page, workflow, and market signal.</div>
-        <a href="/signup.html?plan=founder" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0;box-shadow:0 0 24px rgba(201,168,76,0.4)">Start Free 30-Day Trial</a>
-        <ul class="pricing-features">
-          <li class="feat-yes">Everything in Creator Pro</li>
-          <li class="feat-yes">Managed page setup</li>
-          <li class="feat-yes">Descriptions &amp; tags prepared</li>
-          <li class="feat-yes">Publishing checklist support</li>
-          <li class="feat-yes">Comment reply templates</li>
-          <li class="feat-yes">Founders badge (limited)</li>
-          <li class="feat-yes">Priority 1-on-1 support</li>
-          <li class="feat-yes">Early access to all features</li>
-          <li class="feat-yes">Founders Discord channel</li>
-          <li class="feat-yes">Lifetime price lock guarantee</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CREATOR COMPARISON TABLE -->
-  <section class="compare-section">
-    <div class="compare-inner">
-      <h2 class="compare-title">Full Feature Comparison</h2>
-      <div class="compare-table-wrap">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Observer</th>
-              <th>Member Pass</th>
-              <th>Builder Basic</th>
-              <th class="col-popular">Operator Pro</th>
-              <th class="col-founder">Founder Seat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="feature-group" colspan="6">Viewing</td></tr>
-            <tr><td>Browse global signals</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Video feed access</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Ad-free</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>HD / 4K quality</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-
-            <tr><td class="feature-group" colspan="6">Guided Workflows</td></tr>
-            <tr><td>Local Sophia guide</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Builder setup tools</td><td>—</td><td>—</td><td>Basic</td><td>Full suite</td><td>Full + managed</td></tr>
-            <tr><td>Managed page setup</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
-
-            <tr><td class="feature-group" colspan="6">Creating</td></tr>
-            <tr><td>Publish media</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Creator publishing events</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Private sessions</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>50+ language translation</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
-
-            <tr><td class="feature-group" colspan="6">Perks</td></tr>
-            <tr><td>Supporter badge</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-            <tr><td>Founders badge</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
-            <tr><td>Priority support</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>1-on-1</td></tr>
-            <tr><td>Price lock guarantee</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Lifetime</td></tr>
-
-            <tr class="compare-price-row">
-              <td><strong>Launch Trial: First 30 Days</strong></td>
-              <td><strong>$0</strong></td>
-              <td><strong>$0</strong></td>
-              <td><strong>$0</strong></td>
-              <td class="col-popular"><strong>$0</strong></td>
-              <td class="col-founder"><strong style="color:var(--gold)">$0</strong></td>
-            </tr>
-            <tr class="compare-price-row">
-              <td><strong>Normal Monthly Price</strong></td>
-              <td><strong>$0</strong></td>
-              <td><strong>$4.99</strong></td>
-              <td><strong>$9.99</strong></td>
-              <td class="col-popular"><strong>$19.99</strong></td>
-              <td class="col-founder"><strong style="color:var(--gold)">$49.99</strong></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="/" class="btn-outline-sm">Explore</a></td>
-              <td><a href="/signup.html?plan=fan" class="btn-outline-sm">Request</a></td>
-              <td><a href="/signup.html?plan=creator_basic" class="btn-outline-sm">Request</a></td>
-              <td class="col-popular"><a href="/signup.html?plan=creator_pro" class="btn-gold" style="padding:7px 16px;font-size:13px">Request</a></td>
-              <td class="col-founder"><a href="/signup.html?plan=founder" class="btn-gold" style="padding:7px 16px;font-size:13px;background:var(--gold)">Request</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ANCHOR ACCESS -->
-  <section class="anchor-access-pricing" aria-labelledby="anchorAccessTitle">
-    <div class="anchor-access-inner">
-      <div>
-        <span class="sv-kicker">Institutional Lane</span>
-        <h2 id="anchorAccessTitle">Country and category anchor access is reviewed by application.</h2>
-        <p>Anchor access is for high-signal businesses, operators, and partners who want to represent a country, category, or route with more visibility than a standard plan. It stays request-only until the floor proves demand.</p>
-      </div>
-      <a class="btn-gold btn-lg" href="/signup.html?seat=anchor">Apply for Anchor Access</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="faq-inner">
-      <h2 class="compare-title">Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <div class="faq-q">Can I cancel anytime?</div>
-          <div class="faq-a">Yes. All plans are month-to-month. Cancel from your account settings with no penalties or lock-in periods.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What is managed page setup on Founder Tier?</div>
-          <div class="faq-a">Founder support helps prepare page copy, listing structure, publishing checklists, and setup notes. Any external AI account stays optional and under the user's own control.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What are Private Sessions?</div>
-          <div class="faq-a">1-on-1 or small group access sessions for builders and operators. Creator Pro and Founder members can offer and book sessions directly on the platform once availability is finalized.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">How does the 50+ language translation work?</div>
-          <div class="faq-a">Sophia includes a launch-safe translator with local fallback examples. People can connect their own translation provider later on their own terms.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">How does the free first 30 days work?</div>
-          <div class="faq-a">Launch members can use paid-plan features free for the first 30 days after launch so they can test Sophia and share feedback. After the trial, the normal monthly rate shown on this page applies unless cancelled.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">What payment methods are accepted?</div>
-          <div class="faq-a">Payments open after access review and production payment settings are confirmed.</div>
+    <!-- COMPARE STRIP -->
+    <section class="mkt-compare" aria-labelledby="mktCompareTitle">
+      <div class="mkt-compare-inner">
+        <h2 id="mktCompareTitle">Quick comparison</h2>
+        <p class="mkt-compare-sub">Pick the row that matches what you actually need. No hidden fees on any tier.</p>
+        <div class="mkt-table-wrap">
+          <table class="mkt-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Free</th>
+                <th class="col-gold">Featured</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Monthly price</td><td>$0</td><td class="cell-gold">$29.99</td><td>$299</td></tr>
+              <tr><td>Countries</td><td>1</td><td class="cell-gold">1</td><td>Up to 20</td></tr>
+              <tr><td>Categories</td><td>1</td><td class="cell-gold">Up to 5 tags</td><td>All 18</td></tr>
+              <tr><td>Country page placement</td><td>Standard</td><td class="cell-gold">Top + gold border</td><td>Top in every active country</td></tr>
+              <tr><td>Homepage carousel</td><td>—</td><td class="cell-gold">Sticky</td><td>Sticky</td></tr>
+              <tr><td>AI recommendation priority</td><td>—</td><td class="cell-gold">Yes</td><td>Yes</td></tr>
+              <tr><td>Dedicated AI lead-qualification agent</td><td>—</td><td>—</td><td>Yes</td></tr>
+              <tr><td>Custom analytics</td><td>—</td><td>Basic</td><td>Custom dashboard</td></tr>
+              <tr><td>Support</td><td>Email</td><td class="cell-gold">Email + chat</td><td>Priority human support</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SECONDARY: CREATOR & OPERATOR PLANS -->
+    <section class="secondary-tiers" aria-labelledby="secondaryTiersTitle">
+      <div class="secondary-inner">
+        <div class="secondary-head">
+          <p class="secondary-kicker">Creator &amp; Operator plans</p>
+          <h2 id="secondaryTiersTitle">For builders, creators, and viewers</h2>
+          <p>Separate from marketplace listings, these plans are for people who watch, publish, or operate inside Sophia rather than list a business in the directory.</p>
+        </div>
+        <div class="secondary-grid">
+
+          <article class="secondary-card">
+            <h3 class="sc-tier">Observer</h3>
+            <div class="sc-price">$0 <small>/ mo</small></div>
+            <p class="sc-desc">Public access for exploring Sophia's directory and proof library.</p>
+            <ul class="sc-list">
+              <li>Browse global signals</li>
+              <li>Public directory feed</li>
+              <li>Follow builder profiles</li>
+              <li>Standard media quality</li>
+            </ul>
+            <a href="/" class="sc-cta">Explore</a>
+          </article>
+
+          <article class="secondary-card">
+            <h3 class="sc-tier">Member Pass</h3>
+            <div class="sc-price">$4.99 <small>/ mo</small></div>
+            <p class="sc-desc">A clean member layer for people who want Sophia without noise.</p>
+            <ul class="sc-list">
+              <li>Everything in Observer</li>
+              <li>Ad-free experience</li>
+              <li>Supporter badge</li>
+              <li>HD media quality</li>
+            </ul>
+            <a href="/signup.html?plan=fan" class="sc-cta">Start Trial</a>
+          </article>
+
+          <article class="secondary-card">
+            <h3 class="sc-tier">Builder Basic</h3>
+            <div class="sc-price">$9.99 <small>/ mo</small></div>
+            <p class="sc-desc">Start a public presence with guided setup and publishing tools.</p>
+            <ul class="sc-list">
+              <li>Publish media (unlimited)</li>
+              <li>Creator dashboard</li>
+              <li>Channel analytics</li>
+              <li>Subscriber management</li>
+            </ul>
+            <a href="/signup.html?plan=creator_basic" class="sc-cta">Start Trial</a>
+          </article>
+
+          <article class="secondary-card is-popular">
+            <h3 class="sc-tier">Operator Pro</h3>
+            <div class="sc-price">$19.99 <small>/ mo</small></div>
+            <p class="sc-desc">Publishing, translation, sessions, and full workflow depth for serious operators.</p>
+            <ul class="sc-list">
+              <li>Everything in Builder Basic</li>
+              <li>Creator publishing events</li>
+              <li>Private access booking</li>
+              <li>50+ language translation</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="/signup.html?plan=creator_pro" class="sc-cta">Start Trial</a>
+          </article>
+
+          <article class="secondary-card">
+            <h3 class="sc-tier">Founder Seat</h3>
+            <div class="sc-price">$49.99 <small>/ mo</small></div>
+            <p class="sc-desc">Managed setup for founders who want Sophia built around their page and signal.</p>
+            <ul class="sc-list">
+              <li>Everything in Operator Pro</li>
+              <li>Managed page setup</li>
+              <li>Founders badge (limited)</li>
+              <li>1-on-1 priority support</li>
+              <li>Lifetime price lock</li>
+            </ul>
+            <a href="/signup.html?plan=founder" class="sc-cta">Apply</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mkt-faq" aria-labelledby="faqTitle">
+      <div class="mkt-faq-inner">
+        <h2 id="faqTitle">Common questions</h2>
+        <div class="mkt-faq-grid">
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">How does the 7-day refund work?</p>
+            <p class="mkt-faq-a">If Featured isn't right for you, email hello@sophiaoperator.com within 7 days of your first charge for a full refund. No questions asked.</p>
+          </div>
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">Can I switch tiers later?</p>
+            <p class="mkt-faq-a">Yes. Upgrade or downgrade anytime from your dashboard. Charges prorate against your current cycle.</p>
+          </div>
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">What does the dedicated AI agent actually do?</p>
+            <p class="mkt-faq-a">For Enterprise, Sophia configures an agent that screens inbound messages, asks qualifying questions in the buyer's language, and routes only ready leads to your inbox.</p>
+          </div>
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">How are payments handled?</p>
+            <p class="mkt-faq-a">All payments run through Stripe. Sophia never sees or stores your card details.</p>
+          </div>
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">Is Free really free?</p>
+            <p class="mkt-faq-a">Yes. The Free tier is permanent. You only pay if you choose to upgrade for placement, multi-country listings, or the AI agent.</p>
+          </div>
+          <div class="mkt-faq-item">
+            <p class="mkt-faq-q">What's the difference between marketplace plans and creator plans?</p>
+            <p class="mkt-faq-a">Marketplace plans (above) are for businesses listing in the directory. Creator &amp; Operator plans are for people who publish video, host sessions, or watch Sophia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
