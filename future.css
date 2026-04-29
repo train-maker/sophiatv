@@ -64,7 +64,7 @@ html {
   width: 1px;
   height: 160vh;
   top: -30vh;
-  background: linear-gradient(180deg, transparent, rgba(0,245,255,0.8), rgba(255,61,242,0.38), transparent);
+  background: linear-gradient(180deg, transparent, rgba(0,245,255,0.8), rgba(200, 162, 74, 0.38), transparent);
   box-shadow: 0 0 28px rgba(0,245,255,0.55);
   opacity: 0.42;
   transform: rotate(18deg);
@@ -84,7 +84,7 @@ html {
   border: 1px solid rgba(0,245,255,0.14);
   box-shadow:
     inset 0 0 60px rgba(0,245,255,0.05),
-    0 0 90px rgba(255,61,242,0.08);
+    0 0 90px rgba(200, 162, 74, 0.08);
   transform: translate(-50%, -50%) rotateX(72deg);
   animation: cyberRingSpin 34s linear infinite;
 }
@@ -112,7 +112,7 @@ html {
   height: 42vh;
   background:
     linear-gradient(rgba(0,245,255,0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,61,242,0.16) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(200, 162, 74, 0.16) 1px, transparent 1px);
   background-size: 42px 42px;
   transform: rotateX(68deg);
   transform-origin: center bottom;
@@ -296,7 +296,7 @@ h1,
     0 1px 0 rgba(255,255,255,0.25),
     0 2px 0 rgba(0,245,255,0.18),
     0 0 16px rgba(0,245,255,0.34),
-    0 0 30px rgba(255,61,242,0.16) !important;
+    0 0 30px rgba(200, 162, 74, 0.16) !important;
 }
 
 .control-kicker,
@@ -392,7 +392,7 @@ h1,
   pointer-events: none;
   border-radius: 50%;
   border: 1px solid rgba(0,245,255,0.95);
-  box-shadow: 0 0 18px rgba(0,245,255,0.8), 0 0 34px rgba(255,61,242,0.42);
+  box-shadow: 0 0 18px rgba(0,245,255,0.8), 0 0 34px rgba(200, 162, 74, 0.42);
   transform: translate(-50%, -50%) scale(0.4);
   animation: sophiaBurst 0.72s ease-out forwards;
 }
@@ -408,7 +408,7 @@ h1,
 
 .sophia-neural-burst::after {
   inset: -24px;
-  border-color: rgba(255,61,242,0.38);
+  border-color: rgba(200, 162, 74, 0.38);
 }
 
 @keyframes sophiaBurst {
@@ -703,7 +703,7 @@ select:focus {
   height: 280px;
   border-radius: 50%;
   pointer-events: none;
-  background: radial-gradient(circle, rgba(0,245,255,0.15), rgba(255,61,242,0.08) 34%, transparent 68%);
+  background: radial-gradient(circle, rgba(0,245,255,0.15), rgba(200, 162, 74, 0.08) 34%, transparent 68%);
   mix-blend-mode: screen;
   transition: transform 0.08s linear;
 }
@@ -837,7 +837,7 @@ select:focus {
 .future-command-row.active,
 .future-command-row:hover {
   border-color: rgba(232, 201, 120, 0.38);
-  background: linear-gradient(90deg, rgba(0,245,255,0.12), rgba(255,61,242,0.12));
+  background: linear-gradient(90deg, rgba(0,245,255,0.12), rgba(200, 162, 74, 0.12));
   box-shadow: inset 0 0 20px rgba(0,245,255,0.08);
 }
 
@@ -861,7 +861,7 @@ select:focus {
 .translator-section {
   background:
     radial-gradient(circle at 16% 20%, rgba(0,245,255,0.12), transparent 34%),
-    radial-gradient(circle at 80% 20%, rgba(255,61,242,0.12), transparent 34%);
+    radial-gradient(circle at 80% 20%, rgba(200, 162, 74, 0.12), transparent 34%);
 }
 
 .translator-grid {
@@ -954,8 +954,8 @@ select:focus {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(255,61,242,0.36);
-  background: rgba(255,61,242,0.1);
+  border: 1px solid rgba(200, 162, 74, 0.36);
+  background: rgba(200, 162, 74, 0.1);
   color: white;
   font-size: 20px;
   cursor: pointer;
@@ -1005,7 +1005,7 @@ select:focus {
   border-radius: 22px;
   background:
     radial-gradient(circle at 10% 8%, rgba(0,245,255,0.26), transparent 34%),
-    radial-gradient(circle at 90% 10%, rgba(255,61,242,0.22), transparent 35%),
+    radial-gradient(circle at 90% 10%, rgba(200, 162, 74, 0.22), transparent 35%),
     linear-gradient(135deg, rgba(7,12,24,0.86), rgba(2,4,12,0.76));
   box-shadow: var(--neo-glow-cyan), 0 28px 80px rgba(0,0,0,0.48);
   overflow: hidden;
@@ -1066,7 +1066,7 @@ select:focus {
   position: absolute;
   border: 1px solid rgba(0,245,255,0.24);
   border-radius: 50%;
-  box-shadow: inset 0 0 32px rgba(0,245,255,0.08), 0 0 24px rgba(255,61,242,0.1);
+  box-shadow: inset 0 0 32px rgba(0,245,255,0.08), 0 0 24px rgba(200, 162, 74, 0.1);
 }
 
 .control-orbit::before {
@@ -1262,9 +1262,9 @@ select:focus {
 .handoff-steps div {
   min-height: 126px;
   padding: 14px;
-  border: 1px solid rgba(255,61,242,0.2);
+  border: 1px solid rgba(200, 162, 74, 0.3);
   border-radius: 12px;
-  background: rgba(255,61,242,0.065);
+  background: rgba(200, 162, 74, 0.07);
 }
 
 .handoff-steps b,
@@ -1345,7 +1345,7 @@ select:focus {
 .quick-links a:hover,
 .module-tile:hover,
 .control-chip:hover {
-  border-color: rgba(255,61,242,0.46);
+  border-color: rgba(200, 162, 74, 0.46);
   box-shadow: var(--neo-glow-pink);
 }
 
@@ -1478,7 +1478,7 @@ select:focus {
   border: 1px solid rgba(0,245,255,0.18);
   border-radius: 14px;
   background:
-    radial-gradient(circle at 0 0, rgba(255,61,242,0.12), transparent 44%),
+    radial-gradient(circle at 0 0, rgba(200, 162, 74, 0.12), transparent 44%),
     rgba(2,4,12,0.6);
 }
 
@@ -1672,7 +1672,7 @@ select:focus {
   border: 1px solid rgba(0,245,255,0.26);
   border-radius: 22px;
   background:
-    radial-gradient(circle at 50% 0, rgba(255,61,242,0.22), transparent 42%),
+    radial-gradient(circle at 50% 0, rgba(200, 162, 74, 0.22), transparent 42%),
     linear-gradient(145deg, rgba(10,18,36,0.92), rgba(5,8,18,0.78));
   box-shadow: var(--neo-glow-cyan), var(--neo-glow-pink), 0 28px 80px rgba(0,0,0,0.5);
 }
@@ -1788,10 +1788,10 @@ select:focus {
   pointer-events: none;
   opacity: 0.42;
   background:
-    linear-gradient(90deg, transparent 0 9%, rgba(0,245,255,0.2) 9.2%, transparent 9.6% 28%, rgba(255,61,242,0.18) 28.2%, transparent 28.7%),
+    linear-gradient(90deg, transparent 0 9%, rgba(0,245,255,0.2) 9.2%, transparent 9.6% 28%, rgba(200, 162, 74, 0.18) 28.2%, transparent 28.7%),
     linear-gradient(180deg, transparent 0 18%, rgba(37,255,179,0.18) 18.2%, transparent 18.6% 56%, rgba(255,216,77,0.12) 56.2%, transparent 56.6%),
     radial-gradient(circle at 9.2% 18.2%, rgba(0,245,255,0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 28.2% 56.2%, rgba(255,61,242,0.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 28.2% 56.2%, rgba(200, 162, 74, 0.75) 0 2px, transparent 3px),
     radial-gradient(circle at 74% 34%, rgba(37,255,179,0.65) 0 2px, transparent 3px);
   background-size: 320px 220px, 280px 240px, 320px 220px, 280px 240px, 360px 260px;
   animation: sophiaCircuit 16s linear infinite;
@@ -1850,7 +1850,7 @@ select:focus {
 .blog-index .post-card,
 .blog-wrap .checklist {
   background:
-    radial-gradient(circle at 10% 0, rgba(255,61,242,0.14), transparent 38%),
+    radial-gradient(circle at 10% 0, rgba(200, 162, 74, 0.14), transparent 38%),
     rgba(2,4,12,0.62) !important;
   border-color: rgba(0,245,255,0.22) !important;
   box-shadow: inset 0 0 24px rgba(0,245,255,0.04);
@@ -2371,15 +2371,15 @@ body {
   box-shadow: 0 0 16px rgba(0,245,255,0.88);
 }
 
-.node-a { left: 20px; top: 76px; }
-.node-b { left: 84px; top: 34px; background: var(--neo-mint); }
-.node-c { left: 154px; top: 70px; background: var(--neo-pink); }
-.node-d { left: 120px; top: 120px; background: var(--neo-amber); }
+.command-map .node-a { left: 20px; top: 76px; }
+.command-map .node-b { left: 84px; top: 34px; background: var(--neo-mint); }
+.command-map .node-c { left: 154px; top: 70px; background: var(--neo-pink); }
+.command-map .node-d { left: 120px; top: 120px; background: var(--neo-amber); }
 
 .map-line {
   height: 1px;
   transform-origin: left center;
-  background: linear-gradient(90deg, rgba(0,245,255,0.05), rgba(0,245,255,0.72), rgba(255,61,242,0.32));
+  background: linear-gradient(90deg, rgba(0,245,255,0.05), rgba(0,245,255,0.72), rgba(200, 162, 74, 0.32));
 }
 
 .line-a { left: 31px; top: 82px; width: 74px; transform: rotate(-33deg); }
