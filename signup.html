@@ -4,15 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up — SophiaTV</title>
-  <meta name="description" content="Create your SophiaTV account and join the world's first AI-powered free speech network." />
+  <meta name="description" content="Create your SophiaTV account for the global social marketplace, creator tools, translation workflows, and business directory." />
+  <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="/api/public-config"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <style>
-    .auth-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px 40px; }
-    .auth-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; width: 100%; max-width: 480px; }
+    .auth-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 480px);
+      gap: clamp(28px, 5vw, 76px);
+      align-items: center;
+      justify-content: center;
+      padding: 110px 28px 56px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .auth-value-panel {
+      max-width: 560px;
+    }
+    .auth-value-panel .sv-kicker {
+      display: block;
+      margin-bottom: 16px;
+    }
+    .auth-value-panel h1 {
+      margin: 0 0 18px;
+      font-family: var(--sv-display);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.03;
+      font-weight: 500;
+      color: var(--sv-bone);
+    }
+    .auth-value-panel p {
+      margin: 0 0 28px;
+      color: var(--sv-bone-2);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .auth-value-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .auth-value-list li {
+      border-left: 1px solid rgba(200, 162, 74, 0.46);
+      padding: 10px 0 10px 16px;
+      color: var(--sv-bone-2);
+      font-size: 14px;
+    }
+    .auth-card {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 26%),
+        linear-gradient(145deg, rgba(20, 17, 10, 0.95), rgba(5, 5, 8, 0.98));
+      border: 1px solid rgba(200, 162, 74, 0.3);
+      border-radius: 8px;
+      padding: 42px 36px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 36px 80px rgba(0,0,0,0.42);
+    }
     .auth-logo { text-align: center; margin-bottom: 32px; }
     .auth-logo a { text-decoration: none; font-size: 1.6rem; font-weight: 800; color: var(--white); }
     .auth-logo a em { color: var(--gold); font-style: normal; }
@@ -40,23 +99,53 @@
     .auth-footer a { color: var(--gold); text-decoration: none; }
     .auth-error { background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.3); border-radius: 8px; padding: 12px 14px; font-size: 0.85rem; color: #ff6b6b; margin-bottom: 18px; display: none; }
     .auth-success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 12px 14px; font-size: 0.85rem; color: var(--green); margin-bottom: 18px; display: none; }
+    .preview-note { margin-top: 12px; color: rgba(238,244,255,0.72); font-size: 0.78rem; line-height: 1.5; text-align: center; }
+    .preview-note a { color: var(--gold); }
+    @media (max-width: 860px) {
+      .auth-page {
+        grid-template-columns: 1fr;
+        padding: 100px 20px 44px;
+      }
+      .auth-card,
+      .auth-value-panel {
+        max-width: none;
+      }
+    }
+    @media (max-width: 520px) {
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+      .auth-card {
+        padding: 30px 22px;
+      }
+    }
   </style>
 </head>
 <body>
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <div class="logo-mark"><div class="logo-ring"></div><span class="logo-play">&#9654;</span></div>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
     </div>
   </nav>
 
-  <div class="auth-page">
+  <main id="main-content" class="auth-page" tabindex="-1">
+    <section class="auth-value-panel" aria-label="Sophia access value">
+      <span class="sv-kicker">ACCESS REVIEW</span>
+      <h1>Enter the global operating floor.</h1>
+      <p>Sophia access starts with identity, language, market presence, and proof. The first 30 days are free so operators can test the floor before paid billing begins.</p>
+      <ul class="auth-value-list">
+        <li>Build a public signal that can be found across countries.</li>
+        <li>Use translation and workflow tools to reduce cross-border friction.</li>
+        <li>Apply for anchor access when a country, category, or route matters.</li>
+      </ul>
+    </section>
     <div class="auth-card">
       <div class="auth-logo"><a href="/">Sophia<em>TV</em></a></div>
-      <h1 class="auth-title">Create Your Account</h1>
-      <p class="auth-sub">Join the world's first AI-powered free speech network</p>
+      <h1 class="auth-title">Create Your Access</h1>
+      <p class="auth-sub">Join Sophia's global marketplace, translation layer, and operator network.</p>
 
       <div id="authError" class="auth-error"></div>
       <div id="authSuccess" class="auth-success"></div>
@@ -66,23 +155,28 @@
       <div class="plan-grid">
         <label class="plan-option selected" onclick="selectPlan(this,'free')">
           <input type="radio" name="plan" value="free" checked />
-          <div class="plan-name">Free Viewer</div>
+          <div class="plan-name">Observer</div>
           <div class="plan-price">$0/mo</div>
         </label>
         <label class="plan-option" onclick="selectPlan(this,'fan')">
           <input type="radio" name="plan" value="fan" />
-          <div class="plan-name">Fan</div>
-          <div class="plan-price">$9/mo</div>
+          <div class="plan-name">Member Pass</div>
+          <div class="plan-price">30 days free, then $4.99/mo</div>
         </label>
         <label class="plan-option" onclick="selectPlan(this,'creator_basic')">
           <input type="radio" name="plan" value="creator_basic" />
-          <div class="plan-name">Creator Basic</div>
-          <div class="plan-price">$29/mo</div>
+          <div class="plan-name">Builder Basic</div>
+          <div class="plan-price">30 days free, then $9.99/mo</div>
         </label>
         <label class="plan-option" onclick="selectPlan(this,'creator_pro')">
           <input type="radio" name="plan" value="creator_pro" />
-          <div class="plan-name">Creator Pro</div>
-          <div class="plan-price">$79/mo</div>
+          <div class="plan-name">Operator Pro</div>
+          <div class="plan-price">30 days free, then $19.99/mo</div>
+        </label>
+        <label class="plan-option" onclick="selectPlan(this,'founder')">
+          <input type="radio" name="plan" value="founder" />
+          <div class="plan-name">Founder Seat</div>
+          <div class="plan-price">30 days free, then $49.99/mo</div>
         </label>
       </div>
 
@@ -110,15 +204,18 @@
       </button>
 
       <div class="auth-footer">
-        Already have an account? <a href="/login">Sign in</a>
+        Already have an account? <a href="/login.html">Sign in</a>
       </div>
+      <div class="preview-note">Local preview signups are saved in this browser only so the frontend can be tested before Claude wires production auth.</div>
     </div>
-  </div>
+  </main>
 
   <script>
-    const SUPABASE_URL = 'https://wftxhojlvrymtdtekhdx.supabase.co';
-    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // Replace in Vercel env vars
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const SUPABASE_URL = window.SOPHIA_CONFIG?.SUPABASE_URL || 'https://wftxhojlvrymtdtekhdx.supabase.co';
+    const SUPABASE_ANON_KEY = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || '';
+    const supabaseReady = Boolean(window.supabase && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('YOUR_'));
+    const sophiaAuth = supabaseReady ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    const setupMessage = 'Account creation is not connected yet. Add the public Supabase anon key in config.js before launch.';
 
     let selectedPlan = 'free';
 
@@ -153,12 +250,27 @@
       const password = document.getElementById('password').value;
 
       try {
-        const { data, error } = await supabase.auth.signUp({
+        if (!sophiaAuth) {
+          const previewUsers = JSON.parse(localStorage.getItem('sophia_preview_users') || '[]');
+          previewUsers.unshift({
+            id: 'preview-' + Date.now(),
+            full_name: name,
+            email,
+            tier: selectedPlan,
+            created_at: new Date().toISOString()
+          });
+          localStorage.setItem('sophia_preview_users', JSON.stringify(previewUsers.slice(0, 25)));
+          showSuccess('Preview account created in this browser. Go test posting photos and videos on Sophia Social.');
+          document.getElementById('signupForm').reset();
+          setTimeout(() => { window.location.href = '/social.html'; }, 900);
+          return;
+        }
+        const { data, error } = await sophiaAuth.auth.signUp({
           email,
           password,
           options: {
             data: { full_name: name, tier: selectedPlan },
-            emailRedirectTo: window.location.origin + '/dashboard',
+            emailRedirectTo: window.location.origin + '/dashboard.html',
           }
         });
 
@@ -166,7 +278,7 @@
 
         // Store user tier in profiles table
         if (data.user) {
-          await supabase.from('profiles').upsert({
+          await sophiaAuth.from('profiles').upsert({
             id: data.user.id,
             full_name: name,
             email: email,
@@ -186,15 +298,20 @@
     }
 
     async function handleGoogleSignup() {
-      const { error } = await supabase.auth.signInWithOAuth({
+      if (!sophiaAuth) {
+        showError(setupMessage);
+        return;
+      }
+      const { error } = await sophiaAuth.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: window.location.origin + '/dashboard',
+          redirectTo: window.location.origin + '/dashboard.html',
           queryParams: { access_type: 'offline', prompt: 'consent' }
         }
       });
       if (error) showError(error.message);
     }
   </script>
+  <script src="future.js" defer></script>
 </body>
 </html>

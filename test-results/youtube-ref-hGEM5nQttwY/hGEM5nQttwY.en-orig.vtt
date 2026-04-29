@@ -1,0 +1,120 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.150 align:start position:0%
+ 
+GitHub<00:00:00.320><c> repos,</c><00:00:00.720><c> you</c><00:00:00.800><c> should</c><00:00:01.040><c> know.</c><00:00:01.520><c> This</c><00:00:01.760><c> repo</c>
+
+00:00:02.150 --> 00:00:02.160 align:start position:0%
+GitHub repos, you should know. This repo
+ 
+
+00:00:02.160 --> 00:00:04.510 align:start position:0%
+GitHub repos, you should know. This repo
+is<00:00:02.360><c> called</c><00:00:02.640><c> Andrej</c><00:00:03.040><c> Karpathy</c><00:00:03.600><c> skills,</c><00:00:04.160><c> and</c><00:00:04.400><c> it</c>
+
+00:00:04.510 --> 00:00:04.520 align:start position:0%
+is called Andrej Karpathy skills, and it
+ 
+
+00:00:04.520 --> 00:00:06.350 align:start position:0%
+is called Andrej Karpathy skills, and it
+says<00:00:04.800><c> specialized</c><00:00:05.440><c> instruction</c><00:00:06.080><c> layer</c>
+
+00:00:06.350 --> 00:00:06.360 align:start position:0%
+says specialized instruction layer
+ 
+
+00:00:06.360 --> 00:00:08.390 align:start position:0%
+says specialized instruction layer
+designed<00:00:06.800><c> to</c><00:00:06.920><c> transform</c><00:00:07.480><c> your</c><00:00:07.760><c> AI</c><00:00:07.960><c> coding</c>
+
+00:00:08.390 --> 00:00:08.400 align:start position:0%
+designed to transform your AI coding
+ 
+
+00:00:08.400 --> 00:00:10.670 align:start position:0%
+designed to transform your AI coding
+agents<00:00:08.880><c> into</c><00:00:09.200><c> disciplined</c><00:00:09.920><c> senior-level</c>
+
+00:00:10.670 --> 00:00:10.680 align:start position:0%
+agents into disciplined senior-level
+ 
+
+00:00:10.680 --> 00:00:13.190 align:start position:0%
+agents into disciplined senior-level
+software<00:00:11.240><c> engineers.</c><00:00:12.080><c> You</c><00:00:12.240><c> enforce</c><00:00:12.720><c> your</c><00:00:12.960><c> AI</c>
+
+00:00:13.190 --> 00:00:13.200 align:start position:0%
+software engineers. You enforce your AI
+ 
+
+00:00:13.200 --> 00:00:15.310 align:start position:0%
+software engineers. You enforce your AI
+to<00:00:13.400><c> surface</c><00:00:13.880><c> hidden</c><00:00:14.280><c> assumptions</c><00:00:14.960><c> before</c>
+
+00:00:15.310 --> 00:00:15.320 align:start position:0%
+to surface hidden assumptions before
+ 
+
+00:00:15.320 --> 00:00:17.430 align:start position:0%
+to surface hidden assumptions before
+writing<00:00:15.760><c> a</c><00:00:15.880><c> single</c><00:00:16.240><c> line</c><00:00:16.400><c> of</c><00:00:16.520><c> code,</c><00:00:16.960><c> enforce</c>
+
+00:00:17.430 --> 00:00:17.440 align:start position:0%
+writing a single line of code, enforce
+ 
+
+00:00:17.440 --> 00:00:19.470 align:start position:0%
+writing a single line of code, enforce
+simplicity-first<00:00:18.440><c> logic</c><00:00:18.880><c> to</c><00:00:19.000><c> prevent</c>
+
+00:00:19.470 --> 00:00:19.480 align:start position:0%
+simplicity-first logic to prevent
+ 
+
+00:00:19.480 --> 00:00:22.030 align:start position:0%
+simplicity-first logic to prevent
+bloated<00:00:20.040><c> or</c><00:00:20.200><c> speculative</c><00:00:20.960><c> over-engineering,</c>
+
+00:00:22.030 --> 00:00:22.040 align:start position:0%
+bloated or speculative over-engineering,
+ 
+
+00:00:22.040 --> 00:00:24.350 align:start position:0%
+bloated or speculative over-engineering,
+maintain<00:00:22.640><c> clean</c><00:00:23.040><c> diffs,</c><00:00:23.560><c> and</c><00:00:23.760><c> implement</c>
+
+00:00:24.350 --> 00:00:24.360 align:start position:0%
+maintain clean diffs, and implement
+ 
+
+00:00:24.360 --> 00:00:26.470 align:start position:0%
+maintain clean diffs, and implement
+goal-driven<00:00:24.960><c> verification</c><00:00:25.640><c> loops</c><00:00:26.040><c> without</c>
+
+00:00:26.470 --> 00:00:26.480 align:start position:0%
+goal-driven verification loops without
+ 
+
+00:00:26.480 --> 00:00:28.590 align:start position:0%
+goal-driven verification loops without
+manually<00:00:27.000><c> handling</c><00:00:27.480><c> things.</c><00:00:28.040><c> It's</c><00:00:28.200><c> perfect</c>
+
+00:00:28.590 --> 00:00:28.600 align:start position:0%
+manually handling things. It's perfect
+ 
+
+00:00:28.600 --> 00:00:31.230 align:start position:0%
+manually handling things. It's perfect
+for<00:00:28.800><c> improving</c><00:00:29.400><c> AI</c><00:00:29.680><c> coding</c><00:00:30.120><c> reliability</c><00:00:30.960><c> and</c>
+
+00:00:31.230 --> 00:00:31.240 align:start position:0%
+for improving AI coding reliability and
+ 
+
+00:00:31.240 --> 00:00:35.600 align:start position:0%
+for improving AI coding reliability and
+maintaining<00:00:31.800><c> clean,</c><00:00:32.279><c> minimal</c><00:00:32.680><c> code</c><00:00:32.920><c> bases.</c>
+

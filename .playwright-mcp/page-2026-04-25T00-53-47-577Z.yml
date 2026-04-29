@@ -1,0 +1,302 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "▶ SophiaTV" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: ▶
+        - generic [ref=e8]:
+          - text: Sophia
+          - emphasis [ref=e9]: TV
+      - link "Dashboard" [ref=e11] [cursor=pointer]:
+        - /url: /dashboard.html
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: AI mission command
+        - heading "Sophia Mission Control Sophia Mission Control" [level=1] [ref=e16]
+        - paragraph [ref=e17]: One cockpit to see every AI operator, handoff lane, system check, website module, translation layer, marketplace operation, and launch blocker.
+      - generic "Sophia system status" [ref=e18]:
+        - generic [ref=e19]: S
+        - generic [ref=e20]: CODEX
+        - generic [ref=e21]: CLAUDE
+        - generic [ref=e22]: CURSOR
+        - generic [ref=e23]: SOPHIA
+    - region "Control center metrics" [ref=e24]:
+      - article [ref=e25]:
+        - text: Site surface
+        - strong [ref=e26]: "9"
+        - paragraph [ref=e27]: Core pages upgraded with the future UI layer.
+      - article [ref=e28]:
+        - text: Language system
+        - strong [ref=e29]: Live
+        - paragraph [ref=e30]: Speech input, translation UI, and spoken output are connected.
+      - article [ref=e31]:
+        - text: Assistant format
+        - strong [ref=e32]: Synced
+        - paragraph [ref=e33]: Codex, Claude, and Cursor have a shared business handoff format.
+      - article [ref=e34]:
+        - text: Launch mode
+        - strong [ref=e35]: Preview
+        - paragraph [ref=e36]: Local preview is active; production needs environment keys.
+    - region "AI mission control" [ref=e37]:
+      - article [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: AI operator fleet
+            - heading "All AIs Working" [level=2] [ref=e42]
+          - generic [ref=e43]: Local command active
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]: CX
+              - generic [ref=e49]:
+                - generic [ref=e50]: Codex
+                - generic [ref=e51]: Lead engineer
+              - emphasis [ref=e52]: Active
+            - paragraph [ref=e53]: Implements local code changes, smoke tests, browser checks, handoff updates, and safety gating.
+            - generic [ref=e54]:
+              - generic [ref=e55]: Build
+              - generic [ref=e56]: Verify
+              - generic [ref=e57]: Integrate
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]: CL
+              - generic [ref=e61]:
+                - generic [ref=e62]: Claude Code
+                - generic [ref=e63]: Partner agent
+              - emphasis [ref=e64]: Synced
+            - paragraph [ref=e65]: Receives project updates and follows the Sophia Operator plugin, Claude rules, and handoff format.
+            - generic [ref=e66]:
+              - generic [ref=e67]: Assist
+              - generic [ref=e68]: Review
+              - generic [ref=e69]: Patch
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: CU
+              - generic [ref=e73]:
+                - generic [ref=e74]: Cursor
+                - generic [ref=e75]: IDE copilot
+              - emphasis [ref=e76]: Ready
+            - paragraph [ref=e77]: "Uses `.cursor/rules/sophia-business.mdc` when this repo opens in Cursor. Best for focused edits inside the IDE."
+            - generic [ref=e78]:
+              - generic [ref=e79]: IDE
+              - generic [ref=e80]: Rules
+              - generic [ref=e81]: Refine
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: SO
+              - generic [ref=e85]:
+                - generic [ref=e86]: Sophia Operator
+                - generic [ref=e87]: Project plugin
+              - emphasis [ref=e88]: Installed
+            - paragraph [ref=e89]: Defines the mission workflow, tests, troubleshooting, capability upgrades, and stop conditions for every assistant.
+            - generic [ref=e90]:
+              - generic [ref=e91]: Policy
+              - generic [ref=e92]: Tests
+              - generic [ref=e93]: Memory
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: OL
+              - generic [ref=e97]:
+                - generic [ref=e98]: Ollama
+                - generic [ref=e99]: Local model bench
+              - emphasis [ref=e100]: Free
+            - paragraph [ref=e101]: Runs local models for utility ideas, offline reviews, summaries, and low-cost planning through the Sophia CLI.
+            - generic [ref=e102]:
+              - generic [ref=e103]: qwen2.5
+              - generic [ref=e104]: llama3.1
+              - generic [ref=e105]: gemma3
+      - complementary [ref=e106]:
+        - article [ref=e107]:
+          - generic [ref=e108]: Mission pulse
+          - generic "AI mission pulse" [ref=e109]:
+            - generic [ref=e111]: Codex
+            - generic [ref=e112]: Claude
+            - generic [ref=e113]: Cursor
+            - generic [ref=e114]: Plugin
+            - generic [ref=e115]: Ollama
+        - article [ref=e116]:
+          - generic [ref=e117]: Command files
+          - generic [ref=e118]:
+            - link "Claude Rules" [ref=e119] [cursor=pointer]:
+              - /url: /CLAUDE.md
+            - link "Business Handoff" [ref=e120] [cursor=pointer]:
+              - /url: /BUSINESS_HANDOFF.md
+            - link "Cursor Agent Prompt" [ref=e121] [cursor=pointer]:
+              - /url: /CURSOR_AGENT_PROMPT.md
+            - link "Claude Install Notes" [ref=e122] [cursor=pointer]:
+              - /url: /plugins/sophia-operator/CLAUDE_INSTALL.md
+            - link "Troubleshooting" [ref=e123] [cursor=pointer]:
+              - /url: /plugins/sophia-operator/TROUBLESHOOTING.md
+            - link "API Health" [ref=e124] [cursor=pointer]:
+              - /url: /api/health
+    - region "AI work lanes" [ref=e125]:
+      - article [ref=e126]:
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: Work lanes
+            - heading "Current AI Responsibilities" [level=2] [ref=e130]
+          - button "Copy Brief" [ref=e131] [cursor=pointer]
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - generic [ref=e134]: Build
+            - generic [ref=e135]: Codex
+            - paragraph [ref=e136]: Website/app changes, motion, UI, local scripts, verification.
+          - generic [ref=e137]:
+            - generic [ref=e138]: Collaborate
+            - generic [ref=e139]: Claude
+            - paragraph [ref=e140]: Parallel help, review, patch suggestions, shared plugin workflow.
+          - generic [ref=e141]:
+            - generic [ref=e142]: IDE
+            - generic [ref=e143]: Cursor
+            - paragraph [ref=e144]: Focused editing with project rules when opened in Cursor.
+          - generic [ref=e145]:
+            - generic [ref=e146]: Local AI
+            - generic [ref=e147]: Ollama
+            - paragraph [ref=e148]: Free local model reviews and app ideas through npm run sophia -- ask.
+          - generic [ref=e149]:
+            - generic [ref=e150]: Needs owner
+            - generic [ref=e151]: Tarence
+            - paragraph [ref=e152]: API keys, paid plans, deployment confirmations, account access.
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - article [ref=e155]:
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - generic [ref=e158]: System map
+              - heading "Website Modules" [level=2] [ref=e159]
+            - link "Open home" [ref=e160] [cursor=pointer]:
+              - /url: /
+          - generic [ref=e161]:
+            - link "Universal Translator Speech + text + voice Ready for API key deployment" [ref=e162] [cursor=pointer]:
+              - /url: /#translate
+              - generic [ref=e163]: Universal Translator
+              - strong [ref=e164]: Speech + text + voice
+              - emphasis [ref=e165]: Ready for API key deployment
+            - link "Sophia Social X-style signal feed Local post interactions active" [ref=e166] [cursor=pointer]:
+              - /url: /social.html
+              - generic [ref=e167]: Sophia Social
+              - strong [ref=e168]: X-style signal feed
+              - emphasis [ref=e169]: Local post interactions active
+            - link "SophiaMarket Global business directory Listings and submission flow present" [ref=e170] [cursor=pointer]:
+              - /url: /market.html
+              - generic [ref=e171]: SophiaMarket
+              - strong [ref=e172]: Global business directory
+              - emphasis [ref=e173]: Listings and submission flow present
+            - link "Everyday Tools Daily utility app suite Tip, units, budget, grocery, packing, time zones" [ref=e174] [cursor=pointer]:
+              - /url: /everyday-tools.html
+              - generic [ref=e175]: Everyday Tools
+              - strong [ref=e176]: Daily utility app suite
+              - emphasis [ref=e177]: Tip, units, budget, grocery, packing, time zones
+            - link "Natural Wellness Searchable wellness app Evidence labels and routine builder" [ref=e178] [cursor=pointer]:
+              - /url: /natural-cures.html
+              - generic [ref=e179]: Natural Wellness
+              - strong [ref=e180]: Searchable wellness app
+              - emphasis [ref=e181]: Evidence labels and routine builder
+            - link "Dashboard Member command area Needs live Supabase data" [ref=e182] [cursor=pointer]:
+              - /url: /dashboard.html
+              - generic [ref=e183]: Dashboard
+              - strong [ref=e184]: Member command area
+              - emphasis [ref=e185]: Needs live Supabase data
+        - article [ref=e186]:
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: Assistant desk
+              - heading "Paperclip Business Format" [level=2] [ref=e190]
+            - link "Handoff file" [ref=e191] [cursor=pointer]:
+              - /url: /BUSINESS_HANDOFF.md
+          - generic [ref=e192]:
+            - generic [ref=e193]:
+              - generic [ref=e194]: 1. Objective
+              - generic [ref=e195]: State the business result first.
+            - generic [ref=e196]:
+              - generic [ref=e197]: 2. User flow
+              - generic [ref=e198]: Name the pages and interactions affected.
+            - generic [ref=e199]:
+              - generic [ref=e200]: 3. Implementation
+              - generic [ref=e201]: List files changed and behavior added.
+            - generic [ref=e202]:
+              - generic [ref=e203]: 4. Verification
+              - generic [ref=e204]: Check desktop, mobile, console, and overflow.
+            - generic [ref=e205]:
+              - generic [ref=e206]: 5. Production needs
+              - generic [ref=e207]: Call out API keys and backend services.
+        - article [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - generic [ref=e211]: Launch board
+              - heading "Interactive Checklist" [level=2] [ref=e212]
+            - button "Reset" [ref=e213] [cursor=pointer]
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - checkbox "Set ANTHROPIC_API_KEY on Vercel for AI chat and translation." [ref=e216]
+              - text: Set ANTHROPIC_API_KEY on Vercel for AI chat and translation.
+            - generic [ref=e217]:
+              - checkbox "Set Supabase project URL and anon key for auth and dashboard data." [ref=e218]
+              - text: Set Supabase project URL and anon key for auth and dashboard data.
+            - generic [ref=e219]:
+              - checkbox "Set Stripe webhook secrets and product IDs for paid plans." [ref=e220]
+              - text: Set Stripe webhook secrets and product IDs for paid plans.
+            - generic [ref=e221]:
+              - checkbox "Test English, French, and Russian translation on deployed production." [ref=e222]
+              - text: Test English, French, and Russian translation on deployed production.
+            - generic [ref=e223]:
+              - checkbox "Verify mobile layouts for home, market, social, translate, and control center." [ref=e224]
+              - text: Verify mobile layouts for home, market, social, translate, and control center.
+            - generic [ref=e225]:
+              - checkbox "Run a final smoke test for links, forms, console errors, and overflow." [ref=e226]
+              - text: Run a final smoke test for links, forms, console errors, and overflow.
+          - generic "Launch checklist progress" [ref=e227]
+          - paragraph [ref=e228]: 0 of 6 launch items complete.
+      - complementary [ref=e229]:
+        - article [ref=e230]:
+          - generic [ref=e231]: Quick launch
+          - generic [ref=e232]:
+            - link "Open Translator" [ref=e233] [cursor=pointer]:
+              - /url: /#translate
+            - link "Open Social" [ref=e234] [cursor=pointer]:
+              - /url: /social.html
+            - link "Open Tools" [ref=e235] [cursor=pointer]:
+              - /url: /everyday-tools.html
+            - link "Open Wellness" [ref=e236] [cursor=pointer]:
+              - /url: /natural-cures.html
+            - link "List Business" [ref=e237] [cursor=pointer]:
+              - /url: /market-submit.html
+            - link "Listing Guidelines" [ref=e238] [cursor=pointer]:
+              - /url: /listing-guidelines.html
+            - link "Open Pricing" [ref=e239] [cursor=pointer]:
+              - /url: /pricing.html
+            - link "Open Dashboard" [ref=e240] [cursor=pointer]:
+              - /url: /dashboard.html
+        - article [ref=e241]:
+          - generic [ref=e242]: Production keys
+          - list [ref=e243]:
+            - listitem [ref=e244]:
+              - generic [ref=e246]: Anthropic
+              - emphasis [ref=e247]: Required for deployed translation.
+            - listitem [ref=e248]:
+              - generic [ref=e250]: Supabase
+              - emphasis [ref=e251]: Add the public anon key in config.js for real accounts and dashboard data.
+            - listitem [ref=e252]:
+              - generic [ref=e254]: Stripe
+              - emphasis [ref=e255]: Required for live paid plan automation.
+            - listitem [ref=e256]:
+              - generic [ref=e258]: Static preview
+              - emphasis [ref=e259]: Running locally on port 4173.
+            - listitem [ref=e260]:
+              - generic [ref=e262]: Smoke test
+              - emphasis [ref=e263]: Run npm run smoke before launch.
+            - listitem [ref=e264]:
+              - generic [ref=e266]: PWA shell
+              - emphasis [ref=e267]: App manifest and service worker cache point at live assets.
+            - listitem [ref=e268]:
+              - generic [ref=e270]: Health endpoint
+              - emphasis [ref=e271]: /api/health reports configured production services.
+        - article [ref=e272]:
+          - generic [ref=e273]: Next build moves
+          - list [ref=e274]:
+            - listitem [ref=e275]: Deploy and test translation with the production API key.
+            - listitem [ref=e276]: Add the Supabase public anon key to config.js.
+            - listitem [ref=e277]: Connect Sophia Social posts to Supabase.
+            - listitem [ref=e278]: Configure Stripe/Supabase env vars and test webhook tier updates.
+            - listitem [ref=e279]: Add continuous live captions for video clips.

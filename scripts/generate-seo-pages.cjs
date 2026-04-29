@@ -63,7 +63,7 @@ function pageFor(country) {
   const title = `${listings.length > 0 ? `${listings.length} Businesses` : 'Business Directory'} in ${country.name} ${country.flag} — SophiaMarket`;
   const description = listings.length > 0
     ? `Discover ${listings.length} businesses in ${country.name} across import/export, wholesale, real estate, services, and more. Contact directly on SophiaMarket — part of SophiaTV's global directory in 105 countries.`
-    : `Be the first business listed in ${country.name} on SophiaMarket — the global business directory across 105 countries. List your business for free or get Featured placement for $29.99/month.`;
+    : `Be the first business listed in ${country.name} on SophiaMarket — the global business directory across 105 countries. List your business for free during the launch window.`;
 
   const canonical = `https://sophiatv.vercel.app/market/country/${slug}/`;
 
@@ -71,7 +71,7 @@ function pageFor(country) {
     ? `<div class="empty-state">
          <h2>Be the first business in ${escapeHtml(country.name)}</h2>
          <p>SophiaMarket is live in 105 countries and growing. Your listing here will be the first result visitors see when they search for businesses in ${escapeHtml(country.name)}.</p>
-         <a href="/market-submit" class="btn-gold btn-lg">List Your Business — $29.99/mo</a>
+         <a href="/market-submit.html" class="btn-gold btn-lg">List Your Business — Free During Launch</a>
        </div>`
     : sorted.map(l => `
          <article class="listing-card ${l.featured ? 'featured' : ''}">
@@ -158,7 +158,7 @@ function pageFor(country) {
 <body>
   <header class="seo-wrap" style="padding-bottom: 0;">
     <nav class="seo-breadcrumb">
-      <a href="/">Home</a> › <a href="/market">Market</a> › <a href="/market/country/">Countries</a> › <strong>${escapeHtml(country.name)}</strong>
+      <a href="/">Home</a> › <a href="/market.html">Market</a> › <a href="/market/country/">Countries</a> › <strong>${escapeHtml(country.name)}</strong>
     </nav>
   </header>
 
@@ -170,8 +170,8 @@ function pageFor(country) {
     <p class="seo-intro">${escapeHtml(description)}</p>
 
     <div class="seo-cta-row">
-      <a href="/market-submit" class="btn-gold">List Your Business — $29.99/mo</a>
-      <a href="/market" class="btn-outline">Browse All 105 Countries</a>
+      <a href="/market-submit.html" class="btn-gold">List Your Business — Free During Launch</a>
+      <a href="/market.html" class="btn-outline">Browse All 105 Countries</a>
     </div>
 
     <div class="seo-meta">
@@ -193,8 +193,8 @@ function pageFor(country) {
 
     <section class="final-cta">
       <h2>Ready to list your ${escapeHtml(country.name)} business?</h2>
-      <p>Get seen in front of buyers in 105 countries — $29.99/month, cancel anytime.</p>
-      <a href="/market-submit" class="btn-gold">List Your Business</a>
+      <p>Get seen in front of buyers in 105 countries. Launch listings are free while SophiaMarket is opening.</p>
+      <a href="/market-submit.html" class="btn-gold">List Your Business</a>
     </section>
   </main>
 
@@ -241,7 +241,7 @@ const indexHtml = `<!DOCTYPE html>
 </head><body>
 <main class="country-wrap">
   <nav style="font-size: 13px; color: var(--muted, #888); margin-bottom: 16px;">
-    <a href="/" style="color: inherit;">Home</a> › <a href="/market" style="color: inherit;">Market</a> › <strong>Countries</strong>
+    <a href="/" style="color: inherit;">Home</a> › <a href="/market.html" style="color: inherit;">Market</a> › <strong>Countries</strong>
   </nav>
   <h1>Business Directory by Country</h1>
   <p>SophiaMarket covers 105 countries across 5 regions. Pick yours to see the businesses listed — or be the first to list your own.</p>

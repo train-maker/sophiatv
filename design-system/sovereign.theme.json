@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "name": "sovereign",
+  "version": "1.0.0",
+  "lineage": ["mali-empire", "egyptian-geometry", "roman-inscription"],
+  "color": {
+    "page": "#06070A",
+    "page2": "#0B0D12",
+    "page3": "#1a1d26",
+    "gold": "#C8A24A",
+    "goldSoft": "rgba(200,162,74,0.18)",
+    "goldRule": "rgba(200,162,74,0.30)",
+    "goldStrong": "rgba(200,162,74,0.55)",
+    "bone": "#F5F1E6",
+    "bone2": "rgba(245,241,230,0.65)",
+    "bone3": "rgba(245,241,230,0.40)",
+    "ocean": "#7BD0E6",
+    "green": "#6EBE8E"
+  },
+  "banned": {
+    "visibleCopy": ["premium", "exclusive", "world-class", "elite", "best-in-class", "industry-leading", "luxury"],
+    "classOrSelector": ["live-pill", "live-dot-pulse", "live-indicator", "vcard-live", "vcard-live-tag", "scanlines", "ma-purple"],
+    "animation": ["@keyframes pulse", "animation:\\s*pulse"],
+    "emojiIcon": "class=\"[^\"]*(feature-icon|nav-icon|card-icon)[^\"]*\"[^>]*>[^<a-zA-Z0-9 .,!?<>=\"'\\\\/-]"
+  },
+  "audit": {
+    "launchPages": [
+      "index.html",
+      "market.html",
+      "pricing.html",
+      "signup.html",
+      "login.html",
+      "social.html",
+      "market-submit.html",
+      "market-listing.html",
+      "dashboard.html",
+      "session.html",
+      "settings.html",
+      "control-center.html",
+      "404.html"
+    ],
+    "styleFiles": [
+      "style.css",
+      "future.css",
+      "assets/css/sovereign.css"
+    ],
+    "scriptFiles": [
+      "future.js",
+      "assets/js/sovereign-reveal.js"
+    ],
+    "allowedMatches": [
+      "sophia-logo-premium.png",
+      "logo-premium-img",
+      "sovereign.theme",
+      "premium-audit",
+      "audit:premium"
+    ]
+  }
+}

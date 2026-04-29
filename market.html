@@ -3,20 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SophiaMarket — Global Business Directory</title>
-  <meta name="description" content="Browse and connect with businesses worldwide. SophiaMarket: the global directory for wholesale, real estate, tech, food, and more — powered by SophiaTV." />
+  <title>Sophia Market — Global Business Floor</title>
+  <meta name="description" content="Explore Sophia Market, a global business floor for listings, country discovery, translation-ready contact, and cross-border trust." />
+  <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     /* ===== MARKET PAGE STYLES ===== */
+    body {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    #sophia-globe-hero,
+    #sophia-categories,
+    #sophia-particles,
+    #sz-matrix,
+    #sz-skyline,
+    .sophia-ticker,
+    .sz-ticker-bar,
+    .sz-neon-sign,
+    .sz-corner,
+    .sz-vrail {
+      display: none !important;
+    }
+
     .market-hero {
       padding: 100px 36px 48px;
       text-align: center;
       background: linear-gradient(180deg, rgba(201,168,76,0.06) 0%, transparent 100%);
       border-bottom: 1px solid var(--border);
     }
-    .market-hero-icon { font-size: 56px; margin-bottom: 16px; }
+    .market-hero-icon {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,201,120,0.32);
+      background:
+        radial-gradient(circle at 31% 22%, #fff7c2 0 5%, transparent 16%),
+        radial-gradient(circle at 50% 56%, rgba(232,201,120,0.22), transparent 48%),
+        linear-gradient(145deg, #08090d 0%, #2a1a05 38%, #f0cf66 52%, #100c08 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.42),
+        inset -10px -14px 22px rgba(41,24,3,0.74),
+        0 0 42px rgba(232,201,120,0.22);
+      position: relative;
+    }
+    .market-hero-icon::before,
+    .market-hero-icon::after {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border: 1px solid rgba(232,201,120,0.38);
+      border-radius: 50%;
+    }
+    .market-hero-icon::after {
+      inset: 25px 12px;
+      border-left: 0;
+      border-right: 0;
+      opacity: 0.85;
+    }
     .market-hero h1 {
       font-size: clamp(28px, 5vw, 52px);
       font-weight: 800;
@@ -27,6 +77,89 @@
     }
     .market-hero p { color: var(--muted); font-size: 18px; max-width: 520px; margin: 0 auto 28px; }
     .market-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .market-mode-switch {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 36px 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .market-mode-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.76), rgba(7, 10, 20, 0.86));
+      padding: 22px;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: 0 18px 54px rgba(0,0,0,0.32);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    .market-mode-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-2px);
+    }
+    .mode-kicker {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .mode-title {
+      font-size: 20px;
+      font-weight: 850;
+      margin-bottom: 8px;
+    }
+    .mode-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .classifieds-section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 38px 36px 8px;
+    }
+    .classifieds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .classified-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(12, 18, 34, 0.78);
+      padding: 18px;
+      min-height: 178px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .classified-type {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .classified-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+    .classified-meta,
+    .classified-copy {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .classified-copy {
+      margin-top: auto;
+    }
 
     /* Steps */
     .market-steps { max-width: 1360px; margin: 0 auto; padding: 48px 36px; }
@@ -69,8 +202,99 @@
     }
     .country-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
     .country-card.active { border-color: var(--gold); background: var(--gold-dim); }
-    .country-flag { font-size: 28px; margin-bottom: 6px; }
+    .country-flag {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 8px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      border: 1px solid rgba(232,201,120,0.22);
+      background:
+        radial-gradient(circle at 28% 18%, rgba(255,247,194,0.9) 0 5%, transparent 15%),
+        linear-gradient(145deg, #251804, #f0cf66 42%, #8b5b14 70%, #0f0b05);
+      color: #080806;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.28);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
     .country-name { font-size: 12px; font-weight: 500; color: var(--text); }
+    .country-areas {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .country-area {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      color: rgba(238, 244, 255, 0.84);
+      font-size: 10px;
+      line-height: 1;
+      padding: 4px 6px;
+      background: rgba(255,255,255,0.035);
+      max-width: 88px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .state-directory {
+      margin-top: 26px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(17, 24, 39, 0.76), rgba(7, 10, 20, 0.9));
+      padding: 22px;
+    }
+    .state-directory-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    .state-directory h3 { margin: 0; font-size: 20px; color: var(--white); }
+    .state-directory p {
+      margin: 6px 0 0;
+      color: rgba(238, 244, 255, 0.74);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .state-directory-note {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+      max-height: 430px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+    .state-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.035);
+      padding: 12px;
+    }
+    .state-name {
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 850;
+      margin-bottom: 8px;
+    }
+    .city-list {
+      color: rgba(238, 244, 255, 0.82);
+      font-size: 12px;
+      line-height: 1.55;
+    }
 
     /* Category grid */
     .category-grid {
@@ -86,7 +310,24 @@
     }
     .category-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
     .category-card.active { border-color: var(--gold); background: var(--gold-dim); }
-    .category-icon { font-size: 22px; flex-shrink: 0; }
+    .category-icon {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      border: 1px solid rgba(232,201,120,0.22);
+      background:
+        radial-gradient(circle at 28% 18%, rgba(255,247,194,0.9) 0 5%, transparent 15%),
+        linear-gradient(145deg, #251804, #f0cf66 42%, #8b5b14 70%, #0f0b05);
+      color: #080806;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.28);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
     .category-label { font-size: 13px; font-weight: 500; }
 
     /* Filter bar */
@@ -129,7 +370,7 @@
     .badge {
       font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px;
     }
-    .badge-cat { background: rgba(156,109,255,0.15); color: var(--purple); }
+    .badge-cat { background: rgba(232,201,120,0.14); color: var(--gold); }
     .badge-featured { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
     .listing-desc { font-size: 13px; color: var(--muted); line-height: 1.5; flex: 1; }
     .listing-location { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
@@ -225,11 +466,41 @@
     @media (max-width: 600px) {
       .market-hero { padding: 80px 20px 32px; }
       .market-steps { padding: 32px 20px; }
-      .country-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+      .market-mode-switch,
+      .classifieds-section {
+        padding-inline: 20px;
+      }
+      .market-mode-switch,
+      .classifieds-grid {
+        grid-template-columns: 1fr;
+      }
+      .country-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        max-height: 430px;
+        overflow: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px;
+      }
+      .country-grid::after {
+        content: "";
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        display: block;
+        grid-column: 1 / -1;
+        height: 26px;
+        margin: -26px -10px -10px;
+        pointer-events: none;
+        background: linear-gradient(180deg, transparent, rgba(2, 3, 10, 0.92));
+      }
     }
   </style>
 </head>
 <body>
+  <script>window.__SOPHIA_LEGACY_EFFECTS_DISABLED = true;</script>
+  <a class="skip-main" href="#main-content">Skip to main content</a>
 <!-- SOPHIA_TESLA -->
 <!-- Tesla-level futuristic layer for SophiaMarket -->
 <style id="sophia-tesla-css">
@@ -237,7 +508,7 @@
   * { scroll-behavior: smooth; }
   html { scroll-behavior: smooth; }
 
-  /* Premium font stack */
+  /* SOVEREIGN font stack */
   body, button, input { font-family: "SF Pro Display", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 
   /* Animated aurora background for the whole page */
@@ -299,25 +570,15 @@
     letter-spacing: -0.04em !important;
   }
 
-  /* Ticker: ticking live count */
+  /* Ticker: static build signal */
   .sophia-ticker {
     display:inline-flex; align-items:center; gap:8px;
     padding:6px 12px; background:rgba(16,185,129,0.15);
     border:1px solid rgba(16,185,129,0.35); border-radius:999px;
     color:#34d399; font-weight:700; font-size:13px; letter-spacing:.02em;
   }
-  .sophia-ticker .pulse {
-    width:8px; height:8px; background:#34d399; border-radius:50%;
-    box-shadow:0 0 0 0 rgba(52,211,153,0.7);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%{box-shadow:0 0 0 0 rgba(52,211,153,0.6);}
-    70%{box-shadow:0 0 0 14px rgba(52,211,153,0);}
-    100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}
-  }
 
-  /* Premium buttons */
+  /* Material buttons */
   button, .btn, a.btn, [class*="cta"] {
     position:relative; overflow:hidden;
     transition: transform .15s ease, box-shadow .2s;
@@ -350,6 +611,7 @@
 
 <script>
 (function(){
+  if (window.__SOPHIA_LEGACY_EFFECTS_DISABLED) return;
   // Particle field
   const canvas = document.getElementById('sophia-particles');
   if (!canvas || !canvas.getContext) return;
@@ -403,20 +665,12 @@
     io.observe(el);
   });
 
-  // Live count ticker — insert at top of page
+  // Launch-status ticker. Keep this honest until real telemetry exists.
   const ticker = document.createElement('div');
   ticker.className = 'sophia-ticker';
-  ticker.innerHTML = '<span class="pulse"></span><span id="sophia-live-count">120</span> live · 59 countries · ticking up';
+  ticker.innerHTML = '<span>May 15 build</span> · global directory · translation-ready';
   ticker.style.cssText += ';position:fixed;top:16px;right:16px;z-index:100;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);';
   document.body.appendChild(ticker);
-  // Fake count bump every 30s for FOMO (real integration later pulls from API)
-  setInterval(() => {
-    const el = document.getElementById('sophia-live-count');
-    if (el) {
-      const n = parseInt(el.textContent,10) || 120;
-      if (Math.random() > 0.4) el.textContent = String(n + 1);
-    }
-  }, 30000);
 })();
 </script>
 
@@ -426,12 +680,12 @@
 <style id="sophia-shenzhen-css">
   /* Neon glow on brand-accent text */
   .neon-cyan, .neon-cyan * {
-    color: #67e8f9 !important;
-    text-shadow: 0 0 4px rgba(103,232,249,0.9), 0 0 12px rgba(103,232,249,0.6), 0 0 24px rgba(103,232,249,0.35);
+    color: #8ec2ff !important;
+    text-shadow: 0 0 4px rgba(142,194,255,0.62), 0 0 12px rgba(142,194,255,0.36), 0 0 24px rgba(142,194,255,0.18);
   }
   .neon-pink, .neon-pink * {
-    color: #f472b6 !important;
-    text-shadow: 0 0 4px rgba(244,114,182,0.9), 0 0 12px rgba(244,114,182,0.6), 0 0 24px rgba(244,114,182,0.35);
+    color: #e8c978 !important;
+    text-shadow: 0 0 4px rgba(232,201,120,0.70), 0 0 12px rgba(232,201,120,0.44), 0 0 24px rgba(232,201,120,0.20);
   }
   .neon-green, .neon-green * {
     color: #34d399 !important;
@@ -454,8 +708,8 @@
     position: fixed; left:0; right:0; height:32px; z-index: 99;
     background: linear-gradient(90deg, rgba(5,7,13,0.95) 0%, rgba(10,14,26,0.85) 50%, rgba(5,7,13,0.95) 100%);
     backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(103,232,249,0.3);
-    border-bottom: 1px solid rgba(103,232,249,0.3);
+    border-top: 1px solid rgba(232,201,120,0.20);
+    border-bottom: 1px solid rgba(232,201,120,0.20);
     overflow: hidden;
     font-family: 'SF Mono', Menlo, monospace;
     font-size: 12px;
@@ -472,8 +726,8 @@
   }
   .sz-ticker-bar.bottom .reel { animation-direction: reverse; animation-duration: 120s; }
   @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-  .sz-ticker-bar .tick { color: #67e8f9; text-shadow: 0 0 6px rgba(103,232,249,0.5); }
-  .sz-ticker-bar .tick.pink { color: #f472b6; text-shadow: 0 0 6px rgba(244,114,182,0.5); }
+  .sz-ticker-bar .tick { color: #8ec2ff; text-shadow: 0 0 6px rgba(142,194,255,0.28); }
+  .sz-ticker-bar .tick.pink { color: #e8c978; text-shadow: 0 0 6px rgba(232,201,120,0.42); }
   .sz-ticker-bar .tick.gold { color: #fde047; text-shadow: 0 0 6px rgba(253,224,71,0.5); }
   .sz-ticker-bar .tick.green { color: #34d399; text-shadow: 0 0 6px rgba(52,211,153,0.5); }
 
@@ -511,11 +765,11 @@
   .sz-vrail {
     position: fixed; top: 50%; transform: translateY(-50%);
     width: 4px; height: 140px;
-    background: linear-gradient(180deg, #67e8f9, #f472b6, #fde047);
+    background: linear-gradient(180deg, #8ec2ff, #e8c978, #fde047);
     animation: vblink 1.5s ease-in-out infinite;
     z-index: 0; pointer-events: none;
     border-radius: 2px;
-    box-shadow: 0 0 20px rgba(103,232,249,0.7);
+    box-shadow: 0 0 20px rgba(232,201,120,0.38);
   }
   .sz-vrail.left { left: 8px; }
   .sz-vrail.right { right: 8px; }
@@ -524,7 +778,7 @@
   .sz-corner {
     position: fixed; width: 44px; height: 44px;
     border: 2px solid #67e8f9; z-index: 1; pointer-events: none;
-    box-shadow: 0 0 10px rgba(103,232,249,0.5);
+    box-shadow: 0 0 10px rgba(142,194,255,0.28);
   }
   .sz-corner.tl { top: 40px; left: 8px; border-right: 0; border-bottom: 0; }
   .sz-corner.tr { top: 40px; right: 8px; border-left: 0; border-bottom: 0; }
@@ -533,6 +787,20 @@
 
   /* Body content padding for ticker bars */
   body { padding-top: 32px !important; padding-bottom: 32px !important; }
+
+  @media (max-width: 600px) {
+    .sz-ticker-bar,
+    .sz-neon-sign,
+    .sz-corner,
+    .sz-vrail,
+    #sz-skyline {
+      display: none !important;
+    }
+    body {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
 </style>
 
 <!-- Matrix rain -->
@@ -541,32 +809,32 @@
 <!-- Tickers -->
 <div class="sz-ticker-bar top">
   <div class="reel" id="sz-top-reel">
-    <span class="tick">●</span>
-    <span class="tick">SHENZHEN 深圳 0823 ↑</span>
-    <span class="tick pink">LAGOS 拉各斯 0419 ↑</span>
-    <span class="tick gold">DUBAI 迪拜 0551 ↑</span>
-    <span class="tick green">GLOBAL B2B · 59 COUNTRIES</span>
-    <span class="tick">●</span>
-    <span class="tick pink">MUMBAI 孟买 0617 ↑</span>
-    <span class="tick gold">LONDON 伦敦 0145 ↓</span>
-    <span class="tick">TOKYO 东京 0952 ↑</span>
-    <span class="tick green">SOPHIA MARKET — LIVE</span>
-    <span class="tick">●</span>
-    <span class="tick pink">SÃO PAULO 0333 ↑</span>
-    <span class="tick gold">BERLIN 柏林 0247 ↑</span>
-    <span class="tick">CAIRO 开罗 0512 ↑</span>
-    <span class="tick green">120 VERIFIED BUSINESSES</span>
+    <span class="tick">·</span>
+    <span class="tick">SHENZHEN · TRADE ROUTE</span>
+    <span class="tick pink">LAGOS · MARKET ROUTE</span>
+    <span class="tick gold">DUBAI · BUSINESS ROUTE</span>
+    <span class="tick green">GLOBAL DIRECTORY · MAY 15 BUILD</span>
+    <span class="tick">·</span>
+    <span class="tick pink">MUMBAI · SUPPLIER ROUTE</span>
+    <span class="tick gold">LONDON · BUILDER ROUTE</span>
+    <span class="tick">TOKYO · MEDIA ROUTE</span>
+    <span class="tick green">SOPHIA MARKET — MAY 15 BUILD</span>
+    <span class="tick">·</span>
+    <span class="tick pink">SÃO PAULO · TRADE ROUTE</span>
+    <span class="tick gold">BERLIN · OPERATOR ROUTE</span>
+    <span class="tick">CAIRO · MARKET ROUTE</span>
+    <span class="tick green">FOUNDING LISTINGS · REVIEW QUEUE</span>
   </div>
 </div>
 
 <div class="sz-ticker-bar bottom">
   <div class="reel" id="sz-bot-reel">
-    <span class="tick pink">◢◣◥◤ SHENZHEN CORE ◢◣◥◤</span>
-    <span class="tick">FEATURED $29.99/mo · vs ALIBABA $3000/yr</span>
-    <span class="tick gold">▲ 120 LISTINGS · 59 COUNTRIES · 12 CATEGORIES</span>
+    <span class="tick pink">SHENZHEN TRADE LAYER</span>
+    <span class="tick">FEATURED LISTINGS · FREE-PERIOD REVIEW</span>
+    <span class="tick gold">DIRECTORY BUILD · TRANSLATION READY · MARKET SIGNALS</span>
     <span class="tick green">深圳 · 东京 · 孟买 · 拉各斯 · 迪拜 · 伦敦 · 柏林 · 圣保罗</span>
-    <span class="tick pink">◢◣◥◤ DEAL DIRECT · 直接交易 ◢◣◥◤</span>
-    <span class="tick gold">▲ 无中间商 · NO MIDDLEMEN</span>
+    <span class="tick pink">DEAL DIRECT · 直接交易</span>
+    <span class="tick gold">无中间商 · NO MIDDLEMEN</span>
   </div>
 </div>
 
@@ -584,12 +852,13 @@
 <div class="sz-vrail right"></div>
 
 <!-- Neon storefront signs -->
-<div class="sz-neon-sign flicker" style="top: 80px; left: 60px; color: #67e8f9;">深圳 · SOPHIA</div>
-<div class="sz-neon-sign" style="top: 120px; right: 60px; color: #f472b6;">B2B 市场</div>
-<div class="sz-neon-sign" style="bottom: 140px; right: 60px; color: #fde047;">OPEN 24/7</div>
+<div class="sz-neon-sign flicker" style="top: 80px; left: 60px; color: #8ec2ff;">深圳 · SOPHIA</div>
+<div class="sz-neon-sign" style="top: 120px; right: 60px; color: #e8c978;">B2B 市场</div>
+<div class="sz-neon-sign" style="bottom: 140px; right: 60px; color: #fde047;">MAY 15 LAUNCH</div>
 
 <script>
 (function(){
+  if (window.__SOPHIA_LEGACY_EFFECTS_DISABLED) return;
   // Matrix rain
   const canvas = document.getElementById('sz-matrix');
   if (!canvas || !canvas.getContext) return;
@@ -631,173 +900,18 @@
 <!-- Spinning 3D globe v2 — with real land masses textured from NASA Blue Marble -->
 <div id="sophia-globe-hero" style="position:relative;width:100%;max-width:1200px;margin:0 auto;padding:40px 20px;background:linear-gradient(180deg,#0a0e1a 0%,#111827 100%);border-radius:20px;overflow:hidden;">
   <div style="text-align:center;margin-bottom:20px;">
-    <h1 style="color:#f9fafb;font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.03em;margin:0 0 8px;">
-      120 verified businesses. 59 countries. <span style="color:#10b981;">One directory.</span>
-    </h1>
-    <p style="color:#9ca3af;font-size:clamp(14px,2vw,18px);margin:0;">Click any dot. Deal direct.</p>
+    <div style="color:#f9fafb;font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.03em;margin:0 0 8px;">
+      SophiaMarket worldwide classifieds and business directory.
+    </div>
+    <p style="color:#9ca3af;font-size:clamp(14px,2vw,18px);margin:0;">Browse countries, major cities, states, classifieds, and business profiles.</p>
   </div>
   <div id="globe-container" style="width:100%;height:500px;position:relative;"></div>
   <div style="display:flex;justify-content:center;gap:24px;margin-top:16px;color:#9ca3af;font-size:13px;flex-wrap:wrap;">
-    <span><span style="color:#fbbf24;">●</span> Featured</span>
-    <span><span style="color:#10b981;">●</span> Verified</span>
-    <span id="globe-count" style="color:#10b981;font-weight:700;">120 live listings</span>
+    <span><span class="market-key-mark featured" aria-hidden="true"></span> Featured</span>
+    <span><span class="market-key-mark reviewed" aria-hidden="true"></span> Reviewed</span>
+    <span id="globe-count" style="color:#10b981;font-weight:700;">105 countries · 18 categories</span>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
-<script>
-(function(){
-  const container = document.getElementById('globe-container');
-  if (!container || typeof THREE === 'undefined') return;
-
-  const W = container.clientWidth;
-  const H = 500;
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, W/H, 0.1, 1000);
-  camera.position.z = 400;
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(W, H);
-  renderer.setPixelRatio(window.devicePixelRatio);
-  container.appendChild(renderer.domElement);
-
-  const loader = new THREE.TextureLoader();
-  loader.crossOrigin = 'anonymous';
-
-  // Solid ocean globe (dark brand base)
-  const oceanGeom = new THREE.SphereGeometry(140, 64, 48);
-  const oceanMat = new THREE.MeshBasicMaterial({ color: 0x042f1f });
-  const ocean = new THREE.Mesh(oceanGeom, oceanMat);
-  scene.add(ocean);
-
-  // Land-mass texture overlay — tinted green over an equirectangular earth map
-  // Using a lightweight public earth texture
-  const earthMap = loader.load(
-    'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/land_ocean_ice_cloud_2048.jpg',
-    () => {
-      // nothing — the mesh is already in the scene
-    },
-    undefined,
-    () => {
-      // fallback on load error — draw outlines procedurally
-      console.log('earth texture failed, using fallback');
-    }
-  );
-  const landGeom = new THREE.SphereGeometry(141, 64, 48);
-  const landMat = new THREE.MeshBasicMaterial({
-    map: earthMap,
-    transparent: true,
-    opacity: 0.75,
-    color: 0x34d399,
-  });
-  const land = new THREE.Mesh(landGeom, landMat);
-  scene.add(land);
-
-  // Subtle wireframe overlay for that futuristic grid feel
-  const gridGeom = new THREE.SphereGeometry(142, 32, 24);
-  const gridMat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true, transparent: true, opacity: 0.15 });
-  const grid = new THREE.Mesh(gridGeom, gridMat);
-  scene.add(grid);
-
-  // Country dots
-  const countries = [
-    {name:'China', lat:35, lon:105, featured:true},
-    {name:'India', lat:20, lon:77, featured:true},
-    {name:'Nigeria', lat:9, lon:8, featured:true},
-    {name:'USA', lat:37, lon:-95, featured:false},
-    {name:'Brazil', lat:-14, lon:-52, featured:false},
-    {name:'UAE', lat:24, lon:54, featured:true},
-    {name:'UK', lat:54, lon:-2, featured:false},
-    {name:'Germany', lat:51, lon:10, featured:false},
-    {name:'Japan', lat:36, lon:138, featured:false},
-    {name:'Kenya', lat:0, lon:38, featured:true},
-    {name:'Mexico', lat:23, lon:-102, featured:false},
-    {name:'South Africa', lat:-30, lon:25, featured:false},
-    {name:'Ghana', lat:8, lon:-1, featured:false},
-    {name:'Canada', lat:56, lon:-106, featured:false},
-    {name:'France', lat:46, lon:2, featured:false},
-    {name:'Spain', lat:40, lon:-4, featured:false},
-    {name:'Australia', lat:-25, lon:133, featured:false},
-    {name:'Argentina', lat:-38, lon:-63, featured:false},
-    {name:'Egypt', lat:26, lon:30, featured:false},
-    {name:'Saudi Arabia', lat:23, lon:45, featured:false},
-    {name:'Singapore', lat:1.3, lon:103.8, featured:true},
-    {name:'Hong Kong', lat:22, lon:114, featured:true},
-    {name:'Vietnam', lat:14, lon:108, featured:false},
-    {name:'Philippines', lat:13, lon:122, featured:false},
-    {name:'Indonesia', lat:-0.8, lon:113.9, featured:false},
-  ];
-
-  function latLonToXYZ(lat, lon, r){
-    const phi = (90-lat) * Math.PI/180;
-    const theta = (lon+180) * Math.PI/180;
-    return [-r*Math.sin(phi)*Math.cos(theta), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(theta)];
-  }
-
-  const dotMat = new THREE.MeshBasicMaterial({ color: 0x34d399 });
-  const goldMat = new THREE.MeshBasicMaterial({ color: 0xfbbf24 });
-  const dots = [];
-  countries.forEach(c => {
-    const [x,y,z] = latLonToXYZ(c.lat, c.lon, 145);
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(c.featured?4:3, 10, 10), c.featured?goldMat:dotMat);
-    dot.position.set(x,y,z);
-    dot.userData = c;
-    // Glow ring
-    const ringMat = new THREE.MeshBasicMaterial({ color: c.featured?0xfbbf24:0x34d399, transparent:true, opacity:0.4 });
-    const ring = new THREE.Mesh(new THREE.RingGeometry((c.featured?5:4), (c.featured?8:6.5), 20), ringMat);
-    ring.lookAt(new THREE.Vector3(x*2, y*2, z*2));
-    ring.position.set(x,y,z);
-    ocean.add(ring);
-    ocean.add(dot);
-    dots.push(dot);
-  });
-
-  // Click handling
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
-  renderer.domElement.addEventListener('click', (e) => {
-    const rect = renderer.domElement.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / W) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / H) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
-    const hits = raycaster.intersectObjects(dots);
-    if (hits.length) {
-      const c = hits[0].object.userData;
-      const slug = c.name.toLowerCase().replace(/\s+/g,'-');
-      window.location.href = `/market/country/${slug}.html`;
-    }
-  });
-  renderer.domElement.addEventListener('mousemove', (e) => {
-    const rect = renderer.domElement.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / W) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / H) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera);
-    renderer.domElement.style.cursor = raycaster.intersectObjects(dots).length ? 'pointer' : 'grab';
-  });
-
-  // Spin
-  let spinning = true;
-  renderer.domElement.addEventListener('mousedown', () => spinning = false);
-  renderer.domElement.addEventListener('mouseup', () => setTimeout(()=>spinning=true, 2000));
-
-  function animate() {
-    requestAnimationFrame(animate);
-    if (spinning) {
-      ocean.rotation.y += 0.002;
-      land.rotation.y += 0.002;
-      grid.rotation.y += 0.002;
-    }
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    const nw = container.clientWidth;
-    camera.aspect = nw/H;
-    camera.updateProjectionMatrix();
-    renderer.setSize(nw, H);
-  });
-})();
-</script>
 
 <!-- /SOPHIA_GLOBE_HERO -->
 <!-- SOPHIA_CATEGORIES -->
@@ -807,66 +921,66 @@
     Explore by category
   </h2>
   <p style="color:#9ca3af;font-size:15px;margin:0 0 20px;">
-    12 sectors. 59 countries. Click to drill in.
+    18 sectors. 105 countries. Click to drill in.
   </p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
     <a href="#cat-wholesale" onclick="filterCategory('Wholesale & Manufacturing');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🏭</div>
+      <div class="category-icon">WM</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Wholesale &amp; Manufacturing</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Factory-direct, OEM, export</div>
     </a>
     <a href="#cat-real-estate" onclick="filterCategory('Real Estate');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🏢</div>
+      <div class="category-icon">RE</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Real Estate</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Residential, commercial, diaspora</div>
     </a>
     <a href="#cat-tech" onclick="filterCategory('Technology');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">💻</div>
+      <div class="category-icon">TS</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Technology</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Dev shops, SaaS, AI, FinTech</div>
     </a>
     <a href="#cat-energy" onclick="filterCategory('Energy');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">⚡</div>
+      <div class="category-icon">EN</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Energy &amp; Green</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Solar, wind, sustainability</div>
     </a>
     <a href="#cat-food" onclick="filterCategory('Food');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🍽️</div>
+      <div class="category-icon">FB</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Food &amp; Beverage</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Spices, specialty, import</div>
     </a>
     <a href="#cat-fashion" onclick="filterCategory('Fashion');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">👗</div>
+      <div class="category-icon">FA</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Fashion &amp; Textiles</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Apparel, accessories, crafts</div>
     </a>
     <a href="#cat-legal" onclick="filterCategory('Legal');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">⚖️</div>
+      <div class="category-icon">LP</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Legal &amp; Professional</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Law, accounting, consult</div>
     </a>
     <a href="#cat-travel" onclick="filterCategory('Travel');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">✈️</div>
+      <div class="category-icon">TR</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Travel &amp; Hospitality</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Concierge, tours, lodging</div>
     </a>
     <a href="#cat-edu" onclick="filterCategory('Education');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🎓</div>
+      <div class="category-icon">ED</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Education &amp; EdTech</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Platforms, tutoring, skills</div>
     </a>
     <a href="#cat-health" onclick="filterCategory('Health');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🏥</div>
+      <div class="category-icon">HW</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Health &amp; Wellness</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Clinics, supplements, fitness</div>
     </a>
     <a href="#cat-media" onclick="filterCategory('Media');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">📹</div>
+      <div class="category-icon">MC</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Media &amp; Content</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Video, publishing, studios</div>
     </a>
     <a href="#cat-logistics" onclick="filterCategory('Logistics');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div style="font-size:28px;">🚚</div>
+      <div class="category-icon">LS</div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Logistics &amp; Shipping</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Freight, customs, warehousing</div>
     </a>
@@ -894,64 +1008,121 @@ window.filterCategory = window.filterCategory || function(cat) {
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <div class="logo-icon" style="width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#07070e;">S</div>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
       </a>
       <div class="nav-links">
-        <a href="/#live" class="nav-link">Live</a>
-        <a href="/#feed" class="nav-link">Feed</a>
-        <a href="/#creators" class="nav-link">Creators</a>
+        <a href="/#live" class="nav-link">Signals</a>
+        <a href="/#feed" class="nav-link">Library</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/#creators" class="nav-link">Builders</a>
         <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
-        <a href="/#sessions" class="nav-link">Sessions</a>
+        <a href="/#sessions" class="nav-link">Access</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
       </div>
       <div class="nav-right" style="margin-left:auto;display:flex;gap:10px;align-items:center;">
-        <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
+        <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">Start Listing</a>
       </div>
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
   <!-- HERO -->
   <div class="market-hero">
-    <div class="market-hero-icon">🌐</div>
-    <h1>SophiaMarket — Global Business Directory</h1>
-    <p>Connect with businesses in 100+ countries. Browse by country and category, contact directly, or list your own business.</p>
+    <div class="market-hero-icon" aria-hidden="true"></div>
+    <h1 data-text="Sophia Market Global Business Floor">Sophia Market — Global Business Floor</h1>
+    <p>List, discover, translate, and evaluate business opportunities across countries, cities, categories, and trusted operator paths.</p>
     <div class="market-cta-row">
-      <a href="/market-submit.html" class="btn-gold" style="padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">List Your Business — Free</a>
-      <a href="#step-country" class="btn-outline" style="padding:12px 28px;font-size:15px;border:1px solid var(--gold-border);color:var(--text);border-radius:8px;text-decoration:none;">Browse Businesses</a>
+      <a href="/market-submit.html" class="btn-gold" style="padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">Start Listing — Free</a>
+      <a href="#classifieds" class="btn-outline" style="padding:12px 28px;font-size:15px;border:1px solid var(--gold-border);color:var(--text);border-radius:8px;text-decoration:none;">Browse Signals</a>
+      <a href="#business-directory" class="btn-outline" style="padding:12px 28px;font-size:15px;border:1px solid var(--gold-border);color:var(--text);border-radius:8px;text-decoration:none;">Country Directory</a>
     </div>
   </div>
 
+  <section class="market-treasure-banner" aria-label="Sophia Market global value visual">
+    <img
+      src="assets/brand/sophia-market-currency-treasure-banner.png"
+      alt="Gold bars, silver bars, diamonds, U.S. dollars, and global currency on black velvet"
+      width="1653"
+      height="951"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="market-treasure-shade" aria-hidden="true"></div>
+  </section>
+
+  <section class="market-institution-strip" aria-label="Sophia Market operating proof">
+    <div class="market-institution-inner">
+      <span><strong>105</strong> countries</span>
+      <span><strong>18</strong> market categories</span>
+      <span><strong>50+</strong> language layer</span>
+      <span><strong>0</strong> fake live metrics</span>
+    </div>
+  </section>
+
+  <div class="market-mode-switch" aria-label="SophiaMarket sections">
+    <a class="market-mode-card" href="#classifieds">
+      <div class="mode-kicker">Market signals</div>
+      <div class="mode-title">Offers, needs, jobs, property, and services</div>
+      <div class="mode-copy">A practical signal board for people who need to buy, sell, hire, rent, partner, source, and start a conversation.</div>
+    </a>
+    <a class="market-mode-card" href="#business-directory">
+      <div class="mode-kicker">Country directory</div>
+      <div class="mode-title">Company profiles by country, city, state, and category</div>
+      <div class="mode-copy">A durable profile layer for businesses that need global discoverability, translated inquiry paths, and trust context.</div>
+    </a>
+  </div>
+
+  <section class="classifieds-section" id="classifieds" aria-labelledby="classifiedsTitle">
+    <div class="step-header">
+      <div class="step-badge">A</div>
+      <div class="step-title" id="classifiedsTitle">Worldwide Market Signals</div>
+      <div class="step-sub">founding board</div>
+    </div>
+    <div class="classifieds-grid" id="classifiedsGrid"></div>
+  </section>
+
   <!-- MAIN CONTENT -->
-  <div class="market-steps" id="step-country">
+  <div class="market-steps" id="business-directory">
 
     <!-- STEP 1: COUNTRY -->
     <div class="market-section" id="section-country">
       <div class="step-header">
-        <div class="step-badge">1</div>
-        <div class="step-title">Choose a Country</div>
-        <div class="step-sub">or browse all</div>
+        <div class="step-badge">B</div>
+        <div class="step-title">Worldwide Country Directory</div>
+        <div class="step-sub">choose a country or browse all</div>
       </div>
 
       <div class="region-tabs" id="regionTabs">
-        <button class="region-tab active" onclick="filterByRegion('All', this)">🌐 All</button>
-        <button class="region-tab" onclick="filterByRegion('Americas', this)">🌎 Americas</button>
-        <button class="region-tab" onclick="filterByRegion('Europe', this)">🌍 Europe</button>
-        <button class="region-tab" onclick="filterByRegion('Africa', this)">🌍 Africa</button>
-        <button class="region-tab" onclick="filterByRegion('Middle East', this)">🌏 Middle East</button>
-        <button class="region-tab" onclick="filterByRegion('Asia-Pacific', this)">🌏 Asia-Pacific</button>
+        <button class="region-tab active" onclick="filterByRegion('All', this)">All</button>
+        <button class="region-tab" onclick="filterByRegion('Americas', this)">Americas</button>
+        <button class="region-tab" onclick="filterByRegion('Europe', this)">Europe</button>
+        <button class="region-tab" onclick="filterByRegion('Africa', this)">Africa</button>
+        <button class="region-tab" onclick="filterByRegion('Middle East', this)">Middle East</button>
+        <button class="region-tab" onclick="filterByRegion('Asia-Pacific', this)">Asia-Pacific</button>
       </div>
 
       <div class="country-search-wrap">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon" aria-hidden="true"></span>
         <input type="text" id="countrySearch" placeholder="Search countries…" oninput="filterCountries(this.value)" />
       </div>
 
       <div class="country-grid" id="countryGrid">
         <div class="country-card active" onclick="selectCountry('All')" id="country-All">
-          <div class="country-flag">🌐</div>
+          <div class="country-flag">ALL</div>
           <div class="country-name">All Countries</div>
         </div>
+      </div>
+      <div class="state-directory" id="stateDirectory" aria-label="United States states and major cities directory">
+        <div class="state-directory-head">
+          <div>
+            <h3>United States states and cities</h3>
+            <p>States are listed A-Z. Cities under each state are also A-Z so visitors can scan the marketplace like a serious classified directory.</p>
+          </div>
+          <div class="state-directory-note">A-Z state and city order</div>
+        </div>
+        <div class="state-grid" id="stateGrid"></div>
       </div>
     </div>
 
@@ -974,7 +1145,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       </div>
 
       <div class="list-your-cta">
-        <p>Is your business missing? <strong>List for free</strong> or get <strong>Featured</strong> from $29.99/mo.</p>
+        <p>Is your business missing? <strong>List for free</strong> or request <strong>Featured placement</strong> when paid upgrades open.</p>
         <a href="/market-submit.html" class="btn-gold" style="white-space:nowrap;padding:9px 20px;font-weight:700;font-size:13px;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
       </div>
 
@@ -993,9 +1164,12 @@ window.filterCategory = window.filterCategory || function(cat) {
       </div>
 
       <div class="listings-grid" id="listingsGrid"></div>
+      <div class="market-load-more" id="loadMoreWrap" style="display:none;text-align:center;margin-top:22px;">
+        <button type="button" class="btn-outline" onclick="showMoreListings()" style="padding:10px 22px;border:1px solid var(--gold-border);border-radius:8px;background:transparent;color:var(--text);font-weight:700;cursor:pointer;">Show more listings</button>
+      </div>
 
       <div class="empty-state hidden" id="emptyState">
-        <div class="empty-icon">🔍</div>
+        <div class="empty-icon" aria-hidden="true"></div>
         <p>No listings found for this selection.</p>
         <p style="margin-top:8px;font-size:13px;">Be the first to <a href="/market-submit.html" style="color:var(--gold);">list your business here</a>.</p>
       </div>
@@ -1136,35 +1310,214 @@ window.filterCategory = window.filterCategory || function(cat) {
     ];
 
     const CATEGORIES = [
-      { icon: "🏭", label: "Wholesale & Manufacturing" },
-      { icon: "🏠", label: "Real Estate" },
-      { icon: "❤️", label: "Dating & Relationships" },
-      { icon: "🍽️", label: "Food & Restaurants" },
-      { icon: "💼", label: "Business Services" },
-      { icon: "🛒", label: "Retail & Shopping" },
-      { icon: "💻", label: "Tech & Software" },
-      { icon: "💄", label: "Beauty & Health" },
-      { icon: "🚗", label: "Automotive" },
-      { icon: "📚", label: "Education & Training" },
-      { icon: "🌾", label: "Agriculture & Farming" },
-      { icon: "💰", label: "Finance & Investment" },
-      { icon: "🚢", label: "Import/Export" },
-      { icon: "🏗️", label: "Construction" },
-      { icon: "👗", label: "Fashion & Apparel" },
-      { icon: "✈️", label: "Travel & Tourism" },
-      { icon: "🎬", label: "Entertainment & Media" },
-      { icon: "⚡", label: "Energy & Resources" }
+      { icon: "WM", label: "Wholesale & Manufacturing" },
+      { icon: "RE", label: "Real Estate" },
+      { icon: "DR", label: "Dating & Relationships" },
+      { icon: "FB", label: "Food & Restaurants" },
+      { icon: "BS", label: "Business Services" },
+      { icon: "RT", label: "Retail & Shopping" },
+      { icon: "TS", label: "Tech & Software" },
+      { icon: "BH", label: "Beauty & Health" },
+      { icon: "AU", label: "Automotive" },
+      { icon: "ED", label: "Education & Training" },
+      { icon: "AG", label: "Agriculture & Farming" },
+      { icon: "FI", label: "Finance & Investment" },
+      { icon: "EX", label: "Import/Export" },
+      { icon: "CO", label: "Construction" },
+      { icon: "FA", label: "Fashion & Apparel" },
+      { icon: "TR", label: "Travel & Tourism" },
+      { icon: "ME", label: "Entertainment & Media" },
+      { icon: "EN", label: "Energy & Resources" }
     ];
+
+    const COUNTRY_AREAS = {
+      "United States": ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX"],
+      "Canada": ["Toronto, ON", "Vancouver, BC", "Montreal, QC", "Calgary, AB"],
+      "Mexico": ["Mexico City", "Guadalajara", "Monterrey", "Tijuana"],
+      "Brazil": ["Sao Paulo", "Rio de Janeiro", "Brasilia", "Salvador"],
+      "United Kingdom": ["London", "Manchester", "Birmingham", "Glasgow"],
+      "Germany": ["Berlin", "Hamburg", "Munich", "Frankfurt"],
+      "France": ["Paris", "Lyon", "Marseille", "Toulouse"],
+      "Nigeria": ["Lagos", "Abuja", "Kano", "Port Harcourt"],
+      "Ghana": ["Accra", "Kumasi", "Tamale", "Tema"],
+      "Kenya": ["Nairobi", "Mombasa", "Kisumu", "Nakuru"],
+      "South Africa": ["Johannesburg", "Cape Town", "Durban", "Pretoria"],
+      "Egypt": ["Cairo", "Alexandria", "Giza", "Port Said"],
+      "Morocco": ["Casablanca", "Rabat", "Marrakesh", "Tangier"],
+      "UAE": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman"],
+      "Saudi Arabia": ["Riyadh", "Jeddah", "Dammam", "Mecca"],
+      "China": ["Shenzhen", "Shanghai", "Beijing", "Guangzhou"],
+      "India": ["Mumbai", "Delhi", "Bengaluru", "Hyderabad"],
+      "Japan": ["Tokyo", "Osaka", "Yokohama", "Nagoya"],
+      "South Korea": ["Seoul", "Busan", "Incheon", "Daegu"],
+      "Philippines": ["Manila", "Quezon City", "Cebu", "Davao"],
+      "Indonesia": ["Jakarta", "Surabaya", "Bandung", "Medan"],
+      "Singapore": ["Central", "Jurong", "Tampines", "Woodlands"],
+      "Australia": ["Sydney, NSW", "Melbourne, VIC", "Brisbane, QLD", "Perth, WA"]
+    };
+
+    Object.assign(COUNTRY_AREAS, {
+      "Argentina": ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"],
+      "Colombia": ["Bogota", "Medellin", "Cali", "Barranquilla"],
+      "Chile": ["Santiago", "Valparaiso", "Concepcion", "Antofagasta"],
+      "Peru": ["Lima", "Arequipa", "Trujillo", "Cusco"],
+      "Venezuela": ["Caracas", "Maracaibo", "Valencia", "Barquisimeto"],
+      "Ecuador": ["Quito", "Guayaquil", "Cuenca", "Manta"],
+      "Bolivia": ["La Paz", "Santa Cruz", "Cochabamba", "Sucre"],
+      "Paraguay": ["Asuncion", "Ciudad del Este", "San Lorenzo", "Luque"],
+      "Uruguay": ["Montevideo", "Punta del Este", "Salto", "Paysandu"],
+      "Costa Rica": ["San Jose", "Alajuela", "Cartago", "Heredia"],
+      "Panama": ["Panama City", "Colon", "David", "Santiago"],
+      "Guatemala": ["Guatemala City", "Quetzaltenango", "Escuintla", "Antigua"],
+      "Cuba": ["Havana", "Santiago de Cuba", "Camaguey", "Holguin"],
+      "Jamaica": ["Kingston", "Montego Bay", "Spanish Town", "Ocho Rios"],
+      "Haiti": ["Port-au-Prince", "Cap-Haitien", "Gonaives", "Jacmel"],
+      "Dominican Republic": ["Santo Domingo", "Santiago", "Punta Cana", "La Romana"],
+      "Italy": ["Rome", "Milan", "Naples", "Turin"],
+      "Spain": ["Madrid", "Barcelona", "Valencia", "Seville"],
+      "Portugal": ["Lisbon", "Porto", "Braga", "Faro"],
+      "Netherlands": ["Amsterdam", "Rotterdam", "The Hague", "Utrecht"],
+      "Belgium": ["Brussels", "Antwerp", "Ghent", "Liege"],
+      "Switzerland": ["Zurich", "Geneva", "Basel", "Bern"],
+      "Austria": ["Vienna", "Graz", "Linz", "Salzburg"],
+      "Sweden": ["Stockholm", "Gothenburg", "Malmo", "Uppsala"],
+      "Norway": ["Oslo", "Bergen", "Trondheim", "Stavanger"],
+      "Denmark": ["Copenhagen", "Aarhus", "Odense", "Aalborg"],
+      "Finland": ["Helsinki", "Espoo", "Tampere", "Turku"],
+      "Poland": ["Warsaw", "Krakow", "Lodz", "Wroclaw"],
+      "Czech Republic": ["Prague", "Brno", "Ostrava", "Plzen"],
+      "Hungary": ["Budapest", "Debrecen", "Szeged", "Miskolc"],
+      "Romania": ["Bucharest", "Cluj-Napoca", "Timisoara", "Iasi"],
+      "Greece": ["Athens", "Thessaloniki", "Patras", "Heraklion"],
+      "Turkey": ["Istanbul", "Ankara", "Izmir", "Bursa"],
+      "Russia": ["Moscow", "Saint Petersburg", "Novosibirsk", "Kazan"],
+      "Ukraine": ["Kyiv", "Lviv", "Odesa", "Kharkiv"],
+      "Ireland": ["Dublin", "Cork", "Galway", "Limerick"],
+      "Croatia": ["Zagreb", "Split", "Rijeka", "Osijek"],
+      "Serbia": ["Belgrade", "Novi Sad", "Nis", "Kragujevac"],
+      "Ethiopia": ["Addis Ababa", "Dire Dawa", "Mekelle", "Bahir Dar"],
+      "Tanzania": ["Dar es Salaam", "Dodoma", "Arusha", "Mwanza"],
+      "Uganda": ["Kampala", "Entebbe", "Jinja", "Mbarara"],
+      "Zimbabwe": ["Harare", "Bulawayo", "Mutare", "Gweru"],
+      "Zambia": ["Lusaka", "Ndola", "Kitwe", "Livingstone"],
+      "Mozambique": ["Maputo", "Beira", "Nampula", "Matola"],
+      "Cameroon": ["Douala", "Yaounde", "Bamenda", "Bafoussam"],
+      "Senegal": ["Dakar", "Thies", "Saint-Louis", "Touba"],
+      "Côte d'Ivoire": ["Abidjan", "Yamoussoukro", "Bouake", "San Pedro"],
+      "Algeria": ["Algiers", "Oran", "Constantine", "Annaba"],
+      "Tunisia": ["Tunis", "Sfax", "Sousse", "Bizerte"],
+      "Libya": ["Tripoli", "Benghazi", "Misrata", "Bayda"],
+      "Sudan": ["Khartoum", "Omdurman", "Port Sudan", "Kassala"],
+      "Angola": ["Luanda", "Benguela", "Huambo", "Lobito"],
+      "Madagascar": ["Antananarivo", "Toamasina", "Antsirabe", "Mahajanga"],
+      "Rwanda": ["Kigali", "Butare", "Musanze", "Rubavu"],
+      "Burkina Faso": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Banfora"],
+      "Mali": ["Bamako", "Sikasso", "Mopti", "Segou"],
+      "Niger": ["Niamey", "Zinder", "Maradi", "Agadez"],
+      "Israel": ["Tel Aviv", "Jerusalem", "Haifa", "Beersheba"],
+      "Jordan": ["Amman", "Zarqa", "Irbid", "Aqaba"],
+      "Lebanon": ["Beirut", "Tripoli", "Sidon", "Zahle"],
+      "Iraq": ["Baghdad", "Basra", "Erbil", "Mosul"],
+      "Iran": ["Tehran", "Mashhad", "Isfahan", "Shiraz"],
+      "Qatar": ["Doha", "Al Rayyan", "Lusail", "Al Wakrah"],
+      "Kuwait": ["Kuwait City", "Hawalli", "Salmiya", "Farwaniya"],
+      "Oman": ["Muscat", "Salalah", "Sohar", "Nizwa"],
+      "Pakistan": ["Karachi", "Lahore", "Islamabad", "Faisalabad"],
+      "Bangladesh": ["Dhaka", "Chittagong", "Khulna", "Sylhet"],
+      "Sri Lanka": ["Colombo", "Kandy", "Galle", "Jaffna"],
+      "Nepal": ["Kathmandu", "Pokhara", "Lalitpur", "Biratnagar"],
+      "Myanmar": ["Yangon", "Mandalay", "Naypyidaw", "Bago"],
+      "Thailand": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya"],
+      "Vietnam": ["Ho Chi Minh City", "Hanoi", "Da Nang", "Can Tho"],
+      "Malaysia": ["Kuala Lumpur", "George Town", "Johor Bahru", "Kota Kinabalu"],
+      "Taiwan": ["Taipei", "Kaohsiung", "Taichung", "Tainan"],
+      "Hong Kong": ["Central", "Kowloon", "Tsim Sha Tsui", "Sha Tin"],
+      "New Zealand": ["Auckland", "Wellington", "Christchurch", "Hamilton"],
+      "Cambodia": ["Phnom Penh", "Siem Reap", "Sihanoukville", "Battambang"],
+      "Laos": ["Vientiane", "Luang Prabang", "Pakse", "Savannakhet"],
+      "Mongolia": ["Ulaanbaatar", "Erdenet", "Darkhan", "Choibalsan"],
+      "Afghanistan": ["Kabul", "Herat", "Kandahar", "Mazar-i-Sharif"],
+      "Uzbekistan": ["Tashkent", "Samarkand", "Bukhara", "Namangan"],
+      "Kazakhstan": ["Almaty", "Astana", "Shymkent", "Karaganda"]
+    });
+
+    const CLASSIFIEDS = [
+      { type: "Supplier wanted", title: "Retail shop sourcing small-batch electronics accessories", location: "Atlanta, GA -> Shenzhen / Global", copy: "Buyer wants verified factories, low MOQ, sample pricing, and shipping options before launch." },
+      { type: "Service offered", title: "Bilingual bookkeeping for diaspora-owned businesses", location: "Toronto, ON / Remote", copy: "Monthly books, invoice cleanup, payroll setup, and English-French support for small teams." },
+      { type: "Real estate", title: "Commercial kitchen space available for weekend catering crews", location: "Lagos, Nigeria", copy: "Licensed prep space with cold storage, delivery access, and short-term booking blocks." },
+      { type: "Hiring", title: "Remote video editor needed for weekly product explainers", location: "London / Remote", copy: "Small business needs captions, simple motion graphics, and social cutdowns in English and Spanish." },
+      { type: "Import / Export", title: "Distributor seeking organic food brands for Gulf retail", location: "Dubai, UAE", copy: "Looking for shelf-ready packaged goods, certificates, wholesale terms, and launch support." },
+      { type: "Community", title: "Founders meetup for AI tools, local commerce, and creators", location: "New York, NY", copy: "Monthly meetup for operators building service businesses, content channels, and local tools." },
+      { type: "For sale", title: "Restaurant equipment package for new cafe buildout", location: "Melbourne, VIC", copy: "Espresso machine, refrigeration, prep tables, and seating available as a bundled package." },
+      { type: "Partner wanted", title: "Education platform seeking local training partners", location: "Accra / Nairobi / Remote", copy: "Courses are ready; partner handles workshops, learner support, and local business outreach." }
+    ];
+
+    const US_STATE_CITIES = {
+      "Alabama": ["Birmingham", "Huntsville", "Mobile", "Montgomery"],
+      "Alaska": ["Anchorage", "Fairbanks", "Juneau", "Wasilla"],
+      "Arizona": ["Chandler", "Phoenix", "Scottsdale", "Tucson"],
+      "Arkansas": ["Conway", "Fayetteville", "Fort Smith", "Little Rock"],
+      "California": ["Los Angeles", "Sacramento", "San Diego", "San Francisco"],
+      "Colorado": ["Aurora", "Colorado Springs", "Denver", "Fort Collins"],
+      "Connecticut": ["Bridgeport", "Hartford", "New Haven", "Stamford"],
+      "Delaware": ["Dover", "Middletown", "Newark", "Wilmington"],
+      "Florida": ["Jacksonville", "Miami", "Orlando", "Tampa"],
+      "Georgia": ["Atlanta", "Augusta", "Columbus", "Savannah"],
+      "Hawaii": ["Hilo", "Honolulu", "Kailua", "Pearl City"],
+      "Idaho": ["Boise", "Idaho Falls", "Meridian", "Nampa"],
+      "Illinois": ["Aurora", "Chicago", "Naperville", "Rockford"],
+      "Indiana": ["Evansville", "Fort Wayne", "Indianapolis", "South Bend"],
+      "Iowa": ["Cedar Rapids", "Davenport", "Des Moines", "Sioux City"],
+      "Kansas": ["Kansas City", "Olathe", "Overland Park", "Wichita"],
+      "Kentucky": ["Bowling Green", "Lexington", "Louisville", "Owensboro"],
+      "Louisiana": ["Baton Rouge", "Lafayette", "New Orleans", "Shreveport"],
+      "Maine": ["Augusta", "Bangor", "Lewiston", "Portland"],
+      "Maryland": ["Baltimore", "Frederick", "Gaithersburg", "Rockville"],
+      "Massachusetts": ["Boston", "Cambridge", "Springfield", "Worcester"],
+      "Michigan": ["Ann Arbor", "Detroit", "Grand Rapids", "Lansing"],
+      "Minnesota": ["Duluth", "Minneapolis", "Rochester", "Saint Paul"],
+      "Mississippi": ["Biloxi", "Gulfport", "Hattiesburg", "Jackson"],
+      "Missouri": ["Columbia", "Kansas City", "Saint Louis", "Springfield"],
+      "Montana": ["Billings", "Bozeman", "Great Falls", "Missoula"],
+      "Nebraska": ["Bellevue", "Grand Island", "Lincoln", "Omaha"],
+      "Nevada": ["Carson City", "Henderson", "Las Vegas", "Reno"],
+      "New Hampshire": ["Concord", "Derry", "Manchester", "Nashua"],
+      "New Jersey": ["Edison", "Jersey City", "Newark", "Paterson"],
+      "New Mexico": ["Albuquerque", "Las Cruces", "Rio Rancho", "Santa Fe"],
+      "New York": ["Albany", "Buffalo", "New York City", "Rochester"],
+      "North Carolina": ["Charlotte", "Durham", "Greensboro", "Raleigh"],
+      "North Dakota": ["Bismarck", "Fargo", "Grand Forks", "Minot"],
+      "Ohio": ["Cincinnati", "Cleveland", "Columbus", "Toledo"],
+      "Oklahoma": ["Edmond", "Norman", "Oklahoma City", "Tulsa"],
+      "Oregon": ["Bend", "Eugene", "Portland", "Salem"],
+      "Pennsylvania": ["Allentown", "Erie", "Philadelphia", "Pittsburgh"],
+      "Rhode Island": ["Cranston", "Pawtucket", "Providence", "Warwick"],
+      "South Carolina": ["Charleston", "Columbia", "Greenville", "Myrtle Beach"],
+      "South Dakota": ["Aberdeen", "Pierre", "Rapid City", "Sioux Falls"],
+      "Tennessee": ["Chattanooga", "Knoxville", "Memphis", "Nashville"],
+      "Texas": ["Austin", "Dallas", "Houston", "San Antonio"],
+      "Utah": ["Ogden", "Provo", "Salt Lake City", "West Valley City"],
+      "Vermont": ["Barre", "Burlington", "Montpelier", "Rutland"],
+      "Virginia": ["Alexandria", "Norfolk", "Richmond", "Virginia Beach"],
+      "Washington": ["Bellevue", "Seattle", "Spokane", "Tacoma"],
+      "West Virginia": ["Charleston", "Huntington", "Morgantown", "Parkersburg"],
+      "Wisconsin": ["Green Bay", "Madison", "Milwaukee", "Racine"],
+      "Wyoming": ["Casper", "Cheyenne", "Gillette", "Laramie"]
+    };
 
     let allListings = [];
     let selectedCountry = "All";
     let selectedCategory = "All";
     let activeListing = null;
     let activeRegion = "All";
+    let listingLimit = 24;
 
     async function init() {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       COUNTRIES.sort((a,b) => a.name.localeCompare(b.name)); renderCountries(COUNTRIES);
       renderCategories();
+      renderClassifieds();
+      renderStateDirectory();
       try {
         const res = await fetch('/sample-listings.json');
         allListings = await res.json();
@@ -1177,7 +1530,21 @@ window.filterCategory = window.filterCategory || function(cat) {
       selectedCategory = 'All';
       document.getElementById('selectedCountryLabel').textContent = 'All Countries';
       document.getElementById('section-category').classList.add('hidden');
-      showListings();
+      showListings({ scroll: false });
+      requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+    }
+
+    function renderClassifieds() {
+      const grid = document.getElementById('classifiedsGrid');
+      if (!grid) return;
+      grid.innerHTML = CLASSIFIEDS.map(item => `
+        <article class="classified-card">
+          <div class="classified-type">${item.type}</div>
+          <div class="classified-title">${item.title}</div>
+          <div class="classified-meta">${item.location}</div>
+          <div class="classified-copy">${item.copy}</div>
+        </article>
+      `).join('');
     }
 
     function renderCountries(list) {
@@ -1190,9 +1557,22 @@ window.filterCategory = window.filterCategory || function(cat) {
         div.className = 'country-card' + (selectedCountry === c.name ? ' active' : '');
         div.id = 'country-' + c.code;
         div.onclick = () => selectCountry(c.name);
-        div.innerHTML = `<div class="country-flag">${c.flag}</div><div class="country-name">${c.name}</div>`;
+        const areas = COUNTRY_AREAS[c.name] || [];
+        const areaHtml = areas.length ? `<div class="country-areas">${areas.slice(0, 4).map(area => `<span class="country-area">${area}</span>`).join('')}</div>` : '';
+        div.innerHTML = `<div class="country-flag">${c.code}</div><div class="country-name">${c.name}</div>${areaHtml}`;
         grid.appendChild(div);
       });
+    }
+
+    function renderStateDirectory() {
+      const grid = document.getElementById('stateGrid');
+      if (!grid) return;
+      grid.innerHTML = Object.keys(US_STATE_CITIES)
+        .sort((a, b) => a.localeCompare(b))
+        .map(state => {
+          const cities = [...US_STATE_CITIES[state]].sort((a, b) => a.localeCompare(b));
+          return `<article class="state-card"><div class="state-name">${state}</div><div class="city-list">${cities.join(' · ')}</div></article>`;
+        }).join('');
     }
 
     function createAllCard() {
@@ -1200,7 +1580,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       div.className = 'country-card active';
       div.id = 'country-All';
       div.onclick = () => selectCountry('All');
-      div.innerHTML = `<div class="country-flag">🌐</div><div class="country-name">All Countries</div>`;
+      div.innerHTML = `<div class="country-flag">ALL</div><div class="country-name">All Countries</div>`;
       return div;
     }
 
@@ -1233,6 +1613,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       if (name === 'All') {
         document.getElementById('section-category').classList.add('hidden');
         showListings();
+        return;
       }
       document.getElementById('section-category').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -1242,7 +1623,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       // All categories option
       const allDiv = document.createElement('div');
       allDiv.className = 'category-card';
-      allDiv.innerHTML = `<div class="category-icon">🌐</div><div class="category-label">All Categories</div>`;
+      allDiv.innerHTML = `<div class="category-icon">ALL</div><div class="category-label">All Categories</div>`;
       allDiv.onclick = () => selectCategory('All', allDiv);
       grid.appendChild(allDiv);
       CATEGORIES.forEach(cat => {
@@ -1261,19 +1642,28 @@ window.filterCategory = window.filterCategory || function(cat) {
       showListings();
     }
 
-    function showListings() {
+    function showListings(options = {}) {
+      const { scroll = true } = options;
       document.getElementById('section-listings').classList.remove('hidden');
+      listingLimit = window.matchMedia('(max-width: 700px)').matches ? 12 : 24;
       renderListings();
-      document.getElementById('section-listings').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (scroll) document.getElementById('section-listings').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showMoreListings() {
+      listingLimit += window.matchMedia('(max-width: 700px)').matches ? 12 : 24;
+      renderListings();
     }
 
     function renderListings() {
       const sort = document.getElementById('sortSelect').value;
       const q = document.getElementById('listingSearch').value.toLowerCase();
+      if (q) listingLimit = 120;
       let filtered = allListings.filter(l => {
         const matchCountry = selectedCountry === 'All' || l.country === selectedCountry;
         const matchCat = selectedCategory === 'All' || l.category === selectedCategory;
-        const matchQ = !q || l.name.toLowerCase().includes(q) || l.description.toLowerCase().includes(q) || l.city.toLowerCase().includes(q);
+        const searchText = [l.name, l.description, l.city, l.country, l.category, ...(l.tags || [])].join(' ').toLowerCase();
+        const matchQ = !q || searchText.includes(q);
         return matchCountry && matchCat && matchQ;
       });
 
@@ -1285,18 +1675,22 @@ window.filterCategory = window.filterCategory || function(cat) {
         filtered.sort((a, b) => a.name.localeCompare(b.name));
       }
 
-      document.getElementById('resultsCount').textContent = `${filtered.length} listing${filtered.length !== 1 ? 's' : ''} found`;
+      const visible = filtered.slice(0, listingLimit);
+      document.getElementById('resultsCount').textContent = `${filtered.length} listing${filtered.length !== 1 ? 's' : ''} found · showing ${Math.min(visible.length, filtered.length)}`;
       const grid = document.getElementById('listingsGrid');
       const empty = document.getElementById('emptyState');
+      const loadMore = document.getElementById('loadMoreWrap');
 
       if (!filtered.length) {
         grid.innerHTML = '';
         empty.classList.remove('hidden');
+        loadMore.style.display = 'none';
         return;
       }
       empty.classList.add('hidden');
+      loadMore.style.display = visible.length < filtered.length ? 'block' : 'none';
 
-      grid.innerHTML = filtered.map(l => `
+      grid.innerHTML = visible.map(l => `
         <div class="listing-card ${l.featured ? 'featured' : ''}">
           <div class="listing-top">
             <div class="listing-name">${l.name}</div>
@@ -1307,13 +1701,17 @@ window.filterCategory = window.filterCategory || function(cat) {
             ${l.featured ? '<span class="badge badge-featured">★ Featured</span>' : ''}
           </div>
           <div class="listing-desc">${l.description}</div>
-          <div class="listing-location">📍 ${l.city}, ${l.country}</div>
+          <div class="listing-location">${formatLocation(l)}</div>
           <div class="listing-actions">
             <button class="btn-contact" onclick='openModal(${JSON.stringify(l)})'>Contact</button>
             <a class="btn-profile" href="/market-listing.html?id=${l.id}">View Profile</a>
           </div>
         </div>
       `).join('');
+    }
+
+    function formatLocation(listing) {
+      return [listing.city, listing.country].filter(Boolean).join(', ');
     }
 
     function openModal(listing) {
@@ -1331,7 +1729,14 @@ window.filterCategory = window.filterCategory || function(cat) {
       const name = document.getElementById('inquiryName').value.trim();
       const email = document.getElementById('inquiryEmail').value.trim();
       const msg = document.getElementById('inquiryMsg').value.trim();
-      if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+      if (!name || !email || !msg) {
+        if (window.showSophiaToast) showSophiaToast('Please fill in all inquiry fields.', 'error');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (window.showSophiaToast) showSophiaToast('Enter a valid email address.', 'error');
+        return;
+      }
       closeModal();
       showToast('Inquiry sent to ' + activeListing.name + '!');
       document.getElementById('inquiryName').value = '';
@@ -1375,7 +1780,7 @@ window.filterCategory = window.filterCategory || function(cat) {
     <div style="background:#111827;border:1px solid #374151;border-radius:16px;padding:24px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
         <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
-          🌐 Global Business Pulse
+          Global Business Pulse
         </h2>
         <span style="color:#9ca3af;font-size:12px;">Updated daily</span>
       </div>
@@ -1385,12 +1790,12 @@ window.filterCategory = window.filterCategory || function(cat) {
     </div>
 
     <!-- VIDEO HIGHLIGHT -->
-    <div style="background:linear-gradient(135deg,#042f1f 0%,#111827 100%);border:1px solid #10b981;border-radius:16px;padding:24px;">
+    <div style="background:linear-gradient(135deg,#141007 0%,#111827 100%);border:1px solid rgba(232,201,120,0.34);border-radius:16px;padding:24px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
         <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
-          📺 Spotlight
+          Spotlight
         </h2>
-        <span style="color:#34d399;font-size:12px;font-weight:600;">NEW</span>
+        <span style="color:#e8c978;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;">Curated</span>
       </div>
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;">
         <iframe
@@ -1428,7 +1833,7 @@ window.filterCategory = window.filterCategory || function(cat) {
         return `
           <a href="${i.link}" target="_blank" rel="noopener noreferrer"
              style="display:block;padding:14px;background:#1f2937;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:border-color .15s;"
-             onmouseover="this.style.borderColor='#10b981'"
+             onmouseover="this.style.borderColor='#e8c978'"
              onmouseout="this.style.borderColor='#374151'">
             <div style="color:#f9fafb;font-weight:600;font-size:15px;line-height:1.4;margin-bottom:6px;">
               ${escapeHtml(i.title)}
@@ -1457,9 +1862,12 @@ window.filterCategory = window.filterCategory || function(cat) {
 
 <!-- /SOPHIA_NEWS_VIDEO -->
 
+  </main>
+
 <!-- SOPHIA_FOOTER -->
 <footer style="max-width:1200px;margin:60px auto 20px;padding:24px 20px;border-top:1px solid #374151;color:#9ca3af;font-size:13px;text-align:center;position:relative;z-index:10;"><div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;margin-bottom:12px;"><a href="/terms.html" style="color:#9ca3af;">Terms</a><a href="/privacy.html" style="color:#9ca3af;">Privacy</a><a href="/copyright.html" style="color:#9ca3af;">Copyright</a><a href="mailto:t.rain@sophiaoperator.com" style="color:#9ca3af;">Contact</a></div><div>© 2026 Tarence Rainey / SophiaMarket™ · All rights reserved</div></footer>
 <!-- /SOPHIA_FOOTER -->
+  <script src="future.js" defer></script>
 </body>
 </html>
 

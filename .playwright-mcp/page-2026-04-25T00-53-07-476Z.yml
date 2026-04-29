@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "▶ SophiaTV" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: ▶
+        - generic [ref=e8]:
+          - text: Sophia
+          - emphasis [ref=e9]: TV
+      - generic [ref=e10]:
+        - link "Tools" [ref=e11] [cursor=pointer]:
+          - /url: /everyday-tools.html
+        - link "Wellness" [ref=e12] [cursor=pointer]:
+          - /url: /natural-cures.html
+        - link "Social" [ref=e13] [cursor=pointer]:
+          - /url: /social.html
+        - link "Market" [ref=e14] [cursor=pointer]:
+          - /url: /market.html
+        - link "Control" [ref=e15] [cursor=pointer]:
+          - /url: /control-center.html
+      - link "Dashboard" [ref=e17] [cursor=pointer]:
+        - /url: /dashboard.html
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - text: Daily utility cockpit
+        - heading "Sophia Everyday Tools" [level=1] [ref=e21]
+        - paragraph [ref=e22]: "Fast browser-only apps for common daily needs. No login, no paid API, no private scraping: just useful calculators, lists, and planners saved locally on this device."
+      - complementary [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Tools
+          - strong [ref=e26]: "8"
+        - generic [ref=e27]:
+          - generic [ref=e28]: Data mode
+          - strong [ref=e29]: Local
+        - generic [ref=e30]:
+          - generic [ref=e31]: Cost
+          - strong [ref=e32]: $0
+    - generic [ref=e33]:
+      - article [ref=e34]:
+        - text: Bill splitter
+        - heading "Tip Calculator" [level=2] [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - text: Bill amount
+            - spinbutton "Bill amount" [ref=e38]: "48.50"
+          - generic [ref=e39]:
+            - text: Tip %
+            - spinbutton "Tip %" [ref=e40]: "20"
+          - generic [ref=e41]:
+            - text: People
+            - spinbutton "People" [ref=e42]: "2"
+          - generic [ref=e43]:
+            - text: Tax/fees
+            - spinbutton "Tax/fees" [ref=e44]: "0"
+        - generic [ref=e45]: Total $58.20 · Tip $9.70 · Each $29.10
+      - article [ref=e46]:
+        - text: Conversions
+        - heading "Unit Converter" [level=2] [ref=e47]
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - text: Value
+            - spinbutton "Value" [ref=e50]: "10"
+          - generic [ref=e51]:
+            - text: Convert
+            - combobox "Convert" [ref=e52]:
+              - option "Pounds to kilograms" [selected]
+              - option "Kilograms to pounds"
+              - option "Miles to kilometers"
+              - option "Kilometers to miles"
+              - option "Fahrenheit to Celsius"
+              - option "Celsius to Fahrenheit"
+        - generic [ref=e53]: 10 -> 4.54 kg
+      - article [ref=e54]:
+        - text: Money
+        - heading "Budget Snapshot" [level=2] [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - text: Monthly income
+            - spinbutton "Monthly income" [ref=e58]: "4200"
+          - generic [ref=e59]:
+            - text: Rent / mortgage
+            - spinbutton "Rent / mortgage" [ref=e60]: "1400"
+          - generic [ref=e61]:
+            - text: Bills
+            - spinbutton "Bills" [ref=e62]: "620"
+          - generic [ref=e63]:
+            - text: Food / transport
+            - spinbutton "Food / transport" [ref=e64]: "780"
+        - generic [ref=e65]: $1,400.00 left after basics · 33% of income available
+      - article [ref=e66]:
+        - text: Kitchen
+        - heading "Grocery Planner" [level=2] [ref=e67]
+        - generic [ref=e69]:
+          - text: Add item
+          - textbox "Add item" [ref=e70]:
+            - /placeholder: rice, eggs, apples...
+        - generic [ref=e71]:
+          - button "Add Item" [ref=e72] [cursor=pointer]
+          - button "Clear" [ref=e73] [cursor=pointer]
+        - paragraph [ref=e75]: No grocery items yet.
+      - article [ref=e76]:
+        - text: Travel
+        - heading "Packing Checklist" [level=2] [ref=e77]
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - text: Trip type
+            - combobox "Trip type" [ref=e80]:
+              - option "Business" [selected]
+              - option "Weekend"
+              - option "Family"
+              - option "International"
+          - generic [ref=e81]:
+            - text: Days
+            - spinbutton "Days" [ref=e82]: "3"
+        - button "Build List" [ref=e84] [cursor=pointer]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: ID/wallet
+            - generic [ref=e88]: ✓
+          - generic [ref=e89]:
+            - generic [ref=e90]: phone charger
+            - generic [ref=e91]: ✓
+          - generic [ref=e92]:
+            - generic [ref=e93]: toiletries
+            - generic [ref=e94]: ✓
+          - generic [ref=e95]:
+            - generic [ref=e96]: 3 outfits
+            - generic [ref=e97]: ✓
+          - generic [ref=e98]:
+            - generic [ref=e99]: sleepwear
+            - generic [ref=e100]: ✓
+          - generic [ref=e101]:
+            - generic [ref=e102]: medications
+            - generic [ref=e103]: ✓
+          - generic [ref=e104]:
+            - generic [ref=e105]: laptop
+            - generic [ref=e106]: ✓
+          - generic [ref=e107]:
+            - generic [ref=e108]: presentation notes
+            - generic [ref=e109]: ✓
+          - generic [ref=e110]:
+            - generic [ref=e111]: dress shoes
+            - generic [ref=e112]: ✓
+      - article [ref=e113]:
+        - text: World clock
+        - heading "Time-Zone Helper" [level=2] [ref=e114]
+        - paragraph [ref=e115]: Quick view using your browser clock. Useful before calls across the U.S., Europe, Asia, and the Gulf.
+        - button "Refresh Times" [ref=e117] [cursor=pointer]
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - generic [ref=e120]: New York
+            - strong [ref=e121]: 08:53 PM
+          - generic [ref=e122]:
+            - generic [ref=e123]: Los Angeles
+            - strong [ref=e124]: 05:53 PM
+          - generic [ref=e125]:
+            - generic [ref=e126]: London
+            - strong [ref=e127]: 01:53 AM
+          - generic [ref=e128]:
+            - generic [ref=e129]: Paris
+            - strong [ref=e130]: 02:53 AM
+          - generic [ref=e131]:
+            - generic [ref=e132]: Dubai
+            - strong [ref=e133]: 04:53 AM
+          - generic [ref=e134]:
+            - generic [ref=e135]: Shanghai
+            - strong [ref=e136]: 08:53 AM
+          - generic [ref=e137]:
+            - generic [ref=e138]: Tokyo
+            - strong [ref=e139]: 09:53 AM
+      - article [ref=e140]:
+        - text: Calendar
+        - heading "Date Calculator" [level=2] [ref=e141]
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - text: Start date
+            - textbox "Start date" [ref=e144]: 2026-04-25
+          - generic [ref=e145]:
+            - text: Add days
+            - spinbutton "Add days" [ref=e146]: "30"
+        - generic [ref=e147]: 30 days from 4/25/2026 is 5/25/2026
+      - article [ref=e148]:
+        - text: Focus
+        - heading "Quick Timer" [level=2] [ref=e149]
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - text: Minutes
+            - spinbutton "Minutes" [ref=e152]: "25"
+          - generic [ref=e153]:
+            - text: Mode
+            - combobox "Mode" [ref=e154]:
+              - option "Focus" [selected]
+              - option "Break"
+              - option "Workout"
+        - generic [ref=e155]: 25:00 focus
+        - generic [ref=e156]:
+          - button "Start" [ref=e157] [cursor=pointer]
+          - button "Reset" [ref=e158] [cursor=pointer]
+  - generic [ref=e159]:
+    - generic [ref=e161]: Sophia Grid
+    - strong [ref=e162]: 08:53 PM

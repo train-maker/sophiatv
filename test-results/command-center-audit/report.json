@@ -1,0 +1,5241 @@
+[
+  {
+    "route": "/",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/home-desktop.png",
+    "title": "Sophia — The World, Translated Into Opportunity",
+    "h1": "The world, translated into opportunity.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 6598,
+    "buttons": [
+      {
+        "text": "🌐 EN",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Mini-player",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Captions on",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "×",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Get Access",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Share SophiaTV",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Send Feedback",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⇄",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Start Speech Capture",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Translate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Speak Translation",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Russian news → English",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "English → French",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "?",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Translate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "List a business",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Open Social",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Setup notes",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "Sophia",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "#live"
+      },
+      {
+        "text": "Library",
+        "href": "#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Tools",
+        "href": "/everyday-tools.html"
+      },
+      {
+        "text": "Wellness",
+        "href": "/natural-cures.html"
+      },
+      {
+        "text": "Builders",
+        "href": "#creators"
+      },
+      {
+        "text": "Translate",
+        "href": "#translate"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Sign Up",
+        "href": "/signup.html"
+      },
+      {
+        "text": "Log In",
+        "href": "/login.html"
+      },
+      {
+        "text": "My Dashboard",
+        "href": "/dashboard.html"
+      },
+      {
+        "text": "Start Listing",
+        "href": "/signup.html"
+      },
+      {
+        "text": "Translate Now",
+        "href": "#translate"
+      },
+      {
+        "text": "Enter Sophia Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "01 Browse directory",
+        "href": "/market.html"
+      },
+      {
+        "text": "02 List a business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "03 Open Sophia Connect",
+        "href": "/app/"
+      },
+      {
+        "text": "Use during global signals",
+        "href": "#live"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20Operator%20access"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20Systems%20access"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20Data%20access"
+      },
+      {
+        "text": "View all",
+        "href": "/session.html?room=sophia-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%2030%20minute%20session"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%2060%20minute%20session"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20group%20session"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=sophia-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20workflow%20review"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20systems%20workshop"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=nova-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20data%20strategy"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20analytics%20session"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=atlas-demo"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20founding%20access"
+      },
+      {
+        "text": "View Plans",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "sophiaoperator.com",
+        "href": "https://sophiaoperator.com"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:hello@sophiaoperator.com"
+      },
+      {
+        "text": "Terms",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy.html"
+      },
+      {
+        "text": "Copyright",
+        "href": "/copyright.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:t.rain@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sophia-particles",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sz-matrix",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 13,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 10,
+        "h": 10,
+        "x": 1193,
+        "y": 24,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1232,
+        "y": 21,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 129,
+        "y": 702,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "earthGlobeCanvas",
+        "cls": "earth-globe-canvas is-ready",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "earth-globe-fallback sophia-black-gold-globe is-hidden",
+        "w": 430,
+        "h": 429,
+        "x": 832,
+        "y": 299,
+        "alt": ""
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "sophia-unity-image",
+        "w": 1238,
+        "h": 530,
+        "x": 101,
+        "y": 999,
+        "alt": "Hands from around the world stacked together in unity"
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "",
+        "w": 52,
+        "h": 52,
+        "x": 149,
+        "y": 1042,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 661,
+        "y": 2266,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 13,
+        "h": 13,
+        "x": 752,
+        "y": 3044,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 180,
+        "y": 4857,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 414,
+        "y": 4857,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 648,
+        "y": 4857,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 882,
+        "y": 4857,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 381,
+        "y": 5219,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 868,
+        "y": 5164,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 1197,
+        "y": 5164,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 868,
+        "y": 5395,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 1197,
+        "y": 5395,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 86,
+        "y": 6072,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 100,
+        "y": 6440,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 611,
+        "y": 6374,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 1008,
+        "y": 6374,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 6740,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "aiFabIcon",
+        "cls": "[object SVGAnimatedString]",
+        "w": 22,
+        "h": 22,
+        "x": 1373,
+        "y": 933,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 1368,
+        "y": 571,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 1365,
+        "y": 878,
+        "alt": null
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/home-mobile.png",
+    "title": "Sophia — The World, Translated Into Opportunity",
+    "h1": "The world, translated into opportunity.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 6598,
+    "buttons": [
+      {
+        "text": "🌐 EN",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Mini-player",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Captions on",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "×",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Get Access",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Share SophiaTV",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Send Feedback",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⇄",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Start Speech Capture",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Translate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Speak Translation",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Russian news → English",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "English → French",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "?",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Translate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "List a business",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Open Social",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Setup notes",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "Sophia",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "#live"
+      },
+      {
+        "text": "Library",
+        "href": "#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Tools",
+        "href": "/everyday-tools.html"
+      },
+      {
+        "text": "Wellness",
+        "href": "/natural-cures.html"
+      },
+      {
+        "text": "Builders",
+        "href": "#creators"
+      },
+      {
+        "text": "Translate",
+        "href": "#translate"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Sign Up",
+        "href": "/signup.html"
+      },
+      {
+        "text": "Log In",
+        "href": "/login.html"
+      },
+      {
+        "text": "My Dashboard",
+        "href": "/dashboard.html"
+      },
+      {
+        "text": "Start Listing",
+        "href": "/signup.html"
+      },
+      {
+        "text": "Translate Now",
+        "href": "#translate"
+      },
+      {
+        "text": "Enter Sophia Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "01 Browse directory",
+        "href": "/market.html"
+      },
+      {
+        "text": "02 List a business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "03 Open Sophia Connect",
+        "href": "/app/"
+      },
+      {
+        "text": "Use during global signals",
+        "href": "#live"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "View all",
+        "href": "/social.html"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20Operator%20access"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20Systems%20access"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20Data%20access"
+      },
+      {
+        "text": "View all",
+        "href": "/session.html?room=sophia-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%2030%20minute%20session"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%2060%20minute%20session"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20group%20session"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=sophia-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20workflow%20review"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Nova%20systems%20workshop"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=nova-demo"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20data%20strategy"
+      },
+      {
+        "text": "Request",
+        "href": "mailto:hello@sophiaoperator.com?subject=Atlas%20analytics%20session"
+      },
+      {
+        "text": "Preview session room",
+        "href": "/session.html?room=atlas-demo"
+      },
+      {
+        "text": "Request Access",
+        "href": "mailto:hello@sophiaoperator.com?subject=Sophia%20founding%20access"
+      },
+      {
+        "text": "View Plans",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "sophiaoperator.com",
+        "href": "https://sophiaoperator.com"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:hello@sophiaoperator.com"
+      },
+      {
+        "text": "Terms",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy.html"
+      },
+      {
+        "text": "Copyright",
+        "href": "/copyright.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:t.rain@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sophia-particles",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sz-matrix",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 10,
+        "h": 10,
+        "x": 244,
+        "y": 24,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 128,
+        "y": 489,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "earthGlobeCanvas",
+        "cls": "earth-globe-canvas is-ready",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "earth-globe-fallback sophia-black-gold-globe is-hidden",
+        "w": 304,
+        "h": 304,
+        "x": 43,
+        "y": 788,
+        "alt": ""
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "sophia-unity-image",
+        "w": 360,
+        "h": 256,
+        "x": 15,
+        "y": 1142,
+        "alt": "Hands from around the world stacked together in unity"
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "",
+        "w": 42,
+        "h": 42,
+        "x": 37,
+        "y": 1164,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 49,
+        "y": 2531,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 13,
+        "h": 13,
+        "x": 227,
+        "y": 3793,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 124,
+        "y": 7407,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 358,
+        "y": 7407,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 592,
+        "y": 7407,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 12,
+        "h": 12,
+        "x": 826,
+        "y": 7407,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 185,
+        "y": 7756,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 185,
+        "y": 8062,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 185,
+        "y": 8293,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 185,
+        "y": 8525,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 20,
+        "h": 20,
+        "x": 185,
+        "y": 8757,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 23,
+        "y": 10087,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 43,
+        "y": 10522,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 43,
+        "y": 10809,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 14,
+        "h": 14,
+        "x": 43,
+        "y": 11095,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 20,
+        "y": 11483,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "aiFabIcon",
+        "cls": "[object SVGAnimatedString]",
+        "w": 22,
+        "h": 22,
+        "x": 335,
+        "y": 787,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 326,
+        "y": 418,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 15,
+        "h": 15,
+        "x": 323,
+        "y": 732,
+        "alt": null
+      }
+    ]
+  },
+  {
+    "route": "/market.html",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/market-html-desktop.png",
+    "title": "SophiaMarket — Global Business Directory",
+    "h1": "120 preview listings. 59 countries. One directory.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 14039,
+    "buttons": [
+      {
+        "text": "🌐 All",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌎 Americas",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌍 Europe",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌍 Africa",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌏 Middle East",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌏 Asia-Pacific",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "← Start Over",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Show more listings",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "✕",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Send Inquiry",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "🏭 Wholesale & Manufacturing Factory-direct, OEM, export",
+        "href": "#cat-wholesale"
+      },
+      {
+        "text": "🏢 Real Estate Residential, commercial, diaspora",
+        "href": "#cat-real-estate"
+      },
+      {
+        "text": "💻 Technology Dev shops, SaaS, AI, FinTech",
+        "href": "#cat-tech"
+      },
+      {
+        "text": "⚡ Energy & Green Solar, wind, sustainability",
+        "href": "#cat-energy"
+      },
+      {
+        "text": "🍽️ Food & Beverage Spices, specialty, import",
+        "href": "#cat-food"
+      },
+      {
+        "text": "👗 Fashion & Textiles Apparel, accessories, crafts",
+        "href": "#cat-fashion"
+      },
+      {
+        "text": "⚖️ Legal & Professional Law, accounting, consult",
+        "href": "#cat-legal"
+      },
+      {
+        "text": "✈️ Travel & Hospitality Concierge, tours, lodging",
+        "href": "#cat-travel"
+      },
+      {
+        "text": "🎓 Education & EdTech Platforms, tutoring, skills",
+        "href": "#cat-edu"
+      },
+      {
+        "text": "🏥 Health & Wellness Clinics, supplements, fitness",
+        "href": "#cat-health"
+      },
+      {
+        "text": "📹 Media & Content Video, publishing, studios",
+        "href": "#cat-media"
+      },
+      {
+        "text": "🚚 Logistics & Shipping Freight, customs, warehousing",
+        "href": "#cat-logistics"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "List Your Business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "List Your Business — Free",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Browse Classifieds",
+        "href": "#classifieds"
+      },
+      {
+        "text": "Business Directory",
+        "href": "#business-directory"
+      },
+      {
+        "text": "Worldwide classified ads Offers, needs, jobs, property, and ",
+        "href": "#classifieds"
+      },
+      {
+        "text": "Separate business directory Company profiles by country, cit",
+        "href": "#business-directory"
+      },
+      {
+        "text": "List Your Business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=1"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=2"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=4"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=6"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=10"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=11"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=17"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=20"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=24"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=25"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=30"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=34"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=37"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=38"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=42"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=48"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=49"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=51"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=53"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=54"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=59"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=60"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=67"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=70"
+      },
+      {
+        "text": "list your business here",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Beyond the headlines: How trade agreements are reshaping bus",
+        "href": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaGkyTlRTVHpINnMzQ3EyZE5SOW55aDZOb3YyWUxZQlZkeWJMUUNWaWRmckdtOXZoOThlalEzeFpnTHlGTVI3TE5USWVEVUtFS0c2S2tsTmJRbXdRejZaOVBoWTRRQlZXY0pfODVkbFVFOTNsdllqQk5Odk16OUx5TTlnWnRBWjNZbm5qZUl6LU9VTTUyWmdzUFpqcE1FOGpUQk81YWJJaDNLc2tsRzVNNl9yaXVNd2lTYUtXTGJGYjZ3eEJidUE?oc=5"
+      },
+      {
+        "text": "15 Reasons to Be Optimistic About Globalization - Harvard Bu",
+        "href": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5HOGJlLWZNejhhQkdFRTZ3bUVPdUlLSVI5Wk5KejJmQXlZNG96Y1lJeHlVNTFsYktWaktQeTRCTlVtamo2YzJjQWxGSnM5WXYyX1hGZjdZdEd3RVRROFBMVEFJR2ZlSnlJZmhwai1BYmF4d2ZXa3UwaW5nNA?oc=5"
+      },
+      {
+        "text": "The Future of Cross-Border E-Commerce in Emerging Markets - ",
+        "href": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNMXF4cTVNRVB6cEt3ckcwcmwzb3NsMnd6WUNfSmxPb1JTLWZwcy1ISUlqNXFSQ25LR3E4ZnNIdl9EMFFLa0o4clllLWg0cEZnSUJqZ1FHMmM2dVYzUXBtZlpDRXo5Z2MxLTdJakxwalVCeDNXdU1UUmhyRTlOVlJ4bDNBQVVGS19WYXlqN0ZLeEEzbnc?oc=5"
+      },
+      {
+        "text": "A New Trade Paradigm: How Shifts in Trade Corridors Could Af",
+        "href": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBKTURCWGVIZ29naEc1Y2U3dWZsanp0MjkydmoyZnpFVE91NW1za2FRVjVyNUpPUUY5OEZZTkN2bkV4ZjFIU3lzdVVVQTVVbDQ1ZTV1YlRucmlxbEtG?oc=5"
+      },
+      {
+        "text": "Risks and Opportunities in the Global Market for SP:SPX by G",
+        "href": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPX1ZhN0tUbkowdkswTmVDc1dDdUFrRmswYUVnblh6blpVT2dtMHNRNDU4d040YnhVUkNGS2JwdGpOOHpyS1FNcnhtVThJN1o4V29meTR0S1pvYlAzZmQyaXU3eFZnR0dhV1ROXzhQWUtKZmdBNmszekNiejFVT3U0bTk3bVdsci1DVjZKUEp0VGVzN3VwdmFN?oc=5"
+      },
+      {
+        "text": "Terms",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy.html"
+      },
+      {
+        "text": "Copyright",
+        "href": "/copyright.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:t.rain@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sophia-particles",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sz-matrix",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/market.html",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/market-html-mobile.png",
+    "title": "SophiaMarket — Global Business Directory",
+    "h1": "120 preview listings. 59 countries. One directory.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 11528,
+    "buttons": [
+      {
+        "text": "🌐 All",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌎 Americas",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌍 Europe",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌍 Africa",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌏 Middle East",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "🌏 Asia-Pacific",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "← Start Over",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Contact",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Show more listings",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "✕",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Send Inquiry",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "🏭 Wholesale & Manufacturing Factory-direct, OEM, export",
+        "href": "#cat-wholesale"
+      },
+      {
+        "text": "🏢 Real Estate Residential, commercial, diaspora",
+        "href": "#cat-real-estate"
+      },
+      {
+        "text": "💻 Technology Dev shops, SaaS, AI, FinTech",
+        "href": "#cat-tech"
+      },
+      {
+        "text": "⚡ Energy & Green Solar, wind, sustainability",
+        "href": "#cat-energy"
+      },
+      {
+        "text": "🍽️ Food & Beverage Spices, specialty, import",
+        "href": "#cat-food"
+      },
+      {
+        "text": "👗 Fashion & Textiles Apparel, accessories, crafts",
+        "href": "#cat-fashion"
+      },
+      {
+        "text": "⚖️ Legal & Professional Law, accounting, consult",
+        "href": "#cat-legal"
+      },
+      {
+        "text": "✈️ Travel & Hospitality Concierge, tours, lodging",
+        "href": "#cat-travel"
+      },
+      {
+        "text": "🎓 Education & EdTech Platforms, tutoring, skills",
+        "href": "#cat-edu"
+      },
+      {
+        "text": "🏥 Health & Wellness Clinics, supplements, fitness",
+        "href": "#cat-health"
+      },
+      {
+        "text": "📹 Media & Content Video, publishing, studios",
+        "href": "#cat-media"
+      },
+      {
+        "text": "🚚 Logistics & Shipping Freight, customs, warehousing",
+        "href": "#cat-logistics"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "List Your Business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "List Your Business — Free",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Browse Classifieds",
+        "href": "#classifieds"
+      },
+      {
+        "text": "Business Directory",
+        "href": "#business-directory"
+      },
+      {
+        "text": "Worldwide classified ads Offers, needs, jobs, property, and ",
+        "href": "#classifieds"
+      },
+      {
+        "text": "Separate business directory Company profiles by country, cit",
+        "href": "#business-directory"
+      },
+      {
+        "text": "List Your Business",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=1"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=2"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=4"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=6"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=10"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=11"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=17"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=20"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=24"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=25"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=30"
+      },
+      {
+        "text": "View Profile",
+        "href": "/market-listing.html?id=34"
+      },
+      {
+        "text": "list your business here",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Beyond the headlines: How trade agreements are reshaping bus",
+        "href": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPaGkyTlRTVHpINnMzQ3EyZE5SOW55aDZOb3YyWUxZQlZkeWJMUUNWaWRmckdtOXZoOThlalEzeFpnTHlGTVI3TE5USWVEVUtFS0c2S2tsTmJRbXdRejZaOVBoWTRRQlZXY0pfODVkbFVFOTNsdllqQk5Odk16OUx5TTlnWnRBWjNZbm5qZUl6LU9VTTUyWmdzUFpqcE1FOGpUQk81YWJJaDNLc2tsRzVNNl9yaXVNd2lTYUtXTGJGYjZ3eEJidUE?oc=5"
+      },
+      {
+        "text": "15 Reasons to Be Optimistic About Globalization - Harvard Bu",
+        "href": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5HOGJlLWZNejhhQkdFRTZ3bUVPdUlLSVI5Wk5KejJmQXlZNG96Y1lJeHlVNTFsYktWaktQeTRCTlVtamo2YzJjQWxGSnM5WXYyX1hGZjdZdEd3RVRROFBMVEFJR2ZlSnlJZmhwai1BYmF4d2ZXa3UwaW5nNA?oc=5"
+      },
+      {
+        "text": "The Future of Cross-Border E-Commerce in Emerging Markets - ",
+        "href": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNMXF4cTVNRVB6cEt3ckcwcmwzb3NsMnd6WUNfSmxPb1JTLWZwcy1ISUlqNXFSQ25LR3E4ZnNIdl9EMFFLa0o4clllLWg0cEZnSUJqZ1FHMmM2dVYzUXBtZlpDRXo5Z2MxLTdJakxwalVCeDNXdU1UUmhyRTlOVlJ4bDNBQVVGS19WYXlqN0ZLeEEzbnc?oc=5"
+      },
+      {
+        "text": "A New Trade Paradigm: How Shifts in Trade Corridors Could Af",
+        "href": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBKTURCWGVIZ29naEc1Y2U3dWZsanp0MjkydmoyZnpFVE91NW1za2FRVjVyNUpPUUY5OEZZTkN2bkV4ZjFIU3lzdVVVQTVVbDQ1ZTV1YlRucmlxbEtG?oc=5"
+      },
+      {
+        "text": "Risks and Opportunities in the Global Market for SP:SPX by G",
+        "href": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPX1ZhN0tUbkowdkswTmVDc1dDdUFrRmswYUVnblh6blpVT2dtMHNRNDU4d040YnhVUkNGS2JwdGpOOHpyS1FNcnhtVThJN1o4V29meTR0S1pvYlAzZmQyaXU3eFZnR0dhV1ROXzhQWUtKZmdBNmszekNiejFVT3U0bTk3bVdsci1DVjZKUEp0VGVzN3VwdmFN?oc=5"
+      },
+      {
+        "text": "Terms",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Privacy",
+        "href": "/privacy.html"
+      },
+      {
+        "text": "Copyright",
+        "href": "/copyright.html"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:t.rain@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sophia-particles",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "sz-matrix",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "canvas",
+        "id": "",
+        "cls": "",
+        "w": 0,
+        "h": 0,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/pricing.html",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/pricing-html-desktop.png",
+    "title": "Pricing — SophiaTV",
+    "h1": "Choose Your SophiaTV Plan",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 4080,
+    "buttons": [],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Feed",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Start Listing",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Get Started Free",
+        "href": "/"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=fan"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=creator_basic"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=creator_pro"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=founder"
+      },
+      {
+        "text": "Free",
+        "href": "/"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=fan"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=creator_basic"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=creator_pro"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=founder"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "sophiaoperator.com",
+        "href": "https://sophiaoperator.com"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:hello@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 14,
+        "alt": ""
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 2894,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/pricing.html",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/pricing-html-mobile.png",
+    "title": "Pricing — SophiaTV",
+    "h1": "Choose Your SophiaTV Plan",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 4080,
+    "buttons": [],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Feed",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Start Listing",
+        "href": "/market-submit.html"
+      },
+      {
+        "text": "Get Started Free",
+        "href": "/"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=fan"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=creator_basic"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=creator_pro"
+      },
+      {
+        "text": "Start Free 30-Day Trial",
+        "href": "/signup.html?plan=founder"
+      },
+      {
+        "text": "Free",
+        "href": "/"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=fan"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=creator_basic"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=creator_pro"
+      },
+      {
+        "text": "Request",
+        "href": "/signup.html?plan=founder"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "sophiaoperator.com",
+        "href": "https://sophiaoperator.com"
+      },
+      {
+        "text": "Contact",
+        "href": "mailto:hello@sophiaoperator.com"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 20,
+        "y": 6088,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/market-submit.html",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/market-submit-html-desktop.png",
+    "title": "List Your Business — SophiaMarket",
+    "h1": "List Your Business",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 1550,
+    "buttons": [
+      {
+        "text": "Submit Free Listing",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "← Back to SophiaMarket",
+        "href": "/market.html"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Listing Guidelines",
+        "href": "/listing-guidelines.html"
+      },
+      {
+        "text": "Browse SophiaMarket",
+        "href": "/market.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/market-submit.html",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/market-submit-html-mobile.png",
+    "title": "List Your Business — SophiaMarket",
+    "h1": "List Your Business",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 1550,
+    "buttons": [
+      {
+        "text": "Submit Free Listing",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "← Back to SophiaMarket",
+        "href": "/market.html"
+      },
+      {
+        "text": "Terms of Service",
+        "href": "/terms.html"
+      },
+      {
+        "text": "Listing Guidelines",
+        "href": "/listing-guidelines.html"
+      },
+      {
+        "text": "Browse SophiaMarket",
+        "href": "/market.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/signup.html",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/signup-html-desktop.png",
+    "title": "Sign Up — SophiaTV",
+    "h1": "Create Your Account",
+    "main": false,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 283,
+    "buttons": [
+      {
+        "text": "Create Account",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Continue with Google",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Sign in",
+        "href": "/login.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 14,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 629,
+        "y": 888,
+        "alt": null
+      }
+    ]
+  },
+  {
+    "route": "/signup.html",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/signup-html-mobile.png",
+    "title": "Sign Up — SophiaTV",
+    "h1": "Create Your Account",
+    "main": false,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 283,
+    "buttons": [
+      {
+        "text": "Create Account",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Continue with Google",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Sign in",
+        "href": "/login.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 104,
+        "y": 907,
+        "alt": null
+      }
+    ]
+  },
+  {
+    "route": "/social.html",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/social-html-desktop.png",
+    "title": "Sophia Social — Public Signal Board",
+    "h1": "Sophia Social",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 1547,
+    "buttons": [
+      {
+        "text": "Post Signal",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "For You",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Market",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Builders",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Tech",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Review",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Workflow",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Pattern",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Market",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Join Preview",
+        "href": "/signup.html"
+      },
+      {
+        "text": "⚡ Signal",
+        "href": "#feed"
+      },
+      {
+        "text": "🌐 Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "◎ Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "◈ Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "⌑ Control",
+        "href": "/control-center.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 1440,
+        "h": 1000,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 40,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/social.html",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/social-html-mobile.png",
+    "title": "Sophia Social — Public Signal Board",
+    "h1": "Sophia Social",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 1547,
+    "buttons": [
+      {
+        "text": "Post Signal",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "For You",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Market",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Builders",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Tech",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Review",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Workflow",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Pattern",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "↩ Draft",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⟳ Market",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "◇ Ready",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "⌑ Save",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [
+      {
+        "text": "Skip to main content",
+        "href": "#main-content"
+      },
+      {
+        "text": "SophiaTV",
+        "href": "/"
+      },
+      {
+        "text": "Signals",
+        "href": "/#live"
+      },
+      {
+        "text": "Library",
+        "href": "/#feed"
+      },
+      {
+        "text": "Social",
+        "href": "/social.html"
+      },
+      {
+        "text": "Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "Control",
+        "href": "/control-center.html"
+      },
+      {
+        "text": "Pricing",
+        "href": "/pricing.html"
+      },
+      {
+        "text": "Join Preview",
+        "href": "/signup.html"
+      },
+      {
+        "text": "⚡ Signal",
+        "href": "#feed"
+      },
+      {
+        "text": "🌐 Market",
+        "href": "/market.html"
+      },
+      {
+        "text": "◎ Builders",
+        "href": "/#creators"
+      },
+      {
+        "text": "◈ Access",
+        "href": "/#sessions"
+      },
+      {
+        "text": "⌑ Control",
+        "href": "/control-center.html"
+      }
+    ],
+    "media": [
+      {
+        "tag": "canvas",
+        "id": "sophiaPlasma",
+        "cls": "",
+        "w": 390,
+        "h": 844,
+        "x": 0,
+        "y": 0,
+        "alt": null
+      },
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img logo-premium-img",
+        "w": 32,
+        "h": 32,
+        "x": 12,
+        "y": 14,
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "route": "/app/",
+    "viewport": {
+      "w": 1440,
+      "h": 1000,
+      "scrollWidth": 1440
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/app-desktop.png",
+    "title": "Sophia — Wisdom for the Global Market",
+    "h1": "Wisdom for the global market.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 26883,
+    "buttons": [
+      {
+        "text": "All",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Wholesale & Manufacturing",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Real Estate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Food & Restaurants",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Import/Export",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Education & Training",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Energy & Resources",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Automotive",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Finance & Investment",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Fashion & Apparel",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Tech & Software",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Beauty & Health",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Construction",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Travel & Tourism",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Agriculture & Farming",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Business Services",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Retail & Shopping",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Entertainment & Media",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Dating & Relationships",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [],
+    "media": [
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img",
+        "w": 30,
+        "h": 30,
+        "x": 16,
+        "y": 13,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 188,
+        "y": 19,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 232,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 232,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 393,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 393,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 553,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 553,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 713,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 713,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 873,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 873,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1033,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1033,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1194,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1194,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1354,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1354,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1514,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1514,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1674,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1674,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1834,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1834,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 1994,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 1994,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2155,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2155,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2315,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2315,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2475,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2475,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2635,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2635,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2795,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2795,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 2937,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 2937,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3097,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3097,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3257,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3257,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3417,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3417,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3577,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3577,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3738,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3738,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 3898,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 3898,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 4039,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 4039,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 4181,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 4181,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 4322,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 4322,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 4482,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 4482,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 679,
+        "y": 4642,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 1389,
+        "y": 4642,
+        "alt": null
+      }
+    ]
+  },
+  {
+    "route": "/app/",
+    "viewport": {
+      "w": 390,
+      "h": 844,
+      "scrollWidth": 390
+    },
+    "status": 200,
+    "badResponses": [],
+    "consoleErrors": [],
+    "screenshot": "test-results/command-center-audit/app-mobile.png",
+    "title": "Sophia — Wisdom for the Global Market",
+    "h1": "Wisdom for the global market.",
+    "main": true,
+    "scrollY": 0,
+    "overflowX": false,
+    "bodyChars": 26883,
+    "buttons": [
+      {
+        "text": "All",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Wholesale & Manufacturing",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Real Estate",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Food & Restaurants",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Import/Export",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Education & Training",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Energy & Resources",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Automotive",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Finance & Investment",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Fashion & Apparel",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Tech & Software",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Beauty & Health",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Construction",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Travel & Tourism",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Agriculture & Farming",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Business Services",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Retail & Shopping",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Entertainment & Media",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "Dating & Relationships",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      },
+      {
+        "text": "",
+        "disabled": false,
+        "visible": true
+      }
+    ],
+    "links": [],
+    "media": [
+      {
+        "tag": "img",
+        "id": "",
+        "cls": "logo-img",
+        "w": 30,
+        "h": 30,
+        "x": 16,
+        "y": 13,
+        "alt": ""
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 18,
+        "h": 18,
+        "x": 188,
+        "y": 19,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 286,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 446,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 606,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 766,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 927,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1087,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1247,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1407,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1567,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1727,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 1888,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2048,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2208,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2368,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2528,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2689,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 2849,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3009,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3169,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3329,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3490,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3650,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3810,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 3970,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4130,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4290,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4451,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4611,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4771,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 4931,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5091,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5252,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5412,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5572,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5732,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 5892,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6053,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6213,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6373,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6551,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6711,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 6871,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7032,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7192,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7352,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7512,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7672,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7833,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 7993,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8153,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8313,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8473,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8634,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8794,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 8954,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 9114,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 9274,
+        "alt": null
+      },
+      {
+        "tag": "svg",
+        "id": "",
+        "cls": "[object SVGAnimatedString]",
+        "w": 16,
+        "h": 16,
+        "x": 339,
+        "y": 9434,
+        "alt": null
+      }
+    ]
+  }
+]

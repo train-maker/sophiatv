@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sophia Natural Wellness | SophiaTV</title>
+  <meta name="description" content="Sophia Natural Wellness is a searchable education app for traditional wellness practices, evidence levels, cautions, and personal routines." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .wellness-shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 112px 0 80px; }
+    .wellness-hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr); gap: 26px; align-items: stretch; margin-bottom: 24px; }
+    .wellness-copy, .wellness-panel, .wellness-card, .routine-panel { border: 1px solid rgba(0,245,255,0.24); background: linear-gradient(145deg, rgba(10,18,36,0.9), rgba(4,8,18,0.78)); box-shadow: inset 0 0 28px rgba(0,245,255,0.05), 0 18px 54px rgba(0,0,0,0.42); border-radius: 18px; }
+    .wellness-copy { padding: clamp(26px, 4vw, 46px); position: relative; overflow: hidden; }
+    .wellness-copy h1 { font-size: clamp(42px, 7vw, 82px); line-height: 0.92; margin: 12px 0 18px; }
+    .wellness-copy p { max-width: 780px; color: rgba(222,244,255,0.75); font-size: 17px; line-height: 1.7; }
+    .wellness-kicker { color: var(--neo-mint); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
+    .wellness-warning { margin-top: 22px; padding: 14px 16px; border: 1px solid rgba(255,216,77,0.34); border-radius: 14px; background: rgba(255,216,77,0.08); color: #fff4bd; font-size: 14px; line-height: 1.55; }
+    .wellness-panel { padding: 22px; display: grid; gap: 18px; align-content: start; }
+    .vital-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .vital { padding: 16px; border-radius: 14px; background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.08); }
+    .vital span { display: block; color: rgba(222,244,255,0.58); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
+    .vital strong { display: block; color: white; font-size: 24px; margin-top: 5px; }
+    .wellness-controls { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 12px; margin: 22px 0; }
+    .wellness-controls input { width: 100%; }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .filter-pills button { border: 1px solid rgba(0,245,255,0.24); background: rgba(5,9,22,0.72); color: #dffcff; border-radius: 999px; padding: 10px 14px; font-weight: 800; cursor: pointer; }
+    .filter-pills button.active { border-color: rgba(255,61,242,0.62); color: white; box-shadow: 0 0 18px rgba(255,61,242,0.26); }
+    .wellness-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 22px; align-items: start; }
+    .wellness-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .wellness-card { padding: 20px; position: relative; overflow: hidden; }
+    .wellness-card h3 { color: white; font-size: 20px; margin: 0 0 8px; }
+    .wellness-card p { color: rgba(222,244,255,0.7); line-height: 1.58; margin: 0 0 14px; }
+    .wellness-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .wellness-tags span { color: #cbffec; background: rgba(37,255,179,0.09); border: 1px solid rgba(37,255,179,0.22); border-radius: 999px; padding: 6px 9px; font-size: 12px; font-weight: 800; }
+    .evidence { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); color: rgba(222,244,255,0.62); font-size: 13px; }
+    .evidence b { color: var(--neo-amber); }
+    .wellness-card button, .routine-panel button { border: 0; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint)); color: #02030a; font-weight: 900; cursor: pointer; }
+    .routine-panel { padding: 20px; position: sticky; top: 96px; }
+    .routine-panel h2 { color: white; margin: 0 0 10px; font-size: 22px; }
+    .routine-list { display: grid; gap: 10px; margin: 16px 0; }
+    .routine-item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(222,244,255,0.78); }
+    .routine-item button { padding: 7px 9px; background: rgba(255,49,79,0.18); color: #ffd7de; border: 1px solid rgba(255,49,79,0.28); }
+    .empty-routine { color: rgba(222,244,255,0.55); line-height: 1.55; }
+    .wellness-mini { color: rgba(222,244,255,0.54); font-size: 12px; line-height: 1.55; }
+    @media (max-width: 920px) { .wellness-hero, .wellness-layout { grid-template-columns: 1fr; } .routine-panel { position: static; } }
+    @media (max-width: 680px) {
+      .wellness-shell { width: min(1180px, calc(100% - 24px)); padding: 88px 0 56px; }
+      .wellness-copy { padding: 20px 18px; }
+      .wellness-copy h1 { font-size: clamp(34px, 12vw, 50px); line-height: 1.02; }
+      .wellness-copy p { font-size: 15px; line-height: 1.6; }
+      .wellness-grid, .vital-grid, .wellness-controls { grid-template-columns: 1fr; }
+      .wellness-card, .wellness-panel, .routine-panel { padding: 16px; }
+      .wellness-controls { margin: 18px 0; }
+      .evidence { flex-direction: column; align-items: flex-start; }
+      .evidence button { width: 100%; }
+      .routine-item { grid-template-columns: minmax(0, 1fr); }
+      .routine-item span { overflow-wrap: anywhere; }
+      .routine-item button { justify-self: start; }
+    }
+    @media (max-width: 460px) {
+      .filter-pills button { padding: 8px 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
+        <span class="logo-text">Sophia<em>TV</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="/#translate" class="nav-link">Translate</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/natural-cures.html" class="nav-link" style="color:var(--gold);">Wellness</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
+      </div>
+      <div class="nav-right"><a href="/dashboard.html" class="btn-gold">Dashboard</a></div>
+    </div>
+  </nav>
+
+  <main class="wellness-shell">
+    <section class="wellness-hero">
+      <div class="wellness-copy">
+        <span class="wellness-kicker">Traditional wellness library</span>
+        <h1 data-text="Sophia Natural Wellness">Sophia Natural Wellness</h1>
+        <p>Search herbs, foods, habits, and traditional practices by wellness goal. Each card includes an evidence level, interaction cautions, and practical preparation notes so users can make better questions for a licensed clinician.</p>
+        <div class="wellness-warning"><b>Emergency warning:</b> chest pain, stroke symptoms, severe allergic reaction, trouble breathing, poisoning, uncontrolled bleeding, or suicidal thoughts require emergency services immediately. This page is education, not medical advice.</div>
+      </div>
+      <aside class="wellness-panel">
+        <span class="wellness-kicker">Readiness scan</span>
+        <div class="vital-grid">
+          <div class="vital"><span>Topics</span><strong id="topicCount">0</strong></div>
+          <div class="vital"><span>Filters</span><strong>6</strong></div>
+          <div class="vital"><span>Routine</span><strong id="routineCount">0</strong></div>
+          <div class="vital"><span>Mode</span><strong>Safe</strong></div>
+        </div>
+        <p class="wellness-mini">Use this app to organize wellness ideas, check cautions, and prepare for a conversation with a qualified professional. Avoid mixing supplements with prescriptions without medical guidance.</p>
+      </aside>
+    </section>
+
+    <section aria-label="Natural wellness search">
+      <div class="wellness-controls">
+        <input id="wellnessSearch" type="search" placeholder="Search ginger, sleep, stress, digestion..." autocomplete="off" />
+        <button class="btn-outline" id="clearWellness" type="button">Clear</button>
+      </div>
+      <div class="filter-pills" id="wellnessFilters"></div>
+    </section>
+
+    <section class="wellness-layout">
+      <div class="wellness-grid" id="wellnessGrid"></div>
+      <aside class="routine-panel">
+        <span class="wellness-kicker">Personal routine builder</span>
+        <h2>Saved Wellness Routine</h2>
+        <p class="wellness-mini">Saved on this device only. Remove anything that conflicts with allergies, pregnancy, prescriptions, surgery plans, or clinician guidance.</p>
+        <div class="routine-list" id="routineList"></div>
+        <button id="clearRoutine" type="button">Clear Routine</button>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const topics = [
+        { name: 'Ginger Tea', category: 'digestion', evidence: 'Moderate', summary: 'Traditionally used after meals and studied for nausea support in some settings.', prep: 'Fresh sliced ginger steeped in hot water for 5 to 10 minutes.', caution: 'Use caution with blood thinners, gallbladder disease, or before surgery.' },
+        { name: 'Peppermint', category: 'digestion', evidence: 'Moderate', summary: 'May support digestive comfort for some people when used appropriately.', prep: 'Tea after meals or enteric-coated products under professional guidance.', caution: 'Can worsen reflux; avoid peppermint oil around young children.' },
+        { name: 'Chamomile Wind-Down', category: 'sleep', evidence: 'Limited', summary: 'A calming tea ritual may support relaxation before bed.', prep: 'Steep chamomile tea and pair with a consistent screen-free bedtime routine.', caution: 'Avoid with ragweed allergy or sedative medication unless cleared by a clinician.' },
+        { name: 'Magnesium-Rich Foods', category: 'sleep', evidence: 'Emerging', summary: 'Pumpkin seeds, spinach, beans, and nuts can support normal magnesium intake.', prep: 'Add a magnesium-rich food to dinner instead of starting high-dose supplements.', caution: 'Kidney disease or medication interactions require medical guidance.' },
+        { name: 'Honey Lemon Throat Comfort', category: 'immunity', evidence: 'Moderate', summary: 'Honey may calm cough in adults and children over age one.', prep: 'Honey with warm water and lemon as a soothing drink.', caution: 'Never give honey to infants under 12 months; seek care for breathing trouble or high fever.' },
+        { name: 'Saline Nasal Rinse', category: 'immunity', evidence: 'Moderate', summary: 'Sterile saline rinsing can support nasal comfort during congestion.', prep: 'Use distilled, boiled-and-cooled, or sterile water only.', caution: 'Unsafe water can cause severe infection; stop if pain or bleeding occurs.' },
+        { name: 'Box Breathing', category: 'stress', evidence: 'Moderate', summary: 'Slow breathing can help some people downshift acute stress responses.', prep: 'Inhale 4, hold 4, exhale 4, hold 4 for several rounds.', caution: 'Stop if dizzy; panic, trauma, or chest symptoms deserve professional care.' },
+        { name: 'Morning Sunlight', category: 'stress', evidence: 'Moderate', summary: 'Outdoor morning light supports circadian rhythm and mood routines.', prep: 'Spend 5 to 15 minutes outside early in the day when practical.', caution: 'Protect skin and eyes; use clinician guidance for photosensitive conditions.' },
+        { name: 'Aloe Vera Skin Support', category: 'skin', evidence: 'Limited', summary: 'Aloe gel is commonly used for minor skin dryness or mild sun exposure comfort.', prep: 'Patch test a small area before wider use.', caution: 'Do not apply to deep burns, open wounds, or infected skin.' },
+        { name: 'Oatmeal Bath', category: 'skin', evidence: 'Moderate', summary: 'Colloidal oatmeal may soothe dry or irritated skin for some people.', prep: 'Use finely ground colloidal oatmeal in lukewarm water.', caution: 'Seek medical care for spreading rash, infection, or severe allergic reaction.' },
+        { name: 'Heat and Mobility', category: 'pain', evidence: 'Moderate', summary: 'Gentle heat and movement may support temporary muscle tightness relief.', prep: 'Apply warm compresses and use light range-of-motion movement.', caution: 'Avoid heat on new injuries with swelling; severe pain or weakness needs care.' },
+        { name: 'Turmeric in Food', category: 'pain', evidence: 'Emerging', summary: 'Turmeric as a food spice is studied for inflammatory pathways, but effects vary.', prep: 'Use in meals with black pepper and healthy fat for flavor and absorption.', caution: 'Supplement doses can interact with blood thinners and gallbladder issues.' }
+      ];
+      const categories = ['all', 'sleep', 'digestion', 'immunity', 'stress', 'skin', 'pain'];
+      const store = 'sophia_wellness_routine';
+      let active = 'all';
+      let routine = loadRoutine();
+      const grid = document.getElementById('wellnessGrid');
+      const filters = document.getElementById('wellnessFilters');
+      const search = document.getElementById('wellnessSearch');
+      const routineList = document.getElementById('routineList');
+      const routineCount = document.getElementById('routineCount');
+
+      document.getElementById('topicCount').textContent = topics.length;
+      filters.innerHTML = categories.map((cat) => `<button type="button" data-cat="${cat}" class="${cat === active ? 'active' : ''}">${cat}</button>`).join('');
+
+      filters.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-cat]');
+        if (!button) return;
+        active = button.dataset.cat;
+        filters.querySelectorAll('button').forEach((btn) => btn.classList.toggle('active', btn === button));
+        render();
+      });
+      search.addEventListener('input', render);
+      document.getElementById('clearWellness').addEventListener('click', () => {
+        search.value = '';
+        active = 'all';
+        filters.querySelectorAll('button').forEach((btn) => btn.classList.toggle('active', btn.dataset.cat === 'all'));
+        render();
+      });
+      document.getElementById('clearRoutine').addEventListener('click', () => {
+        routine = [];
+        saveRoutine();
+        renderRoutine();
+      });
+      grid.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-add]');
+        if (!button) return;
+        const topic = topics.find((item) => item.name === button.dataset.add);
+        if (!topic || routine.some((item) => item.name === topic.name)) return;
+        routine.push({ name: topic.name, category: topic.category, caution: topic.caution });
+        saveRoutine();
+        renderRoutine();
+        if (window.showSophiaToast) showSophiaToast(`${topic.name} added to routine.`, 'success');
+      });
+      routineList.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-remove]');
+        if (!button) return;
+        routine = routine.filter((item) => item.name !== button.dataset.remove);
+        saveRoutine();
+        renderRoutine();
+      });
+
+      function render() {
+        const q = search.value.trim().toLowerCase();
+        const visible = topics.filter((topic) => {
+          const matchesCat = active === 'all' || topic.category === active;
+          const haystack = `${topic.name} ${topic.category} ${topic.summary} ${topic.prep}`.toLowerCase();
+          return matchesCat && (!q || haystack.includes(q));
+        });
+        grid.innerHTML = visible.length ? visible.map(card).join('') : '<p class="empty-routine">No wellness topics match that search.</p>';
+      }
+
+      function card(topic) {
+        const saved = routine.some((item) => item.name === topic.name);
+        return `
+          <article class="wellness-card">
+            <div class="wellness-tags"><span>${topic.category}</span><span>Evidence: ${topic.evidence}</span></div>
+            <h3>${topic.name}</h3>
+            <p>${topic.summary}</p>
+            <p><b>Prep:</b> ${topic.prep}</p>
+            <p><b>Caution:</b> ${topic.caution}</p>
+            <div class="evidence"><b>${topic.evidence}</b><button type="button" data-add="${topic.name}" ${saved ? 'disabled' : ''}>${saved ? 'Saved' : 'Add to routine'}</button></div>
+          </article>
+        `;
+      }
+
+      function renderRoutine() {
+        routineCount.textContent = routine.length;
+        routineList.innerHTML = routine.length
+          ? routine.map((item) => `<div class="routine-item"><span><b>${item.name}</b><br><small>${item.caution}</small></span><button type="button" data-remove="${item.name}">Remove</button></div>`).join('')
+          : '<p class="empty-routine">Add cards from the library to build a personal wellness checklist.</p>';
+        render();
+      }
+
+      function loadRoutine() {
+        try { return JSON.parse(localStorage.getItem(store) || '[]'); }
+        catch { return []; }
+      }
+      function saveRoutine() {
+        localStorage.setItem(store, JSON.stringify(routine));
+      }
+
+      renderRoutine();
+    })();
+  </script>
+  <script src="future.js" defer></script>
+</body>
+</html>

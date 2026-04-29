@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Sophia Owner Admin</title>
+  <meta name="description" content="Mobile owner control app for Sophia launch operations, accounts, feedback, and security readiness." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --admin-bg: #03050c;
+      --admin-panel: rgba(9, 15, 28, 0.92);
+      --admin-line: rgba(232, 201, 120, 0.18);
+      --admin-cyan: #64f7ff;
+      --admin-gold: #e8c978;
+      --admin-ok: #57f2a5;
+      --admin-warn: #ffd166;
+      --admin-block: #ff6685;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: #f7fbff;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(100, 247, 255, 0.16), transparent 32rem),
+        radial-gradient(circle at 90% 10%, rgba(232, 201, 120, 0.13), transparent 30rem),
+        linear-gradient(180deg, #050812, var(--admin-bg) 48%, #010208);
+      font-family: var(--font-ui, Inter, system-ui, sans-serif);
+    }
+
+    .admin-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 110px;
+    }
+
+    .admin-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+      background: linear-gradient(180deg, rgba(3, 5, 12, 0.96), rgba(3, 5, 12, 0.76));
+      backdrop-filter: blur(18px);
+    }
+
+    .admin-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .admin-logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 22px rgba(232, 201, 120, 0.34));
+    }
+
+    .admin-logo span {
+      font-family: var(--font-display, Georgia, serif);
+      font-weight: 520;
+      letter-spacing: 0;
+    }
+
+    .admin-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--admin-line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(247, 251, 255, 0.88);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .admin-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 18px;
+      align-items: stretch;
+      margin: 18px 0;
+    }
+
+    .admin-card,
+    .admin-login {
+      border: 1px solid var(--admin-line);
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(12, 20, 36, 0.94), rgba(4, 7, 16, 0.86));
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .admin-card {
+      padding: 20px;
+    }
+
+    .admin-login {
+      width: min(440px, calc(100% - 32px));
+      margin: 10vh auto 0;
+      padding: 24px;
+    }
+
+    .admin-kicker {
+      margin: 0 0 8px;
+      color: var(--admin-gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .admin-card h1,
+    .admin-card h2,
+    .admin-login h1 {
+      margin: 0;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 520;
+      letter-spacing: 0;
+      text-shadow: none;
+    }
+
+    .admin-card h1 {
+      max-width: 680px;
+      color: #f8f2df;
+      font-size: clamp(2.25rem, 5.6vw, 4.55rem);
+      line-height: 1.06;
+    }
+
+    .admin-card h2,
+    .admin-login h1 {
+      font-size: clamp(1.35rem, 5vw, 2rem);
+    }
+
+    .admin-muted {
+      color: rgba(231, 240, 248, 0.74);
+      line-height: 1.58;
+    }
+
+    .admin-actions,
+    .admin-tabs,
+    .admin-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .admin-btn {
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 16px;
+      background: linear-gradient(135deg, var(--admin-gold), #fff0b8);
+      color: #071017;
+      font-weight: 900;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+
+    .admin-btn.secondary {
+      border: 1px solid rgba(100, 247, 255, 0.28);
+      background: rgba(100, 247, 255, 0.08);
+      color: #e8feff;
+    }
+
+    .admin-btn.danger {
+      border: 1px solid rgba(255, 102, 133, 0.36);
+      background: rgba(255, 102, 133, 0.1);
+      color: #ffdce4;
+    }
+
+    .admin-input,
+    .admin-select,
+    .admin-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid rgba(100, 247, 255, 0.18);
+      border-radius: 14px;
+      background: rgba(1, 3, 9, 0.78);
+      color: #fff;
+      font: inherit;
+      padding: 13px 14px;
+      outline: none;
+    }
+
+    .admin-textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .admin-field {
+      display: grid;
+      gap: 7px;
+      margin: 13px 0;
+    }
+
+    .admin-field span {
+      color: rgba(247, 251, 255, 0.8);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .admin-status-grid,
+    .admin-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .admin-status-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .admin-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
+      align-items: start;
+    }
+
+    .metric {
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .metric b {
+      display: block;
+      margin-top: 8px;
+      font-size: 1.55rem;
+      font-family: var(--font-display, Georgia, serif);
+      font-weight: 520;
+      color: #fff;
+    }
+
+    .metric span {
+      color: rgba(231, 240, 248, 0.7);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .admin-section {
+      display: none;
+      margin-top: 14px;
+    }
+
+    .admin-section.active {
+      display: block;
+    }
+
+    .admin-tabs {
+      position: sticky;
+      top: 68px;
+      z-index: 9;
+      padding: 8px;
+      border: 1px solid var(--admin-line);
+      border-radius: 999px;
+      background: rgba(3, 5, 12, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .admin-tab {
+      flex: 1 1 auto;
+      min-height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(247, 251, 255, 0.74);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .admin-tab.active {
+      background: rgba(232, 201, 120, 0.16);
+      color: #fff4c7;
+      box-shadow: inset 0 0 0 1px rgba(232, 201, 120, 0.22);
+    }
+
+    .account-list,
+    .check-list,
+    .feedback-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .account-item,
+    .check-item,
+    .feedback-item {
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .account-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .account-item b,
+    .feedback-item b {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .account-item p,
+    .feedback-item p,
+    .check-item p {
+      margin: 4px 0 0;
+      color: rgba(231, 240, 248, 0.7);
+      line-height: 1.45;
+      font-size: 0.92rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 92px;
+      min-height: 30px;
+      border-radius: 999px;
+      padding: 0 10px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .status-badge.connected {
+      background: rgba(87, 242, 165, 0.14);
+      color: #a8ffd1;
+    }
+
+    .status-badge.owner {
+      background: rgba(255, 209, 102, 0.15);
+      color: #ffe39a;
+    }
+
+    .status-badge.optional {
+      background: rgba(100, 247, 255, 0.13);
+      color: #bcfbff;
+    }
+
+    .check-item label {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: #fff;
+      font-weight: 850;
+    }
+
+    .check-item input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--admin-gold);
+    }
+
+    .progress-ring {
+      display: grid;
+      place-items: center;
+      width: 156px;
+      height: 156px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: conic-gradient(var(--admin-gold) calc(var(--pct, 0) * 1%), rgba(255,255,255,0.08) 0);
+      box-shadow: 0 0 44px rgba(232, 201, 120, 0.12);
+    }
+
+    .progress-ring span {
+      display: grid;
+      place-items: center;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: #050812;
+      color: #fff;
+      font-family: var(--font-display, Georgia, serif);
+      font-size: 1.8rem;
+      font-weight: 520;
+    }
+
+    .admin-bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: max(14px, env(safe-area-inset-bottom));
+      z-index: 20;
+      display: none;
+      width: min(430px, calc(100% - 18px));
+      transform: translateX(-50%);
+      padding: 8px;
+      border: 1px solid rgba(232, 201, 120, 0.24);
+      border-radius: 26px;
+      background: rgba(3, 5, 12, 0.88);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(18px);
+    }
+
+    .admin-bottom-nav button {
+      flex: 1;
+      min-height: 44px;
+      border: 0;
+      border-radius: 20px;
+      background: transparent;
+      color: rgba(247, 251, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .admin-bottom-nav button.active {
+      background: rgba(232, 201, 120, 0.16);
+      color: #fff4c7;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 860px) {
+      .admin-shell {
+        width: min(100% - 22px, 480px);
+        padding-bottom: 108px;
+      }
+
+      .admin-hero,
+      .admin-grid,
+      .admin-status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-card {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .admin-card h1 {
+        max-width: 12ch;
+        font-size: clamp(2.28rem, 10.4vw, 3.05rem);
+        line-height: 1.08;
+      }
+
+      .admin-muted {
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .admin-tabs {
+        display: none;
+      }
+
+      .admin-bottom-nav {
+        display: flex;
+      }
+
+      .admin-bottom-nav button {
+        font-size: clamp(0.64rem, 2.7vw, 0.78rem);
+      }
+
+      .account-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loginView" class="admin-login">
+    <a href="/" class="admin-logo" aria-label="Sophia home">
+      <img src="assets/brand/sophia-logo-premium.png" alt="" />
+      <span>Sophia Owner Admin</span>
+    </a>
+    <p class="admin-kicker" id="loginMode">First owner setup</p>
+    <h1>Secure the control app before launch.</h1>
+    <p class="admin-muted">This owner gate runs locally for preview and stores only a passcode hash in this browser. For production-sensitive data, connect server authentication before adding private account details.</p>
+    <form id="loginForm">
+      <label class="admin-field">
+        <span>Owner passcode</span>
+        <input class="admin-input" id="ownerPasscode" type="password" autocomplete="current-password" minlength="8" placeholder="Minimum 8 characters" required />
+      </label>
+      <button class="admin-btn" type="submit" id="loginButton">Create Owner Gate</button>
+      <p class="admin-muted" id="loginStatus" role="status"></p>
+    </form>
+  </div>
+
+  <main id="adminApp" class="admin-shell hidden">
+    <header class="admin-topbar">
+      <a href="/" class="admin-logo">
+        <img src="assets/brand/sophia-logo-premium.png" alt="" />
+        <span>Sophia Admin</span>
+      </a>
+      <div class="admin-actions">
+        <a class="admin-pill" href="/control-center.html">Control</a>
+        <button class="admin-pill" id="lockAdmin" type="button">Lock</button>
+      </div>
+    </header>
+
+    <section class="admin-hero">
+      <article class="admin-card">
+        <p class="admin-kicker">Launch command mobile</p>
+        <h1>Owner control for the May 15 launch.</h1>
+        <p class="admin-muted">Track the site, security posture, account setup, user feedback, and launch blockers from your phone. No real passwords or API keys belong in this static file.</p>
+        <div class="admin-status-grid">
+          <div class="metric"><span>Launch date</span><b>May 15</b></div>
+          <div class="metric"><span>Security headers</span><b>Armed</b></div>
+          <div class="metric"><span>Feedback queue</span><b id="feedbackCount">0</b></div>
+          <div class="metric"><span>Account action</span><b id="ownerActionCount">0</b></div>
+        </div>
+      </article>
+      <aside class="admin-card">
+        <div class="progress-ring" id="launchRing"><span id="launchPct">0%</span></div>
+        <h2>Launch Readiness</h2>
+        <p class="admin-muted" id="launchSummary">Complete the owner checklist before the May 15 public launch.</p>
+        <div class="admin-actions">
+          <button class="admin-btn secondary" id="exportStatus" type="button">Export Status</button>
+          <a class="admin-btn" href="/pricing.html">Review Offer</a>
+        </div>
+      </aside>
+    </section>
+
+    <nav class="admin-tabs" aria-label="Admin sections">
+      <button class="admin-tab active" type="button" data-section="overview">Overview</button>
+      <button class="admin-tab" type="button" data-section="accounts">Accounts</button>
+      <button class="admin-tab" type="button" data-section="feedback">Feedback</button>
+      <button class="admin-tab" type="button" data-section="security">Security</button>
+    </nav>
+
+    <section class="admin-section active" id="section-overview">
+      <div class="admin-grid">
+        <article class="admin-card">
+          <div class="admin-card-head">
+            <div>
+              <p class="admin-kicker">Owner checklist</p>
+              <h2>Launch blockers</h2>
+            </div>
+            <button class="admin-btn secondary" id="resetLaunchChecks" type="button">Reset</button>
+          </div>
+          <div class="check-list" id="launchChecks"></div>
+        </article>
+        <aside class="admin-card">
+          <p class="admin-kicker">Owner notes</p>
+          <h2>Command log</h2>
+          <label class="admin-field">
+            <span>Private launch notes for this browser</span>
+            <textarea class="admin-textarea" id="ownerNotes" placeholder="DNS, inbox, deployment, and launch decisions..."></textarea>
+          </label>
+          <button class="admin-btn secondary" id="saveNotes" type="button">Save Notes</button>
+          <p class="admin-muted" id="notesStatus" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="admin-section" id="section-accounts">
+      <article class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="admin-kicker">Account inventory</p>
+            <h2>Website services to connect</h2>
+          </div>
+          <button class="admin-btn secondary" id="copyAccounts" type="button">Copy List</button>
+        </div>
+        <div class="account-list" id="accountList"></div>
+      </article>
+    </section>
+
+    <section class="admin-section" id="section-feedback">
+      <div class="admin-grid">
+        <article class="admin-card">
+          <div class="admin-card-head">
+            <div>
+              <p class="admin-kicker">User voice</p>
+              <h2>Feedback queue</h2>
+            </div>
+            <div class="admin-actions">
+              <button class="admin-btn secondary" id="exportFeedback" type="button">Export</button>
+              <button class="admin-btn danger" id="clearFeedback" type="button">Clear</button>
+            </div>
+          </div>
+          <div class="feedback-list" id="feedbackList"></div>
+        </article>
+        <aside class="admin-card">
+          <p class="admin-kicker">Contact routing</p>
+          <h2>Inbox setup</h2>
+          <p class="admin-muted">Set up a dedicated Sophia email before public launch. Until then, preview feedback is stored locally in this browser and can be exported as JSON.</p>
+          <label class="admin-field">
+            <span>Planned support email</span>
+            <input class="admin-input" id="supportEmail" type="email" placeholder="support@sophia..." />
+          </label>
+          <button class="admin-btn secondary" id="saveSupportEmail" type="button">Save Inbox Plan</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="admin-section" id="section-security">
+      <article class="admin-card">
+        <p class="admin-kicker">Security posture</p>
+        <h2>Launch security features</h2>
+        <div class="account-list">
+          <div class="account-item">
+            <div><b>Hardened Vercel headers</b><p>CSP, frame blocking, nosniff, referrer policy, and permissions policy are configured for production deployment.</p></div>
+            <span class="status-badge connected">Active</span>
+          </div>
+          <div class="account-item">
+            <div><b>Admin noindex</b><p>The owner admin page is blocked from robots and includes noindex/nofollow metadata.</p></div>
+            <span class="status-badge connected">Active</span>
+          </div>
+          <div class="account-item">
+            <div><b>Secret handling rule</b><p>No API keys, passwords, tokens, Stripe secrets, or email passwords are stored in the repo. Put production secrets in Vercel environment variables or the provider dashboard.</p></div>
+            <span class="status-badge connected">Active</span>
+          </div>
+          <div class="account-item">
+            <div><b>Production auth upgrade</b><p>This static owner gate is for preview control. Before storing private customer or account data, connect Supabase Auth, Clerk, or another server-backed login.</p></div>
+            <span class="status-badge owner">Owner</span>
+          </div>
+          <div class="account-item">
+            <div><b>Operational audit trail</b><p>The control app can export account status, launch checklist state, planned inbox, and owner notes as a dated JSON snapshot.</p></div>
+            <span class="status-badge optional">Ready</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <nav class="admin-bottom-nav" aria-label="Mobile admin sections">
+    <button class="active" type="button" data-section="overview">Overview</button>
+    <button type="button" data-section="accounts">Accounts</button>
+    <button type="button" data-section="feedback">Feedback</button>
+    <button type="button" data-section="security">Security</button>
+  </nav>
+
+  <script>
+    const adminState = {
+      passKey: 'sophia_admin_pass_hash',
+      sessionKey: 'sophia_admin_session',
+      saltKey: 'sophia_admin_salt',
+      checkKey: 'sophia_admin_launch_checks',
+      notesKey: 'sophia_admin_owner_notes',
+      supportKey: 'sophia_admin_support_email',
+      feedbackKey: 'sophia_feedback_queue'
+    };
+
+    const accountInventory = [
+      { name: 'Vercel hosting', status: 'connected', detail: 'Production hosting, deployment previews, security headers, and environment variables.', action: 'Verify final deploy and domain alias.' },
+      { name: 'Domain and DNS', status: 'owner', detail: 'Public domain, SSL, DNS records, and launch URL ownership.', action: 'Point domain to Vercel and confirm HTTPS.' },
+      { name: 'GitHub repository', status: 'owner', detail: 'Source history, branch protection, launch rollback point, and issue tracking.', action: 'Confirm repo remote and protect production branch.' },
+      { name: 'Sophia support email', status: 'owner', detail: 'Feedback, contacts, suggestions, support, and partner requests.', action: 'Create dedicated inbox and route form notifications.' },
+      { name: 'Supabase data/auth', status: 'owner', detail: 'Real user accounts, dashboard data, listing data, and admin server auth.', action: 'Connect public anon key and enable row-level security.' },
+      { name: 'Stripe billing', status: 'optional', detail: 'Paid plans after the free 30-day launch period.', action: 'Keep disabled until trial strategy and tax setup are ready.' },
+      { name: 'Analytics', status: 'optional', detail: 'Traffic, conversion, search, and launch feedback measurement.', action: 'Choose privacy-respecting analytics before paid campaigns.' },
+      { name: 'AI providers', status: 'optional', detail: 'No hosted AI provider is required for launch. Users can connect providers on their own terms later.', action: 'Document provider-optional setup only.' }
+    ];
+
+    const launchChecks = [
+      { key: 'visual', title: 'Desktop and mobile visuals approved', note: 'Home, pricing, globe, unity banner, and admin mobile screenshots checked.' },
+      { key: 'free30', title: 'Free first 30 days copy live', note: 'Pricing and listing copy must match the launch offer.' },
+      { key: 'feedback', title: 'Feedback and contact route ready', note: 'Temporary local queue works; dedicated Sophia inbox still needs owner setup.' },
+      { key: 'security', title: 'Security headers configured', note: 'Vercel headers, robots exclusions, noindex admin, and secret handling are in place.' },
+      { key: 'accounts', title: 'Owner accounts reviewed', note: 'Domain, email, deploy, GitHub, Supabase, Stripe, and analytics decisions are tracked.' },
+      { key: 'deploy', title: 'Production deploy smoke checked', note: 'Run final checks after deployment on the live URL before broad announcement.' }
+    ];
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+    async function digest(value) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(value);
+      const hash = await crypto.subtle.digest('SHA-256', data);
+      return [...new Uint8Array(hash)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    function getSalt() {
+      let salt = localStorage.getItem(adminState.saltKey);
+      if (!salt) {
+        salt = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+        localStorage.setItem(adminState.saltKey, salt);
+      }
+      return salt;
+    }
+
+    async function passHash(passcode) {
+      return digest(`${getSalt()}::${passcode}`);
+    }
+
+    function readJson(key, fallback) {
+      try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); }
+      catch { return fallback; }
+    }
+
+    function writeJson(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function setAuthenticated(value) {
+      if (value) {
+        sessionStorage.setItem(adminState.sessionKey, 'active');
+        $('#loginView').classList.add('hidden');
+        $('#adminApp').classList.remove('hidden');
+        $('.admin-bottom-nav').classList.remove('hidden');
+        renderAll();
+      } else {
+        sessionStorage.removeItem(adminState.sessionKey);
+        $('#adminApp').classList.add('hidden');
+        $('.admin-bottom-nav').classList.add('hidden');
+        $('#loginView').classList.remove('hidden');
+      }
+    }
+
+    function updateLoginMode() {
+      const hasPass = Boolean(localStorage.getItem(adminState.passKey));
+      $('#loginMode').textContent = hasPass ? 'Owner login' : 'First owner setup';
+      $('#loginButton').textContent = hasPass ? 'Unlock Admin' : 'Create Owner Gate';
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      const passcode = $('#ownerPasscode').value;
+      const stored = localStorage.getItem(adminState.passKey);
+      const hashed = await passHash(passcode);
+      if (!stored) {
+        if (passcode.length < 8) {
+          $('#loginStatus').textContent = 'Use at least 8 characters.';
+          return;
+        }
+        localStorage.setItem(adminState.passKey, hashed);
+        $('#loginStatus').textContent = 'Owner gate created.';
+        setAuthenticated(true);
+        return;
+      }
+      if (hashed === stored) {
+        $('#loginStatus').textContent = '';
+        setAuthenticated(true);
+      } else {
+        $('#loginStatus').textContent = 'Passcode did not match this browser.';
+      }
+    }
+
+    function renderAccounts() {
+      const list = $('#accountList');
+      list.innerHTML = accountInventory.map((account) => `
+        <article class="account-item">
+          <div>
+            <b>${account.name}</b>
+            <p>${account.detail}</p>
+            <p><strong>Next:</strong> ${account.action}</p>
+          </div>
+          <span class="status-badge ${account.status}">${account.status}</span>
+        </article>
+      `).join('');
+      $('#ownerActionCount').textContent = accountInventory.filter((item) => item.status === 'owner').length;
+    }
+
+    function renderChecks() {
+      const state = readJson(adminState.checkKey, {});
+      $('#launchChecks').innerHTML = launchChecks.map((item) => `
+        <article class="check-item">
+          <label>
+            <input type="checkbox" data-check="${item.key}" ${state[item.key] ? 'checked' : ''} />
+            <span>${item.title}<p>${item.note}</p></span>
+          </label>
+        </article>
+      `).join('');
+      $$('[data-check]').forEach((box) => {
+        box.addEventListener('change', () => {
+          const next = readJson(adminState.checkKey, {});
+          next[box.dataset.check] = box.checked;
+          writeJson(adminState.checkKey, next);
+          updateProgress();
+        });
+      });
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const state = readJson(adminState.checkKey, {});
+      const done = launchChecks.filter((item) => state[item.key]).length;
+      const pct = Math.round((done / launchChecks.length) * 100);
+      $('#launchRing').style.setProperty('--pct', pct);
+      $('#launchPct').textContent = `${pct}%`;
+      $('#launchSummary').textContent = `${done} of ${launchChecks.length} owner launch checks complete.`;
+    }
+
+    function renderFeedback() {
+      const feedback = readJson(adminState.feedbackKey, []);
+      $('#feedbackCount').textContent = feedback.length;
+      $('#feedbackList').innerHTML = feedback.length
+        ? feedback.slice().reverse().map((item) => `
+          <article class="feedback-item">
+            <b>${item.type || 'feedback'} ${item.email ? 'from ' + item.email : ''}</b>
+            <p>${item.message || ''}</p>
+            <p>${item.createdAt ? new Date(item.createdAt).toLocaleString() : 'No date recorded'}</p>
+          </article>
+        `).join('')
+        : '<article class="feedback-item"><b>No feedback captured yet.</b><p>Submissions from the homepage preview form will appear here on this device.</p></article>';
+    }
+
+    function renderNotes() {
+      $('#ownerNotes').value = localStorage.getItem(adminState.notesKey) || '';
+      $('#supportEmail').value = localStorage.getItem(adminState.supportKey) || '';
+    }
+
+    function renderAll() {
+      renderAccounts();
+      renderChecks();
+      renderFeedback();
+      renderNotes();
+    }
+
+    function switchSection(section) {
+      $$('.admin-section').forEach((panel) => panel.classList.toggle('active', panel.id === `section-${section}`));
+      $$('[data-section]').forEach((btn) => btn.classList.toggle('active', btn.dataset.section === section));
+      const activePanel = document.getElementById(`section-${section}`);
+      const targetTop = activePanel ? activePanel.getBoundingClientRect().top + window.scrollY - 86 : 0;
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+    }
+
+    function downloadJson(filename, value) {
+      const blob = new Blob([JSON.stringify(value, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    $('#loginForm').addEventListener('submit', handleLogin);
+    $('#lockAdmin').addEventListener('click', () => setAuthenticated(false));
+    $$('.admin-tab, .admin-bottom-nav button').forEach((btn) => btn.addEventListener('click', () => switchSection(btn.dataset.section)));
+    $('#resetLaunchChecks').addEventListener('click', () => {
+      localStorage.removeItem(adminState.checkKey);
+      renderChecks();
+    });
+    $('#saveNotes').addEventListener('click', () => {
+      localStorage.setItem(adminState.notesKey, $('#ownerNotes').value);
+      $('#notesStatus').textContent = 'Notes saved in this browser.';
+    });
+    $('#saveSupportEmail').addEventListener('click', () => {
+      localStorage.setItem(adminState.supportKey, $('#supportEmail').value);
+    });
+    $('#exportFeedback').addEventListener('click', () => downloadJson('sophia-feedback-queue.json', readJson(adminState.feedbackKey, [])));
+    $('#clearFeedback').addEventListener('click', () => {
+      localStorage.removeItem(adminState.feedbackKey);
+      renderFeedback();
+    });
+    $('#copyAccounts').addEventListener('click', async () => {
+      const text = accountInventory.map((item) => `${item.name}: ${item.status.toUpperCase()} - ${item.action}`).join('\n');
+      try { await navigator.clipboard.writeText(text); } catch {}
+    });
+    $('#exportStatus').addEventListener('click', () => {
+      downloadJson('sophia-launch-status.json', {
+        exportedAt: new Date().toISOString(),
+        launchChecks: readJson(adminState.checkKey, {}),
+        accounts: accountInventory,
+        feedbackCount: readJson(adminState.feedbackKey, []).length,
+        supportEmailPlan: localStorage.getItem(adminState.supportKey) || '',
+        ownerNotes: localStorage.getItem(adminState.notesKey) || ''
+      });
+    });
+
+    updateLoginMode();
+    if (sessionStorage.getItem(adminState.sessionKey) === 'active' && localStorage.getItem(adminState.passKey)) {
+      setAuthenticated(true);
+    }
+  </script>
+</body>
+</html>

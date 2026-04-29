@@ -1,0 +1,20 @@
+{
+  "name": "sophiatv-local-marketplace",
+  "interface": {
+    "displayName": "SophiaTV Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "sophia-operator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sophia-operator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Sophia Access Settings — SophiaTV</title>
+  <meta name="description" content="SophiaTV local access preferences and production-gated account settings." />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="icon" href="assets/brand/sophia-logo-premium.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo"><img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" /><span class="logo-text">Sophia<em>TV</em></span></a>
+      <div class="nav-links">
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+      </div>
+    </div>
+  </nav>
+  <main id="main-content" class="control-shell" tabindex="-1">
+    <section class="control-hero" style="min-height:auto">
+      <div class="control-copy">
+        <div class="control-kicker">Access console</div>
+        <h1>Sophia Access Settings</h1>
+        <p>Local preferences are available now. Profile, password, notification, and billing controls open after production Supabase and Stripe setup.</p>
+      </div>
+    </section>
+    <section class="control-layout" style="margin-top:22px">
+      <div class="control-main">
+        <article class="control-card">
+          <div class="control-card-head"><div><span class="control-kicker">Preferences</span><h2>Local Access Settings</h2></div></div>
+          <div class="launch-checklist">
+            <label><input type="checkbox" id="reducedGlow" /> Reduce glow and motion intensity on this device.</label>
+            <label><input type="checkbox" id="compactMode" /> Prefer compact dashboard spacing.</label>
+            <label><input type="checkbox" id="translatorDefault" /> Open translator with English as the default output.</label>
+          </div>
+        </article>
+      </div>
+      <aside class="control-rail">
+        <article class="control-card">
+          <span class="control-kicker">Backend status</span>
+          <ul class="status-list">
+            <li><span class="status-dot warn"></span><b>Profile</b><em>Requires Supabase auth session.</em></li>
+            <li><span class="status-dot warn"></span><b>Billing</b><em>Requires Stripe customer portal setup.</em></li>
+            <li><span class="status-dot ok"></span><b>Local preferences</b><em>Saved in this browser.</em></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const store = 'sophia_settings';
+      const boxes = [...document.querySelectorAll('input[type="checkbox"]')];
+      const state = JSON.parse(localStorage.getItem(store) || '{}');
+      boxes.forEach((box) => {
+        box.checked = Boolean(state[box.id]);
+        box.addEventListener('change', () => {
+          state[box.id] = box.checked;
+          localStorage.setItem(store, JSON.stringify(state));
+          if (window.showSophiaToast) showSophiaToast('Setting saved locally.', 'success');
+        });
+      });
+    })();
+  </script>
+  <script src="future.js" defer></script>
+</body>
+</html>

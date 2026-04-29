@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">SophiaTV logo</title>
+  <desc id="desc">A futuristic Sophia S mark inside a global market ring.</desc>
+  <defs>
+    <linearGradient id="ring" x1="18" y1="16" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00f5ff"/>
+      <stop offset="0.45" stop-color="#25ffb3"/>
+      <stop offset="0.76" stop-color="#ffd84d"/>
+      <stop offset="1" stop-color="#ff3df2"/>
+    </linearGradient>
+    <linearGradient id="core" x1="32" y1="24" x2="98" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8ffff"/>
+      <stop offset="0.38" stop-color="#72f7ff"/>
+      <stop offset="0.72" stop-color="#25ffb3"/>
+      <stop offset="1" stop-color="#ffd84d"/>
+    </linearGradient>
+    <radialGradient id="back" cx="42" cy="28" r="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#132a3c"/>
+      <stop offset="0.56" stop-color="#050816"/>
+      <stop offset="1" stop-color="#02030a"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 0 0 0 0.92  0 0 0 0 1  0 0 0 .75 0" result="cyan"/>
+      <feMerge>
+        <feMergeNode in="cyan"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="url(#back)"/>
+  <path d="M23 66c0-25 18-43 43-43 14 0 26 5 35 14" fill="none" stroke="url(#ring)" stroke-width="5.5" stroke-linecap="round" opacity=".95" filter="url(#glow)"/>
+  <path d="M105 62c0 25-17 43-42 43-15 0-28-6-37-16" fill="none" stroke="url(#ring)" stroke-width="5.5" stroke-linecap="round" opacity=".95" filter="url(#glow)"/>
+  <path d="M80 38H56c-11 0-18 6-18 15 0 8 5 13 16 16l20 5c8 2 12 5 12 10 0 6-5 9-15 9H43" fill="none" stroke="url(#core)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M41 42h18M70 90h17" stroke="#ffd84d" stroke-width="3.5" stroke-linecap="round" opacity=".92"/>
+  <circle cx="31" cy="76" r="4" fill="#25ffb3"/>
+  <circle cx="101" cy="51" r="4" fill="#ff3df2"/>
+  <circle cx="92" cy="99" r="3" fill="#ffd84d"/>
+</svg>

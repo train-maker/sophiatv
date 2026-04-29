@@ -19,10 +19,19 @@ const topLevel = [
   { loc: '/market/country/', priority: '0.9', changefreq: 'weekly' },
   { loc: '/pricing', priority: '0.9', changefreq: 'monthly' },
   { loc: '/market-submit', priority: '0.9', changefreq: 'monthly' },
+  { loc: '/listing-guidelines', priority: '0.55', changefreq: 'yearly' },
+  { loc: '/social', priority: '0.85', changefreq: 'weekly' },
+  { loc: '/everyday-tools', priority: '0.74', changefreq: 'monthly' },
+  { loc: '/natural-cures', priority: '0.72', changefreq: 'monthly' },
   { loc: '/signup', priority: '0.8', changefreq: 'monthly' },
-  { loc: '/login', priority: '0.6', changefreq: 'yearly' },
-  { loc: '/session', priority: '0.7', changefreq: 'monthly' },
-  { loc: '/dashboard', priority: '0.5', changefreq: 'monthly' },
+  { loc: '/app/', priority: '0.75', changefreq: 'monthly' },
+  { loc: '/blog/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/blog/alibaba-alternatives-2026', priority: '0.65', changefreq: 'monthly' },
+  { loc: '/blog/how-to-find-global-suppliers', priority: '0.65', changefreq: 'monthly' },
+  { loc: '/blog/list-your-business-sophiamarket', priority: '0.65', changefreq: 'monthly' },
+  { loc: '/terms', priority: '0.3', changefreq: 'yearly' },
+  { loc: '/privacy', priority: '0.3', changefreq: 'yearly' },
+  { loc: '/copyright', priority: '0.3', changefreq: 'yearly' },
 ];
 
 // Country pages from the generated /market/country/<slug>/ dirs

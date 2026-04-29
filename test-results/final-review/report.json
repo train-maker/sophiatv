@@ -1,0 +1,122 @@
+{
+  "failures": [],
+  "market": {
+    "scrollY": 0,
+    "h1": "SophiaMarket — Worldwide Classifieds & Business Directory",
+    "oldHero": "none",
+    "classifieds": 8,
+    "countryAreaCards": 105
+  },
+  "report": {
+    "home-desktop": {
+      "status": 200,
+      "title": "Sophia — The World, Translated Into Opportunity",
+      "h1": "The world,\n          translated into\n          opportunity.",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 50,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/home-desktop.png"
+    },
+    "market-desktop": {
+      "status": 200,
+      "title": "SophiaMarket — Global Business Directory",
+      "h1": "120 preview listings. 59 countries. One directory.",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 63,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/market-desktop.png"
+    },
+    "pricing-desktop": {
+      "status": 200,
+      "title": "Pricing — SophiaTV",
+      "h1": "Choose Your SophiaTV Plan",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 22,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/pricing-desktop.png"
+    },
+    "submit-desktop": {
+      "status": 200,
+      "title": "List Your Business — SophiaMarket",
+      "h1": "List Your Business",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 12,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/submit-desktop.png"
+    },
+    "country-us-desktop": {
+      "status": 200,
+      "title": "4 Businesses in United States 🇺🇸 — SophiaMarket",
+      "h1": "4 Businesses in United States",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 22,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/country-us-desktop.png"
+    },
+    "home-mobile": {
+      "status": 200,
+      "title": "Sophia — The World, Translated Into Opportunity",
+      "h1": "The world,\n          translated into\n          opportunity.",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 50,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/home-mobile.png"
+    },
+    "market-mobile": {
+      "status": 200,
+      "title": "SophiaMarket — Global Business Directory",
+      "h1": "120 preview listings. 59 countries. One directory.",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 51,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/market-mobile.png"
+    },
+    "pricing-mobile": {
+      "status": 200,
+      "title": "Pricing — SophiaTV",
+      "h1": "Choose Your SophiaTV Plan",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 22,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/pricing-mobile.png"
+    },
+    "submit-mobile": {
+      "status": 200,
+      "title": "List Your Business — SophiaMarket",
+      "h1": "List Your Business",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 12,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/submit-mobile.png"
+    },
+    "country-us-mobile": {
+      "status": 200,
+      "title": "4 Businesses in United States 🇺🇸 — SophiaMarket",
+      "h1": "4 Businesses in United States",
+      "scrollY": 0,
+      "mainExists": true,
+      "horizontalOverflow": false,
+      "links": 22,
+      "errors": [],
+      "screenshot": "/Users/tarencea.rainey/outputs/sophiatv/test-results/final-review/country-us-mobile.png"
+    }
+  }
+}

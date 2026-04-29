@@ -1,0 +1,48 @@
+---
+description: SophiaTV business and engineering operating rules
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# SophiaTV Cursor Rules
+
+Work in business-first format:
+
+1. State the user/business outcome.
+2. Name the affected page or flow.
+3. Keep implementation scoped to the smallest useful change.
+4. Verify desktop, mobile, console errors, and horizontal overflow.
+5. Call out production environment variables or backend services required.
+
+Project context:
+
+- SophiaTV is a futuristic media, marketplace, social, and translation platform.
+- The visual direction is neon, chrome, robotic, premium, high-tech, and memorable.
+- Avoid breaking static Vercel hosting. This project uses plain HTML/CSS/JS plus Vercel serverless functions in `api/`.
+- Prefer existing files and patterns before adding new abstractions.
+- Do not remove Codex or Claude changes unless the user explicitly asks.
+
+Important files:
+
+- `index.html`: main landing/product page and Universal Translator section.
+- `style.css`: base styling.
+- `future.css`: futuristic visual layer and feature styling.
+- `future.js`: command palette, HUD, cursor, and interaction polish.
+- `translator.js`: Universal Translator client.
+- `api/translate.js`: translation endpoint using `ANTHROPIC_API_KEY`.
+- `social.html`: Sophia Social feed.
+- `control-center.html`: operator hub for status, launch checklist, assistant handoff, and production readiness.
+- `404.html`: branded recovery page for missing routes.
+- `config.js`: public browser config for Supabase URL and anon key; never put service-role keys here.
+- `scripts/smoke-test.cjs`: local link and asset smoke test.
+- `app/sw.js`: service worker cache for Sophia Connect; cached assets must exist.
+- `market.html`: SophiaMarket entry point.
+- `session.html`: private session room; camera/microphone must stay behind the Join Session action.
+
+Verification expectation:
+
+- Run local preview when practical with `python3 -m http.server 4173`.
+- Run `npm run smoke` before launch or after broad link/navigation changes.
+- Check `http://127.0.0.1:4173/`, `/#translate`, `/social.html`, `/market.html`, and `/control-center.html` after broad visual changes.
+- Test at least one mobile viewport after layout or navigation changes.

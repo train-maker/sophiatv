@@ -1,0 +1,43 @@
+{
+  "name": "sophia-operator",
+  "version": "1.0.0",
+  "description": "SophiaTV operating workflow for futuristic site work, assistant handoff, smoke testing, troubleshooting, and launch readiness.",
+  "author": {
+    "name": "SophiaTV Operators",
+    "email": "t.rain@sophiaoperator.com",
+    "url": "https://sophiatv.vercel.app"
+  },
+  "homepage": "https://sophiatv.vercel.app/control-center",
+  "repository": "local:sophiatv",
+  "license": "Proprietary",
+  "keywords": [
+    "sophiatv",
+    "frontend",
+    "launch",
+    "smoke-test",
+    "handoff"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sophia Operator",
+    "shortDescription": "Build, verify, troubleshoot, and hand off SophiaTV work in business format.",
+    "longDescription": "A project-local operating plugin for SophiaTV. It captures the workflow used to upgrade the site: business-first planning, futuristic UI standards, safe browser verification, local smoke tests, production readiness checks, troubleshooting, and Codex/Claude/Cursor handoff.",
+    "developerName": "SophiaTV",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "Test",
+      "Review"
+    ],
+    "websiteURL": "https://sophiatv.vercel.app",
+    "privacyPolicyURL": "https://sophiatv.vercel.app/privacy",
+    "termsOfServiceURL": "https://sophiatv.vercel.app/terms",
+    "defaultPrompt": [
+      "Use the Sophia Operator workflow to complete the next SophiaTV website task.",
+      "Run SophiaTV smoke checks and report launch blockers.",
+      "Review this SophiaTV change in business handoff format."
+    ],
+    "brandColor": "#00F5FF"
+  }
+}

@@ -1,5 +1,6 @@
-const CACHE = 'sophia-connect-v1';
-const ASSETS = ['/app/', '/app/app.html', '/app/manifest.webmanifest', '/sample-listings.json'];
+const CACHE = 'sophia-connect-v2';
+const APP_SHELL = '/app/';
+const ASSETS = [APP_SHELL, '/app/index.html', '/app/manifest.webmanifest', '/app/icon-192.png', '/app/icon-512.png', '/assets/brand/sophia-logo-premium.png', '/assets/earth_orbital_camera_1024.png', '/sample-listings.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
 });
@@ -15,6 +16,6 @@ self.addEventListener('fetch', e => {
         caches.open(CACHE).then(c => c.put(e.request, copy));
       }
       return res;
-    }).catch(() => caches.match('/app/app.html')))
+    }).catch(() => caches.match(APP_SHELL)))
   );
 });

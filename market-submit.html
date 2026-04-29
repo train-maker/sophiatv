@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>List Your Business — SophiaMarket</title>
-  <meta name="description" content="List your business on SophiaMarket — the global business directory by SophiaTV. Free basic listing or get Featured for $29.99/month." />
+  <title>Start Listing — Sophia Market</title>
+  <meta name="description" content="Start a Sophia Market listing for global business discovery, translated inquiry paths, and cross-border trust." />
+  <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    .submit-wrap { max-width: 700px; margin: 0 auto; padding: 90px 36px 80px; }
+    .submit-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 104px 28px 80px;
+      display: grid;
+      grid-template-columns: minmax(360px, 0.78fr) minmax(520px, 700px);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+    }
     .submit-back {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 13px; color: var(--muted); text-decoration: none;
@@ -17,15 +28,57 @@
     }
     .submit-back:hover { color: var(--gold); }
 
-    .submit-header { margin-bottom: 36px; }
-    .submit-header h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
-    .submit-header p { color: var(--muted); font-size: 15px; }
+    .submit-value-panel {
+      position: sticky;
+      top: 96px;
+      padding-top: 36px;
+    }
+    .submit-value-panel h1 {
+      margin: 0 0 18px;
+      font-family: var(--sv-display);
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.03;
+      font-weight: 500;
+      color: var(--sv-bone);
+    }
+    .submit-value-panel p {
+      margin: 0 0 28px;
+      color: var(--sv-bone-2);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .submit-proof-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .submit-proof-list li {
+      border-left: 1px solid rgba(200, 162, 74, 0.46);
+      padding: 10px 0 10px 16px;
+      color: var(--sv-bone-2);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .submit-form-shell {
+      border: 1px solid rgba(200, 162, 74, 0.28);
+      border-radius: 8px;
+      padding: clamp(26px, 4vw, 40px);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), transparent 28%),
+        linear-gradient(145deg, rgba(20, 17, 10, 0.94), rgba(5, 5, 8, 0.98));
+      box-shadow: 0 36px 80px rgba(0,0,0,0.42);
+    }
+    .submit-header { margin-bottom: 32px; }
+    .submit-header h1 { font-family: var(--sv-display); font-size: 34px; font-weight: 500; margin-bottom: 8px; color: var(--sv-bone); }
+    .submit-header p { color: var(--sv-bone-2); font-size: 15px; line-height: 1.65; }
 
     /* Tier selector */
     .tier-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
     @media (max-width: 500px) { .tier-row { grid-template-columns: 1fr; } }
     .tier-card {
-      border: 2px solid var(--border); border-radius: 12px; padding: 20px;
+      border: 1px solid rgba(200, 162, 74, 0.22); border-radius: 8px; padding: 20px;
       cursor: pointer; transition: border-color 0.2s, background 0.2s;
       position: relative;
     }
@@ -75,7 +128,7 @@
     }
     .logo-upload:hover { border-color: var(--gold); }
     .logo-upload input { display: none; }
-    .logo-upload-icon { font-size: 36px; margin-bottom: 8px; }
+    .logo-upload-icon { font-size: 12px; font-family: var(--sv-mono); letter-spacing: var(--sv-track-caps); color: var(--sv-gold); margin-bottom: 8px; }
     .logo-upload p { font-size: 13px; color: var(--muted); }
     .logo-upload strong { color: var(--text); }
 
@@ -94,11 +147,29 @@
     .success-screen {
       text-align: center; padding: 60px 20px; display: none;
     }
-    .success-icon { font-size: 64px; margin-bottom: 20px; }
+    .success-icon { color: var(--sv-gold); font-family: var(--sv-mono); font-size: 13px; letter-spacing: var(--sv-track-caps); margin-bottom: 20px; }
     .success-screen h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
     .success-screen p { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
 
     .word-count-warning { color: var(--red); font-size: 11px; display: none; }
+    @media (max-width: 900px) {
+      .submit-wrap {
+        grid-template-columns: 1fr;
+        padding: 126px 20px 56px;
+      }
+      .submit-value-panel {
+        position: static;
+        padding-top: 0;
+      }
+    }
+    @media (max-width: 500px) {
+      .submit-wrap {
+        padding-inline: 14px;
+      }
+      .submit-form-shell {
+        padding: 24px 18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,27 +177,38 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <div class="logo-icon" style="width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#07070e;">S</div>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
       </a>
       <div class="nav-links">
-        <a href="/#live" class="nav-link">Live</a>
-        <a href="/#feed" class="nav-link">Feed</a>
-        <a href="/#creators" class="nav-link">Creators</a>
+        <a href="/#live" class="nav-link">Signals</a>
+        <a href="/#feed" class="nav-link">Library</a>
+        <a href="/#creators" class="nav-link">Builders</a>
         <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
-        <a href="/#sessions" class="nav-link">Sessions</a>
+        <a href="/#sessions" class="nav-link">Access</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
       </div>
     </div>
   </nav>
 
-  <div class="submit-wrap">
-    <a href="/market.html" class="submit-back">← Back to SophiaMarket</a>
+  <main class="submit-wrap" id="main-content" tabindex="-1">
+    <section class="submit-value-panel" aria-label="Sophia listing value">
+      <a href="/market.html" class="submit-back">Back to Sophia Market</a>
+      <span class="sv-kicker">LISTING REVIEW</span>
+      <h1>Put your business on the floor.</h1>
+      <p>A Sophia listing should become more than a card. It is a public market signal: country, category, contact path, and trust context prepared for translation and discovery.</p>
+      <ul class="submit-proof-list">
+        <li>Free first 30 days keeps the launch accessible while demand is proven.</li>
+        <li>Featured placement stays review-based until paid upgrades open.</li>
+        <li>Each listing should help a buyer understand what you do and how to contact you.</li>
+      </ul>
+    </section>
 
-    <div id="formView">
+    <div id="formView" class="submit-form-shell">
       <div class="submit-header">
-        <h1>List Your Business</h1>
-        <p>Get discovered by buyers, investors, and partners in 30+ countries. Free to start — go Featured to stand out.</p>
+        <h1>Start Listing</h1>
+        <p>Submit the first version of your market signal. The launch period is designed for review, feedback, and clean onboarding before paid upgrades open.</p>
       </div>
 
       <!-- TIER SELECTOR -->
@@ -136,24 +218,25 @@
           <div class="tier-name">Free Listing</div>
           <div class="tier-price">$0 <span>/ forever</span></div>
           <div class="tier-features">
-            ✓ Business name &amp; description<br/>
-            ✓ Contact email &amp; phone<br/>
-            ✓ Searchable in directory<br/>
-            ✗ No featured badge<br/>
-            ✗ No priority placement
+            Included: business name &amp; description<br/>
+            Included: contact email &amp; phone<br/>
+            Included: searchable directory presence<br/>
+            Not included: featured badge<br/>
+            Not included: priority placement
           </div>
         </div>
         <div class="tier-card" id="tierFeatured" onclick="selectTier('featured')">
           <input type="radio" name="tier" value="featured" />
           <div class="tier-badge">POPULAR</div>
           <div class="tier-name">Featured</div>
-          <div class="tier-price">$29.99 <span>/ month</span></div>
+          <div class="tier-price">$0 <span>/ first 30 days</span></div>
           <div class="tier-features">
-            ✓ Everything in Free<br/>
-            ✓ Gold "Featured" badge<br/>
-            ✓ Top of category listings<br/>
-            ✓ Full business profile<br/>
-            ✓ Logo &amp; gallery images
+            Included: everything in Free<br/>
+            Included: gold Featured badge<br/>
+            Included: top of category listings<br/>
+            Included: full business profile<br/>
+            Included: logo &amp; gallery images<br/>
+            Then $29.99/month after launch trial
           </div>
         </div>
       </div>
@@ -247,7 +330,7 @@
           <div class="form-section-title">Logo &amp; Branding</div>
           <div class="logo-upload" onclick="document.getElementById('logoInput').click()">
             <input type="file" id="logoInput" accept="image/*" onchange="previewLogo(this)" />
-            <div class="logo-upload-icon" id="logoPreview">🖼️</div>
+            <div class="logo-upload-icon" id="logoPreview">LOGO</div>
             <p><strong>Click to upload logo</strong></p>
             <p>PNG, JPG, or SVG · max 2MB</p>
           </div>
@@ -258,8 +341,8 @@
           <button type="submit" class="btn-submit" id="submitBtn">Submit Free Listing</button>
           <p class="submit-legal">
             By submitting, you agree to our
-            <a href="#">Terms of Service</a> and <a href="#">Listing Guidelines</a>.
-            Featured listings are billed monthly via Stripe and can be cancelled anytime.
+            <a href="/terms.html">Terms of Service</a> and <a href="/listing-guidelines.html">Listing Guidelines</a>.
+            Featured placement requests are reviewed before paid upgrades open.
           </p>
         </div>
       </form>
@@ -267,15 +350,15 @@
 
     <!-- SUCCESS -->
     <div class="success-screen" id="successScreen">
-      <div class="success-icon">🎉</div>
-      <h2>Listing Submitted!</h2>
+      <div class="success-icon">REVIEW QUEUE</div>
+      <h2>Listing Submitted</h2>
       <p id="successMsg">Your free listing has been submitted for review. You'll receive a confirmation email within 24 hours.</p>
-      <a href="/market.html" style="display:inline-block;padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">Browse SophiaMarket</a>
+      <a href="/market.html" style="display:inline-block;padding:12px 28px;font-weight:700;font-size:15px;background:var(--gold);color:#07070e;border-radius:8px;text-decoration:none;">Browse Sophia Market</a>
     </div>
-  </div>
+  </main>
 
   <script>
-    const STRIPE_FEATURED_LINK = 'https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d';
+    const STRIPE_FEATURED_LINK = '';
     let selectedTier = 'free';
 
     function selectTier(tier) {
@@ -284,7 +367,7 @@
       document.getElementById('tierFeatured').classList.toggle('selected', tier === 'featured');
       document.getElementById('logoSection').style.display = tier === 'featured' ? 'block' : 'none';
       document.getElementById('submitBtn').textContent = tier === 'featured'
-        ? 'Continue to Payment — $29.99/mo'
+        ? 'Request Featured Review'
         : 'Submit Free Listing';
     }
 
@@ -310,27 +393,25 @@
       e.preventDefault();
       const desc = document.getElementById('bizDesc').value.trim();
       const words = desc.split(/\s+/).filter(w => w.length > 0);
-      if (words.length > 50) { alert('Please shorten your description to 50 words or fewer.'); return; }
-
-      if (selectedTier === 'featured') {
-        // Collect form data then redirect to Stripe
-        const params = new URLSearchParams({
-          name: document.getElementById('bizName').value,
-          country: document.getElementById('bizCountry').value,
-          city: document.getElementById('bizCity').value,
-          category: document.getElementById('bizCategory').value,
-          email: document.getElementById('bizEmail').value
-        });
-        window.location.href = STRIPE_FEATURED_LINK;
+      if (words.length > 50) {
+        if (window.showSophiaToast) showSophiaToast('Please shorten your description to 50 words or fewer.', 'error');
+        return;
+      }
+      const email = document.getElementById('bizEmail').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (window.showSophiaToast) showSophiaToast('Enter a valid business email address.', 'error');
         return;
       }
 
-      // Free tier — show success
+      // Submission preview — show success until the backend intake opens.
       document.getElementById('formView').style.display = 'none';
       document.getElementById('successScreen').style.display = 'block';
-      document.getElementById('successMsg').textContent =
-        `Your free listing for "${document.getElementById('bizName').value}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
+      const businessName = document.getElementById('bizName').value.trim();
+      document.getElementById('successMsg').textContent = selectedTier === 'featured'
+        ? `Your featured placement request for "${businessName}" has been captured for review. Featured placement is free for the first 30 days after launch; confirmation goes to ${document.getElementById('bizEmail').value}.`
+        : `Your free listing for "${businessName}" has been submitted for review. You'll receive a confirmation at ${document.getElementById('bizEmail').value} within 24 hours.`;
     }
   </script>
+  <script src="future.js" defer></script>
 </body>
 </html>

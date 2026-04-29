@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 Disallow: /dashboard
+Disallow: /control-center
+Disallow: /session
+Disallow: /settings
+Disallow: /admin
+Disallow: /admin.html
 Disallow: /api/
 
-Sitemap: https://sophiaoperator.com/sitemap.xml
+Sitemap: https://sophiatv.vercel.app/sitemap.xml

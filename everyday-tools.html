@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sophia Everyday Tools | SophiaTV</title>
+  <meta name="description" content="Sophia Everyday Tools: Obsidian-informed browser-only utilities for local planning, marketplace operations, family admin, and app factory work." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .tools-shell { width: min(1200px, calc(100% - 36px)); margin: 0 auto; padding: 112px 0 80px; }
+    .tools-hero { display: grid; grid-template-columns: minmax(0, 1.08fr) 340px; gap: 22px; align-items: stretch; margin-bottom: 24px; }
+    .tools-copy, .tool-card, .tools-status { border: 1px solid rgba(0,245,255,0.24); background: linear-gradient(145deg, rgba(10,18,36,0.9), rgba(4,8,18,0.78)); box-shadow: inset 0 0 28px rgba(0,245,255,0.05), 0 18px 54px rgba(0,0,0,0.42); border-radius: 18px; }
+    .tools-copy { padding: clamp(26px, 4vw, 46px); position: relative; overflow: hidden; }
+    .tools-copy h1 { font-size: clamp(42px, 7vw, 82px); line-height: 0.92; margin: 12px 0 18px; }
+    .tools-copy p, .tool-card p, .tools-note { color: rgba(222,244,255,0.72); line-height: 1.65; }
+    .source-note { margin-top: 12px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,216,77,0.16); background: rgba(255,216,77,0.06); color: rgba(255,244,198,0.82); font-size: 12px; font-weight: 800; line-height: 1.45; }
+    .tools-kicker { color: var(--neo-mint); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
+    .tools-status { padding: 22px; display: grid; gap: 12px; align-content: start; }
+    .tools-status div { padding: 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.045); }
+    .tools-status span { display: block; color: rgba(222,244,255,0.58); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
+    .tools-status strong { display: block; color: white; font-size: 24px; margin-top: 4px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .tool-card { padding: 20px; position: relative; overflow: hidden; }
+    .tool-card h2 { color: white; font-size: 22px; margin: 0 0 12px; }
+    .tool-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 14px 0; }
+    .tool-fields label, .tool-wide label { display: grid; gap: 6px; color: rgba(222,244,255,0.7); font-size: 13px; font-weight: 800; }
+    .tool-fields input, .tool-fields select, .tool-wide input, .tool-wide textarea { width: 100%; }
+    .tool-wide { display: grid; gap: 10px; margin: 14px 0; }
+    .tool-result { min-height: 46px; padding: 12px; border-radius: 12px; background: rgba(0,245,255,0.08); border: 1px solid rgba(0,245,255,0.18); color: #eaffff; font-weight: 800; }
+    .tool-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .tool-actions button { border: 0; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint)); color: #02030a; font-weight: 900; cursor: pointer; }
+    .tool-actions .ghost { border: 1px solid rgba(0,245,255,0.24); background: rgba(5,9,22,0.72); color: #dffcff; }
+    .list-output { display: grid; gap: 8px; margin-top: 12px; }
+    .list-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(222,244,255,0.8); }
+    .list-row button { border: 1px solid rgba(255,49,79,0.28); background: rgba(255,49,79,0.18); color: #ffd7de; border-radius: 8px; padding: 7px 9px; cursor: pointer; }
+    .chore-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+    .chore-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--neo-mint); }
+    .chore-row.is-done span { opacity: 0.62; text-decoration: line-through; }
+    .chore-score { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chore-score span { display: inline-flex; border: 1px solid rgba(0,245,255,0.18); background: rgba(0,245,255,0.07); color: #dffcff; border-radius: 999px; padding: 6px 9px; font-size: 12px; font-weight: 900; }
+    .freshness-pill { display: inline-flex; align-items: center; justify-content: center; min-width: 82px; border-radius: 999px; padding: 6px 8px; font-size: 12px; font-weight: 900; }
+    .freshness-pill--fresh { border: 1px solid rgba(74,245,200,0.28); background: rgba(74,245,200,0.13); color: #b7ffec; }
+    .freshness-pill--soon { border: 1px solid rgba(255,207,102,0.3); background: rgba(255,207,102,0.15); color: #ffe7a6; }
+    .freshness-pill--expired { border: 1px solid rgba(255,49,79,0.34); background: rgba(255,49,79,0.16); color: #ffd5dc; }
+    .full-span { grid-column: 1 / -1; }
+    .office-board-head { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
+    .office-board-pulse { font-size: 13px; font-weight: 700; color: rgba(0, 245, 255, 0.85); letter-spacing: 0.04em; }
+    .office-grid { display: grid; gap: 10px; margin-top: 12px; }
+    .office-row { display: grid; grid-template-columns: minmax(0, 160px) minmax(0, 150px) minmax(0, 1fr); gap: 10px; align-items: center; padding: 12px 12px; border-radius: 14px; background: rgba(6, 12, 28, 0.55); border: 1px solid rgba(0, 245, 255, 0.12); }
+    .office-name { display: flex; align-items: center; gap: 8px; color: #fff; font-weight: 800; font-size: 14px; }
+    .office-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 12px currentColor; }
+    .office-dot--idle { color: rgba(160, 180, 200, 0.85); background: rgba(160, 180, 200, 0.85); }
+    .office-dot--building { color: #4af5c8; background: #4af5c8; }
+    .office-dot--reviewing { color: #ffcf66; background: #ffcf66; }
+    .office-dot--paused { color: #ff6b8a; background: #ff6b8a; }
+    .office-dot--local { color: #c7a7ff; background: #c7a7ff; }
+    .office-row select, .office-row input { width: 100%; }
+    .office-row input { min-width: 0; }
+    .office-links { margin-top: 12px; font-size: 13px; line-height: 1.5; color: rgba(222, 244, 255, 0.62); }
+    .office-links a { color: var(--neo-mint); font-weight: 800; text-decoration: none; }
+    .office-links a:hover { text-decoration: underline; }
+    .office-links code { font-size: 12px; color: rgba(222, 244, 255, 0.5); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (max-width: 900px) { .tools-hero, .tools-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) {
+      .tools-shell { width: min(1200px, calc(100% - 24px)); padding: 88px 0 56px; }
+      .tools-copy { padding: 20px 18px; }
+      .tools-copy h1 { font-size: clamp(34px, 12vw, 50px); line-height: 1.02; }
+      .tools-kicker { letter-spacing: 0.08em; }
+      .tool-card { padding: 16px; }
+      .tool-card h2 { font-size: 20px; }
+      .tool-fields { grid-template-columns: 1fr; }
+      .list-row { grid-template-columns: minmax(0, 1fr) auto; }
+      .list-row span { overflow-wrap: anywhere; }
+      .office-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .tool-actions { flex-direction: column; }
+      .tool-actions button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
+        <span class="logo-text">Sophia<em>TV</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="/everyday-tools.html" class="nav-link" style="color:var(--gold);">Tools</a>
+        <a href="/natural-cures.html" class="nav-link">Wellness</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
+      </div>
+      <div class="nav-right"><a href="/dashboard.html" class="btn-gold">Dashboard</a></div>
+    </div>
+  </nav>
+
+  <main class="tools-shell">
+    <section class="tools-hero">
+      <div class="tools-copy">
+        <span class="tools-kicker">Daily utility cockpit</span>
+        <h1 data-text="Sophia Everyday Tools">Sophia Everyday Tools</h1>
+        <p>Fast browser-only apps rebuilt from Sophia Brain notes: local-first utilities for marketplace work, family admin, operator focus, travel, wellness caution, and the Simple App Factory. No login, no paid API, no private scraping.</p>
+      </div>
+      <aside class="tools-status">
+        <div><span>Tools</span><strong>15</strong></div>
+        <div><span>Data mode</span><strong>Local</strong></div>
+        <div><span>Cost</span><strong>$0</strong></div>
+      </aside>
+    </section>
+
+    <section class="tools-grid">
+      <article class="tool-card full-span" id="officeStatusBoard" aria-label="AI Office Status Board" data-md-source="DAILY_MEMORY.md; CURRENT-SOPHIA-PROJECT-ANCHOR.md">
+        <div class="office-board-head">
+          <div>
+            <span class="tools-kicker">AI company cockpit</span>
+            <h2>AI Office Status Board</h2>
+          </div>
+          <div class="office-board-pulse" id="officePulse" role="status">Loading ops clock…</div>
+        </div>
+        <p>Track your Sophia AI team lanes the same way a real office uses a status board. Status and notes are saved only in this browser. For live task coordination, run Paperclip on your machine and use Mission Control for the product view.</p>
+        <p class="source-note">From Sophia memory: Codex leads and verifies, Cursor designs, Claude reviews when approved, Ollama handles free local second opinions, and Paperclip is the main room.</p>
+        <div class="office-grid" id="officeAgentList"></div>
+        <p class="office-links">Open <a href="/control-center.html">Sophia Mission Control</a> for launch checks. When developing locally, Paperclip HQ is <code>http://127.0.0.1:3100/</code> (not available on the public Vercel build).</p>
+      </article>
+
+      <article class="tool-card" data-md-source="LAYOUTS.md; OUTREACH-KIT.md">
+        <span class="tools-kicker">Bill splitter</span>
+        <h2>Tip Calculator</h2>
+        <p class="source-note">Marketplace use: split vendor meals, service tips, or booth-day shared costs before they turn into messy receipts.</p>
+        <div class="tool-fields">
+          <label>Bill amount <input id="billAmount" type="number" min="0" step="0.01" value="48.50" /></label>
+          <label>Tip % <input id="tipPercent" type="number" min="0" step="1" value="20" /></label>
+          <label>People <input id="splitPeople" type="number" min="1" step="1" value="2" /></label>
+          <label>Tax/fees <input id="extraFees" type="number" min="0" step="0.01" value="0" /></label>
+        </div>
+        <div class="tool-result" id="tipResult"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="prd-2-Supplier-finder.md; LAYOUTS.md">
+        <span class="tools-kicker">Conversions</span>
+        <h2>Unit Converter</h2>
+        <p class="source-note">Supplier-finder use: quick import/export checks for weights, distance, and temperature without opening another app.</p>
+        <div class="tool-fields">
+          <label>Value <input id="unitValue" type="number" step="any" value="10" /></label>
+          <label>Convert <select id="unitType">
+            <option value="lbkg">Pounds to kilograms</option>
+            <option value="kglb">Kilograms to pounds</option>
+            <option value="mift">Miles to kilometers</option>
+            <option value="kmmi">Kilometers to miles</option>
+            <option value="fin">Fahrenheit to Celsius</option>
+            <option value="cin">Celsius to Fahrenheit</option>
+          </select></label>
+        </div>
+        <div class="tool-result" id="unitResult"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="DAILY_MEMORY.md; MYTHOS-PROACTIVITY.md" style="border-color:rgba(255,216,77,0.32);background:linear-gradient(145deg,rgba(16,22,44,0.92),rgba(8,12,26,0.80));">
+        <span class="tools-kicker" style="color:var(--neo-amber);">Everyday App</span>
+        <h2>Home Budget Planner</h2>
+        <p>Full monthly budget tracker — income, category limits, transaction log, savings goals, and spending donut chart. All stored locally in your browser.</p>
+        <p class="source-note">From daily memory: the first everyday-app task was Home Budget Planner. Keep it local, free, and usable without account setup.</p>
+        <div class="tool-actions" style="margin-top:18px;">
+          <a href="/budget-planner.html" class="tool-actions" style="display:inline-flex;text-decoration:none;">
+            <button type="button" style="background:linear-gradient(135deg,var(--neo-amber),var(--neo-mint));border:0;border-radius:10px;padding:11px 18px;color:#02030a;font-weight:900;cursor:pointer;font-size:14px;">Open Budget Planner &rarr;</button>
+          </a>
+        </div>
+      </article>
+
+      <article class="tool-card" data-md-source="OUTREACH-KIT.md; LAYOUTS.md">
+        <span class="tools-kicker">Money</span>
+        <h2>Budget Snapshot</h2>
+        <p class="source-note">Business use: fast runway math for SophiaMarket outreach, listing experiments, and no-spend planning before owner approval gates.</p>
+        <div class="tool-fields">
+          <label>Monthly income <input id="income" type="number" min="0" step="0.01" value="4200" /></label>
+          <label>Rent / mortgage <input id="housing" type="number" min="0" step="0.01" value="1400" /></label>
+          <label>Bills <input id="bills" type="number" min="0" step="0.01" value="620" /></label>
+          <label>Food / transport <input id="living" type="number" min="0" step="0.01" value="780" /></label>
+        </div>
+        <div class="tool-result" id="budgetResult"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="CURRENT-SOPHIA-PROJECT-ANCHOR.md; DAILY_MEMORY.md">
+        <span class="tools-kicker">Kitchen</span>
+        <h2>Grocery Planner</h2>
+        <p class="source-note">Everyday-tools direction: simple browser-local lists that solve real daily needs without login, APIs, or private data collection.</p>
+        <div class="tool-wide">
+          <label>Add item <input id="groceryInput" type="text" placeholder="rice, eggs, apples..." /></label>
+        </div>
+        <div class="tool-actions">
+          <button id="addGrocery" type="button">Add Item</button>
+          <button class="ghost" id="clearGroceries" type="button">Clear</button>
+        </div>
+        <div class="list-output" id="groceryList"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="CURRENT-SOPHIA-PROJECT-ANCHOR.md; DAILY_MEMORY.md">
+        <span class="tools-kicker">Kitchen ops</span>
+        <h2>Pantry Expiration Tracker</h2>
+        <p>Track food before it goes bad. Add the item, location, and date, then sort the kitchen by what needs attention first.</p>
+        <p class="source-note">Everyday app rule: practical local utility first. This supports the food-waste/date-label complaint lane without medical or safety claims.</p>
+        <div class="tool-fields">
+          <label>Item <input id="pantryItem" type="text" placeholder="milk, chicken, spinach..." /></label>
+          <label>Location <select id="pantryLocation">
+            <option>Fridge</option>
+            <option>Freezer</option>
+            <option>Pantry</option>
+            <option>Counter</option>
+          </select></label>
+          <label>Use by <input id="pantryDate" type="date" /></label>
+          <label>Quantity <input id="pantryQty" type="text" placeholder="1 gallon, 2 cans..." /></label>
+        </div>
+        <div class="tool-actions">
+          <button id="addPantry" type="button">Add Food</button>
+          <button class="ghost" id="clearExpiredPantry" type="button">Clear Expired</button>
+          <button class="ghost" id="clearPantry" type="button">Clear All</button>
+        </div>
+        <div class="list-output" id="pantryList"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="prd-4-Travel-concierge.md; TOMORROW-CHECKLIST.md">
+        <span class="tools-kicker">Travel</span>
+        <h2>Packing Checklist</h2>
+        <p class="source-note">Travel-concierge source: make trip prep clearer across business, family, and international travel before adding any account-dependent booking flow.</p>
+        <div class="tool-fields">
+          <label>Trip type <select id="tripType">
+            <option value="business">Business</option>
+            <option value="weekend">Weekend</option>
+            <option value="family">Family</option>
+            <option value="international">International</option>
+          </select></label>
+          <label>Days <input id="tripDays" type="number" min="1" step="1" value="3" /></label>
+        </div>
+        <div class="tool-actions"><button id="buildPacking" type="button">Build List</button></div>
+        <div class="list-output" id="packingList"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="OUTREACH-KIT.md; prd-5-Remote-services.md">
+        <span class="tools-kicker">World clock</span>
+        <h2>Time-Zone Helper</h2>
+        <p>Quick view using your browser clock. Useful before calls across the U.S., Europe, Asia, Africa, and the Gulf.</p>
+        <p class="source-note">SophiaMarket source: outreach spans 105 countries, so global calls and provider handoffs need local-time awareness.</p>
+        <div class="tool-actions"><button id="refreshTimes" type="button">Refresh Times</button></div>
+        <div class="list-output" id="timeZones"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="CURRENT-SOPHIA-PROJECT-ANCHOR.md; LAYOUTS.md">
+        <span class="tools-kicker">Calendar</span>
+        <h2>Date Calculator</h2>
+        <p class="source-note">Launch use: calculate rollout windows, follow-up dates, review gates, and 20-day ship-plan milestones from the MD specs.</p>
+        <div class="tool-fields">
+          <label>Start date <input id="startDate" type="date" /></label>
+          <label>Add days <input id="addDays" type="number" step="1" value="30" /></label>
+        </div>
+        <div class="tool-result" id="dateResult"></div>
+      </article>
+
+      <article class="tool-card" data-md-source="MYTHOS-PROACTIVITY.md; DAILY_MEMORY.md">
+        <span class="tools-kicker">Focus</span>
+        <h2>Quick Timer</h2>
+        <p class="source-note">Operating-system source: keep shipping in bounded work sprints, then verify and write durable memory instead of over-talking progress.</p>
+        <div class="tool-fields">
+          <label>Minutes <input id="timerMinutes" type="number" min="1" step="1" value="25" /></label>
+          <label>Mode <select id="timerMode"><option>Focus</option><option>Break</option><option>Workout</option></select></label>
+        </div>
+        <div class="tool-result" id="timerResult">25:00 ready</div>
+        <div class="tool-actions">
+          <button id="startTimer" type="button">Start</button>
+          <button class="ghost" id="resetTimer" type="button">Reset</button>
+        </div>
+      </article>
+
+      <article class="tool-card" data-md-source="CURRENT-SOPHIA-PROJECT-ANCHOR.md; MEMORY.md">
+        <span class="tools-kicker">Security</span>
+        <h2>Password Generator</h2>
+        <p class="source-note">Owner-gate source: generate strong local passwords, but never store secrets, API keys, payment data, or account recovery details in Sophia.</p>
+        <div class="tool-fields">
+          <label>Length <input id="pwLength" type="number" min="8" max="128" step="1" value="20" /></label>
+          <label style="align-items:start;gap:10px;">
+            Options
+            <span style="display:grid;gap:7px;">
+              <label style="flex-direction:row;align-items:center;gap:8px;color:rgba(222,244,255,0.8);font-size:13px;font-weight:600;"><input id="pwUpper" type="checkbox" checked /> Uppercase (A–Z)</label>
+              <label style="flex-direction:row;align-items:center;gap:8px;color:rgba(222,244,255,0.8);font-size:13px;font-weight:600;"><input id="pwLower" type="checkbox" checked /> Lowercase (a–z)</label>
+              <label style="flex-direction:row;align-items:center;gap:8px;color:rgba(222,244,255,0.8);font-size:13px;font-weight:600;"><input id="pwNumbers" type="checkbox" checked /> Numbers (0–9)</label>
+              <label style="flex-direction:row;align-items:center;gap:8px;color:rgba(222,244,255,0.8);font-size:13px;font-weight:600;"><input id="pwSymbols" type="checkbox" /> Symbols (!@#…)</label>
+            </span>
+          </label>
+        </div>
+        <div class="tool-result" id="pwResult" style="word-break:break-all;font-family:monospace;letter-spacing:0.04em;"></div>
+        <div class="tool-actions">
+          <button id="genPassword" type="button">Generate</button>
+          <button class="ghost" id="copyPassword" type="button">Copy</button>
+        </div>
+      </article>
+
+      <article class="tool-card full-span" data-md-source="DAILY_MEMORY.md; OUTREACH-KIT.md">
+        <span class="tools-kicker">Life admin</span>
+        <h2>Appointment Planner</h2>
+        <p>Keep track of calls, doctor visits, school dates, bills, and follow-ups on this device. No account required.</p>
+        <p class="source-note">Daily memory source: Appointment Planner was added for calls, school dates, bills, and follow-ups; outreach notes add prospect follow-up use.</p>
+        <div class="tool-fields">
+          <label>Appointment <input id="apptTitle" type="text" placeholder="Dentist, school meeting, client call..." /></label>
+          <label>Date <input id="apptDate" type="date" /></label>
+          <label>Time <input id="apptTime" type="time" /></label>
+          <label>Reminder note <input id="apptNote" type="text" placeholder="Bring paperwork, call ahead..." /></label>
+        </div>
+        <div class="tool-actions">
+          <button id="addAppointment" type="button">Add Appointment</button>
+          <button class="ghost" id="clearAppointments" type="button">Clear All</button>
+        </div>
+        <div class="list-output" id="appointmentList"></div>
+      </article>
+
+      <article class="tool-card full-span" data-md-source="DAILY_MEMORY.md; CURRENT-SOPHIA-PROJECT-ANCHOR.md">
+        <span class="tools-kicker">Home ops</span>
+        <h2>Family Chore Board</h2>
+        <p>Assign household tasks, track due dates, and keep a simple points score for kids, roommates, or your own routine. Saved locally in this browser.</p>
+        <p class="source-note">Daily memory source: built for household routines with localStorage and escaped user-entered content; keep family data on-device.</p>
+        <div class="tool-fields">
+          <label>Task <input id="choreTask" type="text" placeholder="Take out trash, wash dishes, homework desk..." /></label>
+          <label>Person <input id="chorePerson" type="text" placeholder="Ari, Dad, Mom, me..." /></label>
+          <label>Due date <input id="choreDue" type="date" /></label>
+          <label>Points <input id="chorePoints" type="number" min="0" step="1" value="5" /></label>
+        </div>
+        <div class="tool-actions">
+          <button id="addChore" type="button">Add Chore</button>
+          <button class="ghost" id="clearDoneChores" type="button">Clear Done</button>
+          <button class="ghost" id="clearChores" type="button">Clear All</button>
+        </div>
+        <div class="chore-score" id="choreScore"></div>
+        <div class="list-output" id="choreList"></div>
+      </article>
+
+      <article class="tool-card full-span" id="localIdeaGenerator" data-md-source="LAYOUTS.md; prds/*.md; DAILY_MEMORY.md">
+        <span class="tools-kicker">Everyday app factory</span>
+        <h2>Local Idea Generator</h2>
+        <p>Generate practical mini-app ideas Sophia can ship next. Works offline with local scoring and keeps a local shortlist in this browser. Use the prompt helper with Ollama if you want extra copy variants.</p>
+        <p class="source-note">App-factory source: seed ideas now include SophiaMarket, supplier finder, diaspora real estate, travel concierge, and local remote-services wedges from the Obsidian PRDs.</p>
+        <div class="tool-fields">
+          <label>Need area
+            <select id="ideaCategory">
+              <option value="all">All</option>
+              <option value="home">Home</option>
+              <option value="family">Family</option>
+              <option value="money">Money</option>
+              <option value="productivity">Productivity</option>
+              <option value="health">Health</option>
+              <option value="travel">Travel</option>
+              <option value="market">SophiaMarket</option>
+            </select>
+          </label>
+          <label>Build effort
+            <select id="ideaEffort">
+              <option value="all">Any</option>
+              <option value="micro">Micro (2-4 hours)</option>
+              <option value="small">Small (1-2 days)</option>
+              <option value="medium">Medium (3-5 days)</option>
+            </select>
+          </label>
+          <label class="full-span">Context (optional)
+            <input id="ideaContext" type="text" placeholder="single parent schedule, student budget, remote team..." />
+          </label>
+        </div>
+        <div class="tool-actions">
+          <button id="generateIdeas" type="button">Generate 3 Ideas</button>
+          <button class="ghost" id="copyIdeaPrompt" type="button">Copy Ollama Prompt</button>
+          <button class="ghost" id="clearIdeaShortlist" type="button">Clear Shortlist</button>
+        </div>
+        <div class="list-output" id="ideaResults"></div>
+        <p class="tools-note">Shortlisted ideas are saved only in this browser.</p>
+        <div class="list-output" id="ideaShortlist"></div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const pageOpenAt = Date.now();
+      const money = (value) => value.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+      const number = (id) => Number(document.getElementById(id).value) || 0;
+      const esc = (value) => String(value || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+      const OFFICE_KEY = 'sophia_office_status_board_v1';
+      const OFFICE_STATUS_OPTIONS = [
+        ['idle', 'Idle'],
+        ['building', 'Building'],
+        ['reviewing', 'Reviewing'],
+        ['paused', 'Paused'],
+        ['local', 'Local (Ollama)'],
+      ];
+      const DEFAULT_AGENTS = () => [
+        { id: 'codex', label: 'Codex', status: 'idle', note: '' },
+        { id: 'cursor', label: 'Cursor', status: 'building', note: '' },
+        { id: 'claude', label: 'Claude', status: 'paused', note: 'Spend gate' },
+        { id: 'ollama', label: 'Ollama', status: 'local', note: 'Free local review' },
+        { id: 'sophia', label: 'Sophia', status: 'idle', note: 'Mission + tools' },
+      ];
+      function officeStatusClass(st) {
+        return `office-dot--${st in { idle: 1, building: 1, reviewing: 1, paused: 1, local: 1 } ? st : 'idle'}`;
+      }
+      function loadOffice() {
+        try {
+          const raw = localStorage.getItem(OFFICE_KEY);
+          if (!raw) return null;
+          const data = JSON.parse(raw);
+          if (!data || !Array.isArray(data.agents)) return null;
+          const byId = new Map(data.agents.map((a) => [a.id, a]));
+          return DEFAULT_AGENTS().map((def) => {
+            const saved = byId.get(def.id);
+            if (!saved) return { ...def };
+            const st = saved.status;
+            const ok = ['idle', 'building', 'reviewing', 'paused', 'local'].includes(st) ? st : def.status;
+            return { ...def, status: ok, note: typeof saved.note === 'string' ? saved.note : def.note };
+          });
+        } catch {
+          return null;
+        }
+      }
+      function saveOffice(agents) {
+        localStorage.setItem(OFFICE_KEY, JSON.stringify({ v: 1, agents, savedAt: Date.now() }));
+      }
+      function renderOffice(agents) {
+        const el = document.getElementById('officeAgentList');
+        el.innerHTML = agents
+          .map(
+            (a) => `<div class="office-row" data-agent="${a.id}">
+            <div class="office-name"><span class="office-dot ${officeStatusClass(a.status)}" aria-hidden="true"></span>${a.label}</div>
+            <label class="visually-hidden" for="st-${a.id}">Status for ${a.label}</label>
+            <select id="st-${a.id}" class="office-status" data-agent="${a.id}">${OFFICE_STATUS_OPTIONS.map(
+            ([v, t]) => `<option value="${v}"${a.status === v ? ' selected' : ''}>${t}</option>`,
+          )}</select>
+            <input type="text" class="office-note" data-agent="${a.id}" placeholder="Note (e.g. current task)" value="${(a.note || '')
+              .replace(/&/g, '&amp;')
+              .replace(/"/g, '&quot;')
+              .replace(/</g, '&lt;')}" maxlength="120" />
+          </div>`,
+          )
+          .join('');
+        el.querySelectorAll('select.office-status').forEach((sel) => {
+          sel.addEventListener('change', () => {
+            const id = sel.dataset.agent;
+            const i = officeAgents.findIndex((x) => x.id === id);
+            if (i >= 0) {
+              officeAgents[i].status = sel.value;
+              saveOffice(officeAgents);
+              const row = el.querySelector(`.office-row[data-agent="${id}"] .office-dot`);
+              if (row) row.className = `office-dot ${officeStatusClass(officeAgents[i].status)}`;
+            }
+          });
+        });
+        el.querySelectorAll('input.office-note').forEach((input) => {
+          input.addEventListener('input', () => {
+            const id = input.dataset.agent;
+            const i = officeAgents.findIndex((x) => x.id === id);
+            if (i >= 0) {
+              officeAgents[i].note = input.value;
+              saveOffice(officeAgents);
+            }
+          });
+        });
+      }
+      function officePulse() {
+        const s = Math.floor((Date.now() - pageOpenAt) / 1000);
+        const m = Math.floor(s / 60);
+        const h = Math.floor(m / 60);
+        const session =
+          h > 0
+            ? `${h}h ${m % 60}m ${s % 60}s`
+            : m > 0
+              ? `${m}m ${s % 60}s`
+              : `${s}s`;
+        const line = new Intl.DateTimeFormat([], { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date());
+        document.getElementById('officePulse').textContent = `Local ${line} · This tab open ${session}`;
+      }
+      let officeAgents = loadOffice() || DEFAULT_AGENTS();
+      saveOffice(officeAgents);
+      renderOffice(officeAgents);
+      officePulse();
+      setInterval(officePulse, 1000);
+
+      function tip() {
+        const subtotal = number('billAmount') + number('extraFees');
+        const tipAmount = subtotal * (number('tipPercent') / 100);
+        const total = subtotal + tipAmount;
+        const people = Math.max(1, number('splitPeople'));
+        document.getElementById('tipResult').textContent = `Total ${money(total)} · Tip ${money(tipAmount)} · Each ${money(total / people)}`;
+      }
+
+      function convert() {
+        const value = number('unitValue');
+        const type = document.getElementById('unitType').value;
+        const map = {
+          lbkg: [value * 0.45359237, 'kg'],
+          kglb: [value / 0.45359237, 'lb'],
+          mift: [value * 1.609344, 'km'],
+          kmmi: [value / 1.609344, 'mi'],
+          fin: [(value - 32) * 5 / 9, 'C'],
+          cin: [(value * 9 / 5) + 32, 'F'],
+        };
+        const [out, unit] = map[type];
+        document.getElementById('unitResult').textContent = `${value} -> ${out.toFixed(2)} ${unit}`;
+      }
+
+      function budget() {
+        const income = number('income');
+        const spending = number('housing') + number('bills') + number('living');
+        const left = income - spending;
+        const rate = income ? Math.round((left / income) * 100) : 0;
+        document.getElementById('budgetResult').textContent = `${money(left)} left after basics · ${rate}% of income available`;
+      }
+
+      const groceryStore = 'sophia_everyday_grocery';
+      let groceries = load(groceryStore);
+      const groceryList = document.getElementById('groceryList');
+      function renderGroceries() {
+        groceryList.innerHTML = groceries.length
+          ? groceries.map((item) => `<div class="list-row"><span>${esc(item)}</span><button type="button" data-grocery="${esc(item)}">Remove</button></div>`).join('')
+          : '<p class="tools-note">No grocery items yet.</p>';
+        localStorage.setItem(groceryStore, JSON.stringify(groceries));
+      }
+
+      const pantryStore = 'sophia_everyday_pantry';
+      let pantry = load(pantryStore);
+      const pantryList = document.getElementById('pantryList');
+      function pantryFreshness(dateValue) {
+        if (!dateValue) return { label: 'No date', cls: 'fresh' };
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const due = new Date(`${dateValue}T00:00:00`);
+        const days = Math.ceil((due - today) / 86400000);
+        if (days < 0) return { label: `${Math.abs(days)}d expired`, cls: 'expired' };
+        if (days <= 3) return { label: days === 0 ? 'Today' : `${days}d left`, cls: 'soon' };
+        return { label: `${days}d left`, cls: 'fresh' };
+      }
+      function renderPantry() {
+        pantry.sort((a, b) => `${a.date || '9999-99-99'}`.localeCompare(`${b.date || '9999-99-99'}`));
+        pantryList.innerHTML = pantry.length
+          ? pantry.map((item, index) => {
+              const fresh = pantryFreshness(item.date);
+              const meta = [item.location, item.qty, item.date ? `use by ${item.date}` : 'no date'].filter(Boolean).map(esc).join(' · ');
+              return `<div class="list-row">
+                <span><strong>${esc(item.name || 'Food item')}</strong><br><small>${meta}</small></span>
+                <span style="display:flex;gap:8px;align-items:center;">
+                  <em class="freshness-pill freshness-pill--${fresh.cls}">${fresh.label}</em>
+                  <button type="button" data-pantry="${index}">Remove</button>
+                </span>
+              </div>`;
+            }).join('')
+          : '<p class="tools-note">No pantry items saved yet.</p>';
+        localStorage.setItem(pantryStore, JSON.stringify(pantry));
+      }
+
+      const appointmentStore = 'sophia_everyday_appointments';
+      let appointments = load(appointmentStore);
+      const appointmentList = document.getElementById('appointmentList');
+      function renderAppointments() {
+        appointments.sort((a, b) => `${a.date || ''}T${a.time || ''}`.localeCompare(`${b.date || ''}T${b.time || ''}`));
+        appointmentList.innerHTML = appointments.length
+          ? appointments.map((item, index) => {
+              const when = [item.date, item.time].filter(Boolean).join(' ');
+              const safeTitle = esc(item.title || 'Appointment');
+              const safeNote = esc(item.note || '');
+              return `<div class="list-row"><span><strong>${safeTitle}</strong><br><small>${when || 'No date set'}${safeNote ? ` · ${safeNote}` : ''}</small></span><button type="button" data-appt="${index}">Done</button></div>`;
+            }).join('')
+          : '<p class="tools-note">No appointments saved yet.</p>';
+        localStorage.setItem(appointmentStore, JSON.stringify(appointments));
+      }
+
+      const choreStore = 'sophia_everyday_chores';
+      let chores = load(choreStore);
+      const choreList = document.getElementById('choreList');
+      const choreScore = document.getElementById('choreScore');
+      function renderChores() {
+        chores.sort((a, b) => Number(a.done) - Number(b.done) || `${a.due || '9999-99-99'}`.localeCompare(`${b.due || '9999-99-99'}`));
+        const totals = chores.reduce((map, item) => {
+          const person = item.person || 'Unassigned';
+          const points = Number(item.points) || 0;
+          if (!map[person]) map[person] = { done: 0, open: 0 };
+          if (item.done) map[person].done += points;
+          else map[person].open += points;
+          return map;
+        }, {});
+        choreScore.innerHTML = Object.keys(totals).length
+          ? Object.entries(totals).map(([person, score]) => `<span>${esc(person)}: ${score.done} done · ${score.open} open</span>`).join('')
+          : '<span>No chores yet</span>';
+        choreList.innerHTML = chores.length
+          ? chores.map((item, index) => {
+              const person = item.person ? ` · ${esc(item.person)}` : '';
+              const due = item.due ? ` · due ${esc(item.due)}` : '';
+              const points = Number(item.points) || 0;
+              return `<div class="list-row chore-row${item.done ? ' is-done' : ''}">
+                <input type="checkbox" data-chore-toggle="${index}" ${item.done ? 'checked' : ''} aria-label="Mark ${esc(item.task || 'chore')} done" />
+                <span><strong>${esc(item.task || 'Chore')}</strong><br><small>${points} point${points === 1 ? '' : 's'}${person}${due}</small></span>
+                <button type="button" data-chore-remove="${index}">Remove</button>
+              </div>`;
+            }).join('')
+          : '<p class="tools-note">No chores assigned yet.</p>';
+        localStorage.setItem(choreStore, JSON.stringify(chores));
+      }
+
+      const IDEA_CATALOG = [
+        { id: 'market-featured-card', title: 'Featured Listing Preview Card', category: 'market', effort: 'small', hook: 'Show businesses exactly how a gold-border SophiaMarket listing will look.', build: 'Business inputs -> instant card preview -> copy-ready listing summary.', source: 'LAYOUTS.md' },
+        { id: 'country-category-seo', title: 'Country Category SEO Builder', category: 'market', effort: 'medium', hook: 'Turn country + category combinations into first-draft landing page copy.', build: 'Pick country and industry -> H1, intro, CTA, and no-listing empty state.', source: 'LAYOUTS.md' },
+        { id: 'supplier-response-tracker', title: 'Supplier Response Tracker', category: 'market', effort: 'small', hook: 'Track buyer/seller replies so international leads do not go cold.', build: 'Lead, country, category, status, next follow-up date, and notes.', source: 'prd-2-Supplier-finder.md' },
+        { id: 'diaspora-property-tour', title: 'Diaspora Property Tour Prep', category: 'market', effort: 'small', hook: 'Collect must-ask questions before a remote property walkthrough.', build: 'Country, property type, language needs, question checklist, and tour notes.', source: 'prd-3-Global-real-estate.md' },
+        { id: 'travel-business-match', title: 'Travel Business Match Card', category: 'travel', effort: 'small', hook: 'Connect travelers to local SophiaMarket businesses with translated notes.', build: 'Trip goal -> local service needs -> candidate business shortlist.', source: 'prd-4-Travel-concierge.md' },
+        { id: 'remote-provider-fit', title: 'Remote Provider Fit Sheet', category: 'market', effort: 'small', hook: 'Score service providers by country, credentials, language, and support fit.', build: 'Provider profile fields -> fit score -> next message checklist.', source: 'prd-5-Remote-services.md' },
+        { id: 'outreach-followup', title: 'Featured Listing Outreach Follow-Up', category: 'market', effort: 'micro', hook: 'Turn outreach replies into the next action without a CRM login.', build: 'Prospect, region, template used, reply state, next follow-up.', source: 'OUTREACH-KIT.md' },
+        { id: 'meal-spin', title: 'Meal Leftover Spinner', category: 'home', effort: 'micro', hook: 'Turn fridge leftovers into dinner options in seconds.', build: 'Input ingredients -> quick meal combos -> save favorites.' },
+        { id: 'bill-deadline', title: 'Bill Deadline Radar', category: 'money', effort: 'small', hook: 'Prevent late fees with a rolling due-date strip.', build: 'Track bills with due date + amount + reminder status.' },
+        { id: 'kid-reading', title: 'Reading Streak Buddy', category: 'family', effort: 'small', hook: 'Daily reading streaks with simple points for kids.', build: 'Add sessions, auto-streak logic, weekly score card.' },
+        { id: 'errand-route', title: 'Errand Route Planner', category: 'home', effort: 'medium', hook: 'Batch errands by area to cut travel time.', build: 'Enter stops, group by neighborhood, mark done list.' },
+        { id: 'meeting-prep', title: 'Meeting Prep Card', category: 'productivity', effort: 'micro', hook: 'One-screen meeting prep with goals and follow-up notes.', build: 'Agenda, must-decide items, and post-meeting actions.' },
+        { id: 'subscription-audit', title: 'Subscription Audit', category: 'money', effort: 'small', hook: 'Expose recurring subscriptions and renewal dates.', build: 'List subscriptions, monthly total, cancellation checklist.' },
+        { id: 'walking-goals', title: 'Walking Goal Splitter', category: 'health', effort: 'micro', hook: 'Break daily step goals into realistic checkpoints.', build: 'Goal input -> checkpoint schedule -> progress toggles.' },
+        { id: 'home-maint', title: 'Home Maintenance Pulse', category: 'home', effort: 'small', hook: 'Never miss filter changes, battery swaps, or clean cycles.', build: 'Task templates + due dates + completed history.' },
+        { id: 'trip-docs', title: 'Trip Document Pack', category: 'travel', effort: 'small', hook: 'Checklist for IDs, visas, confirmations, insurance.', build: 'Trip type templates and done-state tracker.' },
+        { id: 'school-bag', title: 'School Bag Reset', category: 'family', effort: 'micro', hook: 'Night-before checklist to reduce missed items.', build: 'Per-child checklist with weekday presets.' },
+        { id: 'focus-sprint', title: 'Focus Sprint Planner', category: 'productivity', effort: 'micro', hook: 'Auto-build focused work sprints from available time.', build: 'Available minutes -> sprint blocks + break prompts.' },
+        { id: 'pharmacy-log', title: 'Pharmacy Refill Log', category: 'health', effort: 'medium', hook: 'Track medication refill cadence and pickup windows.', build: 'Medication entries with refill-date projection and notes.' },
+      ];
+      const ideaShortlistStore = 'sophia_everyday_idea_shortlist_v1';
+      let ideaShortlist = load(ideaShortlistStore);
+      const ideaResults = document.getElementById('ideaResults');
+      const ideaShortlistEl = document.getElementById('ideaShortlist');
+      function ideaMatches(idea, category, effort, context) {
+        if (category !== 'all' && idea.category !== category) return false;
+        if (effort !== 'all' && idea.effort !== effort) return false;
+        if (!context) return true;
+        const text = `${idea.title} ${idea.hook} ${idea.build}`.toLowerCase();
+        return context.split(/\s+/).filter(Boolean).some((word) => text.includes(word));
+      }
+      function renderShortlist() {
+        ideaShortlistEl.innerHTML = ideaShortlist.length
+          ? ideaShortlist.map((idea, index) => `<div class="list-row"><span><strong>${esc(idea.title)}</strong><br><small>${esc(idea.hook)}</small></span><button type="button" data-idea-short-remove="${index}">Remove</button></div>`).join('')
+          : '<p class="tools-note">No shortlisted ideas yet.</p>';
+        localStorage.setItem(ideaShortlistStore, JSON.stringify(ideaShortlist));
+      }
+      function buildIdeaPrompt(category, effort, context, picks) {
+        const lines = [
+          'You are a practical product researcher for SophiaTV.',
+          'Use the Sophia Brain MD direction: local-first, no paid APIs by default, no copied IP, no fake claims, and practical utility tied to SophiaMarket, global translation, family admin, or everyday workflows.',
+          'Propose 5 additional everyday mini-app ideas that are realistic to build with vanilla HTML/CSS/JS in under one week.',
+          `Priority category: ${category}.`,
+          `Target effort: ${effort}.`,
+          `Audience context: ${context || 'general households and small teams'}.`,
+          'For each idea return: name, source note, user problem, core flow, and MVP build steps.',
+          'Avoid medical/legal claims and avoid requiring paid APIs.',
+        ];
+        if (picks.length) {
+          lines.push(`Use these seed ideas as inspiration (do not repeat names): ${picks.map((p) => p.title).join(', ')}.`);
+        }
+        return lines.join('\n');
+      }
+      function generateIdeaSet() {
+        const category = document.getElementById('ideaCategory').value;
+        const effort = document.getElementById('ideaEffort').value;
+        const context = document.getElementById('ideaContext').value.trim().toLowerCase();
+        let pool = IDEA_CATALOG.filter((idea) => ideaMatches(idea, category, effort, context));
+        if (!pool.length) pool = IDEA_CATALOG.filter((idea) => ideaMatches(idea, category, 'all', context));
+        if (!pool.length) pool = [...IDEA_CATALOG];
+        const picks = [...pool].sort(() => Math.random() - 0.5).slice(0, 3);
+        ideaResults.innerHTML = picks
+          .map((idea) => `<div class="list-row"><span><strong>${esc(idea.title)}</strong><br><small>${esc(idea.hook)} · MVP: ${esc(idea.build)}${idea.source ? ` · Source: ${esc(idea.source)}` : ''}</small></span><button type="button" data-idea-save="${esc(idea.id)}">Shortlist</button></div>`)
+          .join('');
+        ideaResults.dataset.prompt = buildIdeaPrompt(category, effort, context, picks);
+      }
+
+      function packing() {
+        const days = Math.max(1, number('tripDays'));
+        const type = document.getElementById('tripType').value;
+        const base = ['ID/wallet', 'phone charger', 'toiletries', `${days} outfit${days > 1 ? 's' : ''}`, 'sleepwear', 'medications'];
+        const extras = {
+          business: ['laptop', 'presentation notes', 'dress shoes'],
+          weekend: ['casual shoes', 'snacks', 'light jacket'],
+          family: ['kid supplies', 'backup clothes', 'first-aid basics'],
+          international: ['passport', 'adapter', 'travel insurance copy'],
+        };
+        document.getElementById('packingList').innerHTML = [...base, ...extras[type]]
+          .map((item) => `<div class="list-row"><span>${item}</span><span>✓</span></div>`).join('');
+      }
+
+      function times() {
+        const zones = [
+          ['New York', 'America/New_York'],
+          ['Los Angeles', 'America/Los_Angeles'],
+          ['London', 'Europe/London'],
+          ['Lagos', 'Africa/Lagos'],
+          ['Nairobi', 'Africa/Nairobi'],
+          ['Paris', 'Europe/Paris'],
+          ['Dubai', 'Asia/Dubai'],
+          ['Mumbai', 'Asia/Kolkata'],
+          ['Shanghai', 'Asia/Shanghai'],
+          ['Tokyo', 'Asia/Tokyo'],
+          ['Sao Paulo', 'America/Sao_Paulo'],
+        ];
+        document.getElementById('timeZones').innerHTML = zones.map(([label, zone]) => {
+          const time = new Intl.DateTimeFormat([], { hour: '2-digit', minute: '2-digit', timeZone: zone }).format(new Date());
+          return `<div class="list-row"><span>${label}</span><strong>${time}</strong></div>`;
+        }).join('');
+      }
+
+      function dateCalc() {
+        const input = document.getElementById('startDate');
+        const start = input.value ? new Date(`${input.value}T00:00:00`) : new Date();
+        const days = Math.trunc(number('addDays'));
+        const end = new Date(start);
+        end.setDate(start.getDate() + days);
+        document.getElementById('dateResult').textContent = `${days} day${Math.abs(days) === 1 ? '' : 's'} from ${start.toLocaleDateString()} is ${end.toLocaleDateString()}`;
+      }
+
+      let timerId = null;
+      let timerRemaining = 0;
+      function renderTimer() {
+        const minutes = Math.floor(timerRemaining / 60).toString().padStart(2, '0');
+        const seconds = Math.floor(timerRemaining % 60).toString().padStart(2, '0');
+        document.getElementById('timerResult').textContent = `${minutes}:${seconds} ${document.getElementById('timerMode').value.toLowerCase()}`;
+      }
+      function resetTimer() {
+        clearInterval(timerId);
+        timerId = null;
+        timerRemaining = Math.max(1, number('timerMinutes')) * 60;
+        renderTimer();
+      }
+      function startTimer() {
+        if (timerId) return;
+        if (!timerRemaining) resetTimer();
+        timerId = setInterval(() => {
+          timerRemaining = Math.max(0, timerRemaining - 1);
+          renderTimer();
+          if (timerRemaining === 0) {
+            clearInterval(timerId);
+            timerId = null;
+            if (window.showSophiaToast) showSophiaToast('Timer complete.', 'success');
+          }
+        }, 1000);
+      }
+
+      function load(key) {
+        try { return JSON.parse(localStorage.getItem(key) || '[]'); }
+        catch { return []; }
+      }
+
+      ['billAmount', 'tipPercent', 'splitPeople', 'extraFees'].forEach((id) => document.getElementById(id).addEventListener('input', tip));
+      ['unitValue', 'unitType'].forEach((id) => document.getElementById(id).addEventListener('input', convert));
+      ['income', 'housing', 'bills', 'living'].forEach((id) => document.getElementById(id).addEventListener('input', budget));
+      document.getElementById('addGrocery').addEventListener('click', () => {
+        const input = document.getElementById('groceryInput');
+        const item = input.value.trim();
+        if (!item) return;
+        groceries.push(item);
+        input.value = '';
+        renderGroceries();
+      });
+      document.getElementById('clearGroceries').addEventListener('click', () => {
+        groceries = [];
+        renderGroceries();
+      });
+      groceryList.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-grocery]');
+        if (!button) return;
+        groceries = groceries.filter((item) => esc(item) !== button.dataset.grocery);
+        renderGroceries();
+      });
+      document.getElementById('addPantry').addEventListener('click', () => {
+        const name = document.getElementById('pantryItem').value.trim();
+        const location = document.getElementById('pantryLocation').value;
+        const date = document.getElementById('pantryDate').value;
+        const qty = document.getElementById('pantryQty').value.trim();
+        if (!name && !date && !qty) return;
+        pantry.push({ name: name || 'Food item', location, date, qty, createdAt: Date.now() });
+        ['pantryItem', 'pantryDate', 'pantryQty'].forEach((id) => { document.getElementById(id).value = ''; });
+        document.getElementById('pantryLocation').value = 'Fridge';
+        renderPantry();
+      });
+      document.getElementById('clearExpiredPantry').addEventListener('click', () => {
+        pantry = pantry.filter((item) => pantryFreshness(item.date).cls !== 'expired');
+        renderPantry();
+      });
+      document.getElementById('clearPantry').addEventListener('click', () => {
+        pantry = [];
+        renderPantry();
+      });
+      pantryList.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-pantry]');
+        if (!button) return;
+        pantry.splice(Number(button.dataset.pantry), 1);
+        renderPantry();
+      });
+      document.getElementById('addAppointment').addEventListener('click', () => {
+        const title = document.getElementById('apptTitle').value.trim();
+        const date = document.getElementById('apptDate').value;
+        const time = document.getElementById('apptTime').value;
+        const note = document.getElementById('apptNote').value.trim();
+        if (!title && !date && !time && !note) return;
+        appointments.push({ title: title || 'Appointment', date, time, note, createdAt: Date.now() });
+        ['apptTitle', 'apptDate', 'apptTime', 'apptNote'].forEach((id) => { document.getElementById(id).value = ''; });
+        renderAppointments();
+      });
+      document.getElementById('clearAppointments').addEventListener('click', () => {
+        appointments = [];
+        renderAppointments();
+      });
+      appointmentList.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-appt]');
+        if (!button) return;
+        appointments.splice(Number(button.dataset.appt), 1);
+        renderAppointments();
+      });
+      document.getElementById('addChore').addEventListener('click', () => {
+        const task = document.getElementById('choreTask').value.trim();
+        const person = document.getElementById('chorePerson').value.trim();
+        const due = document.getElementById('choreDue').value;
+        const points = Math.max(0, Math.trunc(number('chorePoints') || 0));
+        if (!task && !person && !due) return;
+        chores.push({ task: task || 'Chore', person, due, points, done: false, createdAt: Date.now() });
+        ['choreTask', 'chorePerson', 'choreDue'].forEach((id) => { document.getElementById(id).value = ''; });
+        document.getElementById('chorePoints').value = 5;
+        renderChores();
+      });
+      document.getElementById('clearDoneChores').addEventListener('click', () => {
+        chores = chores.filter((item) => !item.done);
+        renderChores();
+      });
+      document.getElementById('clearChores').addEventListener('click', () => {
+        chores = [];
+        renderChores();
+      });
+      choreList.addEventListener('click', (event) => {
+        const toggle = event.target.closest('input[data-chore-toggle]');
+        if (toggle) {
+          const index = Number(toggle.dataset.choreToggle);
+          if (chores[index]) chores[index].done = toggle.checked;
+          renderChores();
+          return;
+        }
+        const remove = event.target.closest('button[data-chore-remove]');
+        if (!remove) return;
+        chores.splice(Number(remove.dataset.choreRemove), 1);
+        renderChores();
+      });
+      document.getElementById('buildPacking').addEventListener('click', packing);
+      document.getElementById('refreshTimes').addEventListener('click', times);
+      ['startDate', 'addDays'].forEach((id) => document.getElementById(id).addEventListener('input', dateCalc));
+      document.getElementById('timerMinutes').addEventListener('input', resetTimer);
+      document.getElementById('timerMode').addEventListener('input', resetTimer);
+      document.getElementById('startTimer').addEventListener('click', startTimer);
+      document.getElementById('resetTimer').addEventListener('click', resetTimer);
+      document.getElementById('generateIdeas').addEventListener('click', generateIdeaSet);
+      document.getElementById('copyIdeaPrompt').addEventListener('click', () => {
+        const prompt = ideaResults.dataset.prompt || buildIdeaPrompt('all', 'all', '', []);
+        navigator.clipboard.writeText(prompt).then(() => {
+          if (window.showSophiaToast) showSophiaToast('Ollama prompt copied.', 'success');
+        });
+      });
+      document.getElementById('clearIdeaShortlist').addEventListener('click', () => {
+        ideaShortlist = [];
+        renderShortlist();
+      });
+      ideaResults.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-idea-save]');
+        if (!button) return;
+        const pick = IDEA_CATALOG.find((idea) => idea.id === button.dataset.ideaSave);
+        if (!pick) return;
+        if (!ideaShortlist.some((item) => item.id === pick.id)) {
+          ideaShortlist.unshift(pick);
+          if (ideaShortlist.length > 12) ideaShortlist = ideaShortlist.slice(0, 12);
+          renderShortlist();
+          if (window.showSophiaToast) showSophiaToast('Idea added to shortlist.', 'success');
+        }
+      });
+      ideaShortlistEl.addEventListener('click', (event) => {
+        const button = event.target.closest('button[data-idea-short-remove]');
+        if (!button) return;
+        ideaShortlist.splice(Number(button.dataset.ideaShortRemove), 1);
+        renderShortlist();
+      });
+
+      function generatePassword() {
+        const len = Math.min(128, Math.max(8, number('pwLength') || 20));
+        const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lower = 'abcdefghijklmnopqrstuvwxyz';
+        const digits = '0123456789';
+        const symbols = '!@#$%^&*()-_=+[]{}|;:,.<>?';
+        let charset = '';
+        const required = [];
+        if (document.getElementById('pwUpper').checked) { charset += upper; required.push(upper); }
+        if (document.getElementById('pwLower').checked) { charset += lower; required.push(lower); }
+        if (document.getElementById('pwNumbers').checked) { charset += digits; required.push(digits); }
+        if (document.getElementById('pwSymbols').checked) { charset += symbols; required.push(symbols); }
+        if (!charset) { document.getElementById('pwResult').textContent = 'Pick at least one character set.'; return; }
+        const arr = new Uint32Array(len + required.length);
+        crypto.getRandomValues(arr);
+        let pwd = required.map((set, i) => set[arr[i] % set.length]);
+        for (let i = required.length; i < len + required.length; i++) {
+          pwd.push(charset[arr[i] % charset.length]);
+        }
+        for (let i = pwd.length - 1; i > 0; i--) {
+          const j = arr[i % arr.length] % (i + 1);
+          [pwd[i], pwd[j]] = [pwd[j], pwd[i]];
+        }
+        document.getElementById('pwResult').textContent = pwd.slice(0, len).join('');
+      }
+
+      document.getElementById('genPassword').addEventListener('click', generatePassword);
+      document.getElementById('copyPassword').addEventListener('click', () => {
+        const pwd = document.getElementById('pwResult').textContent;
+        if (!pwd || pwd.includes('Pick')) return;
+        navigator.clipboard.writeText(pwd).then(() => {
+          if (window.showSophiaToast) showSophiaToast('Password copied.', 'success');
+        });
+      });
+
+      tip();
+      convert();
+      budget();
+      renderGroceries();
+      renderPantry();
+      renderAppointments();
+      renderChores();
+      generateIdeaSet();
+      renderShortlist();
+      packing();
+      times();
+      document.getElementById('startDate').valueAsDate = new Date();
+      dateCalc();
+      resetTimer();
+      generatePassword();
+    })();
+  </script>
+  <script src="future.js" defer></script>
+</body>
+</html>

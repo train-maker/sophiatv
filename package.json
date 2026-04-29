@@ -1,15 +1,31 @@
 {
   "name": "sophiatv",
   "version": "1.0.0",
-  "description": "SophiaTV + SophiaMarket — global business directory across 105 countries",
+  "description": "Sophia — global market, translation, and everyday tool platform",
   "type": "module",
   "private": true,
   "scripts": {
     "seo": "node scripts/generate-seo-pages.cjs && node scripts/generate-sitemap.cjs",
-    "listings": "node scripts/generate-listings.py"
+    "listings": "node scripts/generate-listings.py",
+    "smoke": "node scripts/smoke-test.cjs && node scripts/smoke-routes.cjs",
+    "smoke:links": "node scripts/smoke-test.cjs",
+    "smoke:routes": "node scripts/smoke-routes.cjs",
+    "audit:functions": "node scripts/full-site-function-audit.cjs",
+    "check:theme": "node scripts/verify-theme.cjs",
+    "audit:claude": "bash scripts/claude-sophia-review.sh",
+    "audit:ollama": "bash scripts/ollama-sophia-critique.sh",
+    "open:cursor": "bash scripts/cursor-sophia-open.sh",
+    "verify:tools-md": "node scripts/verify-everyday-tools-md-sources.cjs",
+    "verify:live": "node scripts/verify-live-sophia.cjs",
+    "audit:visual": "node scripts/visual-audit.cjs",
+    "audit:playwright": "node scripts/playwright-sophia-audit.cjs",
+    "audit:lighthouse": "npx lighthouse http://127.0.0.1:4173/ --output=json --output-path=test-results/lighthouse-home.json --chrome-flags=\"--headless\"",
+    "check": "bash plugins/sophia-operator/scripts/sophia-check.sh",
+    "sophia": "node scripts/sophia-cli.cjs",
+    "memory": "node scripts/sophia-memory.cjs",
+    "office-watch": "node scripts/paperclip-office-watch.cjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.32.1",
     "stripe": "^17.4.0"
   }
 }

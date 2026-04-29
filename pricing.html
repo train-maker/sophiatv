@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing — SophiaTV</title>
-  <meta name="description" content="Choose your SophiaTV plan. Free, Fan Pass, Creator Basic, Creator Pro, or Founder Tier." />
+  <meta name="description" content="Choose your Sophia plan for marketplace access, translation workflows, creator publishing, and guided business pages." />
+  <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
@@ -15,31 +18,64 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <div class="logo-mark">
-          <div class="logo-ring"></div>
-          <span class="logo-play">&#9654;</span>
-        </div>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
       <div class="nav-links">
-        <a href="/#live" class="nav-link">Live</a>
-        <a href="/#feed" class="nav-link">Feed</a>
-        <a href="/#creators" class="nav-link">Creators</a>
-        <a href="/#sessions" class="nav-link">Sessions</a>
-        <a href="pricing" class="nav-link" style="color:var(--gold)">Pricing</a>
+        <a href="/#live" class="nav-link">Signals</a>
+        <a href="/#feed" class="nav-link">Library</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/#creators" class="nav-link">Builders</a>
+        <a href="/#sessions" class="nav-link">Access</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/pricing.html" class="nav-link" style="color:var(--gold)">Pricing</a>
       </div>
       <div class="nav-right">
-        <a href="/" class="btn-gold">Start Watching</a>
+        <a href="/market-submit.html" class="btn-gold">Start Listing</a>
       </div>
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
   <!-- PRICING HERO -->
   <section class="pricing-hero">
     <div class="pricing-hero-inner">
-      <div class="pricing-pill">Simple, Transparent Pricing</div>
-      <h1 class="pricing-title">Choose Your <span class="gold">SophiaTV</span> Plan</h1>
-      <p class="pricing-subtitle">From free watchers to full AI-managed creator pages. No hidden fees, cancel anytime.</p>
+      <div class="pricing-pill">Launch Offer: Free First 30 Days</div>
+      <h1 class="pricing-title" data-text="Choose Your Sophia Access">Choose Your <span class="gold">Sophia</span> Access</h1>
+      <p class="pricing-subtitle">Every access tier begins with the free first 30 days so the launch can prove value before billing. Sophia is priced as a global operating floor: directory presence, translation workflows, market proof, and trusted human access.</p>
+    </div>
+  </section>
+
+  <!-- VALUE ARCHITECTURE -->
+  <section class="pricing-value-architecture" aria-labelledby="pricingValueTitle">
+    <div class="pricing-value-inner">
+      <div class="pricing-value-copy">
+        <span class="sv-kicker">Commercial Architecture</span>
+        <h2 id="pricingValueTitle">The product is designed to compound.</h2>
+        <p>Pricing is not the business model by itself. The larger value comes from becoming the repeated path for people who need to be found, understood, trusted, and contacted across countries.</p>
+      </div>
+      <div class="pricing-value-grid" aria-label="Sophia value architecture">
+        <article>
+          <span>DIR</span>
+          <strong>Directory Gravity</strong>
+          <p>Country, category, and listing pages create durable discovery surfaces instead of one-time campaign traffic.</p>
+        </article>
+        <article>
+          <span>LANG</span>
+          <strong>Language Access</strong>
+          <p>Translation workflows make every plan more useful as more countries and operators join the floor.</p>
+        </article>
+        <article>
+          <span>TRUST</span>
+          <strong>Trust Workflow</strong>
+          <p>Profiles, sessions, proof libraries, and feedback routes lower the risk of cross-border conversation.</p>
+        </article>
+        <article>
+          <span>ANCHOR</span>
+          <strong>Anchor Seats</strong>
+          <p>High-signal operators can become visible country and category anchors without inventing their own platform.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -49,113 +85,120 @@
 
       <!-- FREE -->
       <div class="pricing-card">
-        <div class="pricing-tier-name">Free</div>
+        <div class="pricing-tier-name">Observer</div>
         <div class="pricing-price-row">
           <span class="pricing-amount">$0</span>
           <span class="pricing-period">/month</span>
         </div>
-        <div class="pricing-desc">Everything you need to start watching on SophiaTV.</div>
-        <a href="/" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Get Started Free</a>
+        <div class="pricing-desc">Public access for exploring Sophia's global directory and proof library.</div>
+        <a href="/" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Explore Sophia</a>
         <ul class="pricing-features">
-          <li class="feat-yes">Watch all live streams</li>
-          <li class="feat-yes">Access full video feed</li>
-          <li class="feat-yes">Follow creators</li>
-          <li class="feat-yes">10 AI messages/day</li>
-          <li class="feat-yes">Standard stream quality</li>
+          <li class="feat-yes">Browse global signals</li>
+          <li class="feat-yes">Access public directory feed</li>
+          <li class="feat-yes">Follow builder profiles</li>
+          <li class="feat-yes">Local Sophia guide</li>
+          <li class="feat-yes">Standard media quality</li>
           <li class="feat-no">Ad-free experience</li>
-          <li class="feat-no">Private session booking</li>
-          <li class="feat-no">Upload videos</li>
-          <li class="feat-no">Live streaming</li>
-          <li class="feat-no">AI page management</li>
+          <li class="feat-no">Private access booking</li>
+          <li class="feat-no">Publish media</li>
+          <li class="feat-no">Creator publishing</li>
+          <li class="feat-no">Managed page setup</li>
         </ul>
       </div>
 
-      <!-- FAN PASS -->
+      <!-- MEMBER PASS -->
       <div class="pricing-card">
-        <div class="pricing-tier-name">Fan Pass</div>
+        <div class="pricing-tier-name">Member Pass</div>
+        <div class="launch-price-badge">Free first 30 days</div>
         <div class="pricing-price-row">
           <span class="pricing-amount">$4.99</span>
           <span class="pricing-period">/month</span>
         </div>
-        <div class="pricing-desc">The best way to support your favorite creators, ad-free.</div>
-        <a href="https://buy.stripe.com/fZu3cwebefq06pX1oxds40b" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0" target="_blank">Subscribe — $4.99/mo</a>
+        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
+        <div class="pricing-desc">A clean member layer for people who want Sophia without noise.</div>
+        <a href="/signup.html?plan=fan" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
         <ul class="pricing-features">
           <li class="feat-yes">Everything in Free</li>
           <li class="feat-yes">Ad-free experience</li>
-          <li class="feat-yes">Unlimited AI chat</li>
+          <li class="feat-yes">Unlimited local guide access</li>
           <li class="feat-yes">Supporter badge on profile</li>
-          <li class="feat-yes">HD stream quality</li>
-          <li class="feat-no">Private session booking</li>
-          <li class="feat-no">Upload videos</li>
-          <li class="feat-no">Live streaming</li>
-          <li class="feat-no">AI page management</li>
+          <li class="feat-yes">HD media quality</li>
+          <li class="feat-no">Private access booking</li>
+          <li class="feat-no">Publish media</li>
+          <li class="feat-no">Creator publishing</li>
+          <li class="feat-no">Managed page setup</li>
         </ul>
       </div>
 
-      <!-- CREATOR BASIC -->
+      <!-- BUILDER BASIC -->
       <div class="pricing-card">
-        <div class="pricing-tier-name">Creator Basic</div>
+        <div class="pricing-tier-name">Builder Basic</div>
+        <div class="launch-price-badge">Free first 30 days</div>
         <div class="pricing-price-row">
           <span class="pricing-amount">$9.99</span>
           <span class="pricing-period">/month</span>
         </div>
-        <div class="pricing-desc">Start publishing your content and grow your audience.</div>
-        <a href="https://buy.stripe.com/cNi14o1os6TudSpaZ7ds40c" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0" target="_blank">Subscribe — $9.99/mo</a>
+        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
+        <div class="pricing-desc">Start building a public presence with guided setup and publishing tools.</div>
+        <a href="/signup.html?plan=creator_basic" class="btn-outline" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
         <ul class="pricing-features">
           <li class="feat-yes">Everything in Fan Pass</li>
-          <li class="feat-yes">Upload videos (unlimited)</li>
+          <li class="feat-yes">Publish media (unlimited)</li>
           <li class="feat-yes">Creator dashboard</li>
-          <li class="feat-yes">Basic AI assistant</li>
+          <li class="feat-yes">Guided creator setup</li>
           <li class="feat-yes">Channel analytics</li>
           <li class="feat-yes">Subscriber management</li>
-          <li class="feat-no">Live streaming</li>
+          <li class="feat-no">Creator publishing events</li>
           <li class="feat-no">Private sessions</li>
-          <li class="feat-no">Full AI suite</li>
-          <li class="feat-no">AI page management</li>
+          <li class="feat-no">Managed page setup</li>
         </ul>
       </div>
 
-      <!-- CREATOR PRO — MOST POPULAR -->
+      <!-- OPERATOR PRO — MOST POPULAR -->
       <div class="pricing-card pricing-card-popular">
-        <div class="pricing-popular-badge">Most Popular</div>
-        <div class="pricing-tier-name">Creator Pro</div>
+        <div class="pricing-popular-badge">Operator</div>
+        <div class="pricing-tier-name">Operator Pro</div>
+        <div class="launch-price-badge">Free first 30 days</div>
         <div class="pricing-price-row">
           <span class="pricing-amount">$19.99</span>
           <span class="pricing-period">/month</span>
         </div>
-        <div class="pricing-desc">Everything a serious creator needs to go live and scale.</div>
-        <a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0" target="_blank">Subscribe — $19.99/mo</a>
+        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
+        <div class="pricing-desc">For serious operators who need publishing, translation, sessions, and workflow depth.</div>
+        <a href="/signup.html?plan=creator_pro" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0">Start Free 30-Day Trial</a>
         <ul class="pricing-features">
           <li class="feat-yes">Everything in Creator Basic</li>
-          <li class="feat-yes">Live streaming</li>
-          <li class="feat-yes">Private session booking</li>
-          <li class="feat-yes">Full AI assistant suite</li>
+          <li class="feat-yes">Creator publishing events</li>
+          <li class="feat-yes">Private access booking</li>
+          <li class="feat-yes">Full guided workflow suite</li>
           <li class="feat-yes">Multi-language translation</li>
           <li class="feat-yes">Priority support</li>
-          <li class="feat-yes">Custom creator badge</li>
+          <li class="feat-yes">Custom builder badge</li>
           <li class="feat-yes">Revenue sharing</li>
-          <li class="feat-no">AI page management</li>
+          <li class="feat-no">Managed page setup</li>
           <li class="feat-no">Founders badge</li>
         </ul>
       </div>
 
       <!-- FOUNDER TIER -->
       <div class="pricing-card pricing-card-founder">
-        <div class="pricing-founder-badge">⭐ Founder</div>
-        <div class="pricing-tier-name" style="color:var(--gold)">Founder Tier</div>
+        <div class="pricing-founder-badge">Founder</div>
+        <div class="pricing-tier-name" style="color:var(--gold)">Founder Seat</div>
+        <div class="launch-price-badge">Free first 30 days</div>
         <div class="pricing-price-row">
           <span class="pricing-amount" style="color:var(--gold)">$49.99</span>
           <span class="pricing-period">/month</span>
         </div>
-        <div class="pricing-desc">AI fully manages your page. You create, AI does the rest.</div>
-        <a href="https://buy.stripe.com/5kQ9AUebe1zacOl9V3ds40e" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0;box-shadow:0 0 24px rgba(201,168,76,0.4)" target="_blank">Subscribe — $49.99/mo</a>
+        <div class="launch-price-note">Launch members pay $0 during the first 30 days. Normal billing starts after the trial unless cancelled.</div>
+        <div class="pricing-desc">Managed setup for founders who want Sophia built around their page, workflow, and market signal.</div>
+        <a href="/signup.html?plan=founder" class="btn-gold" style="width:100%;text-align:center;margin:20px 0 24px;display:block;padding:12px 0;box-shadow:0 0 24px rgba(201,168,76,0.4)">Start Free 30-Day Trial</a>
         <ul class="pricing-features">
           <li class="feat-yes">Everything in Creator Pro</li>
-          <li class="feat-yes">AI manages your full page</li>
-          <li class="feat-yes">AI writes descriptions &amp; tags</li>
-          <li class="feat-yes">AI schedules &amp; promotes content</li>
-          <li class="feat-yes">AI replies to comments</li>
-          <li class="feat-yes">Founders badge (exclusive)</li>
+          <li class="feat-yes">Managed page setup</li>
+          <li class="feat-yes">Descriptions &amp; tags prepared</li>
+          <li class="feat-yes">Publishing checklist support</li>
+          <li class="feat-yes">Comment reply templates</li>
+          <li class="feat-yes">Founders badge (limited)</li>
           <li class="feat-yes">Priority 1-on-1 support</li>
           <li class="feat-yes">Early access to all features</li>
           <li class="feat-yes">Founders Discord channel</li>
@@ -175,39 +218,47 @@
           <thead>
             <tr>
               <th>Feature</th>
-              <th>Free</th>
-              <th>Fan Pass</th>
-              <th>Creator Basic</th>
-              <th class="col-popular">Creator Pro</th>
-              <th class="col-founder">Founder</th>
+              <th>Observer</th>
+              <th>Member Pass</th>
+              <th>Builder Basic</th>
+              <th class="col-popular">Operator Pro</th>
+              <th class="col-founder">Founder Seat</th>
             </tr>
           </thead>
           <tbody>
             <tr><td class="feature-group" colspan="6">Viewing</td></tr>
-            <tr><td>Watch live streams</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Video feed access</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Ad-free</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-            <tr><td>HD / 4K quality</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Browse global signals</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Video feed access</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Ad-free</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>HD / 4K quality</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
 
-            <tr><td class="feature-group" colspan="6">AI Assistant</td></tr>
-            <tr><td>AI messages/day</td><td>10</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
-            <tr><td>Creator AI tools</td><td>—</td><td>—</td><td>Basic</td><td>Full suite</td><td>Full + Auto</td></tr>
-            <tr><td>AI page management</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✅</td></tr>
+            <tr><td class="feature-group" colspan="6">Guided Workflows</td></tr>
+            <tr><td>Local Sophia guide</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Builder setup tools</td><td>—</td><td>—</td><td>Basic</td><td>Full suite</td><td>Full + managed</td></tr>
+            <tr><td>Managed page setup</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
 
             <tr><td class="feature-group" colspan="6">Creating</td></tr>
-            <tr><td>Upload videos</td><td>—</td><td>—</td><td>✅</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Live streaming</td><td>—</td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Private sessions</td><td>—</td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
-            <tr><td>50+ language translation</td><td>—</td><td>—</td><td>—</td><td>✅</td><td>✅</td></tr>
+            <tr><td>Publish media</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Creator publishing events</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Private sessions</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>50+ language translation</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
 
             <tr><td class="feature-group" colspan="6">Perks</td></tr>
-            <tr><td>Supporter badge</td><td>—</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-            <tr><td>Founders badge</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✅</td></tr>
-            <tr><td>Priority support</td><td>—</td><td>—</td><td>—</td><td>✅</td><td>✅ (1-on-1)</td></tr>
-            <tr><td>Price lock guarantee</td><td>—</td><td>—</td><td>—</td><td>—</td><td>✅ Lifetime</td></tr>
+            <tr><td>Supporter badge</td><td>Not included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Founders badge</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
+            <tr><td>Priority support</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>1-on-1</td></tr>
+            <tr><td>Price lock guarantee</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Lifetime</td></tr>
 
             <tr class="compare-price-row">
-              <td><strong>Monthly Price</strong></td>
+              <td><strong>Launch Trial: First 30 Days</strong></td>
+              <td><strong>$0</strong></td>
+              <td><strong>$0</strong></td>
+              <td><strong>$0</strong></td>
+              <td class="col-popular"><strong>$0</strong></td>
+              <td class="col-founder"><strong style="color:var(--gold)">$0</strong></td>
+            </tr>
+            <tr class="compare-price-row">
+              <td><strong>Normal Monthly Price</strong></td>
               <td><strong>$0</strong></td>
               <td><strong>$4.99</strong></td>
               <td><strong>$9.99</strong></td>
@@ -216,15 +267,27 @@
             </tr>
             <tr>
               <td></td>
-              <td><a href="/" class="btn-outline-sm">Free</a></td>
-              <td><a href="https://buy.stripe.com/fZu3cwebefq06pX1oxds40b" class="btn-outline-sm" target="_blank">Subscribe</a></td>
-              <td><a href="https://buy.stripe.com/cNi14o1os6TudSpaZ7ds40c" class="btn-outline-sm" target="_blank">Subscribe</a></td>
-              <td class="col-popular"><a href="https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d" class="btn-gold" style="padding:7px 16px;font-size:13px" target="_blank">Subscribe</a></td>
-              <td class="col-founder"><a href="https://buy.stripe.com/5kQ9AUebe1zacOl9V3ds40e" class="btn-gold" style="padding:7px 16px;font-size:13px;background:var(--gold)" target="_blank">Subscribe</a></td>
+              <td><a href="/" class="btn-outline-sm">Explore</a></td>
+              <td><a href="/signup.html?plan=fan" class="btn-outline-sm">Request</a></td>
+              <td><a href="/signup.html?plan=creator_basic" class="btn-outline-sm">Request</a></td>
+              <td class="col-popular"><a href="/signup.html?plan=creator_pro" class="btn-gold" style="padding:7px 16px;font-size:13px">Request</a></td>
+              <td class="col-founder"><a href="/signup.html?plan=founder" class="btn-gold" style="padding:7px 16px;font-size:13px;background:var(--gold)">Request</a></td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+  </section>
+
+  <!-- ANCHOR ACCESS -->
+  <section class="anchor-access-pricing" aria-labelledby="anchorAccessTitle">
+    <div class="anchor-access-inner">
+      <div>
+        <span class="sv-kicker">Institutional Lane</span>
+        <h2 id="anchorAccessTitle">Country and category anchor access is reviewed by application.</h2>
+        <p>Anchor access is for high-signal businesses, operators, and partners who want to represent a country, category, or route with more visibility than a standard plan. It stays request-only until the floor proves demand.</p>
+      </div>
+      <a class="btn-gold btn-lg" href="/signup.html?seat=anchor">Apply for Anchor Access</a>
     </div>
   </section>
 
@@ -238,34 +301,35 @@
           <div class="faq-a">Yes. All plans are month-to-month. Cancel from your account settings with no penalties or lock-in periods.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">What is the AI page management on Founder Tier?</div>
-          <div class="faq-a">Claude AI automatically writes your video descriptions, suggests tags, schedules posts, and drafts replies to comments — so you can focus entirely on creating.</div>
+          <div class="faq-q">What is managed page setup on Founder Tier?</div>
+          <div class="faq-a">Founder support helps prepare page copy, listing structure, publishing checklists, and setup notes. Any external AI account stays optional and under the user's own control.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">What are Private Sessions?</div>
-          <div class="faq-a">1-on-1 or small group video calls with creators, powered by Agora. Creator Pro and Founder members can offer and book sessions directly on the platform.</div>
+          <div class="faq-a">1-on-1 or small group access sessions for builders and operators. Creator Pro and Founder members can offer and book sessions directly on the platform once availability is finalized.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">How does the 50+ language translation work?</div>
-          <div class="faq-a">SophiaTV uses real-time AI translation to translate video titles, descriptions, chat messages, and comments into your preferred language automatically.</div>
+          <div class="faq-a">Sophia includes a launch-safe translator with local fallback examples. People can connect their own translation provider later on their own terms.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">Is the Founder Tier price locked?</div>
-          <div class="faq-a">Yes. Founder Tier members who subscribe now lock in $49.99/month for life, even as we add more features and the price increases for new members.</div>
+          <div class="faq-q">How does the free first 30 days work?</div>
+          <div class="faq-a">Launch members can use paid-plan features free for the first 30 days after launch so they can test Sophia and share feedback. After the trial, the normal monthly rate shown on this page applies unless cancelled.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">What payment methods are accepted?</div>
-          <div class="faq-a">All major credit and debit cards via Stripe. Apple Pay, Google Pay, and bank transfers are also supported depending on your region.</div>
+          <div class="faq-a">Payments open after access review and production payment settings are confirmed.</div>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <a href="/" class="logo footer-logo">
-        <span class="logo-play-sm">&#9654;</span>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         Sophia<em>TV</em>
       </a>
       <div class="footer-links">
@@ -276,5 +340,6 @@
     </div>
   </footer>
 
+  <script src="future.js" defer></script>
 </body>
 </html>

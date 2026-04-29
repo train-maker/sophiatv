@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Private Session — SophiaTV</title>
+  <meta name="robots" content="noindex" />
+  <title>Sophia Access Room — SophiaTV</title>
+  <meta name="description" content="Sophia Access Room for previewing video, voice, chat, and invite workflows before production media credentials are connected." />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="icon" href="assets/brand/sophia-logo-premium.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Agora Web SDK -->
@@ -15,11 +20,11 @@
   <!-- SESSION HEADER -->
   <div class="session-header">
     <a href="/" class="logo" style="text-decoration:none">
-      <span class="logo-play-sm" style="font-size:13px;color:var(--gold)">&#9654;</span>
+      <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
       <span style="font-size:16px;font-weight:900;color:var(--white)">Sophia<em style="color:var(--gold);font-style:normal">TV</em></span>
     </a>
     <div class="session-header-center">
-      <div id="sessionRoomName" class="session-room-name">Loading session…</div>
+      <div id="sessionRoomName" class="session-room-name">Loading access room...</div>
       <div class="session-status-row">
         <span class="session-live-dot" id="sessionLiveDot"></span>
         <span id="sessionStatusText" style="font-size:12px;color:var(--muted)">Connecting…</span>
@@ -44,13 +49,14 @@
         <div class="video-stream" id="localVideo">
           <div class="video-placeholder">
             <div class="video-avatar-lg">YOU</div>
-            <div class="video-loading">Camera starting…</div>
+            <div class="video-loading">Ready to open the room</div>
+            <button class="btn-gold" onclick="joinSession()" style="margin-top:14px">Open Room</button>
           </div>
         </div>
         <div class="video-tile-label">
           <span>You</span>
           <div class="video-tile-icons">
-            <span class="tile-icon" id="localMicIcon">🎙️</span>
+            <span class="tile-icon" id="localMicIcon">MIC</span>
           </div>
         </div>
       </div>
@@ -59,10 +65,10 @@
       <div id="remoteVideos" class="remote-videos-container"></div>
 
       <!-- Empty state -->
-      <div class="session-waiting" id="sessionWaiting">
+      <div class="session-waiting" id="sessionWaiting" style="display:none">
         <div class="waiting-spinner"></div>
-        <div class="waiting-title">Waiting for others to join…</div>
-        <div class="waiting-sub">Share the session link to invite participants</div>
+        <div class="waiting-title">Room is open</div>
+        <div class="waiting-sub">Share the access link when participants are expected.</div>
         <button class="btn-gold" onclick="copySessionLink()" style="margin-top:16px">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
           Copy Invite Link
@@ -73,13 +79,13 @@
     <!-- CHAT SIDEBAR -->
     <div class="session-sidebar" id="sessionSidebar">
       <div class="sidebar-header">
-        <span style="font-size:14px;font-weight:700;color:var(--white)">Session Chat</span>
+        <span style="font-size:14px;font-weight:700;color:var(--white)">Room Chat</span>
         <button class="sidebar-close-btn" onclick="toggleSidebar()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
       <div class="sidebar-messages" id="sidebarMessages">
-        <div class="chat-system-msg">Session started. Chat is end-to-end within this room.</div>
+        <div class="chat-system-msg">Room chat is local to this access surface.</div>
       </div>
       <div class="sidebar-input-row">
         <input type="text" class="sidebar-input" id="chatInput" placeholder="Message…" maxlength="300" onkeydown="if(event.key==='Enter')sendChatMsg()" />
@@ -109,7 +115,7 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       <span>Share</span>
     </button>
-    <button class="ctrl-btn ctrl-btn-end" onclick="endSession()" title="End session">
+    <button class="ctrl-btn ctrl-btn-end" onclick="endSession()" title="Close access room">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.42 19.42 0 0 1 4.43 9.44 19.79 19.79 0 0 1 1.36 .78 2 2 0 0 1 3.33-1.2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.31 6.71"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
       <span>End</span>
     </button>
@@ -118,11 +124,11 @@
   <!-- END SESSION MODAL -->
   <div class="end-modal-overlay" id="endModal" style="display:none">
     <div class="end-modal">
-      <h3>End Session?</h3>
-      <p>Are you sure you want to leave this session?</p>
+      <h3>Close Access Room?</h3>
+      <p>Are you sure you want to leave this room?</p>
       <div style="display:flex;gap:12px;margin-top:20px">
         <button class="btn-outline" style="flex:1" onclick="document.getElementById('endModal').style.display='none'">Stay</button>
-        <button class="btn-gold" style="flex:1;background:var(--red);border-color:var(--red)" onclick="confirmEndSession()">End Session</button>
+        <button class="btn-gold" style="flex:1;background:var(--red);border-color:var(--red)" onclick="confirmEndSession()">Close Room</button>
       </div>
     </div>
   </div>
@@ -136,7 +142,7 @@
     const roomId = urlParams.get('room') || 'default-room-' + Math.random().toString(36).substr(2, 8);
     const displayName = urlParams.get('name') || 'Participant';
 
-    document.getElementById('sessionRoomName').textContent = 'Session: ' + roomId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    document.getElementById('sessionRoomName').textContent = 'Access Room: ' + roomId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
     let client;
     let localAudioTrack, localVideoTrack;
@@ -144,6 +150,9 @@
     let timerInterval;
     let secondsElapsed = 0;
     let remoteUsers = {};
+    let joined = false;
+
+    setStatus('preview', 'Ready - choose Open Room to start camera and microphone');
 
     // Timer
     function startTimer() {
@@ -156,6 +165,14 @@
     }
 
     // Init Agora
+    async function joinSession() {
+      if (joined) return;
+      joined = true;
+      document.getElementById('localVideo').innerHTML = '<div class="video-placeholder"><div class="video-avatar-lg">YOU</div><div class="video-loading">Camera starting...</div></div>';
+      setStatus('preview', 'Connecting...');
+      await initAgora();
+    }
+
     async function initAgora() {
       try {
         client = AgoraRTC.createClient({ mode: 'rtc', codec: 'vp8' });
@@ -188,13 +205,13 @@
           const tile = document.getElementById('remote-tile-' + user.uid);
           if (tile) tile.remove();
           updateParticipantCount();
-          addSystemMsg(user.uid + ' left the session');
+          addSystemMsg(user.uid + ' left the room');
           if (Object.keys(remoteUsers).length === 0) {
             document.getElementById('sessionWaiting').style.display = 'flex';
           }
         });
 
-        // Generate a token-free channel (for demo/testing without token server)
+        // Token-free preview channel. Production should use a server-issued token.
         const uid = await client.join(AGORA_APP_ID, roomId, null, null);
 
         // Create and publish local tracks
@@ -207,21 +224,24 @@
 
         await client.publish([localAudioTrack, localVideoTrack]);
 
-        setStatus('connected', 'Connected · Room: ' + roomId);
+        setStatus('connected', 'Connected - Room: ' + roomId);
+        if (Object.keys(remoteUsers).length === 0) {
+          document.getElementById('sessionWaiting').style.display = 'flex';
+        }
         startTimer();
 
       } catch (err) {
         console.error('Agora init error:', err);
         setStatus('error', 'Connection failed: ' + err.message);
-        // Show fallback demo UI
+        // Show a production-gated fallback UI.
         showDemoMode();
       }
     }
 
     function showDemoMode() {
       const localVideo = document.getElementById('localVideo');
-      localVideo.innerHTML = '<div class="video-placeholder"><div class="video-avatar-lg" style="background:var(--gold);color:#0a0a00">YOU</div><div class="video-loading" style="color:var(--gold)">Demo Mode</div></div>';
-      setStatus('demo', 'Demo mode — add Agora token server for production');
+      localVideo.innerHTML = '<div class="video-placeholder"><div class="video-avatar-lg" style="background:var(--gold);color:#0a0a00">YOU</div><div class="video-loading" style="color:var(--gold)">Preview media unavailable</div></div>';
+      setStatus('preview', 'Production media token server required before public use');
       document.getElementById('sessionWaiting').style.display = 'flex';
       startTimer();
     }
@@ -235,7 +255,7 @@
         <div class="video-stream" id="remote-video-${user.uid}"></div>
         <div class="video-tile-label">
           <span>Participant ${user.uid}</span>
-          <div class="video-tile-icons"><span class="tile-icon">🎙️</span></div>
+          <div class="video-tile-icons"><span class="tile-icon">MIC</span></div>
         </div>`;
       container.appendChild(tile);
     }
@@ -253,6 +273,10 @@
 
     // Controls
     async function toggleMic() {
+      if (!joined) {
+        addSystemMsg('Join the session before changing microphone settings. Use Open Room to start.');
+        return;
+      }
       micMuted = !micMuted;
       if (localAudioTrack) await localAudioTrack.setMuted(micMuted);
       const btn = document.getElementById('micBtn');
@@ -262,6 +286,10 @@
     }
 
     async function toggleCam() {
+      if (!joined) {
+        addSystemMsg('Open the room before changing camera settings.');
+        return;
+      }
       camOff = !camOff;
       if (localVideoTrack) await localVideoTrack.setMuted(camOff);
       const btn = document.getElementById('camBtn');
@@ -274,10 +302,27 @@
     }
 
     function copySessionLink() {
-      const link = window.location.origin + '/session?room=' + roomId;
+      const link = window.location.origin + '/session.html?room=' + roomId;
+      const fallbackCopy = () => {
+        const input = document.createElement('input');
+        input.value = link;
+        input.setAttribute('readonly', '');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        let copied = false;
+        try { copied = document.execCommand('copy'); } catch {}
+        input.remove();
+        addSystemMsg(copied ? 'Session link copied to clipboard' : 'Session link ready: ' + link);
+      };
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        fallbackCopy();
+        return;
+      }
       navigator.clipboard.writeText(link).then(() => {
         addSystemMsg('Session link copied to clipboard');
-      });
+      }).catch(fallbackCopy);
     }
 
     function endSession() {
@@ -323,8 +368,8 @@
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // Start
-    initAgora();
+    // Media starts only after the visitor chooses Open Room.
   </script>
+  <script src="future.js" defer></script>
 </body>
 </html>

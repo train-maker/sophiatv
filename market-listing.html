@@ -3,89 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Profile — SophiaMarket</title>
-  <meta name="description" content="Full business profile on SophiaMarket, the global business directory by SophiaTV." />
+  <title>Sophia Market Listing — Global Business Floor</title>
+  <meta name="description" content="A Sophia Market business listing with contact details, category signals, trust context, and translated inquiry paths." />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="future.css" />
+  <link rel="icon" href="assets/brand/sophia-logo-premium.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    .profile-wrap { max-width: 900px; margin: 0 auto; padding: 90px 36px 60px; }
+    body { background: var(--sv-page, #06070a); }
+    .profile-wrap { max-width: 1080px; margin: 0 auto; padding: 112px 36px 72px; }
     .profile-back {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; color: var(--muted); text-decoration: none;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sv-bone-2, var(--muted)); text-decoration: none;
       margin-bottom: 24px; transition: color 0.2s;
     }
-    .profile-back:hover { color: var(--gold); }
+    .profile-back:hover { color: var(--sv-gold, var(--gold)); }
 
     .profile-header {
       display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 28px; margin-bottom: 24px;
+      background:
+        linear-gradient(120deg, rgba(255,255,255,0.045), transparent 34%),
+        linear-gradient(145deg, rgba(17,18,23,0.96), rgba(6,7,10,0.99));
+      border: 1px solid rgba(200,162,74,0.28);
+      border-radius: 4px; padding: 30px; margin-bottom: 24px;
+      box-shadow: var(--sv-shadow-card, 0 24px 48px rgba(0,0,0,0.38));
     }
     .profile-logo-box {
-      width: 80px; height: 80px; background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      font-size: 44px; flex-shrink: 0;
+      width: 84px; height: 84px;
+      background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #7a4a10);
+      border: 1px solid rgba(255,240,166,0.42);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 23px; font-family: var(--sv-mono, monospace); font-weight: 800;
+      letter-spacing: 0.06em; color: #06070a; flex-shrink: 0;
+      box-shadow: 0 0 34px rgba(200,162,74,0.38);
     }
     .profile-meta { flex: 1; min-width: 200px; }
-    .profile-name { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
-    .profile-location { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .profile-name {
+      font-family: var(--sv-display, Georgia, serif); font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.02; font-weight: 500; letter-spacing: 0; margin-bottom: 10px;
+      color: var(--sv-bone, #f5f1e6);
+    }
+    .profile-location { font-size: 13px; color: var(--sv-bone-2, var(--muted)); margin-bottom: 14px; }
     .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .badge {
-      font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 5px;
+      font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 2px;
+      letter-spacing: 0.12em; text-transform: uppercase;
     }
-    .badge-cat { background: rgba(156,109,255,0.15); color: var(--purple); }
-    .badge-featured { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
-    .profile-featured { border-color: var(--gold); box-shadow: 0 0 20px rgba(201,168,76,0.14); }
+    .badge-cat { background: rgba(200,162,74,0.13); color: var(--sv-gold, var(--gold)); border: 1px solid rgba(200,162,74,0.28); }
+    .badge-featured { background: rgba(255,240,166,0.16); color: var(--sv-bone, #f5f1e6); border: 1px solid rgba(255,240,166,0.34); }
+    .profile-featured { border-color: rgba(255,240,166,0.42); box-shadow: var(--sv-shadow-card-hover, 0 0 28px rgba(201,168,76,0.16)); }
 
     .profile-grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; align-items: start; }
     @media (max-width: 700px) { .profile-grid { grid-template-columns: 1fr; } }
 
     .profile-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px; margin-bottom: 20px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), transparent 34%),
+        linear-gradient(145deg, rgba(17,18,23,0.94), rgba(7,8,12,0.99));
+      border: 1px solid rgba(200,162,74,0.18);
+      border-radius: 4px; padding: 24px; margin-bottom: 20px;
+      box-shadow: var(--sv-shadow-card, 0 20px 44px rgba(0,0,0,0.32));
     }
-    .profile-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: var(--gold); }
-    .profile-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .profile-card h3 { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; color: var(--sv-gold, var(--gold)); }
+    .profile-desc { font-size: 14px; color: var(--sv-bone-2, var(--muted)); line-height: 1.7; }
 
     .gallery-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
       margin-bottom: 0;
     }
     .gallery-item {
-      aspect-ratio: 4/3; background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 7px; display: flex; align-items: center; justify-content: center;
-      font-size: 28px; color: var(--muted);
+      aspect-ratio: 4/3; background: rgba(255,255,255,0.035); border: 1px solid rgba(200,162,74,0.16);
+      border-radius: 3px; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sv-bone-2, var(--muted));
     }
 
     .tags-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag {
-      background: var(--bg3); border: 1px solid var(--border);
-      font-size: 12px; padding: 4px 10px; border-radius: 20px; color: var(--muted);
+      background: rgba(255,255,255,0.035); border: 1px solid rgba(200,162,74,0.14);
+      font-size: 12px; padding: 4px 10px; border-radius: 2px; color: var(--sv-bone-2, var(--muted));
     }
 
     .social-links { display: flex; flex-direction: column; gap: 8px; }
     .social-link {
       display: flex; align-items: center; gap: 8px;
-      font-size: 13px; color: var(--text); text-decoration: none;
-      padding: 8px 12px; background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 7px; transition: border-color 0.2s;
+      font-size: 13px; color: var(--sv-bone, var(--text)); text-decoration: none;
+      padding: 8px 12px; background: rgba(255,255,255,0.035); border: 1px solid rgba(200,162,74,0.14);
+      border-radius: 2px; transition: border-color 0.2s;
     }
     .social-link:hover { border-color: var(--gold); color: var(--gold); }
 
     /* Contact form */
-    .contact-form label { display: block; font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 5px; }
+    .contact-form label { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--sv-bone-2, var(--muted)); margin-bottom: 5px; }
     .contact-form input, .contact-form textarea {
-      width: 100%; background: var(--bg3); border: 1px solid var(--border);
-      color: var(--text); padding: 9px 12px; border-radius: 7px;
+      width: 100%; background: rgba(255,255,255,0.045); border: 1px solid rgba(200,162,74,0.18);
+      color: var(--sv-bone, var(--text)); padding: 9px 12px; border-radius: 2px;
       font-size: 13px; font-family: inherit; outline: none; margin-bottom: 12px;
       transition: border 0.2s;
     }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(255,240,166,0.55); box-shadow: 0 0 0 3px rgba(200,162,74,0.12); }
     .contact-form textarea { resize: vertical; min-height: 90px; }
     .btn-gold-full {
       width: 100%; padding: 11px; font-size: 14px; font-weight: 700;
-      background: var(--gold); color: #07070e; border: none; border-radius: 7px;
+      background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #8a5a13); color: #07070e; border: none; border-radius: 2px;
       cursor: pointer; font-family: inherit; transition: opacity 0.2s; margin-bottom: 10px;
     }
     .btn-gold-full:hover { opacity: 0.88; }
@@ -95,22 +117,28 @@
 
     .contact-info-row {
       display: flex; align-items: center; gap: 8px;
-      font-size: 13px; color: var(--muted); padding: 6px 0;
-      border-bottom: 1px solid var(--border);
+      font-size: 13px; color: var(--sv-bone-2, var(--muted)); padding: 8px 0;
+      border-bottom: 1px solid rgba(200,162,74,0.14);
     }
     .contact-info-row:last-child { border-bottom: none; }
     .contact-info-row a { color: var(--gold); text-decoration: none; }
 
     .toast {
-      position: fixed; bottom: 28px; right: 28px; background: var(--green);
-      color: #07070e; padding: 12px 20px; border-radius: 8px; font-weight: 600;
+      position: fixed; bottom: 28px; right: 28px; background: var(--sv-green, var(--green));
+      color: #07070e; padding: 12px 20px; border-radius: 2px; font-weight: 600;
       font-size: 14px; z-index: 400; transform: translateY(60px); opacity: 0;
       transition: all 0.3s;
     }
     .toast.show { transform: translateY(0); opacity: 1; }
     .not-found { text-align: center; padding: 80px 20px; }
     .not-found h2 { font-size: 28px; margin-bottom: 12px; }
-    .not-found p { color: var(--muted); }
+    .not-found p { color: var(--sv-bone-2, var(--muted)); }
+    @media (max-width: 700px) {
+      .profile-wrap { padding: 118px 16px 52px; }
+      .profile-header { padding: 22px; }
+      .profile-logo-box { width: 70px; height: 70px; font-size: 18px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -118,25 +146,26 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="/" class="logo">
-        <div class="logo-icon" style="width:36px;height:36px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#07070e;">S</div>
+        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
       </a>
       <div class="nav-links">
-        <a href="/#live" class="nav-link">Live</a>
-        <a href="/#feed" class="nav-link">Feed</a>
-        <a href="/#creators" class="nav-link">Creators</a>
+        <a href="/#live" class="nav-link">Signals</a>
+        <a href="/#feed" class="nav-link">Library</a>
+        <a href="/#creators" class="nav-link">Builders</a>
         <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
-        <a href="/#sessions" class="nav-link">Sessions</a>
+        <a href="/#sessions" class="nav-link">Access</a>
+        <a href="/control-center.html" class="nav-link">Control</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
       </div>
       <div class="nav-right" style="margin-left:auto;">
-        <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
+        <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:2px;text-decoration:none;">Start Listing</a>
       </div>
     </div>
   </nav>
 
   <div class="profile-wrap" id="profileWrap">
-    <a href="/market.html" class="profile-back">← Back to SophiaMarket</a>
+    <a href="/market.html" class="profile-back">Back to Sophia Market</a>
     <div id="profileContent" style="display:none;">
       <!-- injected by JS -->
     </div>
@@ -144,13 +173,15 @@
       <h2>Listing Not Found</h2>
       <p>This business profile doesn't exist or was removed.</p>
       <br/>
-      <a href="/market.html" class="btn-gold" style="padding:10px 24px;font-weight:700;font-size:14px;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">Browse SophiaMarket</a>
+      <a href="/market.html" class="btn-gold" style="padding:10px 24px;font-weight:700;font-size:14px;background:var(--gold);color:#07070e;border-radius:2px;text-decoration:none;">Browse Sophia Market</a>
     </div>
   </div>
 
   <div class="toast" id="toast">Message sent!</div>
 
   <script>
+    let activeBusinessName = 'this business';
+
     async function init() {
       const params = new URLSearchParams(window.location.search);
       const id = parseInt(params.get('id'));
@@ -167,23 +198,24 @@
       }
 
       document.title = `${listing.name} — SophiaMarket`;
+      activeBusinessName = listing.name;
 
       const socialHTML = Object.entries(listing.social || {}).map(([platform, val]) => {
-        const icons = { linkedin: '💼', instagram: '📸', facebook: '🔵', twitter: '🐦', youtube: '▶️', github: '⚙️', tiktok: '🎵', wechat: '💬', kakao: '💛' };
-        return `<a class="social-link" href="${val}"><span>${icons[platform] || '🔗'}</span><span>${platform.charAt(0).toUpperCase() + platform.slice(1)}</span></a>`;
+        const label = platform.charAt(0).toUpperCase() + platform.slice(1);
+        return `<a class="social-link" href="${val}"><span>${label.slice(0, 2).toUpperCase()}</span><span>${label}</span></a>`;
       }).join('');
 
       const tagsHTML = (listing.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
 
       document.getElementById('profileContent').innerHTML = `
         <div class="profile-header ${listing.featured ? 'profile-featured' : ''}">
-          <div class="profile-logo-box">${listing.flag}</div>
+          <div class="profile-logo-box">${listing.country.slice(0, 2).toUpperCase()}</div>
           <div class="profile-meta">
             <div class="profile-name">${listing.name}</div>
-            <div class="profile-location">📍 ${listing.city}, ${listing.country}</div>
+            <div class="profile-location">Location: ${listing.city}, ${listing.country}</div>
             <div class="badge-row">
               <span class="badge badge-cat">${listing.category}</span>
-              ${listing.featured ? '<span class="badge badge-featured">★ Featured</span>' : ''}
+              ${listing.featured ? '<span class="badge badge-featured">Featured</span>' : ''}
             </div>
           </div>
         </div>
@@ -198,9 +230,9 @@
             <div class="profile-card">
               <h3>Gallery</h3>
               <div class="gallery-grid">
-                <div class="gallery-item">🏢</div>
-                <div class="gallery-item">📦</div>
-                <div class="gallery-item">🤝</div>
+                <div class="gallery-item">Profile</div>
+                <div class="gallery-item">Goods</div>
+                <div class="gallery-item">Inquiry</div>
               </div>
             </div>
 
@@ -215,9 +247,9 @@
           <div>
             <div class="profile-card">
               <h3>Contact</h3>
-              <div class="contact-info-row">📧 <a href="mailto:${listing.contact}">${listing.contact}</a></div>
-              <div class="contact-info-row">📞 <a href="tel:${listing.phone}">${listing.phone}</a></div>
-              ${listing.website ? `<div class="contact-info-row">🌐 <a href="${listing.website}" target="_blank" rel="noopener">${listing.website.replace('https://','')}</a></div>` : ''}
+              <div class="contact-info-row">Email <a href="mailto:${listing.contact}">${listing.contact}</a></div>
+              <div class="contact-info-row">Phone <a href="tel:${listing.phone}">${listing.phone}</a></div>
+              ${listing.website ? `<div class="contact-info-row">Web <a href="${listing.website}" target="_blank" rel="noopener">${listing.website.replace('https://','')}</a></div>` : ''}
             </div>
 
             <div class="profile-card">
@@ -229,7 +261,7 @@
                 <input type="email" id="cEmail" placeholder="you@example.com" />
                 <label>Message</label>
                 <textarea id="cMsg" placeholder="What are you looking for?"></textarea>
-                <button class="btn-gold-full" onclick="sendMsg('${listing.name}')">Send Message</button>
+                <button class="btn-gold-full" onclick="sendMsg()">Send Message</button>
                 <span class="report-link"><a href="mailto:hello@sophiaoperator.com?subject=Report+Listing+${listing.id}">Report this listing</a></span>
               </div>
             </div>
@@ -239,13 +271,20 @@
       document.getElementById('profileContent').style.display = 'block';
     }
 
-    function sendMsg(bizName) {
+    function sendMsg() {
       const n = document.getElementById('cName').value.trim();
       const e = document.getElementById('cEmail').value.trim();
       const m = document.getElementById('cMsg').value.trim();
-      if (!n || !e || !m) { alert('Please fill in all fields.'); return; }
+      if (!n || !e || !m) {
+        if (window.showSophiaToast) showSophiaToast('Please fill in all message fields.', 'error');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
+        if (window.showSophiaToast) showSophiaToast('Enter a valid email address.', 'error');
+        return;
+      }
       const t = document.getElementById('toast');
-      t.textContent = 'Message sent to ' + bizName + '!';
+      t.textContent = 'Message sent to ' + activeBusinessName + '.';
       t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), 3000);
       document.getElementById('cName').value = '';
@@ -255,5 +294,6 @@
 
     init();
   </script>
+  <script src="future.js" defer></script>
 </body>
 </html>

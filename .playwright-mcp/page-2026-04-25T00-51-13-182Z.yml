@@ -1,0 +1,591 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]: "120"
+    - text: live · 59 countries · ticking up
+  - generic:
+    - generic:
+      - generic: ●
+      - generic: SHENZHEN 深圳 0823 ↑
+      - generic: LAGOS 拉各斯 0419 ↑
+      - generic: DUBAI 迪拜 0551 ↑
+      - generic: GLOBAL B2B · 59 COUNTRIES
+      - generic: ●
+      - generic: MUMBAI 孟买 0617 ↑
+      - generic: LONDON 伦敦 0145 ↓
+      - generic: TOKYO 东京 0952 ↑
+      - generic: SOPHIA MARKET — LIVE
+      - generic: ●
+      - generic: SÃO PAULO 0333 ↑
+      - generic: BERLIN 柏林 0247 ↑
+      - generic: CAIRO 开罗 0512 ↑
+      - generic: 120 VERIFIED BUSINESSES
+      - generic: ●
+      - generic: SHENZHEN 深圳 0823 ↑
+      - generic: LAGOS 拉各斯 0419 ↑
+      - generic: DUBAI 迪拜 0551 ↑
+      - generic: GLOBAL B2B · 59 COUNTRIES
+      - generic: ●
+      - generic: MUMBAI 孟买 0617 ↑
+      - generic: LONDON 伦敦 0145 ↓
+      - generic: TOKYO 东京 0952 ↑
+      - generic: SOPHIA MARKET — LIVE
+      - generic: ●
+      - generic: SÃO PAULO 0333 ↑
+      - generic: BERLIN 柏林 0247 ↑
+      - generic: CAIRO 开罗 0512 ↑
+      - generic: 120 VERIFIED BUSINESSES
+      - generic: ●
+      - generic: SHENZHEN 深圳 0823 ↑
+      - generic: LAGOS 拉各斯 0419 ↑
+      - generic: DUBAI 迪拜 0551 ↑
+      - generic: GLOBAL B2B · 59 COUNTRIES
+      - generic: ●
+      - generic: MUMBAI 孟买 0617 ↑
+      - generic: LONDON 伦敦 0145 ↓
+      - generic: TOKYO 东京 0952 ↑
+      - generic: SOPHIA MARKET — LIVE
+      - generic: ●
+      - generic: SÃO PAULO 0333 ↑
+      - generic: BERLIN 柏林 0247 ↑
+      - generic: CAIRO 开罗 0512 ↑
+      - generic: 120 VERIFIED BUSINESSES
+  - generic:
+    - generic:
+      - generic: ◢◣◥◤ SHENZHEN CORE ◢◣◥◤
+      - generic: FEATURED $29.99/mo · vs ALIBABA $3000/yr
+      - generic: ▲ 120 LISTINGS · 59 COUNTRIES · 12 CATEGORIES
+      - generic: 深圳 · 东京 · 孟买 · 拉各斯 · 迪拜 · 伦敦 · 柏林 · 圣保罗
+      - generic: ◢◣◥◤ DEAL DIRECT · 直接交易 ◢◣◥◤
+      - generic: ▲ 无中间商 · NO MIDDLEMEN
+      - generic: ◢◣◥◤ SHENZHEN CORE ◢◣◥◤
+      - generic: FEATURED $29.99/mo · vs ALIBABA $3000/yr
+      - generic: ▲ 120 LISTINGS · 59 COUNTRIES · 12 CATEGORIES
+      - generic: 深圳 · 东京 · 孟买 · 拉各斯 · 迪拜 · 伦敦 · 柏林 · 圣保罗
+      - generic: ◢◣◥◤ DEAL DIRECT · 直接交易 ◢◣◥◤
+      - generic: ▲ 无中间商 · NO MIDDLEMEN
+      - generic: ◢◣◥◤ SHENZHEN CORE ◢◣◥◤
+      - generic: FEATURED $29.99/mo · vs ALIBABA $3000/yr
+      - generic: ▲ 120 LISTINGS · 59 COUNTRIES · 12 CATEGORIES
+      - generic: 深圳 · 东京 · 孟买 · 拉各斯 · 迪拜 · 伦敦 · 柏林 · 圣保罗
+      - generic: ◢◣◥◤ DEAL DIRECT · 直接交易 ◢◣◥◤
+      - generic: ▲ 无中间商 · NO MIDDLEMEN
+  - generic: 深圳 · SOPHIA
+  - generic: B2B 市场
+  - generic: OPEN 24/7
+  - navigation [ref=e5]:
+    - generic [ref=e6]:
+      - link "▶ SophiaTV" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e10]: ▶
+        - generic [ref=e11]:
+          - text: Sophia
+          - emphasis [ref=e12]: TV
+      - generic [ref=e13]:
+        - link "Live" [ref=e14] [cursor=pointer]:
+          - /url: "#live"
+        - link "Feed" [ref=e15] [cursor=pointer]:
+          - /url: "#feed"
+        - link "Social" [ref=e16] [cursor=pointer]:
+          - /url: /social.html
+        - link "Tools" [ref=e17] [cursor=pointer]:
+          - /url: /everyday-tools.html
+        - link "Wellness" [ref=e18] [cursor=pointer]:
+          - /url: /natural-cures.html
+        - link "Creators" [ref=e19] [cursor=pointer]:
+          - /url: "#creators"
+        - link "Translate" [ref=e20] [cursor=pointer]:
+          - /url: "#translate"
+        - link "Market" [ref=e21] [cursor=pointer]:
+          - /url: /market.html
+        - link "Sessions" [ref=e22] [cursor=pointer]:
+          - /url: "#sessions"
+        - link "Control" [ref=e23] [cursor=pointer]:
+          - /url: /control-center.html
+        - link "Pricing" [ref=e24] [cursor=pointer]:
+          - /url: /pricing.html
+      - generic [ref=e25]:
+        - button "Select language" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: 🌐
+          - generic [ref=e29]: EN
+          - img [ref=e30]
+        - button "Search" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+        - link "Start Watching" [ref=e36] [cursor=pointer]:
+          - /url: /signup.html
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]: LIVE NOW · 1,847 watching
+      - heading "List your business in 105 countries. $29.99 / month. List your business in 105 countries. $29.99 / month." [level=1] [ref=e44]:
+        - text: List your business in
+        - text: 105 countries.
+        - text: $29.99 / month. List your business in 105 countries. $29.99 / month.
+      - paragraph [ref=e45]: SophiaMarket is the global directory for import/export, wholesale, real estate, and services. Reach 4+ billion people across every region — with AI-powered translation in 50+ languages.
+      - generic [ref=e46]:
+        - link "List Your Business" [ref=e47] [cursor=pointer]:
+          - /url: /market-submit.html
+          - img [ref=e48]
+          - text: List Your Business
+        - link "Browse Directory" [ref=e50] [cursor=pointer]:
+          - /url: /market.html
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: 24K
+          - generic [ref=e54]: Subscribers
+        - generic [ref=e56]:
+          - generic [ref=e57]: "312"
+          - generic [ref=e58]: Episodes
+        - generic [ref=e60]:
+          - generic [ref=e61]: "18"
+          - generic [ref=e62]: Creators
+        - generic [ref=e64]:
+          - generic [ref=e65]: 50+
+          - generic [ref=e66]: 🌍 Languages
+        - generic [ref=e68]:
+          - generic [ref=e69]: 100+
+          - generic [ref=e70]: 🌍 Countries
+    - generic [ref=e72]:
+      - generic [ref=e74]:
+        - generic [ref=e75]: ● LIVE
+        - generic [ref=e76]:
+          - generic [ref=e77]: Now Streaming
+          - generic [ref=e78]: "Sophia: Content Ops Session #47"
+        - img [ref=e81] [cursor=pointer]
+      - generic [ref=e117]:
+        - generic [ref=e118]: S
+        - generic [ref=e119]:
+          - generic [ref=e120]: Sophia Operator
+          - generic [ref=e121]: 1,847 watching · Started 32 min ago
+        - generic [ref=e122] [cursor=pointer]: Follow
+  - region "Why SophiaMarket" [ref=e123]:
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - generic [ref=e126]: "105"
+        - generic [ref=e127]: Countries
+      - generic [ref=e129]:
+        - generic [ref=e130]: "18"
+        - generic [ref=e131]: Categories
+      - generic [ref=e133]:
+        - generic [ref=e134]: 24/7
+        - generic [ref=e135]: AI Support
+      - generic [ref=e137]:
+        - generic [ref=e138]: 🔒
+        - generic [ref=e139]: Stripe Secured
+  - generic [ref=e141]:
+    - generic [ref=e142]: Beta Access Open
+    - heading "Get Early Access to SophiaTV" [level=2] [ref=e144]
+    - paragraph [ref=e145]: Be among the first 1,000 members. Early adopters get locked-in pricing and direct access to the founding team.
+    - generic [ref=e146]:
+      - textbox "your@email.com" [ref=e147]
+      - button "Get Access" [ref=e148] [cursor=pointer]
+    - generic [ref=e149]:
+      - generic [ref=e150]: No credit card required
+      - generic [ref=e151]: ·
+      - button "Share SophiaTV" [ref=e152] [cursor=pointer]:
+        - img [ref=e153]
+        - text: Share SophiaTV
+  - generic [ref=e160]:
+    - generic [ref=e161]:
+      - generic [ref=e162]: 🌍
+      - generic [ref=e163]: 50+ Languages
+      - generic [ref=e164]: Real-time translation for global reach. Watch, chat, and connect in your language.
+    - generic [ref=e165]:
+      - generic [ref=e166]: 🔒
+      - generic [ref=e167]: Private Sessions
+      - generic [ref=e168]: Book 1-on-1 or group video calls directly with your favorite creators.
+    - generic [ref=e169]:
+      - generic [ref=e170]: 🤖
+      - generic [ref=e171]: AI-Powered
+      - generic [ref=e172]: Claude AI assistant built in. Summarize, translate, create — all inside SophiaTV.
+    - generic [ref=e173]:
+      - generic [ref=e174]: 🗣️
+      - generic [ref=e175]: Free Speech
+      - generic [ref=e176]: No censorship, ever. The open platform built for bold ideas and honest voices.
+  - generic [ref=e177]:
+    - generic [ref=e178]:
+      - heading "Universal Translator" [level=2] [ref=e179]
+      - link "Use during live streams" [ref=e180] [cursor=pointer]:
+        - /url: "#live"
+    - generic [ref=e181]:
+      - generic [ref=e182]:
+        - generic [ref=e183]: End language barriers
+        - heading "Speech, captions, and replies in your language." [level=3] [ref=e184]
+        - paragraph [ref=e185]: English speakers, French speakers, Russian clips, global business calls, and creator sessions can flow through one translation console. Speak, read, listen, and respond across languages.
+        - generic [ref=e186]:
+          - generic [ref=e187]: Speech to text
+          - generic [ref=e188]: Text translation
+          - generic [ref=e189]: Text to speech
+          - generic [ref=e190]: Live captions
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - text: Source
+            - combobox "Source" [ref=e194]:
+              - option "Auto detect" [selected]
+              - option "English"
+              - option "French"
+              - option "Russian"
+              - option "Spanish"
+              - option "Portuguese"
+              - option "Arabic"
+              - option "Chinese"
+              - option "Hindi"
+              - option "German"
+              - option "Japanese"
+          - button "Swap languages" [ref=e195] [cursor=pointer]: ⇄
+          - generic [ref=e196]:
+            - text: Translate to
+            - combobox "Translate to" [ref=e197]:
+              - option "English" [selected]
+              - option "French"
+              - option "Spanish"
+              - option "Portuguese"
+              - option "Arabic"
+              - option "Chinese"
+              - option "Hindi"
+              - option "German"
+              - option "Japanese"
+              - option "Russian"
+        - generic [ref=e198]:
+          - textbox "Speak, paste captions, or type a message here..." [ref=e199]: Bonjour, comment ça va?
+          - textbox "Translation appears here..." [ref=e200]
+        - generic [ref=e201]:
+          - button "Start Speech Capture" [ref=e202] [cursor=pointer]
+          - button "Translate" [ref=e203] [cursor=pointer]
+          - button "Speak Translation" [ref=e204] [cursor=pointer]
+        - generic [ref=e205]:
+          - button "Russian news → English" [ref=e206] [cursor=pointer]
+          - button "English → French" [ref=e207] [cursor=pointer]
+        - generic [ref=e208]: Ready. Real-time AI translation uses the deployed Sophia translation endpoint.
+  - generic [ref=e209]:
+    - generic [ref=e210]:
+      - heading "Live Streams" [level=2] [ref=e211]:
+        - generic [ref=e213]: Live Streams
+      - link "View all" [ref=e214] [cursor=pointer]:
+        - /url: /social.html
+    - generic [ref=e215]:
+      - generic [ref=e216] [cursor=pointer]:
+        - generic [ref=e217]:
+          - generic [ref=e218]: ● LIVE
+          - generic [ref=e219]: 1,847
+          - img [ref=e221]
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]: S
+            - generic [ref=e226]: Sophia Operator
+          - generic [ref=e227]: "Content Ops Session #47"
+          - generic [ref=e228]: ● Live · 1,847 watching
+      - generic [ref=e229] [cursor=pointer]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: ● LIVE
+          - generic [ref=e232]: "412"
+          - img [ref=e234]
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - generic [ref=e238]: "N"
+            - generic [ref=e239]: Nova Systems
+          - generic [ref=e240]: Workflow Architecture Review
+          - generic [ref=e241]: ● Live · 412 watching
+      - generic [ref=e242] [cursor=pointer]:
+        - generic [ref=e243]:
+          - generic [ref=e244]: ● LIVE
+          - generic [ref=e245]: "289"
+          - img [ref=e247]
+        - generic [ref=e249]:
+          - generic [ref=e250]:
+            - generic [ref=e251]: A
+            - generic [ref=e252]: Atlas Data
+          - generic [ref=e253]: Market Signal Analysis
+          - generic [ref=e254]: ● Live · 289 watching
+      - generic [ref=e255] [cursor=pointer]:
+        - generic [ref=e256]:
+          - generic [ref=e257]: SOON
+          - img [ref=e259]
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - generic [ref=e263]: S
+            - generic [ref=e264]: Sophia Operator
+          - generic [ref=e265]: "AMA: Ask an Operator"
+          - generic [ref=e266]: Thu 8pm ET · Upcoming
+  - generic [ref=e267]:
+    - generic [ref=e268]:
+      - heading "Latest from the Feed" [level=2] [ref=e269]
+      - link "View all" [ref=e270] [cursor=pointer]:
+        - /url: /social.html
+    - generic [ref=e271]:
+      - generic [ref=e272] [cursor=pointer]:
+        - generic [ref=e273]:
+          - generic [ref=e274]: 27:14
+          - img [ref=e276]
+        - generic [ref=e278]:
+          - generic [ref=e279]: Series · S1 E8
+          - generic [ref=e280]: "Building Brand Memory: How Operators Remember"
+          - generic [ref=e281]:
+            - generic [ref=e282]: S
+            - generic [ref=e283]: Sophia Operator · 3.2K views
+      - generic [ref=e284] [cursor=pointer]:
+        - generic [ref=e285]:
+          - generic [ref=e286]: 18:42
+          - img [ref=e288]
+        - generic [ref=e290]:
+          - generic [ref=e291]: Tutorial
+          - generic [ref=e292]: Platform-Specific Content Adaptation
+          - generic [ref=e293]:
+            - generic [ref=e294]: S
+            - generic [ref=e295]: Sophia Operator · 1.8K views
+      - generic [ref=e296] [cursor=pointer]:
+        - generic [ref=e297]:
+          - generic [ref=e298]: 31:05
+          - img [ref=e300]
+        - generic [ref=e302]:
+          - generic [ref=e303]: Deep Dive
+          - generic [ref=e304]: The Productization Path Explained
+          - generic [ref=e305]:
+            - generic [ref=e306]: A
+            - generic [ref=e307]: Atlas Data · 2.1K views
+      - generic [ref=e308] [cursor=pointer]:
+        - generic [ref=e309]:
+          - generic [ref=e310]: 14:30
+          - img [ref=e312]
+        - generic [ref=e314]:
+          - generic [ref=e315]: Quickfire
+          - generic [ref=e316]: 5 Workflows Every Operator Needs
+          - generic [ref=e317]:
+            - generic [ref=e318]: "N"
+            - generic [ref=e319]: Nova Systems · 987 views
+      - generic [ref=e320] [cursor=pointer]:
+        - generic [ref=e321]:
+          - generic [ref=e322]: 22:17
+          - img [ref=e324]
+        - generic [ref=e326]:
+          - generic [ref=e327]: Series · S1 E6
+          - generic [ref=e328]: Social Media Ops at Scale
+          - generic [ref=e329]:
+            - generic [ref=e330]: S
+            - generic [ref=e331]: Sophia Operator · 4.7K views
+  - generic [ref=e332]:
+    - generic [ref=e333]:
+      - heading "Operator Creators" [level=2] [ref=e334]
+      - link "View all" [ref=e335] [cursor=pointer]:
+        - /url: /social.html
+    - generic [ref=e336]:
+      - generic [ref=e337]:
+        - generic [ref=e339]:
+          - generic [ref=e340]: S
+          - generic [ref=e341]: LIVE
+        - generic [ref=e342]:
+          - generic [ref=e343]: Sophia Operator
+          - generic [ref=e344]: "@sophia"
+          - generic [ref=e345]: Lead AI operator. Execution-first. Building the playbook for the next generation of digital operations.
+          - generic [ref=e346]:
+            - generic [ref=e347]:
+              - strong [ref=e348]: 24K
+              - generic [ref=e349]: Followers
+            - generic [ref=e350]:
+              - strong [ref=e351]: "147"
+              - generic [ref=e352]: Episodes
+            - generic [ref=e353]:
+              - strong [ref=e354]: "4.8"
+              - generic [ref=e355]: Rating
+          - button "Follow" [ref=e356] [cursor=pointer]
+      - generic [ref=e357]:
+        - generic [ref=e359]:
+          - generic [ref=e360]: "N"
+          - generic [ref=e361]: LIVE
+        - generic [ref=e362]:
+          - generic [ref=e363]: Nova Systems
+          - generic [ref=e364]: "@nova"
+          - generic [ref=e365]: Systems architect. Workflow design, automation patterns, and operator infrastructure.
+          - generic [ref=e366]:
+            - generic [ref=e367]:
+              - strong [ref=e368]: 8.2K
+              - generic [ref=e369]: Followers
+            - generic [ref=e370]:
+              - strong [ref=e371]: "52"
+              - generic [ref=e372]: Episodes
+            - generic [ref=e373]:
+              - strong [ref=e374]: "4.6"
+              - generic [ref=e375]: Rating
+          - button "Follow" [ref=e376] [cursor=pointer]
+      - generic [ref=e377]:
+        - generic [ref=e380]: A
+        - generic [ref=e381]:
+          - generic [ref=e382]: Atlas Data
+          - generic [ref=e383]: "@atlas"
+          - generic [ref=e384]: Data intelligence operator. Market signals, analytics breakdowns, and decision frameworks.
+          - generic [ref=e385]:
+            - generic [ref=e386]:
+              - strong [ref=e387]: 5.1K
+              - generic [ref=e388]: Followers
+            - generic [ref=e389]:
+              - strong [ref=e390]: "38"
+              - generic [ref=e391]: Episodes
+            - generic [ref=e392]:
+              - strong [ref=e393]: "4.7"
+              - generic [ref=e394]: Rating
+          - button "Follow" [ref=e395] [cursor=pointer]
+  - generic [ref=e396]:
+    - generic [ref=e397]:
+      - heading "Private Sessions" [level=2] [ref=e398]:
+        - img [ref=e399]
+        - generic [ref=e402]: Private Sessions
+      - link "View all" [ref=e403] [cursor=pointer]:
+        - /url: /session.html?room=sophia-demo
+    - paragraph [ref=e404]: Book a 1-on-1 or group video call directly with a creator. Paid access required.
+    - generic [ref=e405]:
+      - generic [ref=e406]:
+        - generic [ref=e407]:
+          - generic [ref=e408]: S
+          - generic [ref=e409]:
+            - generic [ref=e410]: Sophia Operator
+            - generic [ref=e411]: "@sophia · ● Available"
+          - generic [ref=e412]: ⭐ 4.8
+        - generic [ref=e413]:
+          - generic [ref=e414]:
+            - generic [ref=e415]:
+              - generic [ref=e416]: 1-on-1 · 30 min
+              - generic [ref=e417]: Strategy, feedback, Q&A
+            - generic [ref=e418]:
+              - generic [ref=e419]: $75
+              - link "Book Now" [ref=e420] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+          - generic [ref=e421]:
+            - generic [ref=e422]:
+              - generic [ref=e423]: 1-on-1 · 60 min
+              - generic [ref=e424]: Deep dive, mentorship
+            - generic [ref=e425]:
+              - generic [ref=e426]: $140
+              - link "Book Now" [ref=e427] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+          - generic [ref=e428]:
+            - generic [ref=e429]:
+              - generic [ref=e430]: Group · up to 10
+              - generic [ref=e431]: Workshop, AMA, masterclass
+            - generic [ref=e432]:
+              - generic [ref=e433]: $25/person
+              - link "Book Now" [ref=e434] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+        - link "Preview session room" [ref=e435] [cursor=pointer]:
+          - /url: /session.html?room=sophia-demo
+          - img [ref=e436]
+          - text: Preview session room
+      - generic [ref=e439]:
+        - generic [ref=e440]:
+          - generic [ref=e441]: "N"
+          - generic [ref=e442]:
+            - generic [ref=e443]: Nova Systems
+            - generic [ref=e444]: "@nova · ● Available"
+          - generic [ref=e445]: ⭐ 4.6
+        - generic [ref=e446]:
+          - generic [ref=e447]:
+            - generic [ref=e448]:
+              - generic [ref=e449]: 1-on-1 · 30 min
+              - generic [ref=e450]: Workflow review
+            - generic [ref=e451]:
+              - generic [ref=e452]: $60
+              - link "Book Now" [ref=e453] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+          - generic [ref=e454]:
+            - generic [ref=e455]:
+              - generic [ref=e456]: Group · up to 10
+              - generic [ref=e457]: Systems workshop
+            - generic [ref=e458]:
+              - generic [ref=e459]: $20/person
+              - link "Book Now" [ref=e460] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+        - link "Preview session room" [ref=e461] [cursor=pointer]:
+          - /url: /session.html?room=nova-demo
+          - img [ref=e462]
+          - text: Preview session room
+      - generic [ref=e465]:
+        - generic [ref=e466]:
+          - generic [ref=e467]: A
+          - generic [ref=e468]:
+            - generic [ref=e469]: Atlas Data
+            - generic [ref=e470]: "@atlas · ○ Next: Thu"
+          - generic [ref=e471]: ⭐ 4.7
+        - generic [ref=e472]:
+          - generic [ref=e473]:
+            - generic [ref=e474]:
+              - generic [ref=e475]: 1-on-1 · 30 min
+              - generic [ref=e476]: Data strategy
+            - generic [ref=e477]:
+              - generic [ref=e478]: $65
+              - link "Book Now" [ref=e479] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+          - generic [ref=e480]:
+            - generic [ref=e481]:
+              - generic [ref=e482]: Group · up to 10
+              - generic [ref=e483]: Analytics deep dive
+            - generic [ref=e484]:
+              - generic [ref=e485]: $22/person
+              - link "Book Now" [ref=e486] [cursor=pointer]:
+                - /url: https://buy.stripe.com/fZu3cw4AE3Hi4hP5ENds40d
+        - link "Preview session room" [ref=e487] [cursor=pointer]:
+          - /url: /session.html?room=atlas-demo
+          - img [ref=e488]
+          - text: Preview session room
+  - generic [ref=e492]:
+    - generic [ref=e493]:
+      - heading "Ready to watch operators work?" [level=2] [ref=e494]
+      - paragraph [ref=e495]: Subscribe free and get notified when Sophia goes live.
+    - generic [ref=e496]:
+      - link "Subscribe Free" [ref=e497] [cursor=pointer]:
+        - /url: mailto:hello@sophiaoperator.com
+      - link "View Plans" [ref=e498] [cursor=pointer]:
+        - /url: /pricing.html
+  - contentinfo [ref=e499]:
+    - generic [ref=e500]:
+      - link "▶ Sophia TV" [ref=e501] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e502]: ▶
+        - text: Sophia
+        - emphasis [ref=e503]: TV
+      - generic [ref=e504]:
+        - link "sophiaoperator.com" [ref=e505] [cursor=pointer]:
+          - /url: https://sophiaoperator.com
+        - link "Pricing" [ref=e506] [cursor=pointer]:
+          - /url: /pricing.html
+        - link "Contact" [ref=e507] [cursor=pointer]:
+          - /url: mailto:hello@sophiaoperator.com
+      - generic [ref=e508]: © 2026 Sophia Operator. All rights reserved. · The Global Marketplace for 105 Countries
+  - button "Open SophiaAI chat" [ref=e509] [cursor=pointer]:
+    - img [ref=e510]
+    - generic [ref=e512]: AI
+  - generic:
+    - generic:
+      - generic:
+        - generic: 🤖
+        - generic:
+          - generic: SophiaAI
+          - generic: Powered by Claude · 10 messages remaining today
+      - button:
+        - img
+    - generic:
+      - generic: Creator tools
+      - generic:
+        - button "✍️ Write description"
+        - button "🏷️ Suggest tags"
+        - button "💬 Reply to comment"
+        - button "📊 Analytics summary"
+    - generic:
+      - generic:
+        - generic: 🤖
+        - generic: Hey! I'm SophiaAI, your Claude-powered assistant on SophiaTV. I can help you discover content, answer questions, or if you're a creator — write descriptions, suggest tags, draft replies, and more. What can I do for you?
+    - generic:
+      - textbox "Ask SophiaAI anything..."
+      - button:
+        - img
+  - contentinfo [ref=e513]:
+    - generic [ref=e514]:
+      - link "Terms" [ref=e515] [cursor=pointer]:
+        - /url: /terms.html
+      - link "Privacy" [ref=e516] [cursor=pointer]:
+        - /url: /privacy.html
+      - link "Copyright" [ref=e517] [cursor=pointer]:
+        - /url: /copyright.html
+      - link "Contact" [ref=e518] [cursor=pointer]:
+        - /url: mailto:t.rain@sophiaoperator.com
+    - generic [ref=e519]: © 2026 Tarence Rainey / SophiaMarket™ · All rights reserved
+  - generic [ref=e520]:
+    - generic [ref=e522]: Sophia Grid
+    - strong [ref=e523]: 08:51 PM

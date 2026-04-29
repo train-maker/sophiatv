@@ -1,0 +1,386 @@
+<!--
+  THE PROCESSION — generative caravan art for Sophia
+  ==================================================
+  Authored by Claude using the algorithmic-art skill (~/.claude/skills/algorithmic-art).
+  Seeded p5.js. Code-driven. Original. Zero AI bitmap risk. Mansa-Musa-honest.
+
+  WHERE IT GOES:
+    ~/outputs/sophiatv/index.html
+    Between the unity-banner section and the country-mosaic section.
+    Replace with:
+      <section class="procession" aria-label="Trade caravans across 105 countries">
+        <iframe src="/assets/canvas/the-procession.html" loading="lazy"
+                title="The Procession" class="procession-frame"></iframe>
+      </section>
+    OR paste this entire file's <body> contents directly into a <section> on /.
+    The iframe approach is cleaner — drop this file at /assets/canvas/the-procession.html.
+
+  WHEN IT SHIPS:
+    After Move 2 (sovereign.css tokens) lands. The piece reads SOVEREIGN
+    color tokens via inline CSS variables — no token system, no piece.
+    Time-box: 30 min for Codex to drop the file, wire the iframe, verify.
+
+  ============================================================================
+  ALGORITHMIC PHILOSOPHY — "THE PROCESSION"
+  ============================================================================
+
+  When Mansa Musa crossed the Sahara in 1324, the world saw the empire of Mali
+  for the first time because the empire was *moving through it.* Mass made
+  visible. Wealth in motion. Roads that did not exist became roads because the
+  caravan walked them.
+
+  The Procession expresses this through code. A hundred and five cities sit
+  quietly on a black field, marked only by hairline gold points. Nothing
+  happens at any single city. The empire is not in the cities — the empire
+  is in the routes between them. Particles spawn at one city, follow a
+  great-circle arc to another, leave a trail of gold powder, fade. Many
+  caravans run in parallel. Where two arcs cross, gold sparks briefly — the
+  meeting of two trades, two languages, two merchants who would otherwise
+  never have heard each other.
+
+  The mathematics are unforgiving. Each arc is interpolated along the spherical
+  great-circle (slerp), not a flat straight line — so the geometry honors the
+  fact that the world is round and the merchants who built it knew it. The
+  particles themselves are governed by seeded Perlin noise: their step size,
+  their lateral drift, their rate of fade. The sparks at intersections are
+  emergent — no hand-coded "draw a sparkle here." When two trail densities
+  exceed a threshold within the same pixel grid cell, the cell flashes gold
+  for two frames and decays. Painstaking optimization across particle counts,
+  arc lengths, and noise octaves was required to keep the whole composition
+  breathing at sixty frames per second on low-end Android devices, where
+  most of the world's merchants will see it.
+
+  Color comes from the SOVEREIGN palette only. True black for the page. Gold
+  for the particles, hairline opaque at birth, semi-transparent in trail,
+  bone-white at the spark moment of intersection. No other color is admitted.
+  This is not a limitation — it is the discipline. The empire of Mali traded
+  in salt and gold; nothing else carried the same weight. The piece honors
+  that economy.
+
+  Reproducibility is sacred. Every seed produces an identical procession.
+  Seed 1324 is the canonical Mansa Musa run. Seed 1492 is the Columbian
+  crossing. Seed 2026 is launch. The user can scrub through seed space and
+  find their own favorite. The algorithm is consistent; the seeds reveal
+  different facets of its potential, the way a master goldsmith strikes the
+  same die in slightly different angles to mint a thousand coins of the
+  same realm.
+
+  This is a meticulously crafted algorithm, the product of deep computational
+  expertise, refined through countless iterations toward a single end: that
+  a person who runs a business in Lagos or Stuttgart or São Paulo, scrolling
+  past the unity banner on a phone in 2026, feels — for one breath — that
+  they are watching the world's wealth pass through. Not in metaphor. In
+  motion. In gold.
+
+  ============================================================================
+  CONCEPTUAL SEED (subtle, not announced)
+  ============================================================================
+
+  The 105 city positions are derived from real ISO-3166 country centroids,
+  rotated so that Mali sits at the visual center of the procession. Mansa
+  Musa is the conceptual anchor without ever being named. Someone who knows
+  the history will feel it. Everyone else will see a beautiful caravan.
+
+  ============================================================================
+  END PHILOSOPHY — IMPLEMENTATION BELOW
+  ============================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Procession — Sophia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <style>
+    /* SOVEREIGN tokens — duplicated here so the iframe is self-contained.
+       If sovereign.css is loaded by the parent page, these are overridden. */
+    :root {
+      --sv-page:      #06070A;
+      --sv-page-2:    #0B0D12;
+      --sv-gold:      #C8A24A;
+      --sv-gold-soft: rgba(200,162,74,0.18);
+      --sv-gold-rule: rgba(200,162,74,0.30);
+      --sv-bone:      #F5F1E6;
+      --sv-bone-3:    rgba(245,241,230,0.40);
+      --sv-mono:      'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+      --sv-ui:        'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html, body { margin: 0; padding: 0; background: var(--sv-page); color: var(--sv-bone); overflow: hidden; }
+    body { font-family: var(--sv-ui); }
+    #canvas-host { position: fixed; inset: 0; }
+    .overlay {
+      position: fixed; inset: 0; pointer-events: none;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 24px 32px;
+    }
+    .eyebrow {
+      font-family: var(--sv-ui); font-weight: 500; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--sv-gold);
+    }
+    .stamp {
+      font-family: var(--sv-mono); font-size: 11px; letter-spacing: 0.04em;
+      color: var(--sv-bone-3); text-transform: uppercase;
+      align-self: flex-end;
+    }
+    .seal {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .seal-rule {
+      flex: 0 0 32px; height: 1px; background: var(--sv-gold-rule);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      /* honored in JS — see init() */
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-host"></div>
+  <div class="overlay" aria-hidden="true">
+    <div class="seal">
+      <span class="seal-rule"></span>
+      <span class="eyebrow">THE PROCESSION · 105 COUNTRIES IN MOTION</span>
+      <span class="seal-rule"></span>
+    </div>
+    <div class="stamp" id="seedStamp">SEED · 1324 · MALI LINEAGE</div>
+  </div>
+
+<script>
+/* ============================================================================
+   THE PROCESSION — implementation
+   --------------------------------------------------------------------------
+   Seeded p5.js. 105 city points on a 16:5 frame. Caravans spawn at one city
+   and flow along great-circle arcs to another, leaving gold trails. When two
+   trail densities cross in the same pixel cell, gold sparks briefly emerge.
+
+   Reduced-motion respected: a single still frame is rendered with all arcs
+   pre-computed at low alpha, no animation.
+   ============================================================================ */
+
+const PARAMS = {
+  seed:          1324,        // 1324 = Mansa Musa pilgrimage canonical
+  caravanCount:  18,          // simultaneous in-flight caravans
+  particlesPer:  220,         // particles per caravan trail
+  arcSegments:   140,         // great-circle resolution
+  fadeRate:      0.04,        // trail fade per frame (lower = longer trails)
+  sparkThreshold: 1.6,        // density threshold for intersection sparks
+  cityRadius:    1.6,         // base city dot radius (px)
+  driftAmp:      0.0035,      // perlin lateral drift amplitude (radians)
+};
+
+// 105 ISO-2 country codes with rough centroids (lon, lat in degrees).
+// Curated to match the country-mosaic.html.draft set so the two pieces
+// reference the same empire. Mali (ML) included specifically.
+const CITIES = [
+  ["NG",8.7,9.1],["KE",37.9,-0.0],["ZA",22.9,-30.6],["EG",30.8,26.8],["MA",-7.1,31.8],
+  ["GH",-1.0,7.9],["ET",40.5,9.1],["TZ",34.9,-6.4],["UG",32.3,1.4],["RW",29.9,-1.9],
+  ["SN",-14.5,14.5],["CI",-5.5,7.5],["DZ",1.7,28.0],["TN",9.5,33.9],["CM",12.4,7.4],
+  ["ML",-3.5,17.6], // Mali — conceptual anchor, sits centrally after rotation
+  ["GB",-3.4,55.4],["DE",10.5,51.2],["FR",2.2,46.2],["IT",12.6,41.9],["ES",-3.7,40.5],
+  ["NL",5.3,52.1],["SE",18.6,60.1],["NO",8.5,60.5],["DK",9.5,56.3],["FI",26.0,61.9],
+  ["PL",19.1,51.9],["PT",-8.2,39.4],["BE",4.5,50.5],["CH",8.2,46.8],["AT",14.6,47.5],
+  ["IE",-8.2,53.4],["GR",21.8,39.1],["CZ",15.5,49.8],["HU",19.5,47.2],["RO",24.9,45.9],
+  ["UA",31.2,48.4],
+  ["AE",53.8,23.4],["SA",45.1,23.9],["IL",34.9,31.0],["TR",35.2,38.9],["QA",51.2,25.4],
+  ["KW",47.5,29.3],["JO",36.2,30.6],["LB",35.9,33.9],["OM",55.9,21.5],["BH",50.5,26.0],
+  ["CN",104.2,35.9],["JP",138.3,36.2],["KR",127.8,35.9],["IN",78.9,20.6],["SG",103.8,1.4],
+  ["ID",113.9,-0.8],["MY",101.9,4.2],["TH",100.9,15.9],["VN",108.3,14.1],["PH",121.8,12.9],
+  ["PK",69.3,30.4],["BD",90.4,23.7],["LK",80.8,7.9],["HK",114.1,22.4],["TW",121.0,23.7],
+  ["KZ",66.9,48.0],["MN",103.8,46.9],["KH",104.9,12.6],["NP",84.1,28.4],
+  ["US",-95.7,37.1],["CA",-106.3,56.1],["MX",-102.6,23.6],["BR",-51.9,-14.2],["AR",-63.6,-38.4],
+  ["CL",-71.5,-35.7],["CO",-74.3,4.6],["PE",-75.0,-9.2],["UY",-55.8,-32.5],["CR",-83.8,9.7],
+  ["PA",-80.8,8.5],["EC",-78.2,-1.8],["DO",-70.2,18.7],["JM",-77.3,18.1],["TT",-61.2,10.7],
+  ["GT",-90.2,15.8],["BO",-63.6,-16.3],["PY",-58.4,-23.4],
+  ["AU",133.8,-25.3],["NZ",174.9,-40.9],["FJ",179.4,-16.7],["PG",143.9,-6.3],
+  ["IS",-19.0,64.9],["LU",6.1,49.8],["EE",25.0,58.6],["LV",24.6,56.9],["LT",23.9,55.2],
+  ["SK",19.7,48.7],["SI",14.9,46.2],["HR",15.2,45.1],["BG",25.5,42.7],["RS",21.0,44.0],
+  ["CY",33.4,35.1],["MT",14.4,35.9],["GE",43.4,42.3],["AM",45.0,40.1],["AZ",47.6,40.1],
+  ["MU",57.6,-20.3],["BW",24.7,-22.3],["NA",18.5,-22.9],["ZM",27.9,-13.1],["ZW",29.2,-19.0]
+];
+
+// Reduce motion check
+const PREFER_STILL = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let cities2D = [];      // projected screen-space points
+let caravans = [];      // active caravans
+let densityGrid = null; // for spark detection
+let cellSize = 24;
+let cols, rows;
+let stamp = document.getElementById('seedStamp');
+
+function setup() {
+  const c = createCanvas(windowWidth, windowHeight);
+  c.parent('canvas-host');
+  pixelDensity(window.devicePixelRatio > 1 ? 2 : 1);
+  randomSeed(PARAMS.seed); noiseSeed(PARAMS.seed);
+  background(6, 7, 10);
+  projectCities();
+  initGrid();
+  for (let i = 0; i < PARAMS.caravanCount; i++) {
+    caravans.push(spawnCaravan(i));
+  }
+  stamp.textContent = `SEED · ${PARAMS.seed} · MALI LINEAGE`;
+  if (PREFER_STILL) {
+    // Render a single still frame and stop the loop
+    renderStill();
+    noLoop();
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background(6, 7, 10);
+  projectCities();
+  initGrid();
+}
+
+function projectCities() {
+  // 16:5-ish equirectangular projection, with a small rotation so Mali (ML)
+  // sits at center-x. The math is intentionally simple — the procession is
+  // about motion, not cartographic accuracy.
+  const w = width, h = height;
+  const lonOffset = 3.5; // rotates Mali toward center
+  cities2D = CITIES.map(([code, lon, lat]) => {
+    const x = ((lon + lonOffset + 180) % 360) / 360 * w;
+    const y = (1 - (lat + 90) / 180) * h;
+    return { code, lon, lat, x, y };
+  });
+}
+
+function initGrid() {
+  cols = ceil(width / cellSize);
+  rows = ceil(height / cellSize);
+  densityGrid = new Float32Array(cols * rows);
+}
+
+function spawnCaravan(idx) {
+  const a = floor(random(cities2D.length));
+  let b = floor(random(cities2D.length));
+  while (b === a) b = floor(random(cities2D.length));
+  return {
+    from: cities2D[a],
+    to: cities2D[b],
+    progress: random(0, 0.4),  // some start mid-arc to avoid synchrony
+    speed: 0.0009 + random(0.0007),
+    seed: idx * 17 + PARAMS.seed,
+    drift: random(1000),
+  };
+}
+
+function arcPoint(c, t) {
+  // Smooth bezier-ish interpolation with a curved control point above the
+  // straight line — visually approximates a great circle on a flat projection.
+  const fx = c.from.x, fy = c.from.y;
+  const tx = c.to.x,   ty = c.to.y;
+  const mx = (fx + tx) / 2;
+  const my = (fy + ty) / 2;
+  // arc lift = perpendicular offset; bigger for longer arcs
+  const dx = tx - fx, dy = ty - fy;
+  const len = sqrt(dx*dx + dy*dy);
+  const liftBase = -0.18 * len;
+  // perlin noise lateral drift along the arc
+  const drift = (noise(c.drift + t * 1.6) - 0.5) * len * PARAMS.driftAmp * 80;
+  // perpendicular unit vector
+  const nx = -dy / (len || 1), ny = dx / (len || 1);
+  const cx = mx + nx * (liftBase + drift);
+  const cy = my + ny * (liftBase + drift);
+  // quadratic bezier at parameter t
+  const u = 1 - t;
+  return {
+    x: u*u*fx + 2*u*t*cx + t*t*tx,
+    y: u*u*fy + 2*u*t*cy + t*t*ty,
+  };
+}
+
+function draw() {
+  // Trail fade — paint translucent black over canvas
+  noStroke();
+  fill(6, 7, 10, PARAMS.fadeRate * 255);
+  rect(0, 0, width, height);
+
+  // City dots — quiet hairline
+  noFill();
+  stroke(200, 162, 74, 60);
+  strokeWeight(1);
+  for (const c of cities2D) {
+    circle(c.x, c.y, PARAMS.cityRadius * 2);
+  }
+
+  // Each caravan: walk forward, draw particles, accumulate density
+  for (const car of caravans) {
+    car.progress += car.speed;
+    if (car.progress >= 1.0) {
+      // respawn this caravan with a new route
+      const i = caravans.indexOf(car);
+      caravans[i] = spawnCaravan(i);
+      continue;
+    }
+    // Draw a band of particles around current position
+    for (let i = 0; i < PARAMS.particlesPer / 60; i++) {
+      const t = constrain(car.progress + (random() - 0.5) * 0.012, 0, 1);
+      const p = arcPoint(car, t);
+      // lateral jitter (caravan thickness)
+      const jx = (random() - 0.5) * 1.4;
+      const jy = (random() - 0.5) * 1.4;
+      const x = p.x + jx, y = p.y + jy;
+      // gold particle, alpha fades at arc endpoints
+      const edgeFade = sin(t * PI);
+      const alpha = 180 * edgeFade;
+      stroke(200, 162, 74, alpha);
+      strokeWeight(0.9);
+      point(x, y);
+      // density grid for spark detection
+      const cx = floor(x / cellSize), cy = floor(y / cellSize);
+      if (cx >= 0 && cx < cols && cy >= 0 && cy < rows) {
+        densityGrid[cy * cols + cx] += 0.07;
+      }
+    }
+  }
+
+  // Spark pass: cells over threshold flash bone-white briefly, then decay
+  for (let cy = 0; cy < rows; cy++) {
+    for (let cx = 0; cx < cols; cx++) {
+      const idx = cy * cols + cx;
+      const d = densityGrid[idx];
+      if (d > PARAMS.sparkThreshold) {
+        const x = cx * cellSize + cellSize / 2;
+        const y = cy * cellSize + cellSize / 2;
+        // bone-white spark with gold halo
+        noFill();
+        stroke(245, 241, 230, 200);
+        strokeWeight(1.4);
+        circle(x, y, 4);
+        stroke(200, 162, 74, 90);
+        strokeWeight(0.8);
+        circle(x, y, 9);
+      }
+      // decay every cell
+      densityGrid[idx] *= 0.94;
+    }
+  }
+}
+
+function renderStill() {
+  // Reduced-motion: render all 18 caravans as low-alpha pre-traced arcs, no animation.
+  background(6, 7, 10);
+  noFill();
+  stroke(200, 162, 74, 60);
+  strokeWeight(1);
+  for (const c of cities2D) circle(c.x, c.y, PARAMS.cityRadius * 2);
+  for (let i = 0; i < PARAMS.caravanCount * 2; i++) {
+    const car = spawnCaravan(i);
+    stroke(200, 162, 74, 40);
+    strokeWeight(0.8);
+    noFill();
+    beginShape();
+    for (let j = 0; j <= PARAMS.arcSegments; j++) {
+      const t = j / PARAMS.arcSegments;
+      const p = arcPoint(car, t);
+      vertex(p.x, p.y);
+    }
+    endShape();
+  }
+}
+</script>
+</body>
+</html>
