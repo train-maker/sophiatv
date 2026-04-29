@@ -65,7 +65,15 @@
   <link rel="stylesheet" href="future.css" />
   <!-- Supabase for auth state -->
   <script src="config.js"></script>
-  <script src="/api/public-config"></script>
+  <script>
+    (function () {
+      if (/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(window.location.hostname)) return;
+      var publicConfig = document.createElement('script');
+      publicConfig.src = '/api/public-config';
+      publicConfig.defer = true;
+      document.head.appendChild(publicConfig);
+    })();
+  </script>
 </head>
 <body>
   <script>window.__SOPHIA_LEGACY_EFFECTS_DISABLED = true;</script>
@@ -459,7 +467,7 @@
             <span id="currentLangCode">EN</span>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
           </button>
-          <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-dropdown" id="langDropdown" tabindex="0" aria-label="Language options">
             <div class="lang-option" onclick="setLanguage('en','LANG','EN')"><span>EN</span> English</div>
             <div class="lang-option" onclick="setLanguage('es','LANG','ES')"><span>ES</span> Español</div>
             <div class="lang-option" onclick="setLanguage('fr','LANG','FR')"><span>FR</span> Français</div>
@@ -506,8 +514,8 @@
           <span class="sv-kicker">SOPHIA · WISDOM · TRADE · TRANSLATION</span>
           <span class="hero-eyebrow-rule" aria-hidden="true"></span>
         </div>
-        <div class="sophia-material-mark" aria-label="Sophia gold seal visual prototype">
-          <img src="assets/brand/sophia-gold-seal.svg" alt="Sophia gold seal" width="88" height="88" decoding="async" />
+        <div class="sophia-material-mark" aria-label="Sophia brand mark">
+          <img src="assets/brand/sophia-logo-premium.png" alt="Sophia brand mark" width="88" height="88" decoding="async" />
           <span>Sophia</span>
         </div>
         <h1 class="hero-title" data-text="The world, translated into opportunity.">
@@ -543,12 +551,12 @@
         </div>
       </div>
       <div class="hero-right">
-        <div class="transparent-globe-stage" aria-label="Spinning transparent world globe">
+        <div class="transparent-globe-stage" role="img" aria-label="Spinning transparent world globe">
           <div class="cinema-letterbox top" aria-hidden="true"></div>
           <div class="cinema-letterbox bottom" aria-hidden="true"></div>
           <div class="earth-axle" aria-hidden="true"></div>
           <canvas id="earthGlobeCanvas" class="earth-globe-canvas" aria-hidden="true"></canvas>
-          <img class="earth-globe-fallback sophia-black-gold-globe" src="assets/brand/sophia-globe-black-gold.png" width="1200" height="800" alt="" decoding="async" fetchpriority="high" aria-hidden="true" />
+          <img class="earth-globe-fallback sophia-black-gold-globe" src="assets/brand/sophia-globe-black-gold-720.jpg" width="720" height="480" alt="" decoding="async" fetchpriority="high" aria-hidden="true" />
           <div class="globe-orbit orbit-one"></div>
           <div class="globe-orbit orbit-two"></div>
         </div>
@@ -627,13 +635,13 @@
 
   <!-- WORLD UNITY BANNER -->
   <section class="sophia-unity-banner" aria-label="Sophia world unity">
-    <img src="assets/brand/sophia-world-unity-hands.png" alt="Hands from around the world stacked together in unity" class="sophia-unity-image" width="1915" height="821" loading="eager" decoding="async" />
+    <img src="assets/brand/sophia-world-unity-hands-1200.jpg" alt="Hands from around the world stacked together in unity" class="sophia-unity-image" width="1200" height="515" loading="lazy" decoding="async" fetchpriority="low" />
     <div class="sophia-unity-overlay" aria-hidden="true"></div>
   </section>
 
   <!-- THE PROCESSION -->
   <section class="procession" aria-label="Trade caravans across 105 countries">
-    <iframe src="/assets/canvas/the-procession.html" loading="lazy" title="The Procession" class="procession-frame"></iframe>
+    <iframe data-src="/assets/canvas/the-procession.html" loading="lazy" title="The Procession" class="procession-frame"></iframe>
   </section>
 
   <!-- LAUNCH TICKER -->
@@ -932,25 +940,25 @@
     </div>
   </section>
 
-  <!-- BETA ACCESS SECTION -->
-  <section id="beta-access" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 36px;">
+  <!-- FOUNDING ACCESS SECTION -->
+  <section id="founding-access" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 36px;">
     <div style="max-width:680px;margin:0 auto;text-align:center;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;padding:5px 16px;font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:20px;text-transform:uppercase;letter-spacing:0.06em;">
         <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;"></span>
-        Beta Access Open
+        Founding Access Open
       </div>
       <h2 style="font-size:2rem;font-weight:800;margin-bottom:14px;">Help Build the World Connection Layer</h2>
       <p style="color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:30px;">Join the founding access list for a platform where language is no longer the reason people miss each other, miss deals, or miss opportunity.</p>
-      <form id="betaForm" onsubmit="handleBetaSignup(event)" style="display:flex;gap:12px;max-width:460px;margin:0 auto 20px;">
-        <input type="email" id="betaEmail" placeholder="your@email.com" required
+      <form id="foundingForm" onsubmit="handleFoundingSignup(event)" style="display:flex;gap:12px;max-width:460px;margin:0 auto 20px;">
+        <input type="email" id="foundingEmail" placeholder="your@email.com" required
           style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--white);font-size:0.95rem;outline:none;font-family:inherit;" />
-        <button type="submit" style="background:var(--gold);color:#000;font-weight:700;border:none;border-radius:10px;padding:13px 22px;cursor:pointer;font-size:0.95rem;white-space:nowrap;font-family:inherit;" id="betaBtn">Get Access</button>
+        <button type="submit" style="background:var(--gold);color:#000;font-weight:700;border:none;border-radius:10px;padding:13px 22px;cursor:pointer;font-size:0.95rem;white-space:nowrap;font-family:inherit;" id="foundingBtn">Get Access</button>
       </form>
-      <div id="betaMsg" style="font-size:0.85rem;color:var(--green);display:none;margin-bottom:16px;"></div>
+      <div id="foundingMsg" style="font-size:0.85rem;color:var(--green);display:none;margin-bottom:16px;"></div>
       <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
         <span style="font-size:0.82rem;color:var(--muted);">No credit card required</span>
         <span style="color:var(--border);">·</span>
-        <button onclick="sharesite()" style="background:none;border:none;color:var(--gold);font-size:0.82rem;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;">
+        <button onclick="sharesite()" style="background:none;border:none;color:var(--gold);font-size:0.82rem;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;min-height:32px;padding:5px 0;">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           Share SophiaTV
         </button>
@@ -1260,10 +1268,10 @@
         <div class="creator-body">
           <div class="creator-name">Sophia Operator</div>
           <div class="creator-handle">@sophia</div>
-          <div class="creator-bio">Lead AI operator. Execution-first. Building the playbook for the next generation of digital operations.</div>
+          <div class="creator-bio">Lead AI operator. Execution-first. Building the playbook for serious digital operations.</div>
           <div class="creator-stats">
             <div><strong>Lead</strong><span>Operator</span></div>
-            <div><strong>Beta</strong><span>Library</span></div>
+            <div><strong>Access</strong><span>Library</span></div>
             <div><strong>Ready</strong><span>Workflow</span></div>
           </div>
           <a href="mailto:hello@sophiaoperator.com?subject=Sophia%20Operator%20access" class="btn-gold creator-follow-btn">Request Access</a>
@@ -1327,7 +1335,7 @@
             <div class="creator-name" style="font-size:15px">Sophia Operator</div>
             <div class="creator-handle">@sophia · <span style="color:var(--gold);font-size:11px">◆ Launch ready</span></div>
           </div>
-          <div class="session-rating">Beta</div>
+          <div class="session-rating">Access</div>
         </div>
         <div class="session-types">
           <div class="session-type">
@@ -1375,7 +1383,7 @@
             <div class="creator-name" style="font-size:15px">Nova Systems</div>
             <div class="creator-handle">@nova · <span style="color:var(--gold);font-size:11px">◆ Launch ready</span></div>
           </div>
-          <div class="session-rating">Beta</div>
+          <div class="session-rating">Access</div>
         </div>
         <div class="session-types">
           <div class="session-type">
@@ -1413,7 +1421,7 @@
             <div class="creator-name" style="font-size:15px">Atlas Data</div>
             <div class="creator-handle">@atlas · <span style="color:var(--muted);font-size:11px">◇ Access queue</span></div>
           </div>
-          <div class="session-rating">Beta</div>
+          <div class="session-rating">Access</div>
         </div>
         <div class="session-types">
           <div class="session-type">
@@ -1494,7 +1502,7 @@
           <div class="ai-panel-status">Local setup help · no external AI account required</div>
         </div>
       </div>
-      <button class="ai-panel-close" onclick="toggleAIChat()">
+      <button class="ai-panel-close" onclick="toggleAIChat()" aria-label="Close Sophia guide">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -1515,7 +1523,7 @@
     </div>
     <div class="ai-input-row">
       <input type="text" class="ai-input" id="aiInput" placeholder="Ask where to go next..." onkeydown="if(event.key==='Enter')sendAIMessage()" maxlength="500" />
-      <button class="ai-send-btn" onclick="sendAIMessage()" id="aiSendBtn">
+      <button class="ai-send-btn" onclick="sendAIMessage()" id="aiSendBtn" aria-label="Send Sophia guide message">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
       </button>
     </div>
@@ -1904,20 +1912,20 @@
       } catch(e) {}
     })();
 
-    // Beta email capture
-    async function handleBetaSignup(e) {
+    // Founding access email capture
+    async function handleFoundingSignup(e) {
       e.preventDefault();
-      const btn = document.getElementById('betaBtn');
-      const email = document.getElementById('betaEmail').value.trim();
+      const btn = document.getElementById('foundingBtn');
+      const email = document.getElementById('foundingEmail').value.trim();
       btn.disabled = true;
       btn.textContent = 'Joining...';
       // Store in localStorage as fallback; Supabase integration via signup page
       const waitlist = JSON.parse(localStorage.getItem('sophiatv_waitlist') || '[]');
       if (!waitlist.includes(email)) waitlist.push(email);
       localStorage.setItem('sophiatv_waitlist', JSON.stringify(waitlist));
-      document.getElementById('betaMsg').textContent = 'You are on the list. We will be in touch soon.';
-      document.getElementById('betaMsg').style.display = 'block';
-      document.getElementById('betaEmail').value = '';
+      document.getElementById('foundingMsg').textContent = 'You are on the list. We will be in touch soon.';
+      document.getElementById('foundingMsg').style.display = 'block';
+      document.getElementById('foundingEmail').value = '';
       btn.disabled = false;
       btn.textContent = 'Get Access';
     }
@@ -1969,16 +1977,56 @@
   <script src="future.js" defer></script>
   <script>
     window.addEventListener('load', function () {
+      var tickFallbackGlobe = function (canvas) {
+        var rotation = 0;
+        var lastTime = performance.now();
+        canvas.dataset.rotation = '0';
+        function tick(now) {
+          var delta = Math.min(64, now - lastTime);
+          lastTime = now;
+          rotation += delta * 0.00008;
+          canvas.dataset.rotation = rotation.toFixed(4);
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      };
+
       var loadGlobe = function () {
         var stage = document.querySelector('.transparent-globe-stage');
+        var canvas = document.getElementById('earthGlobeCanvas');
+        if (stage && stage.querySelector('.sophia-black-gold-globe')) {
+          stage.classList.add('globe-fallback-only', 'globe-approved-static');
+          if (canvas) tickFallbackGlobe(canvas);
+          return;
+        }
         if (window.location.protocol === 'file:') {
           if (stage) stage.classList.add('globe-fallback-only');
+          if (canvas) tickFallbackGlobe(canvas);
           return;
         }
         import(new URL('earth-globe.js', window.location.href).href).catch(function () {
           if (stage) stage.classList.add('globe-fallback-only');
+          if (canvas) tickFallbackGlobe(canvas);
         });
       };
+
+      var loadProcession = function () {
+        var frame = document.querySelector('.procession-frame[data-src]');
+        if (!frame || frame.src) return;
+        frame.src = frame.dataset.src;
+      };
+      var processionFrame = document.querySelector('.procession-frame[data-src]');
+      if ('IntersectionObserver' in window && processionFrame) {
+        var processionObserver = new IntersectionObserver(function (entries) {
+          if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+          processionObserver.disconnect();
+          loadProcession();
+        }, { rootMargin: '320px 0px' });
+        processionObserver.observe(processionFrame);
+      } else {
+        setTimeout(loadProcession, 6000);
+      }
+
       requestAnimationFrame(function () { setTimeout(loadGlobe, 350); });
     }, { once: true });
   </script>

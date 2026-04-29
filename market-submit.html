@@ -90,7 +90,7 @@
     .tier-price span { font-size: 13px; font-weight: 400; color: var(--muted); }
     .tier-features { font-size: 13px; color: var(--muted); line-height: 1.6; }
     .tier-badge {
-      position: absolute; top: 12px; right: 12px;
+      display: inline-flex; width: fit-content; margin-bottom: 10px;
       background: var(--gold); color: #07070e; font-size: 11px; font-weight: 700;
       padding: 3px 8px; border-radius: 4px;
     }
@@ -214,7 +214,7 @@
       <!-- TIER SELECTOR -->
       <div class="tier-row">
         <div class="tier-card selected" id="tierFree" onclick="selectTier('free')">
-          <input type="radio" name="tier" value="free" checked />
+          <input type="radio" name="tier" value="free" aria-label="Free Listing" checked />
           <div class="tier-name">Free Listing</div>
           <div class="tier-price">$0 <span>/ forever</span></div>
           <div class="tier-features">
@@ -226,7 +226,7 @@
           </div>
         </div>
         <div class="tier-card" id="tierFeatured" onclick="selectTier('featured')">
-          <input type="radio" name="tier" value="featured" />
+          <input type="radio" name="tier" value="featured" aria-label="Featured listing" />
           <div class="tier-badge">POPULAR</div>
           <div class="tier-name">Featured</div>
           <div class="tier-price">$0 <span>/ first 30 days</span></div>
@@ -253,7 +253,7 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Country <span class="required">*</span></label>
+            <label for="bizCountry">Country <span class="required">*</span></label>
               <select id="bizCountry" required>
                 <option value="">Select country…</option>
                 <option>United States</option><option>China</option><option>India</option>
@@ -275,7 +275,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Category <span class="required">*</span></label>
+            <label for="bizCategory">Category <span class="required">*</span></label>
             <select id="bizCategory" required>
               <option value="">Select category…</option>
               <option>Wholesale &amp; Manufacturing</option>

@@ -46,6 +46,13 @@
       line-height: 1.02; font-weight: 500; letter-spacing: 0; margin-bottom: 10px;
       color: var(--sv-bone, #f5f1e6);
     }
+    .profile-name h1 {
+      font: inherit;
+      color: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      margin: 0;
+    }
     .profile-location { font-size: 13px; color: var(--sv-bone-2, var(--muted)); margin-bottom: 14px; }
     .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .badge {
@@ -211,7 +218,7 @@
         <div class="profile-header ${listing.featured ? 'profile-featured' : ''}">
           <div class="profile-logo-box">${listing.country.slice(0, 2).toUpperCase()}</div>
           <div class="profile-meta">
-            <div class="profile-name">${listing.name}</div>
+            <div class="profile-name"><h1>${listing.name}</h1></div>
             <div class="profile-location">Location: ${listing.city}, ${listing.country}</div>
             <div class="badge-row">
               <span class="badge badge-cat">${listing.category}</span>
