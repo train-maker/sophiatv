@@ -36,18 +36,36 @@ const topLevel = [
 
 // Country pages from the generated /market/country/<slug>/ dirs
 const countryDir = path.join(ROOT, 'market', 'country');
-const countryPages = fs.existsSync(countryDir)
+const countryDirs = fs.existsSync(countryDir)
   ? fs.readdirSync(countryDir).filter(d => {
       const full = path.join(countryDir, d);
       return fs.statSync(full).isDirectory();
-    }).map(slug => ({
-      loc: `/market/country/${slug}/`,
-      priority: '0.75',
-      changefreq: 'weekly',
-    }))
+    })
   : [];
 
-const urls = [...topLevel, ...countryPages];
+const countryPages = countryDirs.map(slug => ({
+  loc: `/market/country/${slug}/`,
+  priority: '0.75',
+  changefreq: 'weekly',
+}));
+
+// Country×category pages: /market/country/<country>/<category>/
+const countryCategoryPages = [];
+for (const cSlug of countryDirs) {
+  const inner = path.join(countryDir, cSlug);
+  for (const sub of fs.readdirSync(inner)) {
+    const subPath = path.join(inner, sub);
+    if (!fs.statSync(subPath).isDirectory()) continue;
+    if (!fs.existsSync(path.join(subPath, 'index.html'))) continue;
+    countryCategoryPages.push({
+      loc: `/market/country/${cSlug}/${sub}/`,
+      priority: '0.6',
+      changefreq: 'weekly',
+    });
+  }
+}
+
+const urls = [...topLevel, ...countryPages, ...countryCategoryPages];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -64,4 +82,4 @@ ${urls.map(u => `  <url>
 `;
 
 fs.writeFileSync(OUT, xml);
-console.log(`✓ Sitemap written: ${urls.length} URLs (${topLevel.length} top-level + ${countryPages.length} country)`);
+console.log(`✓ Sitemap written: ${urls.length} URLs (${topLevel.length} top-level + ${countryPages.length} country + ${countryCategoryPages.length} country×category)`);

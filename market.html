@@ -193,47 +193,30 @@
     /* Country grid */
     .country-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
       gap: 10px;
     }
     .country-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 14px 10px;
-      text-align: center; cursor: pointer;
+      border-radius: var(--radius); padding: 14px 16px;
+      text-align: left; cursor: pointer;
       transition: border-color 0.2s, background 0.2s, transform 0.1s;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: grid;
+      gap: 6px;
     }
     .country-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
     .country-card.active { border-color: var(--gold); background: var(--gold-dim); }
     .country-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-    .country-flag {
-      width: 38px;
-      height: 38px;
-      margin: 0 auto 8px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      border: 1px solid rgba(232,201,120,0.22);
-      background: rgba(20, 14, 4, 0.55);
-      font-size: 24px;
-      line-height: 1;
-      letter-spacing: 0;
-      text-transform: none;
-    }
-    .country-flag.is-code {
-      background:
-        radial-gradient(circle at 28% 18%, rgba(255,247,194,0.9) 0 5%, transparent 15%),
-        linear-gradient(145deg, #251804, #f0cf66 42%, #8b5b14 70%, #0f0b05);
-      color: #080806;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.28);
+    .country-name { font-size: 14px; font-weight: 800; color: var(--text); line-height: 1.25; }
+    .country-region {
+      color: var(--muted);
       font-size: 11px;
-      font-weight: 850;
-      letter-spacing: 0.06em;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .country-name { font-size: 12px; font-weight: 500; color: var(--text); }
     .country-areas {
       display: flex;
       gap: 4px;
@@ -334,12 +317,14 @@
       background:
         radial-gradient(circle at 28% 18%, rgba(255,247,194,0.9) 0 5%, transparent 15%),
         linear-gradient(145deg, #251804, #f0cf66 42%, #8b5b14 70%, #0f0b05);
-      color: #080806;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.28);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    }
+    .category-icon::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(8,8,6,0.78);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
     }
     .category-label { font-size: 13px; font-weight: 500; }
 
@@ -516,20 +501,208 @@
       .country-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
       }
-      .country-flag {
-        font-size: 22px;
-      }
+      .country-card { padding: 13px; }
     }
     @media (max-width: 400px) {
       .country-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
-      .country-flag {
-        font-size: 26px;
-      }
       .country-name {
         font-size: 13px;
       }
+    }
+
+    /* LAYOUTS §2 — /market conversion polish (additive) */
+
+    /* A) Upgrade banner */
+    .upgrade-banner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 44px 14px 18px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-border);
+      background:
+        linear-gradient(135deg, rgba(232,201,120,0.14), rgba(201,168,76,0.06) 60%, rgba(8,8,14,0.85)),
+        rgba(12,16,28,0.78);
+      box-shadow:
+        inset 0 1px 0 rgba(255,247,194,0.18),
+        0 12px 32px rgba(0,0,0,0.32);
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.5;
+      flex-wrap: wrap;
+    }
+    .upgrade-banner .upgrade-banner-icon {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 28% 22%, #fff7c2 0 6%, transparent 18%),
+        linear-gradient(145deg, #2a1a05, #f0cf66 50%, #8b5b14 75%, #100c08);
+      box-shadow: inset 0 0 0 1px rgba(255,247,194,0.22);
+    }
+    .upgrade-banner .upgrade-banner-text { flex: 1; min-width: 220px; }
+    .upgrade-banner .upgrade-banner-text strong { color: var(--gold); font-weight: 800; }
+    .upgrade-banner .upgrade-banner-cta {
+      flex-shrink: 0;
+      background: var(--gold);
+      color: #07070e;
+      padding: 8px 16px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .upgrade-banner .upgrade-banner-cta:hover { opacity: 0.92; transform: translateY(-1px); }
+    .upgrade-banner .upgrade-banner-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: color 0.18s ease, background 0.18s ease;
+    }
+    .upgrade-banner .upgrade-banner-close:hover { color: var(--gold); background: rgba(232,201,120,0.1); }
+    .upgrade-banner.hidden { display: none !important; }
+    @media (max-width: 540px) {
+      .upgrade-banner { font-size: 13px; padding: 12px 36px 12px 14px; }
+      .upgrade-banner .upgrade-banner-cta { width: 100%; text-align: center; }
+    }
+
+    /* B) Sticky List-Your-Business FAB (mobile only) */
+    .market-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 56px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, #f0cf66, #c9a84c 60%, #8b5b14);
+      color: #07070e;
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow:
+        0 14px 36px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(255,247,194,0.35) inset,
+        0 0 28px rgba(232,201,120,0.32);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .market-fab:hover { transform: translateY(-2px); }
+    .market-fab .market-fab-plus {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(7,7,14,0.18);
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    @media (max-width: 768px) {
+      .market-fab { display: inline-flex; }
+    }
+
+    /* C) Improved empty state CTA */
+    .empty-state .empty-cta {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: var(--gold);
+      color: #07070e;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+    .empty-state .empty-cta:hover { opacity: 0.92; transform: translateY(-1px); }
+    .empty-state .empty-headline {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    /* D) Recently viewed row */
+    .recently-viewed-section {
+      max-width: 1360px;
+      margin: 24px auto 8px;
+      padding: 0 36px 8px;
+    }
+    .recently-viewed-section.hidden { display: none !important; }
+    .recently-viewed-section h3 {
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+    .recently-viewed-row {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .recently-viewed-row::-webkit-scrollbar { height: 6px; }
+    .recently-viewed-row::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 999px; }
+    .recent-card {
+      flex: 0 0 140px;
+      max-width: 160px;
+      min-width: 120px;
+      scroll-snap-align: start;
+      background: rgba(12, 18, 34, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: border-color 0.18s ease, transform 0.15s ease;
+    }
+    .recent-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .recent-card .recent-card-name {
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .recent-card .recent-card-meta {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.3;
+      margin-top: auto;
+    }
+    .recent-card .recent-card-flag { font-size: 16px; }
+    @media (max-width: 600px) {
+      .recently-viewed-section { padding: 0 20px 8px; }
     }
 
   </style>
@@ -750,62 +923,62 @@
   </p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
     <a href="#cat-wholesale" onclick="filterCategory('Wholesale & Manufacturing');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">WM</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Wholesale &amp; Manufacturing</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Factory-direct, OEM, export</div>
     </a>
     <a href="#cat-real-estate" onclick="filterCategory('Real Estate');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">RE</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Real Estate</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Residential, commercial, diaspora</div>
     </a>
     <a href="#cat-tech" onclick="filterCategory('Technology');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">TS</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Technology</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Dev shops, SaaS, AI, FinTech</div>
     </a>
     <a href="#cat-energy" onclick="filterCategory('Energy');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">EN</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Energy &amp; Green</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Solar, wind, sustainability</div>
     </a>
     <a href="#cat-food" onclick="filterCategory('Food');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">FB</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Food &amp; Beverage</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Spices, specialty, import</div>
     </a>
     <a href="#cat-fashion" onclick="filterCategory('Fashion');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">FA</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Fashion &amp; Textiles</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Apparel, accessories, crafts</div>
     </a>
     <a href="#cat-legal" onclick="filterCategory('Legal');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">LP</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Legal &amp; Professional</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Law, accounting, consult</div>
     </a>
     <a href="#cat-travel" onclick="filterCategory('Travel');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">TR</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Travel &amp; Hospitality</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Concierge, tours, lodging</div>
     </a>
     <a href="#cat-edu" onclick="filterCategory('Education');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">ED</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Education &amp; EdTech</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Platforms, tutoring, skills</div>
     </a>
     <a href="#cat-health" onclick="filterCategory('Health');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">HW</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Health &amp; Wellness</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Clinics, supplements, fitness</div>
     </a>
     <a href="#cat-media" onclick="filterCategory('Media');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">MC</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Media &amp; Content</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Video, publishing, studios</div>
     </a>
     <a href="#cat-logistics" onclick="filterCategory('Logistics');return false;" style="display:block;padding:18px;background:#111827;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:all .15s;" onmouseover="this.style.borderColor='#10b981';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#374151';this.style.transform='none'">
-      <div class="category-icon">LS</div>
+      <div class="category-icon" aria-hidden="true"></div>
       <div style="color:#f9fafb;font-weight:700;font-size:15px;margin-top:8px;">Logistics &amp; Shipping</div>
       <div style="color:#9ca3af;font-size:12px;margin-top:4px;">Freight, customs, warehousing</div>
     </a>
@@ -935,8 +1108,8 @@ window.filterCategory = window.filterCategory || function(cat) {
 
       <div class="country-grid" id="countryGrid">
         <a class="country-card active" href="#section-country" onclick="event.preventDefault();selectCountry('All')" id="country-All" aria-label="Browse all countries">
-          <div class="country-flag is-code" aria-hidden="true">ALL</div>
           <div class="country-name">All Countries</div>
+          <div class="country-region">Global directory</div>
         </a>
       </div>
       <div class="state-directory" id="stateDirectory" aria-label="United States states and major cities directory">
@@ -969,6 +1142,16 @@ window.filterCategory = window.filterCategory || function(cat) {
         <button onclick="resetToStep(1)" style="margin-left:auto;background:none;border:1px solid var(--border);color:var(--muted);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;">← Start Over</button>
       </div>
 
+      <!-- LAYOUTS §2A — upgrade banner (conditional, dismissable) -->
+      <div class="upgrade-banner hidden" id="upgradeBanner" role="region" aria-label="Featured upgrade promotion">
+        <span class="upgrade-banner-icon" aria-hidden="true"></span>
+        <div class="upgrade-banner-text">
+          <strong>Want your business on top?</strong> Featured listings get the gold border, top placement, and AI-recommendation priority.
+        </div>
+        <a class="upgrade-banner-cta" href="/market-submit.html?upgrade=true">$29.99/mo →</a>
+        <button type="button" class="upgrade-banner-close" aria-label="Dismiss upgrade banner" onclick="dismissUpgradeBanner()">×</button>
+      </div>
+
       <div class="list-your-cta">
         <p>Is your business missing? <strong>List for free</strong> or request <strong>Featured placement</strong> when paid upgrades open.</p>
         <a href="/market-submit.html" class="btn-gold" style="white-space:nowrap;padding:9px 20px;font-weight:700;font-size:13px;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">List Your Business</a>
@@ -997,8 +1180,9 @@ window.filterCategory = window.filterCategory || function(cat) {
 
       <div class="empty-state hidden" id="emptyState">
         <div class="empty-icon" aria-hidden="true"></div>
-        <p>No listings found for this selection.</p>
-        <p style="margin-top:8px;font-size:13px;">Be the first to <a href="/market-submit.html" style="color:var(--gold);">list your business here</a>.</p>
+        <p class="empty-headline" id="emptyHeadline">Be the first business in this directory.</p>
+        <p style="font-size:13px;margin-bottom:4px;">List now for $29.99/mo and get the gold border, top placement, and AI-recommendation priority.</p>
+        <a id="emptyCta" class="empty-cta" href="/market-submit.html">List Your Business →</a>
       </div>
     </div>
 
@@ -1137,24 +1321,24 @@ window.filterCategory = window.filterCategory || function(cat) {
     ];
 
     const CATEGORIES = [
-      { icon: "WM", label: "Wholesale & Manufacturing" },
-      { icon: "RE", label: "Real Estate" },
-      { icon: "DR", label: "Dating & Relationships" },
-      { icon: "FB", label: "Food & Restaurants" },
-      { icon: "BS", label: "Business Services" },
-      { icon: "RT", label: "Retail & Shopping" },
-      { icon: "TS", label: "Tech & Software" },
-      { icon: "BH", label: "Beauty & Health" },
-      { icon: "AU", label: "Automotive" },
-      { icon: "ED", label: "Education & Training" },
-      { icon: "AG", label: "Agriculture & Farming" },
-      { icon: "FI", label: "Finance & Investment" },
-      { icon: "EX", label: "Import/Export" },
-      { icon: "CO", label: "Construction" },
-      { icon: "FA", label: "Fashion & Apparel" },
-      { icon: "TR", label: "Travel & Tourism" },
-      { icon: "ME", label: "Entertainment & Media" },
-      { icon: "EN", label: "Energy & Resources" }
+      { label: "Wholesale & Manufacturing" },
+      { label: "Real Estate" },
+      { label: "Dating & Relationships" },
+      { label: "Food & Restaurants" },
+      { label: "Business Services" },
+      { label: "Retail & Shopping" },
+      { label: "Tech & Software" },
+      { label: "Beauty & Health" },
+      { label: "Automotive" },
+      { label: "Education & Training" },
+      { label: "Agriculture & Farming" },
+      { label: "Finance & Investment" },
+      { label: "Import/Export" },
+      { label: "Construction" },
+      { label: "Fashion & Apparel" },
+      { label: "Travel & Tourism" },
+      { label: "Entertainment & Media" },
+      { label: "Energy & Resources" }
     ];
 
     const COUNTRY_AREAS = {
@@ -1358,6 +1542,8 @@ window.filterCategory = window.filterCategory || function(cat) {
       document.getElementById('selectedCountryLabel').textContent = 'All Countries';
       document.getElementById('section-category').classList.add('hidden');
       showListings({ scroll: false });
+      // LAYOUTS §2D — initial render of recently-viewed (data-dependent)
+      try { renderRecentlyViewed(); } catch (e) { /* swallow */ }
       requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
     }
 
@@ -1403,8 +1589,7 @@ window.filterCategory = window.filterCategory || function(cat) {
         a.setAttribute('aria-label', `Open ${c.name} country page`);
         const areas = COUNTRY_AREAS[c.name] || [];
         const areaHtml = areas.length ? `<div class="country-areas">${areas.slice(0, 4).map(area => `<span class="country-area">${area}</span>`).join('')}</div>` : '';
-        const flag = c.flag || c.code;
-        a.innerHTML = `<div class="country-flag" aria-hidden="true">${flag}</div><div class="country-name">${c.name}</div>${areaHtml}`;
+        a.innerHTML = `<div class="country-name">${c.name}</div><div class="country-region">${c.region}</div>${areaHtml}`;
         grid.appendChild(a);
       });
     }
@@ -1427,7 +1612,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       a.href = '#section-country';
       a.setAttribute('aria-label', 'Browse all countries');
       a.onclick = (e) => { e.preventDefault(); selectCountry('All'); };
-      a.innerHTML = `<div class="country-flag is-code" aria-hidden="true">ALL</div><div class="country-name">All Countries</div>`;
+      a.innerHTML = `<div class="country-name">All Countries</div><div class="country-region">Global directory</div>`;
       return a;
     }
 
@@ -1470,13 +1655,13 @@ window.filterCategory = window.filterCategory || function(cat) {
       // All categories option
       const allDiv = document.createElement('div');
       allDiv.className = 'category-card';
-      allDiv.innerHTML = `<div class="category-icon">ALL</div><div class="category-label">All Categories</div>`;
+      allDiv.innerHTML = `<div class="category-icon" aria-hidden="true"></div><div class="category-label">All Categories</div>`;
       allDiv.onclick = () => selectCategory('All', allDiv);
       grid.appendChild(allDiv);
       CATEGORIES.forEach(cat => {
         const div = document.createElement('div');
         div.className = 'category-card';
-        div.innerHTML = `<div class="category-icon">${cat.icon}</div><div class="category-label">${cat.label}</div>`;
+        div.innerHTML = `<div class="category-icon" aria-hidden="true"></div><div class="category-label">${cat.label}</div>`;
         div.onclick = () => selectCategory(cat.label, div);
         grid.appendChild(div);
       });
@@ -1553,8 +1738,13 @@ window.filterCategory = window.filterCategory || function(cat) {
       const empty = document.getElementById('emptyState');
       const loadMore = document.getElementById('loadMoreWrap');
 
+      // LAYOUTS §2A — refresh upgrade banner (depends on country + free listing count)
+      try { updateUpgradeBanner(); } catch (e) { /* swallow */ }
+
       if (!filtered.length) {
         grid.innerHTML = '';
+        // LAYOUTS §2C — improved empty state copy + deep link
+        try { updateEmptyState(); } catch (e) { /* swallow */ }
         empty.classList.remove('hidden');
         loadMore.style.display = 'none';
         return;
@@ -1563,7 +1753,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       loadMore.style.display = visible.length < filtered.length ? 'block' : 'none';
 
       grid.innerHTML = visible.map(l => `
-        <div class="listing-card ${l.featured ? 'featured' : ''}">
+        <div class="listing-card ${l.featured ? 'featured' : ''}" onclick="trackRecentListing(${JSON.stringify(String(l.id))})">
           <div class="listing-top">
             <div class="listing-name">${l.name}</div>
             <div class="listing-flag">${l.flag}</div>
@@ -1575,10 +1765,111 @@ window.filterCategory = window.filterCategory || function(cat) {
           <div class="listing-desc">${l.description}</div>
           <div class="listing-location">${formatLocation(l)}</div>
           <div class="listing-actions">
-            <button class="btn-contact" onclick='openModal(${JSON.stringify(l)})'>Contact</button>
-            <a class="btn-profile" href="/market-listing.html?id=${l.id}">View Profile</a>
+            <button class="btn-contact" onclick='event.stopPropagation();openModal(${JSON.stringify(l)})'>Contact</button>
+            <a class="btn-profile" href="/market-listing.html?id=${l.id}" onclick="event.stopPropagation();trackRecentListing(${JSON.stringify(String(l.id))})">View Profile</a>
           </div>
         </div>
+      `).join('');
+    }
+
+    /* ===== LAYOUTS §2 — additive helpers (banner, empty state, recently viewed) ===== */
+
+    // A) Upgrade banner — show only when current country has >5 free (non-featured) listings
+    function updateUpgradeBanner() {
+      const banner = document.getElementById('upgradeBanner');
+      if (!banner) return;
+      // Per-session dismissal
+      try {
+        if (sessionStorage.getItem('sophia.upgradeBannerDismissed') === '1') {
+          banner.classList.add('hidden');
+          return;
+        }
+      } catch (e) { /* sessionStorage unavailable */ }
+      if (selectedCountry === 'All') { banner.classList.add('hidden'); return; }
+      const freeCount = allListings.filter(l =>
+        l.country === selectedCountry && !l.featured
+      ).length;
+      banner.classList.toggle('hidden', !(freeCount > 5));
+    }
+    function dismissUpgradeBanner() {
+      const banner = document.getElementById('upgradeBanner');
+      if (banner) banner.classList.add('hidden');
+      try { sessionStorage.setItem('sophia.upgradeBannerDismissed', '1'); } catch (e) { /* swallow */ }
+    }
+    window.dismissUpgradeBanner = dismissUpgradeBanner;
+
+    // C) Empty-state CTA — country/category-aware
+    function categorySlug(name) {
+      return String(name || '').toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+    function updateEmptyState() {
+      const headline = document.getElementById('emptyHeadline');
+      const cta = document.getElementById('emptyCta');
+      if (!headline || !cta) return;
+      const countryLabel = selectedCountry === 'All' ? 'this directory' : selectedCountry;
+      const catLabel = selectedCategory === 'All' ? '' : ' · ' + selectedCategory;
+      headline.textContent = `Be the first business in ${countryLabel}${catLabel}.`;
+      const params = new URLSearchParams();
+      if (selectedCountry !== 'All') {
+        const c = COUNTRIES.find(x => x.name === selectedCountry);
+        if (c) params.set('country', c.code);
+      }
+      if (selectedCategory !== 'All') params.set('category', categorySlug(selectedCategory));
+      const qs = params.toString();
+      cta.href = '/market-submit.html' + (qs ? '?' + qs : '');
+    }
+
+    // D) Recently viewed — localStorage-backed, capped at 8
+    const RECENT_KEY = 'sophia.recentListings';
+    const RECENT_MAX = 8;
+    function loadRecentListingIds() {
+      try {
+        const raw = localStorage.getItem(RECENT_KEY);
+        if (!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr.map(String) : [];
+      } catch (e) { return []; }
+    }
+    function saveRecentListingIds(ids) {
+      try { localStorage.setItem(RECENT_KEY, JSON.stringify(ids.slice(0, RECENT_MAX))); }
+      catch (e) { /* storage full / disabled */ }
+    }
+    function trackRecentListing(id) {
+      if (id === undefined || id === null) return;
+      const sid = String(id);
+      let ids = loadRecentListingIds().filter(x => x !== sid);
+      ids.unshift(sid);
+      ids = ids.slice(0, RECENT_MAX);
+      saveRecentListingIds(ids);
+      renderRecentlyViewed();
+    }
+    window.trackRecentListing = trackRecentListing;
+    function renderRecentlyViewed() {
+      const section = document.getElementById('recentlyViewedSection');
+      const row = document.getElementById('recentlyViewedRow');
+      if (!section || !row) return;
+      const ids = loadRecentListingIds();
+      if (!ids.length || !allListings.length) {
+        section.classList.add('hidden');
+        row.innerHTML = '';
+        return;
+      }
+      const lookup = new Map(allListings.map(l => [String(l.id), l]));
+      const items = ids.map(id => lookup.get(id)).filter(Boolean);
+      if (!items.length) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+      row.innerHTML = items.map(l => `
+        <a class="recent-card" href="/market-listing.html?id=${l.id}" onclick="trackRecentListing(${JSON.stringify(String(l.id))})">
+          <span class="recent-card-flag" aria-hidden="true">${l.flag || ''}</span>
+          <div class="recent-card-name">${l.name}</div>
+          <div class="recent-card-meta">${[l.city, l.country].filter(Boolean).join(', ')}</div>
+        </a>
       `).join('');
     }
 
@@ -1591,6 +1882,8 @@ window.filterCategory = window.filterCategory || function(cat) {
       document.getElementById('modalBizName').textContent = 'Contact ' + listing.name;
       document.getElementById('modalBizSub').textContent = `${listing.city}, ${listing.country} · ${listing.category}`;
       document.getElementById('inquiryModal').classList.add('open');
+      // LAYOUTS §2D — record this listing in the recently-viewed list
+      try { trackRecentListing(listing && listing.id); } catch (e) { /* swallow */ }
     }
 
     function closeModal() {
@@ -1670,6 +1963,18 @@ window.filterCategory = window.filterCategory || function(cat) {
 </section>
 
   </main>
+
+  <!-- LAYOUTS §2D — recently viewed row (localStorage-backed, hidden until populated) -->
+  <section class="recently-viewed-section hidden" id="recentlyViewedSection" aria-label="Recently viewed listings">
+    <h3>Recently viewed</h3>
+    <div class="recently-viewed-row" id="recentlyViewedRow"></div>
+  </section>
+
+  <!-- LAYOUTS §2B — sticky List-Your-Business FAB (mobile only) -->
+  <a class="market-fab" href="/market-submit.html" aria-label="List your business">
+    <span class="market-fab-plus" aria-hidden="true">+</span>
+    List Your Business
+  </a>
 
 <!-- SOPHIA_FOOTER -->
 <footer style="max-width:1200px;margin:60px auto 20px;padding:24px 20px;border-top:1px solid #374151;color:#9ca3af;font-size:13px;text-align:center;position:relative;z-index:10;"><div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;margin-bottom:12px;"><a href="/terms.html" style="color:#9ca3af;">Terms</a><a href="/privacy.html" style="color:#9ca3af;">Privacy</a><a href="/copyright.html" style="color:#9ca3af;">Copyright</a><a href="mailto:t.rain@sophiaoperator.com" style="color:#9ca3af;">Contact</a></div><div>© 2026 Tarence Rainey / SophiaMarket™ · All rights reserved</div></footer>
