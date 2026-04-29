@@ -199,17 +199,28 @@
       border-radius: var(--radius); padding: 14px 10px;
       text-align: center; cursor: pointer;
       transition: border-color 0.2s, background 0.2s, transform 0.1s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .country-card:hover { border-color: var(--gold); background: var(--bg3); transform: translateY(-2px); }
     .country-card.active { border-color: var(--gold); background: var(--gold-dim); }
+    .country-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
     .country-flag {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       margin: 0 auto 8px;
       display: grid;
       place-items: center;
       border-radius: 8px;
       border: 1px solid rgba(232,201,120,0.22);
+      background: rgba(20, 14, 4, 0.55);
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .country-flag.is-code {
       background:
         radial-gradient(circle at 28% 18%, rgba(255,247,194,0.9) 0 5%, transparent 15%),
         linear-gradient(145deg, #251804, #f0cf66 42%, #8b5b14 70%, #0f0b05);
@@ -391,7 +402,8 @@
 
     /* Step sections */
     .market-section { margin-bottom: 40px; }
-    .market-section.hidden { display: none; }
+    .market-section.hidden,
+    .empty-state.hidden { display: none !important; }
 
     /* Modal */
     .modal-overlay {
@@ -1109,10 +1121,10 @@ window.filterCategory = window.filterCategory || function(cat) {
       </div>
 
       <div class="country-grid" id="countryGrid">
-        <div class="country-card active" onclick="selectCountry('All')" id="country-All">
-          <div class="country-flag">ALL</div>
+        <a class="country-card active" href="#section-country" onclick="event.preventDefault();selectCountry('All')" id="country-All" aria-label="Browse all countries">
+          <div class="country-flag is-code" aria-hidden="true">ALL</div>
           <div class="country-name">All Countries</div>
-        </div>
+        </a>
       </div>
       <div class="state-directory" id="stateDirectory" aria-label="United States states and major cities directory">
         <div class="state-directory-head">
@@ -1122,7 +1134,7 @@ window.filterCategory = window.filterCategory || function(cat) {
           </div>
           <div class="state-directory-note">A-Z state and city order</div>
         </div>
-        <div class="state-grid" id="stateGrid"></div>
+        <div class="state-grid" id="stateGrid" tabindex="0" aria-label="United States state and city list"></div>
       </div>
     </div>
 
@@ -1150,7 +1162,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       </div>
 
       <div class="filter-bar">
-        <span class="filter-label">Sort by:</span>
+        <label class="filter-label" for="sortSelect">Sort by:</label>
         <select id="sortSelect" onchange="renderListings()">
           <option value="featured">Featured First</option>
           <option value="newest">Newest</option>
@@ -1547,20 +1559,30 @@ window.filterCategory = window.filterCategory || function(cat) {
       `).join('');
     }
 
+    function countrySlug(name) {
+      return name.toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/['']/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
     function renderCountries(list) {
       const grid = document.getElementById('countryGrid');
       const existing = document.getElementById('country-All');
       grid.innerHTML = '';
       grid.appendChild(existing || createAllCard());
       list.forEach(c => {
-        const div = document.createElement('div');
-        div.className = 'country-card' + (selectedCountry === c.name ? ' active' : '');
-        div.id = 'country-' + c.code;
-        div.onclick = () => selectCountry(c.name);
+        const a = document.createElement('a');
+        a.className = 'country-card' + (selectedCountry === c.name ? ' active' : '');
+        a.id = 'country-' + c.code;
+        a.href = `/market/country/${countrySlug(c.name)}/`;
+        a.setAttribute('aria-label', `Open ${c.name} country page`);
         const areas = COUNTRY_AREAS[c.name] || [];
         const areaHtml = areas.length ? `<div class="country-areas">${areas.slice(0, 4).map(area => `<span class="country-area">${area}</span>`).join('')}</div>` : '';
-        div.innerHTML = `<div class="country-flag">${c.code}</div><div class="country-name">${c.name}</div>${areaHtml}`;
-        grid.appendChild(div);
+        const flag = c.flag || c.code;
+        a.innerHTML = `<div class="country-flag" aria-hidden="true">${flag}</div><div class="country-name">${c.name}</div>${areaHtml}`;
+        grid.appendChild(a);
       });
     }
 
@@ -1576,12 +1598,14 @@ window.filterCategory = window.filterCategory || function(cat) {
     }
 
     function createAllCard() {
-      const div = document.createElement('div');
-      div.className = 'country-card active';
-      div.id = 'country-All';
-      div.onclick = () => selectCountry('All');
-      div.innerHTML = `<div class="country-flag">ALL</div><div class="country-name">All Countries</div>`;
-      return div;
+      const a = document.createElement('a');
+      a.className = 'country-card active';
+      a.id = 'country-All';
+      a.href = '#section-country';
+      a.setAttribute('aria-label', 'Browse all countries');
+      a.onclick = (e) => { e.preventDefault(); selectCountry('All'); };
+      a.innerHTML = `<div class="country-flag is-code" aria-hidden="true">ALL</div><div class="country-name">All Countries</div>`;
+      return a;
     }
 
     function filterByRegion(region, btn) {
@@ -1676,7 +1700,7 @@ window.filterCategory = window.filterCategory || function(cat) {
       }
 
       const visible = filtered.slice(0, listingLimit);
-      document.getElementById('resultsCount').textContent = `${filtered.length} listing${filtered.length !== 1 ? 's' : ''} found · showing ${Math.min(visible.length, filtered.length)}`;
+      document.getElementById('resultsCount').textContent = `Directory results · showing ${Math.min(visible.length, filtered.length)} of ${filtered.length}`;
       const grid = document.getElementById('listingsGrid');
       const empty = document.getElementById('emptyState');
       const loadMore = document.getElementById('loadMoreWrap');
@@ -1771,96 +1795,31 @@ window.filterCategory = window.filterCategory || function(cat) {
     init();
   </script>
 
-<!-- SOPHIA_NEWS_VIDEO -->
-<!-- Global Business News + Featured Video block -->
-<section id="sophia-news-video" style="max-width:1200px;margin:40px auto;padding:0 20px;">
-  <div style="display:grid;grid-template-columns:1fr;gap:24px;">
-
-    <!-- NEWS FEED -->
-    <div style="background:#111827;border:1px solid #374151;border-radius:16px;padding:24px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
-          Global Business Pulse
-        </h2>
-        <span style="color:#9ca3af;font-size:12px;">Updated daily</span>
+<section id="market-intelligence" style="max-width:1200px;margin:40px auto;padding:0 20px;">
+  <div style="background:linear-gradient(135deg,rgba(255,240,166,.08),rgba(8,10,14,.98));border:1px solid rgba(232,201,120,.26);border-radius:6px;padding:26px;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px;">
+      <div>
+        <p style="margin:0 0 8px;color:#e8c978;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;">Market intelligence</p>
+        <h2 style="color:#f9fafb;font-size:clamp(24px,4vw,36px);font-family:var(--sv-display,Georgia,serif);font-weight:500;margin:0;letter-spacing:0;">Operator field notes</h2>
       </div>
-      <div id="sophia-news" style="display:grid;gap:12px;">
-        <div style="color:#9ca3af;padding:20px;text-align:center;">Loading feed…</div>
-      </div>
+      <span style="color:#9ca3af;font-size:12px;border:1px solid rgba(232,201,120,.22);border-radius:999px;padding:8px 12px;">Local preview content</span>
     </div>
-
-    <!-- VIDEO HIGHLIGHT -->
-    <div style="background:linear-gradient(135deg,#141007 0%,#111827 100%);border:1px solid rgba(232,201,120,0.34);border-radius:16px;padding:24px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <h2 style="color:#f9fafb;font-size:22px;font-weight:800;margin:0;letter-spacing:-0.02em;">
-          Spotlight
-        </h2>
-        <span style="color:#e8c978;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;">Curated</span>
-      </div>
-      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;">
-        <iframe
-          src="https://www.youtube.com/embed/videoseries?list=PLbpi6ZahtOH5dZ_5Ml0GOKSAhZdokjsEt&autoplay=0&rel=0"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-      <p style="color:#9ca3af;font-size:14px;margin:12px 0 0;">
-        Global trade documentaries, emerging-market deep-dives, founder stories.
-      </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+      <article style="background:rgba(255,255,255,.035);border:1px solid rgba(232,201,120,.16);border-radius:4px;padding:18px;">
+        <h3 style="margin:0 0 8px;color:#f9fafb;font-size:16px;">Verified supply paths</h3>
+        <p style="margin:0;color:#9ca3af;font-size:14px;line-height:1.55;">Prioritize businesses with clear location, category, contact route, and searchable service terms.</p>
+      </article>
+      <article style="background:rgba(255,255,255,.035);border:1px solid rgba(232,201,120,.16);border-radius:4px;padding:18px;">
+        <h3 style="margin:0 0 8px;color:#f9fafb;font-size:16px;">Diaspora commerce</h3>
+        <p style="margin:0;color:#9ca3af;font-size:14px;line-height:1.55;">Use the country and state directory to surface suppliers, service firms, and buyer requests by region.</p>
+      </article>
+      <article style="background:rgba(255,255,255,.035);border:1px solid rgba(232,201,120,.16);border-radius:4px;padding:18px;">
+        <h3 style="margin:0 0 8px;color:#f9fafb;font-size:16px;">Listing quality</h3>
+        <p style="margin:0;color:#9ca3af;font-size:14px;line-height:1.55;">Featured placement should reward complete profiles, useful descriptions, and responsive business contacts.</p>
+      </article>
     </div>
-
   </div>
 </section>
-
-<script>
-(function(){
-  // Pull free global business headlines (no auth) — Google News RSS via rss2json (free tier)
-  const FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://news.google.com/rss/search?q=global+business+trade+emerging+markets&hl=en-US&gl=US&ceid=US:en');
-  const container = document.getElementById('sophia-news');
-  if (!container) return;
-  fetch(FEED)
-    .then(r => r.json())
-    .then(d => {
-      const items = (d.items || []).slice(0, 5);
-      if (!items.length) {
-        container.innerHTML = '<div style="color:#9ca3af;padding:20px;text-align:center;">News feed temporarily unavailable. Check back soon.</div>';
-        return;
-      }
-      container.innerHTML = items.map(i => {
-        const date = new Date(i.pubDate);
-        const rel = timeAgo(date);
-        const src = (i.source && i.source.name) || i.author || 'News';
-        return `
-          <a href="${i.link}" target="_blank" rel="noopener noreferrer"
-             style="display:block;padding:14px;background:#1f2937;border:1px solid #374151;border-radius:12px;text-decoration:none;transition:border-color .15s;"
-             onmouseover="this.style.borderColor='#e8c978'"
-             onmouseout="this.style.borderColor='#374151'">
-            <div style="color:#f9fafb;font-weight:600;font-size:15px;line-height:1.4;margin-bottom:6px;">
-              ${escapeHtml(i.title)}
-            </div>
-            <div style="color:#9ca3af;font-size:12px;display:flex;gap:10px;">
-              <span>${escapeHtml(src)}</span><span>·</span><span>${rel}</span>
-            </div>
-          </a>
-        `;
-      }).join('');
-    })
-    .catch(() => {
-      container.innerHTML = '<div style="color:#9ca3af;padding:20px;text-align:center;">News feed offline.</div>';
-    });
-
-  function escapeHtml(s){return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-  function timeAgo(date){
-    const s = Math.floor((Date.now() - date.getTime()) / 1000);
-    if (s < 60) return 'just now';
-    if (s < 3600) return Math.floor(s/60) + 'm ago';
-    if (s < 86400) return Math.floor(s/3600) + 'h ago';
-    return Math.floor(s/86400) + 'd ago';
-  }
-})();
-</script>
-
-<!-- /SOPHIA_NEWS_VIDEO -->
 
   </main>
 
