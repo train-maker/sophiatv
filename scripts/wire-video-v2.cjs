@@ -1,23 +1,37 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Video — SophiaTV</title>
-<meta name="description" content="Vertical video feed on SophiaTV — TikTok-style scroll. Operator updates, market signals, creator content." />
-<link rel="canonical" href="https://sophiatv.vercel.app/video.html" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Video — SophiaTV" />
-<meta property="og:description" content="Vertical video feed on SophiaTV — TikTok-style scroll. Operator updates, market signals, creator content." />
-<meta property="og:url" content="https://sophiatv.vercel.app/video.html" />
-<meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="/assets/css/sovereign.css" />
-<link rel="stylesheet" href="/style.css" />
-<link rel="stylesheet" href="/future.css" />
-<link rel="icon" href="/assets/brand/sophia-logo-premium.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://commondatastorage.googleapis.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<style>
+#!/usr/bin/env node
+// Replace video.html with a TikTok+YouTube-quality vertical video feed.
+// Plus: /video/saved/index.html with the user's liked clips.
+
+const fs = require('fs');
+const path = require('path');
+const ROOT = path.resolve(__dirname, '..');
+
+const NAV_LINKS = `      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link" style="color:var(--gold);" aria-current="page">Video</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      </div>`;
+
+const NAV_LINKS_SAVED = NAV_LINKS.replace('class="nav-link" style="color:var(--gold);" aria-current="page">Video', 'class="nav-link">Video');
+
+// 8 starter clips — synthetic counts make the page feel populated. Real backend can override.
+const CLIPS = [
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', creator: 'sophia_operator', creatorName: 'Sophia Operator', caption: 'SophiaMarket is live in 105 countries. Free listings, $29.99 Featured. Tap to learn how to list your business in under 60 seconds.', tag: 'Market', tags: ['#sophiamarket','#listings','#globalbusiness'], views: 18420, likes: 1240, comments: 86 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4', creator: 'global_signals', creatorName: 'Global Signals', caption: 'How African markets are shifting in 2026. The next wave of B2B trade is going direct.', tag: 'Signals', tags: ['#africa','#trade','#b2b'], views: 9210, likes: 612, comments: 41 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', creator: 'natural_cures', creatorName: 'Natural Cures', caption: 'Three foods that change everything. Watch the full breakdown on /wellness.', tag: 'Wellness', tags: ['#wellness','#health','#operatorlife'], views: 24310, likes: 2103, comments: 198 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', creator: 'operator_daily', creatorName: 'Operator Daily', caption: 'A Lagos importer sourced electronics from Shenzhen using SophiaMarket. Story in the comments.', tag: 'Story', tags: ['#story','#lagos','#shenzhen'], views: 6745, likes: 488, comments: 73 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4', creator: 'sophia_creators', creatorName: 'Sophia Creators', caption: 'Become a Builder — stream up to 4 hrs/day, paid sessions, custom landing page.', tag: 'Creators', tags: ['#creators','#builder','#sophiatv'], views: 4129, likes: 290, comments: 22 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4', creator: 'sophia_film', creatorName: 'Sophia Film', caption: 'Operator-curated short film of the week. New drops every Friday.', tag: 'Film', tags: ['#film','#friday','#shortfilm'], views: 11892, likes: 904, comments: 132 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4', creator: 'budget_brain', creatorName: 'Budget Brain', caption: 'Quick budget hack for operators living between countries. 60 seconds.', tag: 'Tools', tags: ['#budget','#tools'], views: 5420, likes: 412, comments: 38 },
+  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4', creator: 'sophia_signals', creatorName: 'Sophia Signals', caption: 'AI-generated daily signals for your industry. Subscribe in the dashboard.', tag: 'AI', tags: ['#ai','#signals','#daily'], views: 14280, likes: 1102, comments: 89 },
+];
+
+const SHARED_CSS = `
   body { background: #06070a; color: #f5f1e6; font-family: Inter, system-ui, sans-serif; margin: 0; }
   .video-shell { padding-top: 64px; min-height: 100vh; }
   .video-page-head { max-width: 480px; margin: 96px auto 16px; padding: 0 16px; }
@@ -96,247 +110,38 @@
   .toast.is-on { opacity: 1; }
 
   @media (max-width: 480px) { .video-feed { padding: 8px 0 60px; gap: 0; scroll-snap-type: y mandatory; height: calc(100vh - 64px); overflow-y: auto; } .video-card { border-radius: 0; max-height: calc(100vh - 64px); height: calc(100vh - 64px); scroll-snap-align: start; flex-shrink: 0; } .video-page-head { display: none; } .video-shell { padding-top: 56px; } .feed-tags { display: none; } }
-</style>
-</head><body>
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <img src="/assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
-      <span class="logo-text">Sophia<em>TV</em></span>
-    </a>
-      <div class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/video.html" class="nav-link" style="color:var(--gold);" aria-current="page">Video</a>
-        <a href="/social.html" class="nav-link">Social</a>
-        <a href="/market.html" class="nav-link">Market</a>
-        <a href="/wellness.html" class="nav-link">Wellness</a>
-        <a href="/everyday-tools.html" class="nav-link">Tools</a>
-        <a href="/pricing.html" class="nav-link">Pricing</a>
-        <a href="/dashboard.html" class="nav-link">Dashboard</a>
-      </div>
-  </div>
-</nav>
-<div class="video-shell">
-  <header class="video-page-head">
-    <h1>Video</h1>
-    <p>Vertical scroll · operator updates, market signals, creator drops. ↑↓ to navigate · Space to play · M to mute · L to like · ←→ tap zones to seek.</p>
-  </header>
-  <div class="feed-tags" id="feedTags"></div>
-  <main class="video-feed" id="videoFeed" aria-label="Vertical video feed">
+`;
 
-      <article class="video-card is-paused" data-idx="0" data-tags="#sophiamarket,#listings,#globalbusiness" data-creator="sophia_operator">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" muted loop playsinline preload="metadata"></video>
+function buildCardsHtml(clips) {
+  return clips.map((c, i) => `
+      <article class="video-card is-paused" data-idx="${i}" data-tags="${(c.tags||[]).join(',')}" data-creator="${c.creator}">
+        <video class="video-el" src="${c.src}" muted loop playsinline preload="metadata"></video>
         <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Market</div>
+        <div class="video-tag">${c.tag}</div>
         <div class="video-duration" data-duration></div>
-        <div class="video-views">18,420 views</div>
+        <div class="video-views">${(c.views||0).toLocaleString()} views</div>
         <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="sophia_operator">@sophia_operator</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">SophiaMarket is live in 105 countries. Free listings, $29.99 Featured. Tap to learn how to list your business in under 60 seconds.</div>
-          <div class="video-hashtags"><span data-tag="sophiamarket">#sophiamarket</span><span data-tag="listings">#listings</span><span data-tag="globalbusiness">#globalbusiness</span></div>
+          <div class="video-creator"><a href="#" data-creator-link="${c.creator}">@${c.creator}</a><button class="video-follow" data-action="follow">Follow</button></div>
+          <div class="video-caption">${c.caption}</div>
+          <div class="video-hashtags">${(c.tags||[]).map(t => `<span data-tag="${t.replace('#','')}">${t}</span>`).join('')}</div>
         </div>
         <div class="video-actions">
           <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">1,240</div>
+          <div class="vid-btn-count" data-count="like">${(c.likes||0).toLocaleString()}</div>
           <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">86</div>
+          <div class="vid-btn-count" data-count="comment">${(c.comments||0).toLocaleString()}</div>
           <button class="vid-btn" data-action="save" aria-label="Save">·</button>
           <button class="vid-btn" data-action="share" aria-label="Share">→</button>
           <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
         </div>
         <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
+      </article>`).join('\n');
+}
 
-      <article class="video-card is-paused" data-idx="1" data-tags="#africa,#trade,#b2b" data-creator="global_signals">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Signals</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">9,210 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="global_signals">@global_signals</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">How African markets are shifting in 2026. The next wave of B2B trade is going direct.</div>
-          <div class="video-hashtags"><span data-tag="africa">#africa</span><span data-tag="trade">#trade</span><span data-tag="b2b">#b2b</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">612</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">41</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="2" data-tags="#wellness,#health,#operatorlife" data-creator="natural_cures">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Wellness</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">24,310 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="natural_cures">@natural_cures</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">Three foods that change everything. Watch the full breakdown on /wellness.</div>
-          <div class="video-hashtags"><span data-tag="wellness">#wellness</span><span data-tag="health">#health</span><span data-tag="operatorlife">#operatorlife</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">2,103</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">198</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="3" data-tags="#story,#lagos,#shenzhen" data-creator="operator_daily">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Story</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">6,745 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="operator_daily">@operator_daily</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">A Lagos importer sourced electronics from Shenzhen using SophiaMarket. Story in the comments.</div>
-          <div class="video-hashtags"><span data-tag="story">#story</span><span data-tag="lagos">#lagos</span><span data-tag="shenzhen">#shenzhen</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">488</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">73</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="4" data-tags="#creators,#builder,#sophiatv" data-creator="sophia_creators">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Creators</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">4,129 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="sophia_creators">@sophia_creators</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">Become a Builder — stream up to 4 hrs/day, paid sessions, custom landing page.</div>
-          <div class="video-hashtags"><span data-tag="creators">#creators</span><span data-tag="builder">#builder</span><span data-tag="sophiatv">#sophiatv</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">290</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">22</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="5" data-tags="#film,#friday,#shortfilm" data-creator="sophia_film">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Film</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">11,892 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="sophia_film">@sophia_film</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">Operator-curated short film of the week. New drops every Friday.</div>
-          <div class="video-hashtags"><span data-tag="film">#film</span><span data-tag="friday">#friday</span><span data-tag="shortfilm">#shortfilm</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">904</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">132</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="6" data-tags="#budget,#tools" data-creator="budget_brain">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">Tools</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">5,420 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="budget_brain">@budget_brain</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">Quick budget hack for operators living between countries. 60 seconds.</div>
-          <div class="video-hashtags"><span data-tag="budget">#budget</span><span data-tag="tools">#tools</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">412</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">38</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-
-      <article class="video-card is-paused" data-idx="7" data-tags="#ai,#signals,#daily" data-creator="sophia_signals">
-        <video class="video-el" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-tag">AI</div>
-        <div class="video-duration" data-duration></div>
-        <div class="video-views">14,280 views</div>
-        <div class="video-overlay">
-          <div class="video-creator"><a href="#" data-creator-link="sophia_signals">@sophia_signals</a><button class="video-follow" data-action="follow">Follow</button></div>
-          <div class="video-caption">AI-generated daily signals for your industry. Subscribe in the dashboard.</div>
-          <div class="video-hashtags"><span data-tag="ai">#ai</span><span data-tag="signals">#signals</span><span data-tag="daily">#daily</span></div>
-        </div>
-        <div class="video-actions">
-          <button class="vid-btn" data-action="like" aria-label="Like">+</button>
-          <div class="vid-btn-count" data-count="like">1,102</div>
-          <button class="vid-btn" data-action="comment" aria-label="Comments">~</button>
-          <div class="vid-btn-count" data-count="comment">89</div>
-          <button class="vid-btn" data-action="save" aria-label="Save">·</button>
-          <button class="vid-btn" data-action="share" aria-label="Share">→</button>
-          <button class="vid-btn" data-action="mute" aria-label="Toggle audio">M</button>
-        </div>
-        <div class="video-progress" aria-hidden="true"><span></span></div>
-      </article>
-    <div class="video-empty">More clips coming. Follow creators on <a href="/social">Social</a> · <a href="/video/saved/">View saved clips</a></div>
-  </main>
-</div>
-
-<button class="nav-arrow up" id="navUp" aria-label="Previous clip" title="Previous (↑)">^</button>
-<button class="nav-arrow down" id="navDown" aria-label="Next clip" title="Next (↓)">v</button>
-
-<aside class="drawer" id="commentsDrawer" aria-label="Comments">
-  <div class="drawer-head"><h3>Comments</h3><button class="drawer-close" id="drawerClose" aria-label="Close">×</button></div>
-  <div class="drawer-body" id="drawerBody"></div>
-  <div class="drawer-foot">
-    <input id="drawerInput" type="text" placeholder="Add a comment..." />
-    <button id="drawerPost">Post</button>
-  </div>
-</aside>
-
-<div class="modal-bg" id="shareModal"><div class="modal" id="shareCloseBg" onclick="event.stopPropagation()">
-  <h3>Share this clip</h3>
-  <div class="share-grid" id="shareGrid"></div>
-  <div class="share-link">
-    <input id="shareLinkInput" readonly />
-    <button id="shareCopyBtn">Copy</button>
-  </div>
-</div></div>
-
-<div class="toast" id="vidToast"></div>
-
+const FEED_SCRIPT = `
 <script>
   (function () {
-    var clips = [{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4","creator":"sophia_operator","creatorName":"Sophia Operator","caption":"SophiaMarket is live in 105 countries. Free listings, $29.99 Featured. Tap to learn how to list your business in under 60 seconds.","tag":"Market","tags":["#sophiamarket","#listings","#globalbusiness"],"views":18420,"likes":1240,"comments":86},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4","creator":"global_signals","creatorName":"Global Signals","caption":"How African markets are shifting in 2026. The next wave of B2B trade is going direct.","tag":"Signals","tags":["#africa","#trade","#b2b"],"views":9210,"likes":612,"comments":41},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4","creator":"natural_cures","creatorName":"Natural Cures","caption":"Three foods that change everything. Watch the full breakdown on /wellness.","tag":"Wellness","tags":["#wellness","#health","#operatorlife"],"views":24310,"likes":2103,"comments":198},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4","creator":"operator_daily","creatorName":"Operator Daily","caption":"A Lagos importer sourced electronics from Shenzhen using SophiaMarket. Story in the comments.","tag":"Story","tags":["#story","#lagos","#shenzhen"],"views":6745,"likes":488,"comments":73},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4","creator":"sophia_creators","creatorName":"Sophia Creators","caption":"Become a Builder — stream up to 4 hrs/day, paid sessions, custom landing page.","tag":"Creators","tags":["#creators","#builder","#sophiatv"],"views":4129,"likes":290,"comments":22},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4","creator":"sophia_film","creatorName":"Sophia Film","caption":"Operator-curated short film of the week. New drops every Friday.","tag":"Film","tags":["#film","#friday","#shortfilm"],"views":11892,"likes":904,"comments":132},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4","creator":"budget_brain","creatorName":"Budget Brain","caption":"Quick budget hack for operators living between countries. 60 seconds.","tag":"Tools","tags":["#budget","#tools"],"views":5420,"likes":412,"comments":38},{"src":"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4","creator":"sophia_signals","creatorName":"Sophia Signals","caption":"AI-generated daily signals for your industry. Subscribe in the dashboard.","tag":"AI","tags":["#ai","#signals","#daily"],"views":14280,"likes":1102,"comments":89}];
+    var clips = ${JSON.stringify(CLIPS)};
     var feed = document.getElementById('videoFeed');
     if (!feed) return;
     var cards = Array.prototype.slice.call(feed.querySelectorAll('.video-card'));
@@ -616,5 +421,124 @@
     });
   })();
 </script>
+`;
 
-</body></html>
+const head = (title, desc, canonical) => `<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${title}</title>
+<meta name="description" content="${desc}" />
+<link rel="canonical" href="${canonical}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="${title}" />
+<meta property="og:description" content="${desc}" />
+<meta property="og:url" content="${canonical}" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="/assets/css/sovereign.css" />
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/future.css" />
+<link rel="icon" href="/assets/brand/sophia-logo-premium.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://commondatastorage.googleapis.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>${SHARED_CSS}</style>
+</head><body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="/assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </a>
+${NAV_LINKS}
+  </div>
+</nav>`;
+
+const FEED_BODY = `
+<div class="video-shell">
+  <header class="video-page-head">
+    <h1>Video</h1>
+    <p>Vertical scroll · operator updates, market signals, creator drops. ↑↓ to navigate · Space to play · M to mute · L to like · ←→ tap zones to seek.</p>
+  </header>
+  <div class="feed-tags" id="feedTags"></div>
+  <main class="video-feed" id="videoFeed" aria-label="Vertical video feed">
+${buildCardsHtml(CLIPS)}
+    <div class="video-empty">More clips coming. Follow creators on <a href="/social">Social</a> · <a href="/video/saved/">View saved clips</a></div>
+  </main>
+</div>
+
+<button class="nav-arrow up" id="navUp" aria-label="Previous clip" title="Previous (↑)">^</button>
+<button class="nav-arrow down" id="navDown" aria-label="Next clip" title="Next (↓)">v</button>
+
+<aside class="drawer" id="commentsDrawer" aria-label="Comments">
+  <div class="drawer-head"><h3>Comments</h3><button class="drawer-close" id="drawerClose" aria-label="Close">×</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <input id="drawerInput" type="text" placeholder="Add a comment..." />
+    <button id="drawerPost">Post</button>
+  </div>
+</aside>
+
+<div class="modal-bg" id="shareModal"><div class="modal" id="shareCloseBg" onclick="event.stopPropagation()">
+  <h3>Share this clip</h3>
+  <div class="share-grid" id="shareGrid"></div>
+  <div class="share-link">
+    <input id="shareLinkInput" readonly />
+    <button id="shareCopyBtn">Copy</button>
+  </div>
+</div></div>
+
+<div class="toast" id="vidToast"></div>
+${FEED_SCRIPT}
+</body></html>`;
+
+fs.writeFileSync(path.join(ROOT, 'video.html'), head('Video — SophiaTV', 'Vertical video feed on SophiaTV — TikTok-style scroll. Operator updates, market signals, creator content.', 'https://sophiatv.vercel.app/video.html') + FEED_BODY);
+console.log('updated: video.html (TikTok+YouTube wiring)');
+
+// /video/saved/index.html
+const SAVED_BODY = `
+<div class="video-shell">
+  <header class="video-page-head">
+    <h1>Saved</h1>
+    <p>Your liked and bookmarked clips, stored locally.</p>
+  </header>
+  <main class="video-feed" id="savedFeed" aria-label="Saved clips"></main>
+</div>
+<div class="toast" id="vidToast"></div>
+<script>
+  var saved = JSON.parse(localStorage.getItem('sophia.savedVideos') || '[]');
+  var feed = document.getElementById('savedFeed');
+  if (!saved.length) {
+    feed.innerHTML = '<div class="video-empty">No saved clips yet. <a href="/video">Browse the feed</a> and tap the · button to save.</div>';
+  } else {
+    feed.innerHTML = saved.map(function (c, i) {
+      return '<article class="video-card is-paused" data-idx="'+i+'"><video class="video-el" src="'+c.src+'" muted loop playsinline preload="metadata"></video><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag">'+c.tag+'</div><div class="video-overlay"><div class="video-creator">@'+c.creator+'</div><div class="video-caption">'+c.caption+'</div></div><div class="video-actions"><a class="vid-btn" href="/video?clip='+c.idx+'" title="Open in feed">→</a><button class="vid-btn" data-remove="'+c.idx+'" title="Remove from saved">×</button></div><div class="video-progress"><span></span></div></article>';
+    }).join('');
+    feed.querySelectorAll('[data-remove]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var idx = parseInt(b.getAttribute('data-remove'), 10);
+        var s = JSON.parse(localStorage.getItem('sophia.savedVideos') || '[]').filter(function (x) { return x.idx !== idx; });
+        localStorage.setItem('sophia.savedVideos', JSON.stringify(s));
+        location.reload();
+      });
+    });
+    // Autoplay-on-scroll
+    var cards = Array.prototype.slice.call(feed.querySelectorAll('.video-card'));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target.querySelector('video');
+        if (e.isIntersecting && e.intersectionRatio > 0.55) v.play().catch(function(){}); else v.pause();
+      });
+    }, { threshold: [0, 0.55, 1] });
+    cards.forEach(function (c) { io.observe(c); c.addEventListener('click', function(e){ if (e.target.closest('.vid-btn')) return; var v = c.querySelector('video'); if (v.paused) v.play().catch(function(){}); else v.pause(); }); });
+  }
+</script>
+</body></html>`;
+
+const savedHead = head('Saved — SophiaTV Video', 'Your saved video clips on SophiaTV.', 'https://sophiatv.vercel.app/video/saved/').replace(NAV_LINKS, NAV_LINKS_SAVED);
+fs.mkdirSync(path.join(ROOT, 'video', 'saved'), { recursive: true });
+fs.writeFileSync(path.join(ROOT, 'video', 'saved', 'index.html'), savedHead + SAVED_BODY);
+console.log('created: video/saved/index.html');
+
+console.log('\nDone.');

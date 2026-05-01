@@ -3,1888 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sophia — The World, Translated Into Opportunity</title>
-  <meta name="description" content="Sophia pulls back the curtains between languages so people can communicate, trade, learn, and connect across the world." />
-
-  <!-- Open Graph / Social Sharing -->
+  <title>Sophia Operator</title>
+  <meta
+    name="description"
+    content="Sophia Operator is the landing page for signup, login, and language access across Sophia's global web and future mobile experience."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sophiatv.vercel.app/" />
-  <meta property="og:title" content="Sophia — The World, Translated Into Opportunity" />
-  <meta property="og:description" content="A global connection layer where language stops being a wall and becomes a bridge for communication, business, and opportunity." />
+  <meta property="og:title" content="Sophia Operator" />
+  <meta
+    property="og:description"
+    content="Enter Sophia Operator through a clean, language-aware landing page built for account access and a mobile-aligned product future."
+  />
   <meta property="og:image" content="https://sophiatv.vercel.app/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="SophiaTV" />
-
-  <!-- Twitter Card -->
+  <meta property="og:site_name" content="Sophia Operator" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@SophiaTV" />
-  <meta name="twitter:title" content="Sophia — The World, Translated Into Opportunity" />
-  <meta name="twitter:description" content="A global connection layer for communication, translation, markets, and human opportunity across languages." />
+  <meta name="twitter:title" content="Sophia Operator" />
+  <meta
+    name="twitter:description"
+    content="Sign up, log in, and choose your language from Sophia Operator's first-layer landing page."
+  />
   <meta name="twitter:image" content="https://sophiatv.vercel.app/og-image.png" />
-
-  <!-- Performance: preconnect to critical third-party origins -->
-  <link rel="preconnect" href="https://wftxhojlvrymtdtekhdx.supabase.co" crossorigin />
-  <link rel="preconnect" href="https://js.stripe.com" crossorigin />
-  <link rel="preconnect" href="https://buy.stripe.com" crossorigin />
-  <link rel="preconnect" href="https://api.anthropic.com" crossorigin />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "SophiaTV",
-    "url": "https://sophiaoperator.com",
-    "description": "Sophia pulls back the curtains between languages so people can communicate, trade, learn, and connect across the world.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://sophiatv.vercel.app/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://sophiatv.vercel.app/" />
   <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
-
-  <!-- Google Analytics — set window.__GA_ID__ = 'G-XXXXXXXXXX' to enable -->
-  <script>
-    (function(){
-      var id = window.__GA_ID__;
-      if (!id || !/^G-[A-Z0-9]{6,}$/.test(id)) return;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', id);
-    })();
-  </script>
-
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
-  <!-- Supabase for auth state -->
-  <script src="config.js"></script>
-  <script>
-    (function () {
-      if (/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(window.location.hostname)) return;
-      var publicConfig = document.createElement('script');
-      publicConfig.src = '/api/public-config';
-      publicConfig.defer = true;
-      document.head.appendChild(publicConfig);
-    })();
-  </script>
 </head>
-<body>
-  <script>window.__SOPHIA_LEGACY_EFFECTS_DISABLED = true;</script>
-  <a class="skip-main" href="#main-content">Skip to main content</a>
-<!-- SOPHIA_TESLA -->
-<!-- Tesla-level futuristic layer for SophiaMarket -->
-<style id="sophia-tesla-css">
-  /* Smooth everywhere */
-  * { scroll-behavior: smooth; }
-  html { scroll-behavior: smooth; }
-
-  /* SOVEREIGN font stack */
-  body, button, input, select, textarea {
-    font-family: var(--font-ui, "Avenir Next", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: geometricPrecision;
-  }
-  .logo-text,
-  .hero-title,
-  .section-title,
-  .pricing-title,
-  .sophia-cinema-copy h2 {
-    font-family: var(--font-display, "New York", "Iowan Old Style", "Bodoni 72", "Didot", Georgia, serif);
-    font-weight: 500 !important;
-    letter-spacing: 0 !important;
-  }
-
-  /* Animated aurora background for the whole page */
-  body::before {
-    content:""; position:fixed; inset:0; z-index:-2;
-    background:
-      radial-gradient(ellipse 80% 80% at 20% 0%, rgba(16,185,129,0.15), transparent 50%),
-      radial-gradient(ellipse 80% 80% at 80% 100%, rgba(52,211,153,0.12), transparent 50%),
-      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(251,191,36,0.06), transparent 60%),
-      linear-gradient(180deg, #05070d 0%, #0a0e1a 100%);
-    animation: auroraShift 20s ease-in-out infinite;
-  }
-  @keyframes auroraShift {
-    0%,100%{background-position:0% 0%, 100% 100%, 50% 50%, 0 0;}
-    50%{background-position:30% 20%, 70% 80%, 60% 40%, 0 0;}
-  }
-
-  /* Particle field canvas */
-  #sophia-particles { position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.6; }
-
-  /* Glass morphism for cards */
-  .glass, .listing-card, article.card {
-    background: rgba(17, 24, 39, 0.55) !important;
-    backdrop-filter: blur(12px) saturate(1.4);
-    -webkit-backdrop-filter: blur(12px) saturate(1.4);
-    border: 1px solid rgba(255,255,255,0.08) !important;
-    transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s, box-shadow .25s !important;
-  }
-  .glass:hover, .listing-card:hover, article.card:hover {
-    transform: translateY(-4px) !important;
-    border-color: rgba(16,185,129,0.6) !important;
-    box-shadow: 0 20px 60px -20px rgba(16,185,129,0.35);
-  }
-
-  /* Shimmer on featured */
-  .featured, [class*="featured"] {
-    position: relative;
-    overflow: hidden;
-  }
-  .featured::after, [class*="featured"]::after {
-    content:""; position:absolute; inset:0;
-    background: linear-gradient(120deg, transparent 30%, rgba(251,191,36,0.08) 50%, transparent 70%);
-    background-size: 200% 100%;
-    animation: shimmer 3.5s linear infinite;
-    pointer-events:none;
-  }
-  @keyframes shimmer {
-    0%{background-position:100% 0;}
-    100%{background-position:-100% 0;}
-  }
-
-  /* Hero — make headlines snap */
-  h1, .hero h1 {
-    background: linear-gradient(135deg, #f9fafb 0%, #34d399 50%, #fbbf24 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent !important;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0 !important;
-  }
-
-
-  /* Material buttons */
-  button, .btn, a.btn, [class*="cta"] {
-    position:relative; overflow:hidden;
-    transition: transform .15s ease, box-shadow .2s;
-  }
-  button:hover, .btn:hover, a.btn:hover, [class*="cta"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 30px -10px rgba(16,185,129,0.5);
-  }
-  button::before, .btn::before, a.btn::before {
-    content:""; position:absolute; inset:0;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
-    transform: translateX(-100%);
-    transition: transform .6s;
-  }
-  button:hover::before, .btn:hover::before, a.btn:hover::before {
-    transform: translateX(100%);
-  }
-
-  /* Fade-in on scroll */
-  .reveal { opacity:0; transform: translateY(20px); transition: all .7s cubic-bezier(.2,.8,.2,1); }
-  .reveal.in { opacity:1; transform: translateY(0); }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar { width:10px; height:10px; }
-  ::-webkit-scrollbar-track { background: #0a0e1a; }
-  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #10b981, #34d399); border-radius:10px; }
+<body class="landing-shell">
+<!-- SOPHIA-SECTION-NAV start -->
+<style>
+  .sv-section-nav { position:sticky; top:0; z-index:60; background: rgba(6,7,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,162,74,0.18); }
+  .sv-section-nav-inner { max-width:1280px; margin:0 auto; display:flex; gap:2px; padding:0 24px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .sv-section-nav-inner::-webkit-scrollbar { display:none; }
+  .sv-section-nav-link { padding:14px 16px; color:rgba(245,241,230,0.66); text-decoration:none; font-size:0.85rem; font-weight:500; letter-spacing:0.04em; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s, border-color .2s; font-family: Inter, system-ui, sans-serif; }
+  .sv-section-nav-link:hover { color: #f5f1e6; }
+  .sv-section-nav-link.is-active { color: #d8b34f; border-bottom-color: #d8b34f; font-weight:600; }
+  @media (max-width:640px) { .sv-section-nav-inner { padding:0 12px; } .sv-section-nav-link { padding:12px 12px; font-size:0.8rem; } }
 </style>
+<nav class="sv-section-nav" aria-label="SophiaTV sections">
+  <div class="sv-section-nav-inner">
+    <a href="/" class="sv-section-nav-link is-active" aria-current="page">Home</a>
+    <a href="/video" class="sv-section-nav-link">Video</a>
+    <a href="/social" class="sv-section-nav-link">Social</a>
+    <a href="/market" class="sv-section-nav-link">Market</a>
+    <a href="/wellness" class="sv-section-nav-link">Wellness</a>
+    <a href="/everyday-tools" class="sv-section-nav-link">Tools</a>
+    <a href="/pricing" class="sv-section-nav-link">Pricing</a>
+    <a href="/dashboard" class="sv-section-nav-link">Dashboard</a>
+  </div>
+</nav>
+<!-- SOPHIA-SECTION-NAV end -->
 
-<canvas id="sophia-particles"></canvas>
+  <a class="skip-main landing-skip" href="#main-content">Skip to main content</a>
 
-<script>
-(function(){
-  if (window.__SOPHIA_LEGACY_EFFECTS_DISABLED) return;
-  // Particle field
-  const canvas = document.getElementById('sophia-particles');
-  if (!canvas || !canvas.getContext) return;
-  const ctx = canvas.getContext('2d');
-  let W, H;
-  function size(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-  size(); addEventListener('resize', size);
+  <header class="landing-topbar" aria-label="Sophia Operator entry">
+    <a href="/" class="landing-brand" aria-label="Sophia Operator home">
+      <img
+        src="assets/brand/sophia-logo-approved-2026-04-29.png"
+        alt="Sophia logo"
+        class="landing-brand-plaque"
+        width="1904"
+        height="826"
+      />
+      <span class="landing-brand-text">Sophia Operator</span>
+    </a>
 
-  const dots = Array.from({length: 60}, () => ({
-    x: Math.random()*W, y: Math.random()*H,
-    vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
-    r: Math.random()*1.5 + 0.5
-  }));
-
-  function tick(){
-    ctx.clearRect(0,0,W,H);
-    dots.forEach(d => {
-      d.x += d.vx; d.y += d.vy;
-      if (d.x<0||d.x>W) d.vx *= -1;
-      if (d.y<0||d.y>H) d.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(52,211,153,0.5)';
-      ctx.fill();
-    });
-    // Connect near dots with lines
-    for (let i=0; i<dots.length; i++) {
-      for (let j=i+1; j<dots.length; j++) {
-        const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 140) {
-          ctx.beginPath();
-          ctx.moveTo(dots[i].x, dots[i].y);
-          ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.strokeStyle = `rgba(16,185,129,${0.12 * (1 - dist/140)})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-  tick();
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('section, article, .listing-card, [class*="card"]').forEach(el => {
-    el.classList.add('reveal');
-    io.observe(el);
-  });
-
-})();
-</script>
-
-<!-- /SOPHIA_TESLA -->
-
-
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="/" class="logo">
-        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
-        <span class="logo-text">Sophia</span>
-      </a>
-      <div class="nav-links">
-        <a href="#live" class="nav-link" data-i18n="navLive">Signals</a>
-        <a href="#feed" class="nav-link" data-i18n="navFeed">Library</a>
-        <a href="/social.html" class="nav-link">Social</a>
-        <a href="/everyday-tools.html" class="nav-link">Tools</a>
-        <a href="/natural-cures.html" class="nav-link">Wellness</a>
-        <a href="#creators" class="nav-link" data-i18n="navCreators">Builders</a>
-        <a href="#translate" class="nav-link">Translate</a>
-        <a href="/market.html" class="nav-link">Market</a>
-        <a href="#sessions" class="nav-link" data-i18n="navSessions">Access</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
-        <a href="/pricing.html" class="nav-link" data-i18n="navPricing">Pricing</a>
-      </div>
-      <div class="nav-right">
-        <!-- Language Selector -->
-        <div class="lang-selector" id="langSelector">
-          <button class="lang-btn" id="langBtn" onclick="toggleLangMenu(event)" aria-label="Select language">
-            <span id="currentFlag">LANG</span>
-            <span id="currentLangCode">EN</span>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
-          </button>
-          <div class="lang-dropdown" id="langDropdown" tabindex="0" aria-label="Language options">
-            <div class="lang-option" onclick="setLanguage('en','LANG','EN')"><span>EN</span> English</div>
-            <div class="lang-option" onclick="setLanguage('es','LANG','ES')"><span>ES</span> Español</div>
-            <div class="lang-option" onclick="setLanguage('fr','LANG','FR')"><span>FR</span> Français</div>
-            <div class="lang-option" onclick="setLanguage('pt','LANG','PT')"><span>PT</span> Português</div>
-            <div class="lang-option" onclick="setLanguage('ar','LANG','AR')"><span>AR</span> العربية</div>
-            <div class="lang-option" onclick="setLanguage('zh','LANG','ZH')"><span>ZH</span> 中文</div>
-            <div class="lang-option" onclick="setLanguage('hi','LANG','HI')"><span>HI</span> हिन्दी</div>
-            <div class="lang-option" onclick="setLanguage('ru','LANG','RU')"><span>RU</span> Русский</div>
-            <div class="lang-option" onclick="setLanguage('de','LANG','DE')"><span>DE</span> Deutsch</div>
-            <div class="lang-option" onclick="setLanguage('ja','LANG','JA')"><span>JA</span> 日本語</div>
-            <div class="lang-option" onclick="setLanguage('it','LANG','IT')"><span>IT</span> Italiano</div>
-            <div class="lang-option" onclick="setLanguage('ko','LANG','KO')"><span>KO</span> 한국어</div>
-            <div class="lang-option" onclick="setLanguage('tr','LANG','TR')"><span>TR</span> Türkçe</div>
-            <div class="lang-option" onclick="setLanguage('vi','LANG','VI')"><span>VI</span> Tiếng Việt</div>
-            <div class="lang-option" onclick="setLanguage('id','LANG','ID')"><span>ID</span> Indonesia</div>
-            <div class="lang-option" onclick="setLanguage('sw','LANG','SW')"><span>SW</span> Kiswahili</div>
-            <div class="lang-option" onclick="setLanguage('yo','LANG','YO')"><span>YO</span> Yorùbá</div>
-            <div class="lang-option" onclick="setLanguage('nl','LANG','NL')"><span>NL</span> Nederlands</div>
-            <div class="lang-option" onclick="setLanguage('pl','LANG','PL')"><span>PL</span> Polski</div>
-            <div class="lang-option" onclick="setLanguage('th','LANG','TH')"><span>TH</span> ไทย</div>
-          </div>
-        </div>
-        <button class="search-btn" aria-label="Search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <a href="/signup.html" class="btn-outline" id="navSignup" style="display:none;">Sign Up</a>
-        <a href="/login.html" class="btn-outline" id="navLogin" style="display:none;">Log In</a>
-        <a href="/dashboard.html" class="btn-gold" id="navDashboard" style="display:none;">My Dashboard</a>
-        <a href="/signup.html" class="btn-gold" id="navCTA" data-i18n="navCTA">Start Listing</a>
-      </div>
+    <div class="landing-topbar-actions">
+      <label class="landing-language-picker" for="landingLanguage">
+        <span class="landing-language-label">Language</span>
+        <select id="landingLanguage" class="landing-language-select" aria-label="Choose your language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="ar">العربية</option>
+          <option value="zh">中文</option>
+          <option value="hi">हिन्दी</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+      </label>
+      <a href="/login.html" class="landing-link-button">Log In</a>
+      <a href="/signup.html" class="landing-primary-button">Sign Up</a>
     </div>
-  </nav>
+  </header>
 
-  <main id="main-content" tabindex="-1">
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-vignette"></div>
-    </div>
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
-          <span class="sv-kicker">SOPHIA · WISDOM · TRADE · TRANSLATION</span>
-          <span class="hero-eyebrow-rule" aria-hidden="true"></span>
-        </div>
-        <div class="sophia-material-mark" aria-label="Sophia brand mark">
-          <img src="assets/brand/sophia-logo-premium.png" alt="Sophia brand mark" width="88" height="88" decoding="async" />
-          <span>Sophia</span>
-        </div>
-        <h1 class="hero-title" data-text="The world, translated into opportunity.">
-          <span data-i18n="heroLine1">The world,</span><br />
-          <span class="gold" data-i18n="heroLine2">translated into</span><br />
-          <span data-i18n="heroLine3">opportunity.</span>
-        </h1>
-        <p class="hero-body" data-i18n="heroBody">
-          Sophia is being built as a global operating floor for translation, trade, and trust. The value is not a landing page. It is distribution, language access, merchant identity, market proof, and the habit of doing business across borders in one place.
+  <main id="main-content" class="landing-main" tabindex="-1">
+    <section class="landing-hero" aria-labelledby="landingHeroTitle">
+      <div class="landing-hero-copy">
+        <div class="landing-kicker">Layer 1 · Landing Page</div>
+        <h1 id="landingHeroTitle">A clean first step into Sophia Operator.</h1>
+        <p class="landing-hero-body">
+          Start with account access, language choice, and a brand surface that can scale cleanly across
+          web and mobile without fighting the codebase later.
         </p>
-        <div class="hero-cta">
-          <a href="#translate" class="btn-gold btn-lg" data-i18n="heroWatchBtn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-            Translate Now
-          </a>
-          <a href="/social.html" class="btn-outline btn-lg" data-i18n="heroBrowseBtn" style="text-decoration:none;display:inline-flex;align-items:center;">Enter the Floor</a>
-        </div>
-        <p style="margin:14px 0 0;font-size:12px;letter-spacing:0.04em;color:var(--muted,rgba(200,180,140,0.52));text-align:left;">
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="vertical-align:-1px;margin-right:4px;" aria-hidden="true"><rect x="1" y="4" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 4V3a3 3 0 016 0v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          Payments secured by Stripe &middot; Cancel anytime &middot; 7-day refund
-        </p>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num">105</span>
-            <span class="stat-label" data-i18n="statSubscribers">Countries</span>
-          </div>
-          <div class="stat-div"></div>
-          <div class="stat">
-            <span class="stat-num">18</span>
-            <span class="stat-label" data-i18n="statEpisodes">Categories</span>
-          </div>
-          <div class="stat-div"></div>
-          <div class="stat">
-            <span class="stat-num">50+</span>
-            <span class="stat-label" data-i18n="statCreators">Languages</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="transparent-globe-stage" role="img" aria-label="Spinning transparent world globe">
-          <div class="cinema-letterbox top" aria-hidden="true"></div>
-          <div class="cinema-letterbox bottom" aria-hidden="true"></div>
-          <div class="earth-axle" aria-hidden="true"></div>
-          <canvas id="earthGlobeCanvas" class="earth-globe-canvas" aria-hidden="true"></canvas>
-          <img class="earth-globe-fallback sophia-black-gold-globe" src="assets/brand/sophia-globe-black-gold-720.jpg" width="720" height="480" alt="" decoding="async" fetchpriority="high" aria-hidden="true" />
-          <div class="globe-orbit orbit-one"></div>
-          <div class="globe-orbit orbit-two"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- REAL PROOF LAYER -->
-  <section class="proof-layer" aria-labelledby="proofLayerTitle">
-    <div class="proof-layer-inner">
-      <div class="proof-copy">
-        <div class="section-kicker">Launch proof</div>
-        <h2 id="proofLayerTitle">A real world directory, not a decorative landing page.</h2>
-        <p>Sophia is being prepared around concrete routes, countries, categories, language access, and signup flows so May 15 starts with usable structure instead of empty hype.</p>
-      </div>
-      <div class="proof-grid" aria-label="Sophia launch proof points">
-        <a class="proof-tile" href="/market.html">
-          <span>Directory coverage</span>
-          <strong>105 countries</strong>
-          <small>Global marketplace paths and country SEO pages are already structured.</small>
-        </a>
-        <a class="proof-tile" href="/market.html#categories">
-          <span>Market structure</span>
-          <strong>18 categories</strong>
-          <small>Classifieds and business-directory flows are separated for cleaner discovery.</small>
-        </a>
-        <a class="proof-tile" href="#translate">
-          <span>Language layer</span>
-          <strong>50+ languages</strong>
-          <small>Translation access is presented honestly with launch-safe fallback behavior.</small>
-        </a>
-        <a class="proof-tile" href="/signup.html">
-          <span>Launch access</span>
-          <strong>May 15, 2026</strong>
-          <small>Signup and account paths are ready for the free first-30-days period.</small>
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="landing-hero-actions">
+          <a href="/signup.html" class="landing-primary-button landing-hero-button">Create Account</a>
+          <a href="/login.html" class="landing-secondary-button landing-hero-button">Enter Existing Account</a>
+        </div>
 
-  <!-- CATEGORY VALUE THESIS -->
-  <section class="valuation-thesis" aria-labelledby="valuationThesisTitle">
-    <div class="valuation-thesis-inner">
-      <div class="valuation-thesis-copy">
-        <span class="sv-kicker">CATEGORY VALUE THESIS</span>
-        <h2 id="valuationThesisTitle">Built like infrastructure, not a campaign.</h2>
+        <div class="landing-support-points" aria-label="Sophia Operator landing page foundations">
+          <article class="landing-support-card">
+            <span>Account Access</span>
+            <strong>Sign up and log in without confusion.</strong>
+          </article>
+          <article class="landing-support-card">
+            <span>Language Ready</span>
+            <strong>Choose language at the front door.</strong>
+          </article>
+          <article class="landing-support-card">
+            <span>Mobile Alignment</span>
+            <strong>Use one visual system that can carry into the app.</strong>
+          </article>
+        </div>
+      </div>
+
+      <div class="landing-hero-visual">
+        <section class="landing-unity-banner" aria-label="Unity hands banner">
+          <img
+            src="assets/brand/sophia-world-unity-hands-1200.jpg"
+            alt="Hands from around the world joined together in unity"
+            class="landing-unity-image"
+            width="1200"
+            height="515"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="landing-unity-overlay" aria-hidden="true"></div>
+          <div class="landing-unity-brand">
+            <img
+              src="assets/brand/sophia-logo-approved-2026-04-29.png"
+              alt=""
+              class="landing-unity-plaque"
+              width="1904"
+              height="826"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>Sophia Operator</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="landing-foundation-strip" aria-label="Landing page structure">
+      <div class="landing-foundation-item">
+        <span>01</span>
+        <p>White foundation for clarity and product confidence.</p>
+      </div>
+      <div class="landing-foundation-item">
+        <span>02</span>
+        <p>24kt gold brand treatment for the logo and the Sophia Operator name.</p>
+      </div>
+      <div class="landing-foundation-item">
+        <span>03</span>
+        <p>Simple structure so code can be added, changed, or removed without damage.</p>
+      </div>
+    </section>
+
+    <section class="landing-contact-section" aria-labelledby="landingContactTitle">
+      <div class="landing-contact-copy">
+        <div class="landing-kicker">Contact Us</div>
+        <h2 id="landingContactTitle">Reach Sophia Operator directly.</h2>
         <p>
-          A company earns massive value when it becomes the default path for a painful global behavior.
-          Sophia's path is simple: help people get found, understood, trusted, and paid across language and country lines.
-        </p>
-      </div>
-      <div class="valuation-pillar-grid" aria-label="Sophia category value pillars">
-        <article class="valuation-pillar">
-          <span>01</span>
-          <h3>Distribution</h3>
-          <p>Country pages, marketplace routes, social proof surfaces, and listing flows all point toward a searchable global floor.</p>
-        </article>
-        <article class="valuation-pillar">
-          <span>02</span>
-          <h3>Identity</h3>
-          <p>Every business, operator, and anchor seat needs a public signal that says they are visible to the world.</p>
-        </article>
-        <article class="valuation-pillar">
-          <span>03</span>
-          <h3>Trust</h3>
-          <p>Translation, proof, review paths, and human access reduce the hesitation that kills cross-border deals.</p>
-        </article>
-        <article class="valuation-pillar">
-          <span>04</span>
-          <h3>Habit</h3>
-          <p>The product must become a repeat command surface: list, translate, compare, message, verify, and return.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORLD UNITY BANNER -->
-  <section class="sophia-unity-banner" aria-label="Sophia world unity">
-    <img src="assets/brand/sophia-world-unity-hands-1200.jpg" alt="Hands from around the world stacked together in unity" class="sophia-unity-image" width="1200" height="515" loading="lazy" decoding="async" fetchpriority="low" />
-    <div class="sophia-unity-overlay" aria-hidden="true"></div>
-  </section>
-
-  <!-- THE PROCESSION -->
-  <section class="procession" aria-label="Trade caravans across 105 countries">
-    <iframe data-src="/assets/canvas/the-procession.html" loading="lazy" title="The Procession" class="procession-frame"></iframe>
-  </section>
-
-  <!-- LAUNCH TICKER -->
-  <section class="launch-ticker" aria-label="Launch context">
-    <div class="launch-ticker-inner">
-      <span class="sv-kicker">SOPHIA · WISDOM · TRADE · TRANSLATION</span>
-      <span class="launch-ticker-rule" aria-hidden="true"></span>
-      <span class="launch-ticker-mono">LAUNCH · MAY 15 · 2026</span>
-      <span class="launch-ticker-rule" aria-hidden="true"></span>
-      <span class="launch-ticker-mono build-stamp">BUILD · 04.28.2026</span>
-    </div>
-  </section>
-
-  <!-- COUNTRY MOSAIC -->
-  <section class="country-mosaic" aria-labelledby="countryMosaicTitle">
-    <div class="country-mosaic-inner">
-      <div class="country-mosaic-copy">
-        <span class="sv-kicker">PROOF · GLOBAL REACH</span>
-        <h2 id="countryMosaicTitle">105 countries on the floor.</h2>
-        <p>
-          A visible world map for trade, translation, and trust. Each mark is a country Sophia is preparing to serve,
-          built as infrastructure instead of hype.
+          Use this landing layer to open the relationship clearly. If someone needs help before creating
+          an account, the contact path should be visible and simple.
         </p>
       </div>
 
-      <div class="country-mosaic-stage" aria-label="Sophia country coverage mosaic">
-        <div class="country-route-line route-line-a" aria-hidden="true"></div>
-        <div class="country-route-line route-line-b" aria-hidden="true"></div>
-        <div class="country-route-line route-line-c" aria-hidden="true"></div>
-        <div class="country-mosaic-grid" role="list">
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="Nigeria">NG</span>
-          <span class="country-cell" role="listitem" aria-label="Kenya">KE</span>
-          <span class="country-cell" role="listitem" aria-label="South Africa">ZA</span>
-          <span class="country-cell" role="listitem" aria-label="Egypt">EG</span>
-          <span class="country-cell" role="listitem" aria-label="Morocco">MA</span>
-          <span class="country-cell" role="listitem" aria-label="Ghana">GH</span>
-          <span class="country-cell" role="listitem" aria-label="Ethiopia">ET</span>
-          <span class="country-cell" role="listitem" aria-label="Tanzania">TZ</span>
-          <span class="country-cell" role="listitem" aria-label="Uganda">UG</span>
-          <span class="country-cell" role="listitem" aria-label="Rwanda">RW</span>
-          <span class="country-cell" role="listitem" aria-label="Senegal">SN</span>
-          <span class="country-cell" role="listitem" aria-label="Côte d'Ivoire">CI</span>
-          <span class="country-cell" role="listitem" aria-label="Algeria">DZ</span>
-          <span class="country-cell" role="listitem" aria-label="Tunisia">TN</span>
-          <span class="country-cell" role="listitem" aria-label="Cameroon">CM</span>
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="United Kingdom">GB</span>
-          <span class="country-cell" role="listitem" aria-label="Germany">DE</span>
-          <span class="country-cell" role="listitem" aria-label="France">FR</span>
-          <span class="country-cell" role="listitem" aria-label="Italy">IT</span>
-          <span class="country-cell" role="listitem" aria-label="Spain">ES</span>
-          <span class="country-cell" role="listitem" aria-label="Netherlands">NL</span>
-          <span class="country-cell" role="listitem" aria-label="Sweden">SE</span>
-          <span class="country-cell" role="listitem" aria-label="Norway">NO</span>
-          <span class="country-cell" role="listitem" aria-label="Denmark">DK</span>
-          <span class="country-cell" role="listitem" aria-label="Finland">FI</span>
-          <span class="country-cell" role="listitem" aria-label="Poland">PL</span>
-          <span class="country-cell" role="listitem" aria-label="Portugal">PT</span>
-          <span class="country-cell" role="listitem" aria-label="Belgium">BE</span>
-          <span class="country-cell" role="listitem" aria-label="Switzerland">CH</span>
-          <span class="country-cell" role="listitem" aria-label="Austria">AT</span>
-          <span class="country-cell" role="listitem" aria-label="Ireland">IE</span>
-          <span class="country-cell" role="listitem" aria-label="Greece">GR</span>
-          <span class="country-cell" role="listitem" aria-label="Czechia">CZ</span>
-          <span class="country-cell" role="listitem" aria-label="Hungary">HU</span>
-          <span class="country-cell" role="listitem" aria-label="Romania">RO</span>
-          <span class="country-cell" role="listitem" aria-label="Ukraine">UA</span>
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="United Arab Emirates">AE</span>
-          <span class="country-cell" role="listitem" aria-label="Saudi Arabia">SA</span>
-          <span class="country-cell" role="listitem" aria-label="Israel">IL</span>
-          <span class="country-cell" role="listitem" aria-label="Türkiye">TR</span>
-          <span class="country-cell" role="listitem" aria-label="Qatar">QA</span>
-          <span class="country-cell" role="listitem" aria-label="Kuwait">KW</span>
-          <span class="country-cell" role="listitem" aria-label="Jordan">JO</span>
-          <span class="country-cell" role="listitem" aria-label="Lebanon">LB</span>
-          <span class="country-cell" role="listitem" aria-label="Oman">OM</span>
-          <span class="country-cell" role="listitem" aria-label="Bahrain">BH</span>
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="China">CN</span>
-          <span class="country-cell" role="listitem" aria-label="Japan">JP</span>
-          <span class="country-cell" role="listitem" aria-label="South Korea">KR</span>
-          <span class="country-cell" role="listitem" aria-label="India">IN</span>
-          <span class="country-cell" role="listitem" aria-label="Singapore">SG</span>
-          <span class="country-cell" role="listitem" aria-label="Indonesia">ID</span>
-          <span class="country-cell" role="listitem" aria-label="Malaysia">MY</span>
-          <span class="country-cell" role="listitem" aria-label="Thailand">TH</span>
-          <span class="country-cell" role="listitem" aria-label="Vietnam">VN</span>
-          <span class="country-cell" role="listitem" aria-label="Philippines">PH</span>
-          <span class="country-cell" role="listitem" aria-label="Pakistan">PK</span>
-          <span class="country-cell" role="listitem" aria-label="Bangladesh">BD</span>
-          <span class="country-cell" role="listitem" aria-label="Sri Lanka">LK</span>
-          <span class="country-cell" role="listitem" aria-label="Hong Kong">HK</span>
-          <span class="country-cell" role="listitem" aria-label="Taiwan">TW</span>
-          <span class="country-cell" role="listitem" aria-label="Kazakhstan">KZ</span>
-          <span class="country-cell" role="listitem" aria-label="Mongolia">MN</span>
-          <span class="country-cell" role="listitem" aria-label="Cambodia">KH</span>
-          <span class="country-cell" role="listitem" aria-label="Nepal">NP</span>
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="United States">US</span>
-          <span class="country-cell" role="listitem" aria-label="Canada">CA</span>
-          <span class="country-cell" role="listitem" aria-label="Mexico">MX</span>
-          <span class="country-cell" role="listitem" aria-label="Brazil">BR</span>
-          <span class="country-cell" role="listitem" aria-label="Argentina">AR</span>
-          <span class="country-cell" role="listitem" aria-label="Chile">CL</span>
-          <span class="country-cell" role="listitem" aria-label="Colombia">CO</span>
-          <span class="country-cell" role="listitem" aria-label="Peru">PE</span>
-          <span class="country-cell" role="listitem" aria-label="Uruguay">UY</span>
-          <span class="country-cell" role="listitem" aria-label="Costa Rica">CR</span>
-          <span class="country-cell" role="listitem" aria-label="Panama">PA</span>
-          <span class="country-cell" role="listitem" aria-label="Ecuador">EC</span>
-          <span class="country-cell" role="listitem" aria-label="Dominican Republic">DO</span>
-          <span class="country-cell" role="listitem" aria-label="Jamaica">JM</span>
-          <span class="country-cell" role="listitem" aria-label="Trinidad and Tobago">TT</span>
-          <span class="country-cell" role="listitem" aria-label="Guatemala">GT</span>
-          <span class="country-cell" role="listitem" aria-label="Bolivia">BO</span>
-          <span class="country-cell" role="listitem" aria-label="Paraguay">PY</span>
-          <span class="country-cell country-cell-prime" role="listitem" aria-label="Australia">AU</span>
-          <span class="country-cell" role="listitem" aria-label="New Zealand">NZ</span>
-          <span class="country-cell" role="listitem" aria-label="Fiji">FJ</span>
-          <span class="country-cell" role="listitem" aria-label="Papua New Guinea">PG</span>
-          <span class="country-cell" role="listitem" aria-label="Estonia">EE</span>
-          <span class="country-cell" role="listitem" aria-label="Latvia">LV</span>
-          <span class="country-cell" role="listitem" aria-label="Lithuania">LT</span>
-          <span class="country-cell" role="listitem" aria-label="Slovakia">SK</span>
-          <span class="country-cell" role="listitem" aria-label="Slovenia">SI</span>
-          <span class="country-cell" role="listitem" aria-label="Croatia">HR</span>
-          <span class="country-cell" role="listitem" aria-label="Bulgaria">BG</span>
-          <span class="country-cell" role="listitem" aria-label="Serbia">RS</span>
-          <span class="country-cell" role="listitem" aria-label="Cyprus">CY</span>
-          <span class="country-cell" role="listitem" aria-label="Malta">MT</span>
-          <span class="country-cell" role="listitem" aria-label="Georgia">GE</span>
-          <span class="country-cell" role="listitem" aria-label="Armenia">AM</span>
-          <span class="country-cell" role="listitem" aria-label="Azerbaijan">AZ</span>
-          <span class="country-cell" role="listitem" aria-label="Mauritius">MU</span>
-          <span class="country-cell" role="listitem" aria-label="Botswana">BW</span>
-          <span class="country-cell" role="listitem" aria-label="Namibia">NA</span>
-          <span class="country-cell" role="listitem" aria-label="Zambia">ZM</span>
-          <span class="country-cell" role="listitem" aria-label="Zimbabwe">ZW</span>
+      <div class="landing-contact-card">
+        <div class="landing-contact-row">
+          <span>Email</span>
+          <a href="mailto:t.rain@sophiaoperator.com">t.rain@sophiaoperator.com</a>
+        </div>
+        <div class="landing-contact-row">
+          <span>Phone</span>
+          <a href="tel:+17042152819">+1 (704) 215-2819</a>
+        </div>
+        <div class="landing-contact-row">
+          <span>Next Step</span>
+          <a href="/signup.html">Create an account</a>
         </div>
       </div>
-
-      <div class="country-mosaic-foot" aria-label="Highlighted trade corridors">
-        <span class="country-corridor">Lagos → Toronto</span>
-        <span class="country-corridor">São Paulo → Stockholm</span>
-        <span class="country-corridor">Stuttgart → Dubai</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ANCHOR WALL -->
-  <section class="anchor-wall" aria-labelledby="anchorWallTitle">
-    <div class="anchor-wall-inner">
-      <div class="anchor-wall-head">
-        <span class="sv-kicker">THE ANCHOR WALL</span>
-        <h2 id="anchorWallTitle">One anchor per country.</h2>
-        <p>
-          Sovereign-tier members anchor a country, lead a sector, and witness a market.
-          Seats are filled by application. The empire grows through people, not pages.
-        </p>
-      </div>
-
-      <div class="anchor-wall-counter" aria-label="Anchor seats">
-        <span class="sv-kicker">ANCHORED</span>
-        <span class="anchor-wall-counter-rule" aria-hidden="true"></span>
-        <span class="anchor-wall-counter-num">0</span>
-        <span class="anchor-wall-counter-of">of</span>
-        <span class="anchor-wall-counter-num">105</span>
-      </div>
-
-      <div class="anchor-wall-grid" role="list">
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=ng">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">LAGOS · NG</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Textiles · trade witness · 1 per country</span>
-        </a>
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=br">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">SÃO PAULO · BR</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Agriculture · market witness · 1 per country</span>
-        </a>
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=de">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">STUTTGART · DE</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Machinery · export witness · 1 per country</span>
-        </a>
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=ae">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">DUBAI · AE</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Logistics · corridor witness · 1 per country</span>
-        </a>
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=us">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">ATLANTA · US</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Operations · buyer witness · 1 per country</span>
-        </a>
-        <a class="anchor-cartouche anchor-cartouche-empty" role="listitem" href="/signup.html?seat=anchor&country=in">
-          <span class="anchor-cartouche-kicker">SEAT · OPEN</span>
-          <span class="anchor-cartouche-region">MUMBAI · IN</span>
-          <span class="anchor-cartouche-name">Apply for Anchor</span>
-          <span class="anchor-cartouche-meta">Manufacturing · language witness · 1 per country</span>
-        </a>
-      </div>
-
-      <div class="anchor-wall-foot">
-        <a class="btn-outline btn-lg" href="/signup.html?seat=anchor">Apply for an Anchor seat</a>
-        <span class="anchor-wall-foot-note">The empire grows through people, not pages.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOPHIA CINEMA PLAYER -->
-  <section class="sophia-cinema-section" id="sophia-cinema" aria-labelledby="sophiaCinemaTitle">
-    <div class="sophia-cinema-inner">
-      <div class="sophia-cinema-copy">
-        <div class="section-kicker">Global media architecture</div>
-        <h2 id="sophiaCinemaTitle">A global media layer built for translation, trust, and business.</h2>
-        <p>
-          Sophia studies the best public product patterns from media, marketplace, and high-end technology sites, then rebuilds them as original tools for real global connection.
-          This player concept brings captions, transcript, chapters, and creator workflow into one quiet command surface so people can understand each other before language turns into distance.
-        </p>
-        <div class="cinema-patterns" aria-label="Pattern sources">
-          <span>YouTube-grade media controls</span>
-          <span>Apple-grade cinematic restraint</span>
-          <span>Linear-grade workflow clarity</span>
-        </div>
-      </div>
-
-      <div class="sophia-player-shell" data-sophia-player>
-          <div class="player-film-window" role="group" aria-label="Sophia global media concept">
-          <div class="player-film-bars" aria-hidden="true"></div>
-          <div class="player-film-scene">
-            <div class="scene-earth-glow"></div>
-            <div class="scene-market-card card-a">
-              <span>Supplier signal</span>
-              <strong>Lagos textiles</strong>
-            </div>
-            <div class="scene-market-card card-b">
-              <span>Buyer request</span>
-              <strong>Toronto retail</strong>
-            </div>
-            <div class="scene-caption">
-              <span>Caption layer</span>
-              <strong>Finding trusted partners across languages.</strong>
-            </div>
-          </div>
-          <div class="player-control-strip">
-            <button class="player-icon-btn" type="button" aria-label="Open Sophia media concept">
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-            </button>
-            <div class="player-progress" aria-hidden="true"><span></span></div>
-            <button class="player-mini-toggle" type="button" data-mini-toggle>Mini-player</button>
-          </div>
-        </div>
-
-        <div class="player-tool-grid">
-          <div class="player-tool-panel transcript-panel">
-            <div class="tool-panel-head">
-              <span>Transcript</span>
-              <button type="button" data-caption-toggle aria-pressed="true">Captions on</button>
-            </div>
-            <ol class="transcript-list">
-              <li><time>00:04</time><span>Welcome to Sophia, where global listings become translated opportunities.</span></li>
-              <li><time>00:18</time><span>A buyer can scan markets, compare countries, and prepare a clear message.</span></li>
-              <li><time>00:33</time><span>Creators and businesses get workflow tools instead of empty attention.</span></li>
-            </ol>
-          </div>
-
-          <div class="player-tool-panel chapter-panel">
-            <div class="tool-panel-head"><span>Chapters</span><small>Keyboard ready</small></div>
-            <div class="chapter-rail">
-              <a href="/market.html"><span>01</span> Browse directory</a>
-              <a href="/market-submit.html"><span>02</span> List a business</a>
-              <a href="/app/"><span>03</span> Open Sophia Connect</a>
-            </div>
-          </div>
-
-          <div class="player-tool-panel creator-panel">
-            <div class="tool-panel-head"><span>Creator workflow</span><small>Original system</small></div>
-            <label><input type="checkbox" checked /> Caption-ready</label>
-            <label><input type="checkbox" checked /> Translation pass</label>
-            <label><input type="checkbox" /> Publish packet</label>
-          </div>
-        </div>
-
-        <div class="sophia-mini-player" data-mini-player aria-live="polite">
-          <div class="mini-thumb" aria-hidden="true"></div>
-          <div>
-            <strong>Sophia signal concept</strong>
-            <span>Transcript and captions ready</span>
-          </div>
-          <button type="button" data-mini-close aria-label="Close mini-player">×</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDING ACCESS SECTION -->
-  <section id="founding-access" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 36px;">
-    <div style="max-width:680px;margin:0 auto;text-align:center;">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:20px;padding:5px 16px;font-size:0.8rem;font-weight:600;color:var(--gold);margin-bottom:20px;text-transform:uppercase;letter-spacing:0.06em;">
-        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;"></span>
-        Founding Access Open
-      </div>
-      <h2 style="font-size:2rem;font-weight:800;margin-bottom:14px;">Help Build the World Connection Layer</h2>
-      <p style="color:var(--muted);font-size:1rem;line-height:1.6;margin-bottom:30px;">Join the founding access list for a platform where language is no longer the reason people miss each other, miss deals, or miss opportunity.</p>
-      <form id="foundingForm" onsubmit="handleFoundingSignup(event)" style="display:flex;gap:12px;max-width:460px;margin:0 auto 20px;">
-        <input type="email" id="foundingEmail" placeholder="your@email.com" required
-          style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:13px 16px;color:var(--white);font-size:0.95rem;outline:none;font-family:inherit;" />
-        <button type="submit" style="background:var(--gold);color:#000;font-weight:700;border:none;border-radius:10px;padding:13px 22px;cursor:pointer;font-size:0.95rem;white-space:nowrap;font-family:inherit;" id="foundingBtn">Get Access</button>
-      </form>
-      <div id="foundingMsg" style="font-size:0.85rem;color:var(--green);display:none;margin-bottom:16px;"></div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
-        <span style="font-size:0.82rem;color:var(--muted);">No credit card required</span>
-        <span style="color:var(--border);">·</span>
-        <button onclick="sharesite()" style="background:none;border:none;color:var(--gold);font-size:0.82rem;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;min-height:32px;padding:5px 0;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          Share SophiaTV
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEEDBACK / REQUESTS SECTION -->
-  <section class="sophia-feedback-section" id="feedback">
-    <div class="sophia-feedback-inner">
-      <div class="sophia-feedback-copy">
-        <div class="section-kicker">Built with the people using it</div>
-        <h2>Tell Sophia what you need next.</h2>
-        <p>
-          Sophia is launching for real people who want language, opportunity, tools, and markets to feel closer.
-          Send feedback, feature requests, partnership notes, bug reports, or contact requests. The dedicated Sophia inbox is being set up for launch.
-        </p>
-        <div class="feedback-contact-card">
-          <span>Contact routing</span>
-          <strong>Launch inbox coming before public rollout</strong>
-          <small>For now, test submissions save locally in this browser so we can verify the flow without losing the launch pace.</small>
-        </div>
-      </div>
-      <form class="sophia-feedback-form" id="feedbackForm" onsubmit="handleSophiaFeedback(event)">
-        <label>
-          <span>What are you sending?</span>
-          <select id="feedbackType" required>
-            <option value="Feedback">Feedback</option>
-            <option value="Suggestion">Suggestion</option>
-            <option value="Contact request">Contact request</option>
-            <option value="Feature request">Feature request</option>
-            <option value="Bug report">Bug report</option>
-            <option value="Partnership">Partnership</option>
-          </select>
-        </label>
-        <label>
-          <span>Your email</span>
-          <input id="feedbackEmail" type="email" placeholder="you@example.com" />
-        </label>
-        <label class="feedback-wide">
-          <span>Message</span>
-          <textarea id="feedbackMessage" placeholder="Tell us what would make Sophia more useful for you..." required></textarea>
-        </label>
-        <button type="submit" class="btn-gold">Send Feedback</button>
-        <p id="feedbackStatus" class="feedback-status" role="status"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- FEATURES SECTION -->
-  <section class="features-section" id="features">
-    <div class="features-inner">
-      <div class="feature-card">
-        <div class="feature-icon feature-icon-globe" aria-hidden="true"></div>
-        <div class="feature-title" data-i18n="feat1Title">50+ Languages</div>
-        <div class="feature-desc" data-i18n="feat1Desc">Real-time translation for global reach. Speak naturally, understand clearly, and connect without surrendering your language.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon feature-icon-vault" aria-hidden="true"></div>
-        <div class="feature-title" data-i18n="feat2Title">Human Access</div>
-        <div class="feature-desc" data-i18n="feat2Desc">Prepare real conversations, business listings, and sessions that work even when people start in different languages.</div>
-      </div>
-      <div class="feature-card feature-card-gold">
-        <div class="feature-icon feature-icon-compass" aria-hidden="true"></div>
-        <div class="feature-title" data-i18n="feat3Title">Workflow Support</div>
-        <div class="feature-desc" data-i18n="feat3Desc">Use guided workflows to summarize, translate, organize, and build across borders.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon feature-icon-bridge" aria-hidden="true"></div>
-        <div class="feature-title" data-i18n="feat4Title">Common Ground</div>
-        <div class="feature-desc" data-i18n="feat4Desc">Tools for people to understand each other across language, geography, culture, and opportunity gaps.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UNIVERSAL TRANSLATOR -->
-  <section class="section translator-section" id="translate">
-    <div class="section-header">
-      <h2 class="section-title">Universal Translator</h2>
-      <a href="#live" class="see-all">Use during global signals</a>
-    </div>
-    <div class="translator-grid" id="universalTranslator">
-      <div class="translator-card translator-copy">
-        <div class="translator-kicker">End language barriers</div>
-        <h3>Speech, captions, and replies in your language.</h3>
-        <p>English speakers, French speakers, Russian clips, global business calls, and creator sessions can flow through one translation console. Speak, read, listen, and respond across languages without losing the human meaning.</p>
-        <div class="translator-pills">
-          <span>Speech to text</span>
-          <span>Text translation</span>
-          <span>Text to speech</span>
-          <span>Caption layer</span>
-        </div>
-      </div>
-      <div class="translator-card translator-console">
-        <div class="translator-controls">
-          <label>
-            Source
-            <select id="translatorSource">
-              <option value="auto">Auto detect</option>
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="ru">Russian</option>
-              <option value="es">Spanish</option>
-              <option value="pt">Portuguese</option>
-              <option value="ar">Arabic</option>
-              <option value="zh">Chinese</option>
-              <option value="hi">Hindi</option>
-              <option value="de">German</option>
-              <option value="ja">Japanese</option>
-            </select>
-          </label>
-          <button class="translator-swap" id="translatorSwap" type="button" aria-label="Swap languages">⇄</button>
-          <label>
-            Translate to
-            <select id="translatorTarget">
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="es">Spanish</option>
-              <option value="pt">Portuguese</option>
-              <option value="ar">Arabic</option>
-              <option value="zh">Chinese</option>
-              <option value="hi">Hindi</option>
-              <option value="de">German</option>
-              <option value="ja">Japanese</option>
-              <option value="ru">Russian</option>
-            </select>
-          </label>
-        </div>
-        <div class="translator-textareas">
-          <textarea id="translatorInput" placeholder="Speak, paste captions, or type a message here...">Bonjour, comment ça va?</textarea>
-          <textarea id="translatorOutput" placeholder="Translation appears here..." readonly></textarea>
-        </div>
-        <div class="translator-actions">
-          <button class="btn-outline" id="translatorListen" type="button">Start Speech Capture</button>
-          <button class="btn-gold" id="translatorRun" type="button">Translate</button>
-          <button class="btn-outline" id="translatorSpeak" type="button">Speak Translation</button>
-        </div>
-        <div class="translator-samples">
-          <button type="button" data-translate-sample="Российские новости: президент выступил с заявлением сегодня утром." data-source="ru" data-target="en">Russian news → English</button>
-          <button type="button" data-translate-sample="Hello, how are you?" data-source="en" data-target="fr">English → French</button>
-        </div>
-        <div class="translator-status" id="translatorStatus">Ready. Launch-safe translation uses Sophia fallback examples; users can connect their own provider later.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GLOBAL SIGNALS -->
-  <section class="section" id="live">
-    <div class="section-header">
-      <h2 class="section-title">
-        <span class="sv-kicker">PROOF</span>
-        <span>What Sophia ships first.</span>
-      </h2>
-      <a href="/social.html" class="see-all" data-i18n="viewAll">View all</a>
-    </div>
-    <div class="card-row">
-      <article class="cartouche">
-        <header class="cartouche-eyebrow">
-          <span class="cartouche-kicker">SECTOR · TEXTILES</span>
-          <span class="cartouche-region">LAGOS · NG</span>
-        </header>
-        <div class="cartouche-route" aria-label="Trade route">
-          <span class="cartouche-route-from">LAGOS · NG</span>
-          <span class="cartouche-route-arrow" aria-hidden="true">→</span>
-          <span class="cartouche-route-to">TORONTO · CA</span>
-        </div>
-        <h3 class="cartouche-title">Adire indigo, batch of 240</h3>
-        <p class="cartouche-meta">Buyer-ready · ships in 14 days · USD or NGN</p>
-        <footer class="cartouche-foot">
-          <span class="cartouche-seller">Adesina Textiles</span>
-          <span class="cartouche-rule" aria-hidden="true"></span>
-          <span class="cartouche-price">$4,800</span>
-        </footer>
-      </article>
-      <article class="cartouche">
-        <header class="cartouche-eyebrow">
-          <span class="cartouche-kicker">SECTOR · AGRICULTURE</span>
-          <span class="cartouche-region">SÃO PAULO · BR</span>
-        </header>
-        <div class="cartouche-route" aria-label="Trade route">
-          <span class="cartouche-route-from">SÃO PAULO · BR</span>
-          <span class="cartouche-route-arrow" aria-hidden="true">→</span>
-          <span class="cartouche-route-to">STOCKHOLM · SE</span>
-        </div>
-        <h3 class="cartouche-title">Specialty arabica, 1,000kg green lot</h3>
-        <p class="cartouche-meta">Cupping score 86 · ships in 21 days · USD or BRL</p>
-        <footer class="cartouche-foot">
-          <span class="cartouche-seller">Fazenda Verde</span>
-          <span class="cartouche-rule" aria-hidden="true"></span>
-          <span class="cartouche-price">$12,400</span>
-        </footer>
-      </article>
-      <article class="cartouche">
-        <header class="cartouche-eyebrow">
-          <span class="cartouche-kicker">SECTOR · MACHINERY</span>
-          <span class="cartouche-region">STUTTGART · DE</span>
-        </header>
-        <div class="cartouche-route" aria-label="Trade route">
-          <span class="cartouche-route-from">STUTTGART · DE</span>
-          <span class="cartouche-route-arrow" aria-hidden="true">→</span>
-          <span class="cartouche-route-to">DUBAI · AE</span>
-        </div>
-        <h3 class="cartouche-title">CNC mill, 5-axis, refurbished 2024</h3>
-        <p class="cartouche-meta">Inspection report included · ships in 30 days · EUR</p>
-        <footer class="cartouche-foot">
-          <span class="cartouche-seller">Brücke Werkzeug</span>
-          <span class="cartouche-rule" aria-hidden="true"></span>
-          <span class="cartouche-price">€38,500</span>
-        </footer>
-      </article>
-    </div>
-  </section>
-
-  <!-- VIDEO FEED -->
-  <section class="section" id="feed">
-    <div class="section-header">
-      <h2 class="section-title" data-i18n="sectionFeed">Library of Proof</h2>
-      <a href="/social.html" class="see-all">Open library</a>
-    </div>
-    <div class="feed-grid">
-      <div class="feed-card feed-featured">
-        <div class="feed-thumb sv-library-thumb sv-library-thumb-routes">
-          <div class="feed-duration">27:14</div>
-          <div class="feed-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div>
-        </div>
-        <div class="feed-info">
-          <div class="feed-tag">Route Brief · Lagos to Toronto</div>
-          <div class="feed-title">How Translation Turns a Local Listing Into a Global Deal</div>
-          <div class="feed-creator-row">
-            <div class="mini-avatar ma-gold">S</div>
-            <span>Sophia Operator · Launch library</span>
-          </div>
-        </div>
-      </div>
-      <div class="feed-card">
-        <div class="feed-thumb sv-library-thumb sv-library-thumb-language">
-          <div class="feed-duration">18:42</div>
-          <div class="feed-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div>
-        </div>
-        <div class="feed-info">
-          <div class="feed-tag">Language Desk</div>
-          <div class="feed-title">Buyer Questions, Seller Answers, One Translation Floor</div>
-          <div class="feed-creator-row">
-            <div class="mini-avatar ma-gold">S</div>
-            <span>Sophia Operator · Launch library</span>
-          </div>
-        </div>
-      </div>
-      <div class="feed-card">
-        <div class="feed-thumb sv-library-thumb sv-library-thumb-market">
-          <div class="feed-duration">31:05</div>
-          <div class="feed-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div>
-        </div>
-        <div class="feed-info">
-          <div class="feed-tag">Market Floor</div>
-          <div class="feed-title">Proof Signals for Real Trade Across 105 Countries</div>
-          <div class="feed-creator-row">
-            <div class="mini-avatar ma-gold">S</div>
-            <span>Sophia Operator · Launch library</span>
-          </div>
-        </div>
-      </div>
-      <div class="feed-card">
-        <div class="feed-thumb sv-library-thumb sv-library-thumb-trust">
-          <div class="feed-duration">14:30</div>
-          <div class="feed-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div>
-        </div>
-        <div class="feed-info">
-          <div class="feed-tag">Trust Ledger</div>
-          <div class="feed-title">What Buyers Need Before They Cross a Border</div>
-          <div class="feed-creator-row">
-            <div class="mini-avatar ma-gold">S</div>
-            <span>Sophia Operator · Launch library</span>
-          </div>
-        </div>
-      </div>
-      <div class="feed-card">
-        <div class="feed-thumb sv-library-thumb sv-library-thumb-culture">
-          <div class="feed-duration">22:17</div>
-          <div class="feed-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21"/></svg></div>
-        </div>
-        <div class="feed-info">
-          <div class="feed-tag">Mali Lineage</div>
-          <div class="feed-title">Wisdom, Trade, and Translation as a Global Signal</div>
-          <div class="feed-creator-row">
-            <div class="mini-avatar ma-gold">S</div>
-            <span>Sophia Operator · Launch library</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER OPERATOR PROFILES -->
-  <section class="section" id="creators">
-    <div class="section-header">
-      <h2 class="section-title" data-i18n="sectionCreators">Founding Operators</h2>
-      <a href="/social.html" class="see-all" data-i18n="viewAll">View all</a>
-    </div>
-    <div class="creator-row">
-      <div class="creator-card creator-featured">
-        <div class="creator-banner" style="background:linear-gradient(135deg,#1a0f00,#4a2800)"></div>
-        <div class="creator-avatar-wrap">
-          <div class="creator-avatar ca-gold">S</div>
-          <div class="creator-live-badge">ACCESS</div>
-        </div>
-        <div class="creator-body">
-          <div class="creator-name">Sophia Operator</div>
-          <div class="creator-handle">@sophia</div>
-          <div class="creator-bio">Lead AI operator. Execution-first. Building the playbook for serious digital operations.</div>
-          <div class="creator-stats">
-            <div><strong>Lead</strong><span>Operator</span></div>
-            <div><strong>Access</strong><span>Library</span></div>
-            <div><strong>Ready</strong><span>Workflow</span></div>
-          </div>
-          <a href="mailto:hello@sophiaoperator.com?subject=Sophia%20Operator%20access" class="btn-gold creator-follow-btn">Request Access</a>
-        </div>
-      </div>
-      <div class="creator-card">
-        <div class="creator-banner" style="background:linear-gradient(135deg,#161207,#7a5a16)"></div>
-        <div class="creator-avatar-wrap">
-          <div class="creator-avatar ca-onyx">N</div>
-          <div class="creator-live-badge">ACCESS</div>
-        </div>
-        <div class="creator-body">
-          <div class="creator-name">Nova Systems</div>
-          <div class="creator-handle">@nova</div>
-          <div class="creator-bio">Systems architect. Workflow design, automation patterns, and operator infrastructure.</div>
-          <div class="creator-stats">
-            <div><strong>Systems</strong><span>Role</span></div>
-            <div><strong>Draft</strong><span>Library</span></div>
-            <div><strong>Ready</strong><span>Workflow</span></div>
-          </div>
-          <a href="mailto:hello@sophiaoperator.com?subject=Nova%20Systems%20access" class="btn-outline-sm creator-follow-btn">Request Access</a>
-        </div>
-      </div>
-      <div class="creator-card">
-        <div class="creator-banner" style="background:linear-gradient(135deg,#111318,#5d6872)"></div>
-        <div class="creator-avatar-wrap">
-          <div class="creator-avatar ca-silver">A</div>
-        </div>
-        <div class="creator-body">
-          <div class="creator-name">Atlas Data</div>
-          <div class="creator-handle">@atlas</div>
-          <div class="creator-bio">Data intelligence operator. Market signals, analytics breakdowns, and decision frameworks.</div>
-          <div class="creator-stats">
-            <div><strong>Data</strong><span>Role</span></div>
-            <div><strong>Draft</strong><span>Library</span></div>
-            <div><strong>Ready</strong><span>Workflow</span></div>
-          </div>
-          <a href="mailto:hello@sophiaoperator.com?subject=Atlas%20Data%20access" class="btn-outline-sm creator-follow-btn">Request Access</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRIVATE SESSIONS -->
-  <section class="section" id="sessions">
-    <div class="section-header">
-      <h2 class="section-title">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" style="flex-shrink:0"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <span data-i18n="sectionSessions">Private Sessions</span>
-      </h2>
-      <a href="/session.html?room=sophia-demo" class="see-all" data-i18n="viewAll">View access</a>
-    </div>
-    <p class="section-sub" data-i18n="sessionsDesc">Founding access is open for review while creator availability and paid billing stay in the free-period launch state.</p>
-    <div class="sessions-grid">
-
-      <!-- Sophia -->
-      <div class="session-card session-card-featured">
-        <div class="session-creator-header">
-          <div class="creator-avatar ca-gold" style="width:44px;height:44px;font-size:18px">S</div>
-          <div>
-            <div class="creator-name" style="font-size:15px">Sophia Operator</div>
-            <div class="creator-handle">@sophia · <span style="color:var(--gold);font-size:11px">◆ Launch ready</span></div>
-          </div>
-          <div class="session-rating">Access</div>
-        </div>
-        <div class="session-types">
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">1-on-1 · 30 min</div>
-              <div class="session-type-desc">Strategy, feedback, Q&amp;A</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Sophia%2030%20minute%20session" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">1-on-1 · 60 min</div>
-              <div class="session-type-desc">Deep dive, mentorship</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Sophia%2060%20minute%20session" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">Group · up to 10</div>
-              <div class="session-type-desc">Workshop, AMA, masterclass</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Sophia%20group%20session" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-        </div>
-        <a href="/session.html?room=sophia-demo" class="session-demo-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-          Open access room
-        </a>
-      </div>
-
-      <!-- Nova -->
-      <div class="session-card">
-        <div class="session-creator-header">
-          <div class="creator-avatar ca-onyx" style="width:44px;height:44px;font-size:18px">N</div>
-          <div>
-            <div class="creator-name" style="font-size:15px">Nova Systems</div>
-            <div class="creator-handle">@nova · <span style="color:var(--gold);font-size:11px">◆ Launch ready</span></div>
-          </div>
-          <div class="session-rating">Access</div>
-        </div>
-        <div class="session-types">
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">1-on-1 · 30 min</div>
-              <div class="session-type-desc">Workflow review</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Nova%20workflow%20review" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">Group · up to 10</div>
-              <div class="session-type-desc">Systems workshop</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Nova%20systems%20workshop" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-        </div>
-        <a href="/session.html?room=nova-demo" class="session-demo-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-          Open access room
-        </a>
-      </div>
-
-      <!-- Atlas -->
-      <div class="session-card">
-        <div class="session-creator-header">
-          <div class="creator-avatar ca-silver" style="width:44px;height:44px;font-size:18px">A</div>
-          <div>
-            <div class="creator-name" style="font-size:15px">Atlas Data</div>
-            <div class="creator-handle">@atlas · <span style="color:var(--muted);font-size:11px">◇ Access queue</span></div>
-          </div>
-          <div class="session-rating">Access</div>
-        </div>
-        <div class="session-types">
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">1-on-1 · 30 min</div>
-              <div class="session-type-desc">Data strategy</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Atlas%20data%20strategy" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-          <div class="session-type">
-            <div class="session-type-info">
-              <div class="session-type-name">Group · up to 10</div>
-              <div class="session-type-desc">Analytics deep dive</div>
-            </div>
-            <div class="session-type-right">
-              <div class="session-price">Free-period</div>
-              <a href="mailto:hello@sophiaoperator.com?subject=Atlas%20analytics%20session" class="btn-gold" style="padding:6px 14px;font-size:12px" data-i18n="bookNow">Request</a>
-            </div>
-          </div>
-        </div>
-        <a href="/session.html?room=atlas-demo" class="session-demo-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-          Open access room
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-inner">
-      <div class="cta-text">
-        <h2 data-i18n="ctaTitle">Ready to build across borders?</h2>
-        <p data-i18n="ctaSubtitle">Join the founding list for marketplace, translation, and creator workflow access.</p>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="mailto:hello@sophiaoperator.com?subject=Sophia%20founding%20access" class="btn-gold btn-lg" data-i18n="ctaBtn">Request Access</a>
-        <a href="/pricing.html" class="btn-outline btn-lg" data-i18n="ctaPricing">View Plans</a>
-      </div>
-      <p class="cta-trust-line" style="margin:14px 0 0;font-size:12px;letter-spacing:0.04em;color:var(--sv-bone-2,#bdb6a3);opacity:0.82;font-family:var(--sv-mono,inherit);">Cancel anytime &middot; No contracts &middot; 7-day refund &middot; Stripe-secured payments</p>
-    </div>
-  </section>
-
-  <section class="testimonials-band" aria-label="Founding access proof" style="padding:72px 28px 96px;border-top:1px solid rgba(200,162,74,0.14);">
-    <div style="max-width:1200px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:44px;">
-        <span class="sv-kicker" style="display:inline-block;font-size:12px;letter-spacing:0.18em;color:var(--gold,#c8a24a);text-transform:uppercase;margin-bottom:14px;">OPERATOR PROOF</span>
-        <h2 style="font-family:var(--sv-display,inherit);font-weight:500;font-size:clamp(28px,3.6vw,40px);line-height:1.1;color:var(--sv-bone,#f1ead6);margin:0;">The public build is measured by working systems.</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
-        <figure style="border:1px solid rgba(200,162,74,0.22);border-radius:8px;padding:28px 24px;background:linear-gradient(155deg,rgba(20,17,10,0.92),rgba(5,5,8,0.96));margin:0;">
-          <blockquote style="margin:0 0 18px;font-size:15px;line-height:1.65;color:var(--sv-bone-2,#d8d1be);">Founding access is routed through direct review instead of public claims from customers who have not spoken yet.</blockquote>
-          <figcaption style="font-size:12px;letter-spacing:0.06em;color:var(--gold,#c8a24a);text-transform:uppercase;">No invented testimonials</figcaption>
-        </figure>
-        <figure style="border:1px solid rgba(200,162,74,0.22);border-radius:8px;padding:28px 24px;background:linear-gradient(155deg,rgba(20,17,10,0.92),rgba(5,5,8,0.96));margin:0;">
-          <blockquote style="margin:0 0 18px;font-size:15px;line-height:1.65;color:var(--sv-bone-2,#d8d1be);">The market, social, translation, budget, and utility surfaces are visible as product paths, not mock promises.</blockquote>
-          <figcaption style="font-size:12px;letter-spacing:0.06em;color:var(--gold,#c8a24a);text-transform:uppercase;">Working local surfaces</figcaption>
-        </figure>
-        <figure style="border:1px solid rgba(200,162,74,0.22);border-radius:8px;padding:28px 24px;background:linear-gradient(155deg,rgba(20,17,10,0.92),rgba(5,5,8,0.96));margin:0;">
-          <blockquote style="margin:0 0 18px;font-size:15px;line-height:1.65;color:var(--sv-bone-2,#d8d1be);">Access remains approval-based until the live auth, media, and payment paths are fully production-connected.</blockquote>
-          <figcaption style="font-size:12px;letter-spacing:0.06em;color:var(--gold,#c8a24a);text-transform:uppercase;">Truthful launch boundary</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <a href="/" class="logo footer-logo">
-        <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" loading="lazy" decoding="async" />
-        Sophia<em>TV</em>
-      </a>
-      <div class="footer-links">
-        <a href="https://sophiaoperator.com">sophiaoperator.com</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="mailto:hello@sophiaoperator.com">Contact</a>
-      </div>
-      <div class="footer-copy">&copy; 2026 Sophia Operator. All rights reserved. · The Global Marketplace for 105 Countries</div>
-      <div class="sv-footer-imperial">SOPHIA · MALI LINEAGE · GLOBAL EMPIRE OF TRADE · EST. 2026</div>
-    </div>
-  </footer>
-
-  <!-- LOCAL GUIDE BUTTON -->
-  <button class="ai-chat-fab" id="aiChatFab" onclick="toggleAIChat()" aria-label="Open Sophia guide" style="display:none;">
-    <svg id="aiFabIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <span class="ai-fab-badge" id="aiFabBadge">?</span>
-  </button>
-
-  <!-- LOCAL GUIDE PANEL -->
-  <div class="ai-chat-panel" id="aiChatPanel">
-    <div class="ai-panel-header">
-      <div class="ai-panel-brand">
-        <div class="ai-avatar">S</div>
-        <div>
-          <div class="ai-panel-name">Sophia Guide</div>
-          <div class="ai-panel-status">Local setup help · no external AI account required</div>
-        </div>
-      </div>
-      <button class="ai-panel-close" onclick="toggleAIChat()" aria-label="Close Sophia guide">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="ai-creator-tools" id="aiCreatorTools">
-      <div class="ai-tools-label">Quick paths</div>
-      <div class="ai-tools-row">
-        <button class="ai-tool-chip" onclick="useCreatorTool('translation')">Translate</button>
-        <button class="ai-tool-chip" onclick="useCreatorTool('market')">List a business</button>
-        <button class="ai-tool-chip" onclick="useCreatorTool('social')">Open Social</button>
-        <button class="ai-tool-chip" onclick="useCreatorTool('setup')">Setup notes</button>
-      </div>
-    </div>
-    <div class="ai-messages" id="aiMessages">
-      <div class="ai-msg ai-msg-bot">
-        <div class="ai-msg-avatar">S</div>
-        <div class="ai-msg-bubble">Sophia can launch without a hosted AI provider. Use this local guide to jump into translation, Sophia Social, marketplace listings, and setup notes. Optional AI accounts stay user-managed.</div>
-      </div>
-    </div>
-    <div class="ai-input-row">
-      <input type="text" class="ai-input" id="aiInput" placeholder="Ask where to go next..." onkeydown="if(event.key==='Enter')sendAIMessage()" maxlength="500" />
-      <button class="ai-send-btn" onclick="sendAIMessage()" id="aiSendBtn" aria-label="Send Sophia guide message">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
-      </button>
-    </div>
-    <div class="ai-upgrade-bar" id="aiUpgradeBar" style="display:none">
-      <span>Guide is local and does not require paid provider calls.</span>
-    </div>
-  </div>
-
   <script>
-    // =====================
-    // WAVE BARS
-    // =====================
-    const container = document.getElementById('waveBars');
-    if (container) {
-      for (let i = 0; i < 32; i++) {
-        const bar = document.createElement('div');
-        bar.className = 'wbar';
-        bar.style.animationDelay = (i * 0.06) + 's';
-        bar.style.height = (8 + Math.random() * 28) + 'px';
-        container.appendChild(bar);
+    (function () {
+      var languageSelect = document.getElementById('landingLanguage');
+      if (!languageSelect) return;
+
+      var storedLanguage = localStorage.getItem('sophia-language');
+      if (storedLanguage) {
+        languageSelect.value = storedLanguage;
+        document.documentElement.lang = storedLanguage;
       }
-    }
 
-    // =====================
-    // TRANSLATION SYSTEM
-    // =====================
-    const translations = {
-      en: {
-        navLive:'Signals', navFeed:'Library', navCreators:'Builders', navSessions:'Access',
-        navPricing:'Pricing', navCTA:'Start Listing',
-        heroLine1:'List your business in 105 countries.', heroLine2:'$29.99 / month.', heroLine3:'',
-        heroBody:'SophiaMarket is the global directory for import/export, wholesale, real estate, and services. Reach 4+ billion people across every region.',
-        heroWatchBtn:'List Your Business', heroBrowseBtn:'Browse Directory',
-        statSubscribers:'Countries', statEpisodes:'Categories', statCreators:'Languages', statLanguages:'Workflow',
-        feat1Title:'50+ Languages', feat1Desc:'Real-time translation for global reach. Speak naturally, understand clearly, and connect without surrendering your language.',
-        feat2Title:'Human Access', feat2Desc:'Prepare real conversations, business listings, and sessions that work even when people start in different languages.',
-        feat3Title:'Workflow Support', feat3Desc:'Use guided workflows to summarize, translate, organize, and build across borders.',
-        feat4Title:'Common Ground', feat4Desc:'Tools for people to understand each other across language, geography, culture, and opportunity gaps.',
-        sectionLive:'Global Signals', sectionFeed:'Library of Proof', sectionCreators:'Global Builders',
-        sectionSessions:'Human Access', sessionsDesc:'Prepare calls, listings, and translated messages before crossing borders.',
-        viewAll:'View all', bookNow:'Request',
-        ctaTitle:'Ready to build across borders?', ctaSubtitle:'Join the launch list and get notified as Sophia access opens.',
-        ctaBtn:'Join Launch List', ctaPricing:'View Plans',
-      },
-      es: {
-        navLive:'Señales', navFeed:'Biblioteca', navCreators:'Constructores', navSessions:'Acceso',
-        navPricing:'Precios', navCTA:'Publicar Negocio',
-        heroLine1:'Publica tu negocio en 105 países.', heroLine2:'$29.99 / mes.', heroLine3:'',
-        heroBody:'SophiaMarket es el directorio global de importación/exportación, venta mayorista, bienes raíces y servicios. Llega a más de 4 mil millones de personas en cada región.',
-        heroWatchBtn:'Publicar Negocio', heroBrowseBtn:'Explorar Directorio',
-        statSubscribers:'Países', statEpisodes:'Categorías', statCreators:'Idiomas', statLanguages:'Flujo IA',
-        feat1Title:'50+ Idiomas', feat1Desc:'Traducción en tiempo real para alcance global.',
-        feat2Title:'Acceso Humano', feat2Desc:'Prepara conversaciones, listados y puntos de conexión listos para traducción.',
-        feat3Title:'Potenciado por IA', feat3Desc:'optional assistant integrado. Resume, traduce y crea dentro de SophiaTV.',
-        feat4Title:'Terreno común', feat4Desc:'Herramientas para entenderse entre idiomas, regiones y oportunidades.',
-        sectionLive:'Señales Globales', sectionFeed:'Lo último de la biblioteca', sectionCreators:'Constructores Globales',
-        sectionSessions:'Acceso Humano', sessionsDesc:'Prepara llamadas, listados y mensajes traducidos antes de cruzar fronteras.',
-        viewAll:'Ver todo', bookNow:'Solicitar',
-        ctaTitle:'¿Listo para construir entre fronteras?', ctaSubtitle:'Únete a la lista de vista previa y recibe aviso cuando se abra el acceso.',
-        ctaBtn:'Unirse a vista previa', ctaPricing:'Ver Planes',
-      },
-      fr: {
-        navLive:'Signaux', navFeed:'Bibliothèque', navCreators:'Bâtisseurs', navSessions:'Accès',
-        navPricing:'Tarifs', navCTA:'Publier une activité',
-        heroLine1:'Référencez votre entreprise dans 105 pays.', heroLine2:'29,99 $ / mois.', heroLine3:'',
-        heroBody:"SophiaMarket est l'annuaire mondial de l'import/export, du commerce de gros, de l'immobilier et des services. Touchez plus de 4 milliards de personnes dans chaque région.",
-        heroWatchBtn:'Référencer mon entreprise', heroBrowseBtn:"Parcourir l'annuaire",
-        statSubscribers:'Pays', statEpisodes:'Catégories', statCreators:'Langues', statLanguages:'Flux IA',
-        feat1Title:'50+ Langues', feat1Desc:'Traduction en temps réel pour une portée mondiale.',
-        feat2Title:'Accès Humain', feat2Desc:'Préparez conversations, fiches et points de contact prêts pour la traduction.',
-        feat3Title:'Propulsé par IA', feat3Desc:"optional assistant intégré. Résumez, traduisez, créez — dans SophiaTV.",
-        feat4Title:'Terrain commun', feat4Desc:"Des outils pour aider les personnes à se comprendre au-delà des langues, des régions et des écarts d'opportunité.",
-        sectionLive:'Signaux Mondiaux', sectionFeed:'Derniers éléments de la bibliothèque', sectionCreators:'Bâtisseurs Mondiaux',
-        sectionSessions:'Accès Humain', sessionsDesc:'Préparez appels, fiches et messages traduits avant de traverser les frontières.',
-        viewAll:'Tout voir', bookNow:'Demander',
-        ctaTitle:'Prêt à construire au-delà des frontières?', ctaSubtitle:"Rejoignez la liste d'aperçu et soyez averti quand l'accès ouvre.",
-        ctaBtn:"Rejoindre l'aperçu", ctaPricing:'Voir les Plans',
-      },
-      pt: {
-        navLive:'Sinais', navFeed:'Biblioteca', navCreators:'Construtores', navSessions:'Acesso',
-        navPricing:'Preços', navCTA:'Cadastrar Negócio',
-        heroLine1:'Cadastre seu negócio em 105 países.', heroLine2:'$29,99 / mês.', heroLine3:'',
-        heroBody:'SophiaMarket é o diretório global de importação/exportação, atacado, imóveis e serviços. Alcance mais de 4 bilhões de pessoas em todas as regiões.',
-        heroWatchBtn:'Cadastrar Negócio', heroBrowseBtn:'Explorar Diretório',
-        statSubscribers:'Países', statEpisodes:'Categorias', statCreators:'Idiomas', statLanguages:'Fluxo IA',
-        feat1Title:'50+ Idiomas', feat1Desc:'Tradução em tempo real para alcance global.',
-        feat2Title:'Acesso Humano', feat2Desc:'Prepare conversas globais, listagens e pontos de conexão prontos para tradução.',
-        feat3Title:'Com IA', feat3Desc:'optional assistant integrado. Resuma, traduza e crie dentro do SophiaTV.',
-        feat4Title:'Base comum', feat4Desc:'Ferramentas para ajudar pessoas a se entenderem entre idiomas, regiões e oportunidades.',
-        sectionLive:'Sinais Globais', sectionFeed:'Últimos da biblioteca', sectionCreators:'Construtores Globais',
-        sectionSessions:'Acesso Humano', sessionsDesc:'Prepare chamadas, listagens e mensagens traduzidas antes de cruzar fronteiras.',
-        viewAll:'Ver tudo', bookNow:'Solicitar',
-        ctaTitle:'Pronto para construir entre fronteiras?', ctaSubtitle:'Entre na lista de prévia e receba aviso quando o acesso abrir.',
-        ctaBtn:'Entrar na prévia', ctaPricing:'Ver Planos',
-      },
-      ar: {
-        navLive:'إشارات', navFeed:'المكتبة', navCreators:'بناة', navSessions:'وصول',
-        navPricing:'الأسعار', navCTA:'أضف نشاطك',
-        heroLine1:'أدرج نشاطك التجاري في 105 دولة.', heroLine2:'29.99 دولار / شهرياً.', heroLine3:'',
-        heroBody:'SophiaMarket هو الدليل العالمي للاستيراد والتصدير وتجارة الجملة والعقارات والخدمات. صل إلى أكثر من 4 مليارات شخص في كل منطقة.',
-        heroWatchBtn:'أدرج نشاطك التجاري', heroBrowseBtn:'تصفح الدليل',
-        statSubscribers:'دول', statEpisodes:'فئات', statCreators:'لغات', statLanguages:'سير عمل',
-        feat1Title:'+50 لغة', feat1Desc:'ترجمة فورية للوصول العالمي.',
-        feat2Title:'وصول بشري', feat2Desc:'جهز المحادثات والقوائم ونقاط الاتصال للترجمة العالمية.',
-        feat3Title:'مدعوم بالذكاء الاصطناعي', feat3Desc:'optional assistant المدمج. لخص، ترجم، وأنشئ داخل سوفيا تي في.',
-        feat4Title:'أرضية مشتركة', feat4Desc:'أدوات تساعد الناس على فهم بعضهم عبر اللغة والمكان وفرص العمل.',
-        sectionLive:'إشارات عالمية', sectionFeed:'الأحدث من المكتبة', sectionCreators:'بناة عالميون',
-        sectionSessions:'وصول بشري', sessionsDesc:'جهز المكالمات والقوائم والرسائل المترجمة قبل عبور الحدود.',
-        viewAll:'عرض الكل', bookNow:'اطلب',
-        ctaTitle:'هل أنت مستعد للبناء عبر الحدود؟', ctaSubtitle:'انضم إلى قائمة المعاينة وسيصلك إشعار عند فتح الوصول.',
-        ctaBtn:'انضم للمعاينة', ctaPricing:'عرض الخطط',
-      },
-      zh: {
-        navLive:'信号', navFeed:'资料库', navCreators:'建设者', navSessions:'访问',
-        navPricing:'定价', navCTA:'发布业务',
-        heroLine1:'在 105 个国家发布您的业务。', heroLine2:'每月 $29.99。', heroLine3:'',
-        heroBody:'SophiaMarket 是面向进出口、批发、房地产和服务行业的全球目录。覆盖每个地区超过 40 亿人。',
-        heroWatchBtn:'发布业务', heroBrowseBtn:'浏览目录',
-        statSubscribers:'国家', statEpisodes:'类别', statCreators:'语言', statLanguages:'AI流程',
-        feat1Title:'50+种语言', feat1Desc:'实时翻译，触达全球观众。',
-        feat2Title:'人工访问', feat2Desc:'准备全球对话、业务列表和可翻译的连接点。',
-        feat3Title:'AI驱动', feat3Desc:'optional assistant。在SophiaTV内总结、翻译、创作。',
-        feat4Title:'共同理解', feat4Desc:'帮助人们跨越语言、地区和机会差距相互理解的工具。',
-        sectionLive:'全球信号', sectionFeed:'资料库最新内容', sectionCreators:'全球建设者',
-        sectionSessions:'人工访问', sessionsDesc:'跨境之前，准备通话、列表和已翻译的信息。',
-        viewAll:'查看全部', bookNow:'申请',
-        ctaTitle:'准备好跨境建设了吗？', ctaSubtitle:'加入预览名单，访问开放时获得通知。',
-        ctaBtn:'加入预览', ctaPricing:'查看方案',
-      },
-      hi: {
-        navLive:'सिग्नल', navFeed:'लाइब्रेरी', navCreators:'बिल्डर्स', navSessions:'एक्सेस',
-        navPricing:'मूल्य निर्धारण', navCTA:'व्यवसाय जोड़ें',
-        heroLine1:'अपना व्यवसाय 105 देशों में सूचीबद्ध करें।', heroLine2:'$29.99 / महीना।', heroLine3:'',
-        heroBody:'SophiaMarket आयात/निर्यात, थोक, रियल एस्टेट और सेवाओं के लिए वैश्विक डायरेक्टरी है। हर क्षेत्र में 4 अरब से अधिक लोगों तक पहुंचें।',
-        heroWatchBtn:'व्यवसाय सूचीबद्ध करें', heroBrowseBtn:'डायरेक्टरी देखें',
-        statSubscribers:'देश', statEpisodes:'श्रेणियां', statCreators:'भाषाएं', statLanguages:'AI वर्कफ़्लो',
-        feat1Title:'50+ भाषाएं', feat1Desc:'वैश्विक पहुंच के लिए रियल-टाइम अनुवाद।',
-        feat2Title:'मानवीय एक्सेस', feat2Desc:'वैश्विक बातचीत, बिजनेस लिस्टिंग और अनुवाद-तैयार कनेक्शन तैयार करें।',
-        feat3Title:'AI-संचालित', feat3Desc:'optional assistant बिल्ट-इन। SophiaTV के अंदर सारांश, अनुवाद, निर्माण।',
-        feat4Title:'साझा समझ', feat4Desc:'भाषा, जगह और अवसर की दूरी के पार लोगों को समझने में मदद करने वाले टूल।',
-        sectionLive:'वैश्विक संकेत', sectionFeed:'लाइब्रेरी से नवीनतम', sectionCreators:'वैश्विक बिल्डर्स',
-        sectionSessions:'मानवीय एक्सेस', sessionsDesc:'सीमाओं के पार जाने से पहले कॉल, लिस्टिंग और अनुवादित संदेश तैयार करें।',
-        viewAll:'सब देखें', bookNow:'अनुरोध करें',
-        ctaTitle:'सीमाओं के पार निर्माण के लिए तैयार हैं?', ctaSubtitle:'प्रीव्यू सूची में जुड़ें और एक्सेस खुलने पर सूचना पाएं।',
-        ctaBtn:'प्रीव्यू से जुड़ें', ctaPricing:'प्लान देखें',
-      },
-      ru: {
-        navLive:'Сигналы', navFeed:'Библиотека', navCreators:'Строители', navSessions:'Доступ',
-        navPricing:'Цены', navCTA:'Добавить бизнес',
-        heroLine1:'Разместите бизнес в 105 странах.', heroLine2:'$29.99 / месяц.', heroLine3:'',
-        heroBody:'SophiaMarket — глобальный каталог для импорта/экспорта, оптовой торговли, недвижимости и услуг. Охватите более 4 миллиардов человек во всех регионах.',
-        heroWatchBtn:'Разместить бизнес', heroBrowseBtn:'Открыть каталог',
-        statSubscribers:'Страны', statEpisodes:'Категории', statCreators:'Языки', statLanguages:'Рабочий процесс',
-        feat1Title:'50+ языков', feat1Desc:'Перевод в реальном времени для глобального охвата.',
-        feat2Title:'Человеческий доступ', feat2Desc:'Подготовьте глобальные разговоры, бизнес-страницы и точки контакта для перевода.',
-        feat3Title:'Поддержка процессов', feat3Desc:'Пошаговые рабочие процессы для сводок, перевода и подготовки в Sophia.',
-        feat4Title:'Общее понимание', feat4Desc:'Инструменты, которые помогают людям понимать друг друга через язык, географию и возможности.',
-        sectionLive:'Глобальные сигналы', sectionFeed:'Новое из библиотеки', sectionCreators:'Глобальные строители',
-        sectionSessions:'Человеческий доступ', sessionsDesc:'Подготовьте звонки, страницы и переведенные сообщения перед выходом на новые рынки.',
-        viewAll:'Все', bookNow:'Запросить',
-        ctaTitle:'Готовы строить через границы?', ctaSubtitle:'Присоединитесь к списку предварительного доступа и получите уведомление.',
-        ctaBtn:'В список доступа', ctaPricing:'Посмотреть планы',
-      },
-      de: {
-        navLive:'Signale', navFeed:'Bibliothek', navCreators:'Builder', navSessions:'Zugang',
-        navPricing:'Preise', navCTA:'Business eintragen',
-        heroLine1:'Trage dein Unternehmen in 105 Ländern ein.', heroLine2:'29,99 $ / Monat.', heroLine3:'',
-        heroBody:'SophiaMarket ist das globale Verzeichnis für Import/Export, Großhandel, Immobilien und Dienstleistungen. Erreiche über 4 Milliarden Menschen in jeder Region.',
-        heroWatchBtn:'Unternehmen eintragen', heroBrowseBtn:'Verzeichnis durchsuchen',
-        statSubscribers:'Länder', statEpisodes:'Kategorien', statCreators:'Sprachen', statLanguages:'KI-Workflow',
-        feat1Title:'50+ Sprachen', feat1Desc:'Echtzeit-Übersetzung für globale Reichweite.',
-        feat2Title:'Menschlicher Zugang', feat2Desc:'Bereite globale Gespräche, Business-Einträge und übersetzbare Kontaktpunkte vor.',
-        feat3Title:'KI-gestützt', feat3Desc:'optional assistant eingebaut. Zusammenfassen, übersetzen, erstellen.',
-        feat4Title:'Gemeinsame Basis', feat4Desc:'Werkzeuge, die Menschen über Sprache, Ort und Chancen hinweg verständlich verbinden.',
-        sectionLive:'Globale Signale', sectionFeed:'Neues aus der Bibliothek', sectionCreators:'Globale Builder',
-        sectionSessions:'Menschlicher Zugang', sessionsDesc:'Bereite Anrufe, Einträge und übersetzte Nachrichten vor, bevor du Grenzen überschreitest.',
-        viewAll:'Alle anzeigen', bookNow:'Anfragen',
-        ctaTitle:'Bereit, über Grenzen hinweg zu bauen?', ctaSubtitle:'Tritt der Vorschau-Liste bei und erhalte eine Nachricht, wenn der Zugang öffnet.',
-        ctaBtn:'Vorschau beitreten', ctaPricing:'Pläne ansehen',
-      },
-      ja: {
-        navLive:'シグナル', navFeed:'ライブラリ', navCreators:'ビルダー', navSessions:'アクセス',
-        navPricing:'料金', navCTA:'ビジネス掲載',
-        heroLine1:'あなたのビジネスを105カ国に掲載。', heroLine2:'月額 $29.99。', heroLine3:'',
-        heroBody:'SophiaMarketは、輸出入・卸売・不動産・サービスのためのグローバルディレクトリ。世界各地の40億人以上にリーチします。',
-        heroWatchBtn:'ビジネスを掲載', heroBrowseBtn:'ディレクトリを見る',
-        statSubscribers:'国', statEpisodes:'カテゴリ', statCreators:'言語', statLanguages:'AIワークフロー',
-        feat1Title:'50以上の言語', feat1Desc:'グローバルなリーチのためのリアルタイム翻訳。',
-        feat2Title:'ヒューマンアクセス', feat2Desc:'グローバルな会話、ビジネス掲載、翻訳可能な接点を準備します。',
-        feat3Title:'AI搭載', feat3Desc:'optional assistant内蔵。SophiaTV内で要約、翻訳、作成。',
-        feat4Title:'共通理解', feat4Desc:'言語、地域、機会の差を越えて人々が理解し合うためのツール。',
-        sectionLive:'グローバルシグナル', sectionFeed:'ライブラリの最新情報', sectionCreators:'グローバルビルダー',
-        sectionSessions:'ヒューマンアクセス', sessionsDesc:'国境を越える前に、通話、掲載、翻訳済みメッセージを準備します。',
-        viewAll:'すべて表示', bookNow:'リクエスト',
-        ctaTitle:'国境を越えて構築する準備はできていますか？', ctaSubtitle:'プレビューリストに参加し、アクセス開始時に通知を受け取ります。',
-        ctaBtn:'プレビューに参加', ctaPricing:'プランを見る',
-      },
-    };
-
-    Object.assign(translations, {
-      it: {...translations.en, navLive:'Segnali', navFeed:'Biblioteca', navCreators:'Costruttori', navSessions:'Accesso', navPricing:'Prezzi', navCTA:'Aggiungi attività', heroLine1:'Il mondo,', heroLine2:'tradotto in', heroLine3:'opportunità.', heroWatchBtn:'+ Aggiungi attività', heroBrowseBtn:'Sfoglia directory', sectionLive:'Segnali globali', sectionFeed:'Ultimi dalla biblioteca', sectionCreators:'Costruttori globali', ctaBtn:'Entra nella lista di lancio', ctaPricing:'Vedi piani'},
-      ko: {...translations.en, navLive:'신호', navFeed:'라이브러리', navCreators:'빌더', navSessions:'접근', navPricing:'가격', navCTA:'비즈니스 등록', heroLine1:'세상을,', heroLine2:'기회로', heroLine3:'번역하다.', heroWatchBtn:'+ 비즈니스 등록', heroBrowseBtn:'디렉터리 보기', sectionLive:'글로벌 신호', sectionFeed:'라이브러리 최신', sectionCreators:'글로벌 빌더', ctaBtn:'출시 목록 참여', ctaPricing:'요금제 보기'},
-      tr: {...translations.en, navLive:'Sinyaller', navFeed:'Kütüphane', navCreators:'Kurucular', navSessions:'Erişim', navPricing:'Fiyatlar', navCTA:'İşletme ekle', heroLine1:'Dünya,', heroLine2:'fırsata', heroLine3:'çevrildi.', heroWatchBtn:'+ İşletme ekle', heroBrowseBtn:'Dizine bak', sectionLive:'Küresel sinyaller', sectionFeed:'Kütüphaneden son', sectionCreators:'Küresel kurucular', ctaBtn:'Lansman listesine katıl', ctaPricing:'Planları gör'},
-      vi: {...translations.en, navLive:'Tín hiệu', navFeed:'Thư viện', navCreators:'Người xây dựng', navSessions:'Truy cập', navPricing:'Giá', navCTA:'Thêm doanh nghiệp', heroLine1:'Thế giới,', heroLine2:'được dịch thành', heroLine3:'cơ hội.', heroWatchBtn:'+ Thêm doanh nghiệp', heroBrowseBtn:'Xem danh bạ', sectionLive:'Tín hiệu toàn cầu', sectionFeed:'Mới từ thư viện', sectionCreators:'Nhà xây dựng toàn cầu', ctaBtn:'Tham gia danh sách ra mắt', ctaPricing:'Xem gói'},
-      id: {...translations.en, navLive:'Sinyal', navFeed:'Pustaka', navCreators:'Pembangun', navSessions:'Akses', navPricing:'Harga', navCTA:'Tambah bisnis', heroLine1:'Dunia,', heroLine2:'diterjemahkan menjadi', heroLine3:'peluang.', heroWatchBtn:'+ Tambah bisnis', heroBrowseBtn:'Lihat direktori', sectionLive:'Sinyal global', sectionFeed:'Terbaru dari pustaka', sectionCreators:'Pembangun global', ctaBtn:'Masuk daftar peluncuran', ctaPricing:'Lihat paket'},
-      sw: {...translations.en, navLive:'Ishara', navFeed:'Maktaba', navCreators:'Wajenzi', navSessions:'Ufikiaji', navPricing:'Bei', navCTA:'Ongeza biashara', heroLine1:'Dunia,', heroLine2:'imetafsiriwa kuwa', heroLine3:'fursa.', heroWatchBtn:'+ Ongeza biashara', heroBrowseBtn:'Tazama orodha', sectionLive:'Ishara za dunia', sectionFeed:'Mpya kutoka maktaba', sectionCreators:'Wajenzi wa dunia', ctaBtn:'Jiunge na orodha ya uzinduzi', ctaPricing:'Tazama mipango'},
-      yo: {...translations.en, navLive:'Àwọn àmì', navFeed:'Ibi ìkàwé', navCreators:'Àwọn akole', navSessions:'Ìwọle', navPricing:'Owó', navCTA:'Fi iṣowo kun', heroLine1:'Ayé,', heroLine2:'túmọ̀ sí', heroLine3:'anfaani.', heroWatchBtn:'+ Fi iṣowo kun', heroBrowseBtn:'Wo àtòjọ', sectionLive:'Àwọn àmì agbaiye', sectionFeed:'Tuntun lati ibi ìkàwé', sectionCreators:'Àwọn akole agbaiye', ctaBtn:'Darapọ mọ akojọ ifilole', ctaPricing:'Wo ètò'},
-      nl: {...translations.en, navLive:'Signalen', navFeed:'Bibliotheek', navCreators:'Bouwers', navSessions:'Toegang', navPricing:'Prijzen', navCTA:'Bedrijf toevoegen', heroLine1:'De wereld,', heroLine2:'vertaald naar', heroLine3:'kans.', heroWatchBtn:'+ Bedrijf toevoegen', heroBrowseBtn:'Bekijk gids', sectionLive:'Wereldwijde signalen', sectionFeed:'Nieuw uit de bibliotheek', sectionCreators:'Wereldwijde bouwers', ctaBtn:'Word lid van de lanceringslijst', ctaPricing:'Bekijk plannen'},
-      pl: {...translations.en, navLive:'Sygnały', navFeed:'Biblioteka', navCreators:'Twórcy', navSessions:'Dostęp', navPricing:'Ceny', navCTA:'Dodaj firmę', heroLine1:'Świat,', heroLine2:'przetłumaczony na', heroLine3:'możliwość.', heroWatchBtn:'+ Dodaj firmę', heroBrowseBtn:'Przeglądaj katalog', sectionLive:'Globalne sygnały', sectionFeed:'Najnowsze z biblioteki', sectionCreators:'Globalni twórcy', ctaBtn:'Dołącz do podglądu', ctaPricing:'Zobacz plany'},
-      th: {...translations.en, navLive:'สัญญาณ', navFeed:'คลังข้อมูล', navCreators:'ผู้สร้าง', navSessions:'การเข้าถึง', navPricing:'ราคา', navCTA:'เพิ่มธุรกิจ', heroLine1:'โลก,', heroLine2:'แปลเป็น', heroLine3:'โอกาส.', heroWatchBtn:'+ เพิ่มธุรกิจ', heroBrowseBtn:'ดูไดเรกทอรี', sectionLive:'สัญญาณทั่วโลก', sectionFeed:'ล่าสุดจากคลังข้อมูล', sectionCreators:'ผู้สร้างทั่วโลก', ctaBtn:'เข้าร่วมตัวอย่าง', ctaPricing:'ดูแพ็กเกจ'}
-    });
-
-    let currentLang = localStorage.getItem('sophiatv_lang') || 'en';
-
-    function applyTranslations(lang) {
-      const t = translations[lang] || translations['en'];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) el.textContent = t[key];
+      languageSelect.addEventListener('change', function (event) {
+        var nextLanguage = event.target.value;
+        localStorage.setItem('sophia-language', nextLanguage);
+        document.documentElement.lang = nextLanguage;
       });
-      document.documentElement.lang = lang;
-      // RTL for Arabic
-      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-    }
-
-    function setLanguage(lang, flag, code) {
-      currentLang = lang;
-      localStorage.setItem('sophiatv_lang', lang);
-      document.getElementById('currentFlag').textContent = flag;
-      document.getElementById('currentLangCode').textContent = code;
-      applyTranslations(lang);
-      closeLangMenu();
-    }
-
-    function toggleLangMenu(e) {
-      if (e) e.stopPropagation();
-      document.getElementById('langDropdown').classList.toggle('open');
-    }
-
-    function closeLangMenu() {
-      document.getElementById('langDropdown').classList.remove('open');
-    }
-
-    document.addEventListener('click', closeLangMenu);
-
-    // Init language from localStorage
-    (function() {
-      const saved = localStorage.getItem('sophiatv_lang');
-      const langMap = {
-        en:['LANG','EN'], es:['LANG','ES'], fr:['LANG','FR'], pt:['LANG','PT'],
-        ar:['LANG','AR'], zh:['LANG','ZH'], hi:['LANG','HI'],
-        ru:['LANG','RU'], de:['LANG','DE'], ja:['LANG','JA'],
-        it:['LANG','IT'], ko:['LANG','KO'], tr:['LANG','TR'], vi:['LANG','VI'],
-        id:['LANG','ID'], sw:['LANG','SW'], yo:['LANG','YO'], nl:['LANG','NL'],
-        pl:['LANG','PL'], th:['LANG','TH']
-      };
-      if (saved && langMap[saved]) {
-        document.getElementById('currentFlag').textContent = langMap[saved][0];
-        document.getElementById('currentLangCode').textContent = langMap[saved][1];
-        applyTranslations(saved);
-      }
     })();
-
-    // =====================
-    // LOCAL GUIDE
-    // =====================
-    let aiOpen = false;
-    let aiMessages = [];
-    const AI_DAILY_LIMIT = 999;
-    const AI_STORAGE_KEY = 'sophiatv_guide_msgs';
-
-    function getAIMsgCount() {
-      const data = JSON.parse(localStorage.getItem(AI_STORAGE_KEY) || '{"date":"","count":0}');
-      const today = new Date().toDateString();
-      if (data.date !== today) return AI_DAILY_LIMIT;
-      return AI_DAILY_LIMIT - (data.count || 0);
-    }
-
-    function incrementAIMsgCount() {
-      const today = new Date().toDateString();
-      const data = JSON.parse(localStorage.getItem(AI_STORAGE_KEY) || '{"date":"","count":0}');
-      const count = (data.date === today ? data.count : 0) + 1;
-      localStorage.setItem(AI_STORAGE_KEY, JSON.stringify({ date: today, count }));
-    }
-
-    function updateAIMsgCountDisplay() {
-      const remaining = getAIMsgCount();
-      const countEl = document.getElementById('aiMsgCount');
-      const upgradeBar = document.getElementById('aiUpgradeBar');
-      if (countEl) countEl.textContent = remaining;
-      if (upgradeBar) upgradeBar.style.display = 'none';
-    }
-
-    function toggleAIChat() {
-      aiOpen = !aiOpen;
-      const panel = document.getElementById('aiChatPanel');
-      panel.classList.toggle('open', aiOpen);
-      if (aiOpen) updateAIMsgCountDisplay();
-    }
-
-    function appendAIMsg(role, text) {
-      const container = document.getElementById('aiMessages');
-      const div = document.createElement('div');
-      div.className = 'ai-msg ' + (role === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
-      if (role === 'bot') {
-        div.innerHTML = '<div class="ai-msg-avatar">S</div><div class="ai-msg-bubble"></div>';
-        div.querySelector('.ai-msg-bubble').textContent = text;
-      } else {
-        div.innerHTML = '<div class="ai-msg-bubble"></div>';
-        div.querySelector('.ai-msg-bubble').textContent = text;
-      }
-      container.appendChild(div);
-      container.scrollTop = container.scrollHeight;
-    }
-
-    function useCreatorTool(prompt) {
-      document.getElementById('aiInput').value = prompt;
-      sendAIMessage();
-    }
-
-    function getGuideReply(text) {
-      const query = text.toLowerCase();
-      if (query.includes('market') || query.includes('business') || query.includes('listing')) {
-        return 'Use SophiaMarket to list or find businesses across countries. Start with the Market page, then use Start Listing when the business details are ready.';
-      }
-      if (query.includes('translate') || query.includes('language') || query.includes('caption')) {
-        return 'Use the Universal Translator on this page. It works now with local fallback examples, and people can connect their own AI provider later on their own terms.';
-      }
-      if (query.includes('social') || query.includes('post') || query.includes('feed')) {
-        return 'Open Sophia Social for the public signal feed and local post interactions. It does not need an AI-run account to launch.';
-      }
-      if (query.includes('setup') || query.includes('api') || query.includes('key') || query.includes('account')) {
-        return 'No paid API key is required for launch. Optional AI providers can be connected later by whoever wants that feature.';
-      }
-      return 'Sophia is launching as a real global website: translation front door, Sophia Social, marketplace listings, private access flows, and useful local tools. No hosted AI account is required.';
-    }
-
-    async function sendAIMessage() {
-      const input = document.getElementById('aiInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      input.value = '';
-      appendAIMsg('user', text);
-      aiMessages.push({ role: 'user', content: text });
-
-      incrementAIMsgCount();
-      updateAIMsgCountDisplay();
-
-      document.getElementById('aiSendBtn').disabled = true;
-      const reply = getGuideReply(text);
-      appendAIMsg('bot', reply);
-      aiMessages.push({ role: 'assistant', content: reply });
-
-      document.getElementById('aiSendBtn').disabled = false;
-      document.getElementById('aiInput').focus();
-    }
-  </script>
-
-  <script>
-    // Auth state: show Sign Up / Log In or Dashboard in nav
-    (function() {
-      const SUPABASE_URL = window.SOPHIA_CONFIG?.SUPABASE_URL || 'https://wftxhojlvrymtdtekhdx.supabase.co';
-      const SUPABASE_ANON_KEY = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || '';
-      const applyAuthState = function() {
-        const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        sb.auth.getSession().then(({ data: { session } }) => {
-          const isLoggedIn = !!session;
-          document.getElementById('navCTA').style.display = isLoggedIn ? 'none' : '';
-          document.getElementById('navSignup').style.display = isLoggedIn ? 'none' : '';
-          document.getElementById('navLogin').style.display = isLoggedIn ? 'none' : '';
-          document.getElementById('navDashboard').style.display = isLoggedIn ? '' : 'none';
-        });
-      };
-      try {
-        if (!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.includes('YOUR_')) return;
-        if (window.supabase) {
-          applyAuthState();
-          return;
-        }
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-        script.async = true;
-        script.onload = applyAuthState;
-        document.head.appendChild(script);
-      } catch(e) {}
-    })();
-
-    // Founding access email capture
-    async function handleFoundingSignup(e) {
-      e.preventDefault();
-      const btn = document.getElementById('foundingBtn');
-      const email = document.getElementById('foundingEmail').value.trim();
-      btn.disabled = true;
-      btn.textContent = 'Joining...';
-      // Store in localStorage as fallback; Supabase integration via signup page
-      const waitlist = JSON.parse(localStorage.getItem('sophiatv_waitlist') || '[]');
-      if (!waitlist.includes(email)) waitlist.push(email);
-      localStorage.setItem('sophiatv_waitlist', JSON.stringify(waitlist));
-      document.getElementById('foundingMsg').textContent = 'You are on the list. We will be in touch soon.';
-      document.getElementById('foundingMsg').style.display = 'block';
-      document.getElementById('foundingEmail').value = '';
-      btn.disabled = false;
-      btn.textContent = 'Get Access';
-    }
-
-    function handleSophiaFeedback(e) {
-      e.preventDefault();
-      const type = document.getElementById('feedbackType').value;
-      const email = document.getElementById('feedbackEmail').value.trim();
-      const message = document.getElementById('feedbackMessage').value.trim();
-      const status = document.getElementById('feedbackStatus');
-      if (!message) return;
-
-      const entries = JSON.parse(localStorage.getItem('sophia_feedback_queue') || '[]');
-      entries.push({
-        type,
-        email,
-        message,
-        createdAt: new Date().toISOString(),
-        route: 'launch-build-local',
-      });
-      localStorage.setItem('sophia_feedback_queue', JSON.stringify(entries));
-      status.textContent = 'Thank you. Your note is saved in the launch feedback queue.';
-      status.className = 'feedback-status success';
-      document.getElementById('feedbackMessage').value = '';
-      if (window.showSophiaToast) showSophiaToast('Feedback saved for launch review.', 'success');
-    }
-
-    // Share button
-    function sharesite() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Sophia — Wisdom for the Global Market',
-          text: 'Sophia brings people together across language, markets, and opportunity.',
-          url: 'https://sophiaoperator.com'
-        });
-      } else {
-        navigator.clipboard.writeText('https://sophiaoperator.com').then(() => {
-          if (window.showSophiaToast) showSophiaToast('Link copied to clipboard.', 'success');
-        });
-      }
-    }
-  </script>
-
-<!-- SOPHIA_FOOTER -->
-<footer style="max-width:1200px;margin:60px auto 20px;padding:24px 20px;border-top:1px solid #374151;color:#9ca3af;font-size:13px;text-align:center;position:relative;z-index:10;"><div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;margin-bottom:12px;"><a href="/terms.html" style="color:#9ca3af;">Terms</a><a href="/privacy.html" style="color:#9ca3af;">Privacy</a><a href="/copyright.html" style="color:#9ca3af;">Copyright</a><a href="mailto:t.rain@sophiaoperator.com" style="color:#9ca3af;">Contact</a></div><div>© 2026 Tarence Rainey / Sophia™ · All rights reserved</div></footer>
-<!-- /SOPHIA_FOOTER -->
-  <script src="translator.js" defer></script>
-  <script src="assets/js/sovereign-reveal.js" defer></script>
-  <script src="future.js" defer></script>
-  <script>
-    window.addEventListener('load', function () {
-      var tickFallbackGlobe = function (canvas) {
-        var rotation = 0;
-        var lastTime = performance.now();
-        canvas.dataset.rotation = '0';
-        function tick(now) {
-          var delta = Math.min(64, now - lastTime);
-          lastTime = now;
-          rotation += delta * 0.00008;
-          canvas.dataset.rotation = rotation.toFixed(4);
-          requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      };
-
-      var loadGlobe = function () {
-        var stage = document.querySelector('.transparent-globe-stage');
-        var canvas = document.getElementById('earthGlobeCanvas');
-        if (stage && stage.querySelector('.sophia-black-gold-globe')) {
-          stage.classList.add('globe-fallback-only', 'globe-approved-static');
-          if (canvas) tickFallbackGlobe(canvas);
-          return;
-        }
-        if (window.location.protocol === 'file:') {
-          if (stage) stage.classList.add('globe-fallback-only');
-          if (canvas) tickFallbackGlobe(canvas);
-          return;
-        }
-        import(new URL('earth-globe.js', window.location.href).href).catch(function () {
-          if (stage) stage.classList.add('globe-fallback-only');
-          if (canvas) tickFallbackGlobe(canvas);
-        });
-      };
-
-      var loadProcession = function () {
-        var frame = document.querySelector('.procession-frame[data-src]');
-        if (!frame || frame.src) return;
-        frame.src = frame.dataset.src;
-      };
-      var processionFrame = document.querySelector('.procession-frame[data-src]');
-      if ('IntersectionObserver' in window && processionFrame) {
-        var processionObserver = new IntersectionObserver(function (entries) {
-          if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
-          processionObserver.disconnect();
-          loadProcession();
-        }, { rootMargin: '320px 0px' });
-        processionObserver.observe(processionFrame);
-      } else {
-        setTimeout(loadProcession, 6000);
-      }
-
-      requestAnimationFrame(function () { setTimeout(loadGlobe, 350); });
-    }, { once: true });
   </script>
 </body>
 </html>
-
-<!-- cache-bust 1777005726 -->
-
-<!-- cache-bust 1777005776 -->
-
-<!-- cache-bust 1777005813 -->

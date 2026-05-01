@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saved — SophiaTV Video</title>
+<meta name="description" content="Your saved video clips on SophiaTV." />
+<link rel="canonical" href="https://sophiatv.vercel.app/video/saved/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Saved — SophiaTV Video" />
+<meta property="og:description" content="Your saved video clips on SophiaTV." />
+<meta property="og:url" content="https://sophiatv.vercel.app/video/saved/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="/assets/css/sovereign.css" />
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/future.css" />
+<link rel="icon" href="/assets/brand/sophia-logo-premium.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://commondatastorage.googleapis.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  body { background: #06070a; color: #f5f1e6; font-family: Inter, system-ui, sans-serif; margin: 0; }
+  .video-shell { padding-top: 64px; min-height: 100vh; }
+  .video-page-head { max-width: 480px; margin: 96px auto 16px; padding: 0 16px; }
+  .video-page-head h1 { font-family: Georgia, serif; font-size: clamp(28px, 4vw, 36px); font-weight: 500; margin: 0 0 6px; }
+  .video-page-head p { color: rgba(245,241,230,0.6); font-size: 0.9rem; margin: 0; }
+  .feed-tags { display: flex; gap: 6px; max-width: 480px; margin: 0 auto 12px; padding: 0 16px; flex-wrap: wrap; }
+  .feed-tag { background: rgba(255,255,255,0.04); border: 1px solid rgba(200,162,74,0.22); color: rgba(245,241,230,0.78); padding: 6px 12px; border-radius: 999px; font-size: 0.78rem; cursor: pointer; transition: all .15s; }
+  .feed-tag:hover { color: #d8b34f; border-color: #d8b34f; }
+  .feed-tag.is-on { background: rgba(216,179,79,0.15); color: #d8b34f; border-color: #d8b34f; font-weight: 600; }
+  .video-feed { max-width: 480px; margin: 0 auto; padding: 16px 0 80px; display: flex; flex-direction: column; gap: 16px; }
+  .video-card { position: relative; aspect-ratio: 9/16; max-height: calc(100vh - 96px); width: 100%; background: #111217; border: 1px solid rgba(200,162,74,0.18); border-radius: 8px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.4); cursor: pointer; }
+  .video-el { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #0a0b10; }
+  .play-icon { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; pointer-events: none; }
+  .play-icon svg { width: 88px; height: 88px; fill: rgba(255,255,255,0.92); filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5)); }
+  .video-card.is-paused .play-icon { display: flex; }
+  .video-card.is-buffering::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.12), transparent 60%); pointer-events: none; }
+  .video-tag { position: absolute; top: 14px; left: 14px; background: rgba(0,0,0,0.55); border: 1px solid rgba(200,162,74,0.4); color: #d8b34f; padding: 4px 10px; border-radius: 2px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; backdrop-filter: blur(6px); z-index: 5; }
+  .video-duration { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.65); color: #fff; padding: 3px 8px; border-radius: 2px; font-size: 11px; font-family: ui-monospace, monospace; backdrop-filter: blur(6px); z-index: 5; }
+  .video-views { position: absolute; bottom: 16px; left: 16px; right: 70px; pointer-events: none; color: rgba(245,241,230,0.6); font-size: 0.72rem; letter-spacing: 0.06em; text-shadow: 0 2px 8px rgba(0,0,0,0.7); margin-bottom: 6px; }
+  .video-overlay { position: absolute; left: 16px; right: 70px; bottom: 32px; pointer-events: none; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+  .video-creator { font-weight: 700; font-size: 1rem; color: #f5f1e6; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; pointer-events: auto; }
+  .video-creator a { color: inherit; text-decoration: none; }
+  .video-creator a:hover { color: #d8b34f; }
+  .video-follow { background: transparent; border: 1px solid #d8b34f; color: #d8b34f; padding: 2px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; cursor: pointer; transition: all .15s; font-family: inherit; }
+  .video-follow.is-following { background: #d8b34f; color: #000; }
+  .video-caption { font-size: 0.88rem; color: rgba(245,241,230,0.94); line-height: 1.4; margin-bottom: 6px; }
+  .video-hashtags { font-size: 0.78rem; color: rgba(216,179,79,0.85); pointer-events: auto; }
+  .video-hashtags span { margin-right: 8px; cursor: pointer; }
+  .video-hashtags span:hover { color: #fff; }
+  .video-actions { position: absolute; right: 12px; bottom: 24px; display: flex; flex-direction: column; gap: 14px; align-items: center; z-index: 6; }
+  .vid-btn { width: 46px; height: 46px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(200,162,74,0.25); color: #f5f1e6; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(8px); transition: all .15s; font-family: inherit; font-weight: 600; padding: 0; }
+  .vid-btn:hover, .vid-btn:active { border-color: var(--gold, #d8b34f); transform: scale(1.06); }
+  .vid-btn.is-on { background: rgba(216,179,79,0.22); border-color: var(--gold, #d8b34f); color: #d8b34f; }
+  .vid-btn-count { font-size: 0.7rem; color: rgba(245,241,230,0.85); margin-top: -8px; text-shadow: 0 1px 4px rgba(0,0,0,0.7); pointer-events: none; }
+  .video-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(0,0,0,0.4); z-index: 4; }
+  .video-progress span { display: block; height: 100%; width: 0; background: var(--gold, #d8b34f); transition: width .1s linear; }
+  .video-empty { padding: 60px 24px; text-align: center; color: rgba(245,241,230,0.55); border: 1px dashed rgba(200,162,74,0.2); border-radius: 8px; font-size: 0.88rem; }
+  .video-empty a { color: var(--gold, #d8b34f); text-decoration: none; font-weight: 600; }
+
+  /* Desktop arrow nav */
+  .nav-arrow { position: fixed; right: 32px; width: 48px; height: 48px; border-radius: 50%; background: rgba(17,18,23,0.85); border: 1px solid rgba(200,162,74,0.32); color: #d8b34f; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; z-index: 70; backdrop-filter: blur(8px); transition: all .15s; font-family: inherit; }
+  .nav-arrow:hover { background: rgba(216,179,79,0.18); }
+  .nav-arrow.up { top: 50%; margin-top: -84px; }
+  .nav-arrow.down { top: 50%; margin-top: 36px; }
+  @media (max-width: 768px) { .nav-arrow { display: none; } }
+
+  /* Comments drawer */
+  .drawer { position: fixed; right: 0; top: 0; bottom: 0; width: min(420px, 96vw); background: #0a0b10; border-left: 1px solid rgba(200,162,74,0.2); transform: translateX(100%); transition: transform .25s ease; z-index: 100; display: flex; flex-direction: column; }
+  .drawer.is-open { transform: translateX(0); }
+  .drawer-head { padding: 18px 20px; border-bottom: 1px solid rgba(200,162,74,0.18); display: flex; justify-content: space-between; align-items: center; }
+  .drawer-head h3 { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 500; margin: 0; }
+  .drawer-close { background: transparent; border: 0; color: rgba(245,241,230,0.7); font-size: 1.4rem; cursor: pointer; }
+  .drawer-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+  .comment-item { padding: 12px 0; border-bottom: 1px solid rgba(200,162,74,0.1); }
+  .comment-author { font-size: 0.85rem; font-weight: 600; color: #f5f1e6; }
+  .comment-time { font-size: 0.72rem; color: rgba(245,241,230,0.5); margin-left: 8px; }
+  .comment-body { font-size: 0.88rem; color: rgba(245,241,230,0.85); margin-top: 4px; line-height: 1.45; }
+  .drawer-foot { padding: 14px 20px; border-top: 1px solid rgba(200,162,74,0.18); display: flex; gap: 8px; }
+  .drawer-foot input { flex: 1; padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,162,74,0.2); color: #f5f1e6; border-radius: 999px; font-size: 0.9rem; font-family: inherit; }
+  .drawer-foot button { padding: 0 18px; background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #8a5a13); color: #000; border: 0; border-radius: 999px; font-weight: 600; cursor: pointer; font-family: inherit; }
+
+  /* Share modal */
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 90; display: none; align-items: flex-end; justify-content: center; backdrop-filter: blur(4px); }
+  .modal-bg.is-open { display: flex; }
+  .modal { background: #0a0b10; border-top: 1px solid rgba(200,162,74,0.2); border-left: 1px solid rgba(200,162,74,0.2); border-right: 1px solid rgba(200,162,74,0.2); border-top-left-radius: 16px; border-top-right-radius: 16px; padding: 24px 20px; width: min(480px, 100%); }
+  .modal h3 { font-family: Georgia, serif; font-weight: 500; margin: 0 0 14px; font-size: 1.2rem; }
+  .share-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .share-btn { padding: 14px 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,162,74,0.18); color: #f5f1e6; border-radius: 6px; font-size: 0.78rem; cursor: pointer; text-align: center; text-decoration: none; transition: all .15s; font-family: inherit; }
+  .share-btn:hover { border-color: #d8b34f; color: #d8b34f; }
+  .share-link { margin-top: 14px; display: flex; gap: 6px; }
+  .share-link input { flex: 1; padding: 10px 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,162,74,0.2); color: #f5f1e6; border-radius: 4px; font-size: 0.82rem; font-family: ui-monospace, monospace; }
+  .share-link button { padding: 0 14px; background: #d8b34f; color: #000; border: 0; border-radius: 4px; font-weight: 600; cursor: pointer; font-family: inherit; }
+
+  /* Hashtag pill toast */
+  .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%); background: #d8b34f; color: #000; padding: 10px 18px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; z-index: 200; opacity: 0; transition: opacity .2s; }
+  .toast.is-on { opacity: 1; }
+
+  @media (max-width: 480px) { .video-feed { padding: 8px 0 60px; gap: 0; scroll-snap-type: y mandatory; height: calc(100vh - 64px); overflow-y: auto; } .video-card { border-radius: 0; max-height: calc(100vh - 64px); height: calc(100vh - 64px); scroll-snap-align: start; flex-shrink: 0; } .video-page-head { display: none; } .video-shell { padding-top: 56px; } .feed-tags { display: none; } }
+</style>
+</head><body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="/assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      </div>
+  </div>
+</nav>
+<div class="video-shell">
+  <header class="video-page-head">
+    <h1>Saved</h1>
+    <p>Your liked and bookmarked clips, stored locally.</p>
+  </header>
+  <main class="video-feed" id="savedFeed" aria-label="Saved clips"></main>
+</div>
+<div class="toast" id="vidToast"></div>
+<script>
+  var saved = JSON.parse(localStorage.getItem('sophia.savedVideos') || '[]');
+  var feed = document.getElementById('savedFeed');
+  if (!saved.length) {
+    feed.innerHTML = '<div class="video-empty">No saved clips yet. <a href="/video">Browse the feed</a> and tap the · button to save.</div>';
+  } else {
+    feed.innerHTML = saved.map(function (c, i) {
+      return '<article class="video-card is-paused" data-idx="'+i+'"><video class="video-el" src="'+c.src+'" muted loop playsinline preload="metadata"></video><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="video-tag">'+c.tag+'</div><div class="video-overlay"><div class="video-creator">@'+c.creator+'</div><div class="video-caption">'+c.caption+'</div></div><div class="video-actions"><a class="vid-btn" href="/video?clip='+c.idx+'" title="Open in feed">→</a><button class="vid-btn" data-remove="'+c.idx+'" title="Remove from saved">×</button></div><div class="video-progress"><span></span></div></article>';
+    }).join('');
+    feed.querySelectorAll('[data-remove]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var idx = parseInt(b.getAttribute('data-remove'), 10);
+        var s = JSON.parse(localStorage.getItem('sophia.savedVideos') || '[]').filter(function (x) { return x.idx !== idx; });
+        localStorage.setItem('sophia.savedVideos', JSON.stringify(s));
+        location.reload();
+      });
+    });
+    // Autoplay-on-scroll
+    var cards = Array.prototype.slice.call(feed.querySelectorAll('.video-card'));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target.querySelector('video');
+        if (e.isIntersecting && e.intersectionRatio > 0.55) v.play().catch(function(){}); else v.pause();
+      });
+    }, { threshold: [0, 0.55, 1] });
+    cards.forEach(function (c) { io.observe(c); c.addEventListener('click', function(e){ if (e.target.closest('.vid-btn')) return; var v = c.querySelector('video'); if (v.paused) v.play().catch(function(){}); else v.pause(); }); });
+  }
+</script>
+</body></html>
