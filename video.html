@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Video — SophiaTV</title>
+<meta name="description" content="Vertical video feed on SophiaTV — operator updates, market signals, creator content. TikTok-style scroll, global reach." />
+<link rel="canonical" href="https://sophiatv.vercel.app/video.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Video — SophiaTV" />
+<meta property="og:description" content="Vertical video feed on SophiaTV. TikTok-style scroll." />
+<meta property="og:url" content="https://sophiatv.vercel.app/video.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="/assets/css/sovereign.css" />
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/future.css" />
+<link rel="icon" href="/assets/brand/sophia-logo-premium.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  body { background: #06070a; color: #f5f1e6; font-family: Inter, system-ui, sans-serif; margin: 0; }
+  .video-shell { padding-top: 64px; min-height: 100vh; }
+  .video-feed { max-width: 480px; margin: 0 auto; padding: 24px 0 80px; display: flex; flex-direction: column; gap: 16px; scroll-snap-type: y mandatory; }
+  .video-card { position: relative; aspect-ratio: 9 / 16; max-height: calc(100vh - 96px); width: 100%; background: #111217; border: 1px solid rgba(200,162,74,0.18); border-radius: 8px; overflow: hidden; scroll-snap-align: start; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+  .video-card video, .video-card .video-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .video-thumb { background: linear-gradient(135deg, #1a1a24, #0a0b10); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-size: 1.4rem; color: rgba(200,162,74,0.5); }
+  .video-overlay { position: absolute; left: 16px; right: 60px; bottom: 16px; pointer-events: none; }
+  .video-creator { font-weight: 700; font-size: 0.95rem; color: #f5f1e6; margin-bottom: 4px; }
+  .video-caption { font-size: 0.85rem; color: rgba(245,241,230,0.85); line-height: 1.4; }
+  .video-actions { position: absolute; right: 12px; bottom: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .vid-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(0,0,0,0.5); border: 1px solid rgba(200,162,74,0.2); color: #f5f1e6; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; backdrop-filter: blur(8px); }
+  .vid-btn:hover { border-color: var(--gold, #d8b34f); }
+  .video-page-head { max-width: 480px; margin: 96px auto 16px; padding: 0 16px; }
+  .video-page-head h1 { font-family: Georgia, serif; font-size: clamp(28px, 4vw, 36px); font-weight: 500; margin: 0 0 6px; }
+  .video-page-head p { color: rgba(245,241,230,0.6); font-size: 0.9rem; margin: 0; }
+  .video-empty { padding: 80px 24px; text-align: center; color: rgba(245,241,230,0.5); border: 1px dashed rgba(200,162,74,0.2); border-radius: 8px; }
+  @media (max-width: 480px) { .video-feed { padding: 16px 0 60px; } .video-card { border-radius: 0; max-height: calc(100vh - 80px); } }
+</style>
+</head><body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="/assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
+      <span class="logo-text">Sophia<em>TV</em></span>
+    </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link" style="color:var(--gold);" aria-current="page">Video</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+      </div>
+  </div>
+</nav>
+
+<div class="video-shell">
+  <header class="video-page-head">
+    <h1>Video</h1>
+    <p>Vertical scroll · operator updates, market signals, creator drops.</p>
+  </header>
+
+  <main class="video-feed" id="videoFeed" aria-label="Vertical video feed">
+    <article class="video-card">
+      <div class="video-thumb">SophiaTV · clip 1</div>
+      <div class="video-overlay">
+        <div class="video-creator">@sophia_operator</div>
+        <div class="video-caption">SophiaMarket is live in 105 countries. Free listings, $29.99 Featured.</div>
+      </div>
+      <div class="video-actions">
+        <button class="vid-btn" title="Like">+</button>
+        <button class="vid-btn" title="Comment">~</button>
+        <button class="vid-btn" title="Share">→</button>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <div class="video-thumb">Creator drop · clip 2</div>
+      <div class="video-overlay">
+        <div class="video-creator">@global_signals</div>
+        <div class="video-caption">How African markets are shifting in 2026 — what operators need to know.</div>
+      </div>
+      <div class="video-actions">
+        <button class="vid-btn">+</button>
+        <button class="vid-btn">~</button>
+        <button class="vid-btn">→</button>
+      </div>
+    </article>
+
+    <article class="video-card">
+      <div class="video-thumb">Wellness · clip 3</div>
+      <div class="video-overlay">
+        <div class="video-creator">@natural_cures</div>
+        <div class="video-caption">Three foods that change everything. Watch full breakdown on /wellness.</div>
+      </div>
+      <div class="video-actions">
+        <button class="vid-btn">+</button>
+        <button class="vid-btn">~</button>
+        <button class="vid-btn">→</button>
+      </div>
+    </article>
+
+    <div class="video-empty">More clips coming. Follow creators on <a href="/social.html" style="color:var(--gold,#d8b34f);">Social</a>.</div>
+  </main>
+</div>
+</body></html>

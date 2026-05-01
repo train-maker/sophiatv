@@ -6,45 +6,45 @@
   <title>Sophia Natural Wellness | SophiaTV</title>
   <meta name="description" content="Sophia Natural Wellness is a searchable education app for traditional wellness practices, evidence levels, cautions, and personal routines." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="future.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/brand/sophia-favicon-64.png" type="image/png" />
   <style>
     .wellness-shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 112px 0 80px; }
     .wellness-hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr); gap: 26px; align-items: stretch; margin-bottom: 24px; }
-    .wellness-copy, .wellness-panel, .wellness-card, .routine-panel { border: 1px solid rgba(0,245,255,0.24); background: linear-gradient(145deg, rgba(10,18,36,0.9), rgba(4,8,18,0.78)); box-shadow: inset 0 0 28px rgba(0,245,255,0.05), 0 18px 54px rgba(0,0,0,0.42); border-radius: 18px; }
+    .wellness-copy, .wellness-panel, .wellness-card, .routine-panel { border: 1px solid rgba(232,201,120,0.24); background: linear-gradient(145deg, rgba(22,17,8,0.94), rgba(5,5,6,0.86)); box-shadow: inset 0 0 28px rgba(232,201,120,0.055), 0 18px 54px rgba(0,0,0,0.46); border-radius: 12px; }
     .wellness-copy { padding: clamp(26px, 4vw, 46px); position: relative; overflow: hidden; }
-    .wellness-copy h1 { font-size: clamp(42px, 7vw, 82px); line-height: 0.92; margin: 12px 0 18px; }
-    .wellness-copy p { max-width: 780px; color: rgba(222,244,255,0.75); font-size: 17px; line-height: 1.7; }
-    .wellness-kicker { color: var(--neo-mint); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
+    .wellness-copy h1 { font-size: clamp(42px, 7vw, 82px); line-height: 0.92; margin: 12px 0 18px; font-family: var(--serif); color: #fff8df; }
+    .wellness-copy p { max-width: 780px; color: rgba(246,235,203,0.74); font-size: 17px; line-height: 1.7; }
+    .wellness-kicker { color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
     .wellness-warning { margin-top: 22px; padding: 14px 16px; border: 1px solid rgba(255,216,77,0.34); border-radius: 14px; background: rgba(255,216,77,0.08); color: #fff4bd; font-size: 14px; line-height: 1.55; }
     .wellness-panel { padding: 22px; display: grid; gap: 18px; align-content: start; }
     .vital-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-    .vital { padding: 16px; border-radius: 14px; background: rgba(255,255,255,0.045); border: 1px solid rgba(255,255,255,0.08); }
-    .vital span { display: block; color: rgba(222,244,255,0.58); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
+    .vital { padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.042); border: 1px solid rgba(232,201,120,0.13); }
+    .vital span { display: block; color: rgba(246,235,203,0.58); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
     .vital strong { display: block; color: white; font-size: 24px; margin-top: 5px; }
     .wellness-controls { display: grid; grid-template-columns: minmax(220px, 1fr) auto; gap: 12px; margin: 22px 0; }
-    .wellness-controls input { width: 100%; }
+    .wellness-controls input { width: 100%; min-height: 44px; }
     .filter-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-    .filter-pills button { border: 1px solid rgba(0,245,255,0.24); background: rgba(5,9,22,0.72); color: #dffcff; border-radius: 999px; padding: 10px 14px; font-weight: 800; cursor: pointer; }
-    .filter-pills button.active { border-color: rgba(255,61,242,0.62); color: white; box-shadow: 0 0 18px rgba(255,61,242,0.26); }
+    .filter-pills button { border: 1px solid rgba(232,201,120,0.24); background: rgba(5,5,6,0.72); color: rgba(246,235,203,0.82); border-radius: 999px; padding: 10px 14px; font-weight: 800; cursor: pointer; }
+    .filter-pills button.active { border-color: rgba(232,201,120,0.62); color: white; box-shadow: 0 0 18px rgba(232,201,120,0.18); }
     .wellness-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 22px; align-items: start; }
     .wellness-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
     .wellness-card { padding: 20px; position: relative; overflow: hidden; }
     .wellness-card h3 { color: white; font-size: 20px; margin: 0 0 8px; }
-    .wellness-card p { color: rgba(222,244,255,0.7); line-height: 1.58; margin: 0 0 14px; }
+    .wellness-card p { color: rgba(246,235,203,0.7); line-height: 1.58; margin: 0 0 14px; }
     .wellness-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    .wellness-tags span { color: #cbffec; background: rgba(37,255,179,0.09); border: 1px solid rgba(37,255,179,0.22); border-radius: 999px; padding: 6px 9px; font-size: 12px; font-weight: 800; }
-    .evidence { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); color: rgba(222,244,255,0.62); font-size: 13px; }
-    .evidence b { color: var(--neo-amber); }
-    .wellness-card button, .routine-panel button { border: 0; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint)); color: #02030a; font-weight: 900; cursor: pointer; }
+    .wellness-tags span { color: #fff4bd; background: rgba(232,201,120,0.09); border: 1px solid rgba(232,201,120,0.22); border-radius: 999px; padding: 6px 9px; font-size: 12px; font-weight: 800; }
+    .evidence { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(232,201,120,0.12); color: rgba(246,235,203,0.62); font-size: 13px; }
+    .evidence b { color: var(--gold); }
+    .wellness-card button, .routine-panel button { border: 0; border-radius: 10px; padding: 10px 12px; background: linear-gradient(135deg, #f4d779, #b8872e); color: #070500; font-weight: 900; cursor: pointer; }
     .routine-panel { padding: 20px; position: sticky; top: 96px; }
     .routine-panel h2 { color: white; margin: 0 0 10px; font-size: 22px; }
     .routine-list { display: grid; gap: 10px; margin: 16px 0; }
-    .routine-item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: rgba(222,244,255,0.78); }
+    .routine-item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 12px; border-radius: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(232,201,120,0.12); color: rgba(246,235,203,0.78); }
     .routine-item button { padding: 7px 9px; background: rgba(255,49,79,0.18); color: #ffd7de; border: 1px solid rgba(255,49,79,0.28); }
-    .empty-routine { color: rgba(222,244,255,0.55); line-height: 1.55; }
-    .wellness-mini { color: rgba(222,244,255,0.54); font-size: 12px; line-height: 1.55; }
+    .empty-routine { color: rgba(246,235,203,0.55); line-height: 1.55; }
+    .wellness-mini { color: rgba(246,235,203,0.54); font-size: 12px; line-height: 1.55; }
     @media (max-width: 920px) { .wellness-hero, .wellness-layout { grid-template-columns: 1fr; } .routine-panel { position: static; } }
     @media (max-width: 680px) {
       .wellness-shell { width: min(1180px, calc(100% - 24px)); padding: 88px 0 56px; }
@@ -72,12 +72,15 @@
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
-      <div class="nav-links">
-        <a href="/#translate" class="nav-link">Translate</a>
+            <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
         <a href="/social.html" class="nav-link">Social</a>
-        <a href="/natural-cures.html" class="nav-link" style="color:var(--gold);">Wellness</a>
         <a href="/market.html" class="nav-link">Market</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/wellness.html" class="nav-link" style="color:var(--gold);" aria-current="page">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
       </div>
       <div class="nav-right"><a href="/dashboard.html" class="btn-gold">Dashboard</a></div>
     </div>

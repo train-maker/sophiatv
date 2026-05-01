@@ -21,15 +21,15 @@
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
-      <div class="nav-links">
-        <a href="/#live" class="nav-link">Signals</a>
-        <a href="/#translate" class="nav-link">Translate</a>
+            <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
         <a href="/social.html" class="nav-link">Social</a>
-        <a href="/everyday-tools.html" class="nav-link">Tools</a>
-        <a href="/natural-cures.html" class="nav-link">Wellness</a>
         <a href="/market.html" class="nav-link">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
-        <a href="/control-center.html" class="nav-link" style="color:var(--gold);">Control</a>
+        <a href="/dashboard.html" class="nav-link" style="color:var(--gold);" aria-current="page">Dashboard</a>
       </div>
       <div class="nav-right">
         <a href="/dashboard.html" class="btn-gold">Dashboard</a>
@@ -155,7 +155,7 @@
             <a href="/plugins/sophia-operator/CLAUDE_INSTALL.md">Claude Install Notes</a>
             <a href="/plugins/sophia-operator/TROUBLESHOOTING.md">Troubleshooting</a>
             <a href="/admin.html">Mobile Admin</a>
-            <a href="/api/health">API Health</a>
+            <a href="https://sophiatv.vercel.app/api/health" target="_blank" rel="noopener">Live API Health</a>
           </div>
         </article>
       </aside>
@@ -277,7 +277,7 @@
             <label><input type="checkbox" data-key="mobile" /> Verify mobile layouts for home, market, social, translate, and control center.</label>
             <label><input type="checkbox" data-key="smoke" /> Run a final smoke test for links, forms, console errors, and overflow.</label>
           </div>
-          <div class="progress-track" aria-label="Launch checklist progress"><span id="launchProgress"></span></div>
+          <div class="progress-track" role="progressbar" aria-label="Launch checklist progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="launchProgress"></span></div>
           <p class="control-muted" id="launchProgressText">0 of 6 launch items complete.</p>
         </article>
       </div>
@@ -302,7 +302,7 @@
           <span class="control-kicker">Production services</span>
           <ul class="status-list">
             <li><span class="status-dot ok"></span><b>AI provider</b><em>Optional. Users can connect their own provider later.</em></li>
-            <li><span class="status-dot warn"></span><b>Supabase</b><em>Add the public anon key in config.js for real accounts and dashboard data.</em></li>
+            <li><span class="status-dot ok"></span><b>Supabase</b><em>Live backend is connected through Vercel public config and encrypted env vars.</em></li>
             <li><span class="status-dot warn"></span><b>Stripe</b><em>Required before paid plan automation opens.</em></li>
             <li><span class="status-dot ok"></span><b>Static preview</b><em>Running locally on port 4173.</em></li>
             <li><span class="status-dot ok"></span><b>Smoke test</b><em>Run npm run smoke before launch.</em></li>
@@ -315,8 +315,8 @@
           <span class="control-kicker">Next build moves</span>
           <ol class="next-list">
             <li>Verify translation fallbacks and provider-optional setup copy.</li>
-            <li>Add the Supabase public anon key to config.js.</li>
-            <li>Connect Sophia Social posts to Supabase.</li>
+            <li>Run signed-in account QA on phone and desktop.</li>
+            <li>Test Sophia Social post and media sync after Google sign-in.</li>
             <li>Configure Stripe/Supabase env vars and test webhook tier updates.</li>
             <li>Add continuous live captions for video clips.</li>
           </ol>
@@ -331,6 +331,7 @@
       const list = document.getElementById('launchChecklist');
       const boxes = [...list.querySelectorAll('input[type="checkbox"]')];
       const bar = document.getElementById('launchProgress');
+      const track = bar ? bar.closest('.progress-track') : null;
       const text = document.getElementById('launchProgressText');
       const getState = () => {
         try { return JSON.parse(localStorage.getItem(store) || '{}'); }
@@ -346,6 +347,10 @@
         const done = boxes.filter((box) => box.checked).length;
         const pct = boxes.length ? Math.round((done / boxes.length) * 100) : 0;
         bar.style.width = pct + '%';
+        if (track) {
+          track.setAttribute('aria-valuemax', String(boxes.length));
+          track.setAttribute('aria-valuenow', String(done));
+        }
         text.textContent = `${done} of ${boxes.length} launch items complete.`;
       };
       const state = getState();

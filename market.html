@@ -720,7 +720,7 @@
   <a class="skip-main" href="#main-content">Skip to main content</a>
 <!-- SOPHIA_TESLA -->
 <!-- Tesla-level futuristic layer for SophiaMarket -->
-<style id="sophia-tesla-css">
+<style id="sophia-tesla-css" media="not all">
   /* Smooth everywhere */
   * { scroll-behavior: smooth; }
   html { scroll-behavior: smooth; }
@@ -824,7 +824,7 @@
   ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #10b981, #34d399); border-radius:10px; }
 </style>
 
-<canvas id="sophia-particles"></canvas>
+<canvas id="sophia-particles" hidden aria-hidden="true"></canvas>
 
 <script>
 (function(){
@@ -1009,15 +1009,15 @@ window.filterCategory = window.filterCategory || function(cat) {
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span style="font-weight:800;font-size:18px;letter-spacing:-0.3px;">Sophia<span style="color:var(--gold)">TV</span></span>
       </a>
-      <div class="nav-links">
-        <a href="/#live" class="nav-link">Signals</a>
-        <a href="/#feed" class="nav-link">Library</a>
+            <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
         <a href="/social.html" class="nav-link">Social</a>
-        <a href="/#creators" class="nav-link">Builders</a>
-        <a href="/market.html" class="nav-link" style="color:var(--gold);">Market</a>
-        <a href="/#sessions" class="nav-link">Access</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/market.html" class="nav-link" style="color:var(--gold);" aria-current="page">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
       </div>
       <div class="nav-right" style="margin-left:auto;display:flex;gap:10px;align-items:center;">
         <a href="/market-submit.html" class="btn-gold" style="padding:8px 18px;font-size:13px;font-weight:700;background:var(--gold);color:#07070e;border-radius:7px;text-decoration:none;">Start Listing</a>
@@ -1525,7 +1525,10 @@ window.filterCategory = window.filterCategory || function(cat) {
 
     async function init() {
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-      COUNTRIES.sort((a,b) => a.name.localeCompare(b.name)); renderCountries(COUNTRIES);
+      const requestedRegion = getRequestedRegion();
+      activeRegion = requestedRegion || 'All';
+      COUNTRIES.sort((a,b) => a.name.localeCompare(b.name));
+      renderCountries(activeRegion === 'All' ? COUNTRIES : COUNTRIES.filter(c => c.region === activeRegion));
       renderCategories();
       renderClassifieds();
       renderStateDirectory();
@@ -1544,7 +1547,27 @@ window.filterCategory = window.filterCategory || function(cat) {
       showListings({ scroll: false });
       // LAYOUTS §2D — initial render of recently-viewed (data-dependent)
       try { renderRecentlyViewed(); } catch (e) { /* swallow */ }
-      requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+      syncRegionTabs();
+      if (requestedRegion) {
+        const countrySection = document.getElementById('section-country');
+        requestAnimationFrame(() => countrySection?.scrollIntoView({ behavior: 'auto', block: 'start' }));
+      } else {
+        requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+      }
+    }
+
+    function getRequestedRegion() {
+      const params = new URLSearchParams(window.location.search);
+      const region = params.get('region');
+      const valid = ['Americas', 'Europe', 'Africa', 'Middle East', 'Asia-Pacific'];
+      return valid.includes(region) ? region : '';
+    }
+
+    function syncRegionTabs() {
+      document.querySelectorAll('.region-tab').forEach(tab => {
+        const label = tab.textContent.trim();
+        tab.classList.toggle('active', label === activeRegion);
+      });
     }
 
     function renderClassifieds() {
@@ -1618,8 +1641,12 @@ window.filterCategory = window.filterCategory || function(cat) {
 
     function filterByRegion(region, btn) {
       activeRegion = region;
-      document.querySelectorAll('.region-tab').forEach(t => t.classList.remove('active'));
+      syncRegionTabs();
       if (btn) btn.classList.add('active');
+      const url = region === 'All'
+        ? `${window.location.pathname}#section-country`
+        : `${window.location.pathname}?region=${encodeURIComponent(region)}#section-country`;
+      history.replaceState(null, '', url);
       const q = document.getElementById('countrySearch').value;
       filterCountries(q);
     }

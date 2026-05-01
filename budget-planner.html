@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Budget Planner | SophiaTV Everyday Tools</title>
-  <meta name="description" content="Browser-only home budget planner. Track income, expenses by category, and savings goals — all stored locally, no account needed." />
+  <meta name="description" content="Private home budget planner for monthly income, category limits, expense logs, and savings goals. Stored locally on this device." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="future.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/brand/sophia-favicon-64.png" type="image/png" />
   <style>
     /* ── Layout shell ── */
     .bp-shell { width: min(1280px, calc(100% - 36px)); margin: 0 auto; padding: 112px 0 96px; }
     .bp-card {
-      border: 1px solid rgba(0,245,255,0.22);
-      background: linear-gradient(145deg, rgba(10,18,36,0.92), rgba(4,8,18,0.80));
-      box-shadow: inset 0 0 28px rgba(0,245,255,0.04), 0 18px 54px rgba(0,0,0,0.44);
-      border-radius: 18px;
+      border: 1px solid rgba(232,201,120,0.24);
+      background: linear-gradient(145deg, rgba(22,17,8,0.94), rgba(5,5,6,0.86));
+      box-shadow: inset 0 0 28px rgba(232,201,120,0.055), 0 18px 54px rgba(0,0,0,0.46);
+      border-radius: 12px;
     }
 
     /* ── Hero header ── */
@@ -24,98 +24,98 @@
     .bp-hero-copy { padding: clamp(26px, 4vw, 46px); position: relative; overflow: hidden; }
     .bp-hero-copy::before {
       content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 80% 50%, rgba(0,245,255,0.06), transparent 65%);
+      background: radial-gradient(ellipse at 80% 50%, rgba(232,201,120,0.07), transparent 65%);
       pointer-events: none;
     }
-    .bp-kicker { color: var(--neo-mint); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
-    .bp-hero-copy h1 { font-size: clamp(38px, 6vw, 74px); line-height: 0.92; margin: 12px 0 18px; color: white; }
-    .bp-hero-copy p { color: rgba(222,244,255,0.70); line-height: 1.65; max-width: 560px; }
+    .bp-kicker { color: var(--gold); font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
+    .bp-hero-copy h1 { font-size: clamp(38px, 6vw, 74px); line-height: 0.92; margin: 12px 0 18px; color: #fff8df; font-family: var(--serif); }
+    .bp-hero-copy p { color: rgba(246,235,203,0.70); line-height: 1.65; max-width: 560px; }
     .bp-stats { padding: 22px; display: grid; gap: 12px; align-content: start; }
-    .bp-stat { padding: 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
-    .bp-stat span { display: block; color: rgba(222,244,255,0.55); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
+    .bp-stat { padding: 14px; border-radius: 10px; border: 1px solid rgba(232,201,120,0.13); background: rgba(255,255,255,0.04); }
+    .bp-stat span { display: block; color: rgba(246,235,203,0.55); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; }
     .bp-stat strong { display: block; font-size: 22px; margin-top: 4px; }
-    .bp-stat.income strong { color: var(--neo-mint); }
-    .bp-stat.spent strong { color: var(--neo-amber); }
-    .bp-stat.savings strong { color: var(--neo-cyan); }
+    .bp-stat.income strong { color: #fff8df; }
+    .bp-stat.spent strong { color: var(--gold); }
+    .bp-stat.savings strong { color: #f4d779; }
 
     /* ── Month selector ── */
     .bp-month-bar {
       display: flex; align-items: center; gap: 14px;
       padding: 14px 22px; margin-bottom: 20px;
-      border: 1px solid rgba(0,245,255,0.16);
-      background: rgba(7,12,24,0.6);
-      border-radius: 14px;
+      border: 1px solid rgba(232,201,120,0.18);
+      background: rgba(12,9,4,0.6);
+      border-radius: 10px;
     }
-    .bp-month-bar label { color: rgba(222,244,255,0.6); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
-    .bp-month-bar input[type=month] { background: rgba(0,0,0,0.3); border: 1px solid rgba(0,245,255,0.22); color: white; border-radius: 10px; padding: 8px 14px; font-family: inherit; font-size: 15px; cursor: pointer; }
+    .bp-month-bar label { color: rgba(246,235,203,0.6); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .bp-month-bar input[type=month] { background: rgba(0,0,0,0.3); border: 1px solid rgba(232,201,120,0.22); color: white; border-radius: 10px; padding: 8px 14px; font-family: inherit; font-size: 15px; cursor: pointer; }
     .bp-month-bar button { margin-left: auto; }
 
     /* ── Main grid ── */
     .bp-main { display: grid; grid-template-columns: 1fr 380px; gap: 20px; align-items: start; }
 
     /* ── Income section ── */
-    .bp-section-title { color: rgba(222,244,255,0.55); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 14px; }
+    .bp-section-title { color: rgba(246,235,203,0.55); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 14px; }
     .bp-income-row { display: flex; gap: 12px; align-items: flex-end; margin-bottom: 22px; }
-    .bp-income-row label { flex: 1; display: grid; gap: 6px; color: rgba(222,244,255,0.72); font-size: 13px; font-weight: 800; }
+    .bp-income-row label { flex: 1; display: grid; gap: 6px; color: rgba(246,235,203,0.72); font-size: 13px; font-weight: 800; }
     .bp-income-row label span { display: block; }
 
     /* ── Category budgets ── */
     .bp-categories { display: grid; gap: 10px; margin-bottom: 22px; }
-    .bp-cat-row { display: grid; grid-template-columns: 26px 1fr 120px 120px auto; gap: 10px; align-items: center; padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); }
-    .bp-cat-icon { font-size: 18px; text-align: center; }
+    .bp-cat-row { display: grid; grid-template-columns: 34px 1fr 120px 120px auto; gap: 10px; align-items: center; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(232,201,120,0.11); background: rgba(255,255,255,0.03); }
+    .bp-cat-icon { font-size: 11px; font-weight: 900; color: var(--gold); text-align: center; letter-spacing: 0.06em; }
     .bp-cat-name { color: white; font-weight: 700; font-size: 14px; }
     .bp-cat-bar-wrap { height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-top: 5px; overflow: hidden; }
     .bp-cat-bar { height: 100%; border-radius: 4px; transition: width 0.35s ease; }
-    .bp-cat-label { color: rgba(222,244,255,0.55); font-size: 11px; margin-top: 3px; }
-    .bp-cat-budget input { width: 100%; background: rgba(0,0,0,0.28); border: 1px solid rgba(0,245,255,0.2); color: white; border-radius: 9px; padding: 7px 10px; font-family: inherit; font-size: 13px; font-weight: 700; }
-    .bp-cat-spent { color: rgba(222,244,255,0.65); font-size: 13px; font-weight: 700; text-align: right; }
+    .bp-cat-label { color: rgba(246,235,203,0.55); font-size: 11px; margin-top: 3px; }
+    .bp-cat-budget input { width: 100%; background: rgba(0,0,0,0.28); border: 1px solid rgba(232,201,120,0.2); color: white; border-radius: 9px; padding: 7px 10px; font-family: inherit; font-size: 13px; font-weight: 700; }
+    .bp-cat-spent { color: rgba(246,235,203,0.65); font-size: 13px; font-weight: 700; text-align: right; }
     .bp-cat-del button { border: 1px solid rgba(255,49,79,0.28); background: rgba(255,49,79,0.12); color: rgba(255,180,180,0.9); border-radius: 8px; padding: 5px 9px; cursor: pointer; font-size: 12px; }
 
     /* ── Add category ── */
-    .bp-add-cat { display: flex; gap: 10px; align-items: center; padding: 10px; border: 1px dashed rgba(0,245,255,0.2); border-radius: 12px; }
-    .bp-add-cat input, .bp-add-cat select { flex: 1; background: rgba(0,0,0,0.28); border: 1px solid rgba(0,245,255,0.2); color: white; border-radius: 9px; padding: 8px 12px; font-family: inherit; font-size: 13px; }
+    .bp-add-cat { display: flex; gap: 10px; align-items: center; padding: 10px; border: 1px dashed rgba(232,201,120,0.24); border-radius: 10px; }
+    .bp-add-cat input, .bp-add-cat select { flex: 1; background: rgba(0,0,0,0.28); border: 1px solid rgba(232,201,120,0.2); color: white; border-radius: 9px; padding: 8px 12px; font-family: inherit; font-size: 13px; }
 
     /* ── Transaction list ── */
     .bp-txn-section { padding: 20px; }
     .bp-txn-form { display: grid; gap: 10px; margin-bottom: 16px; }
     .bp-txn-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .bp-txn-form label { display: grid; gap: 5px; color: rgba(222,244,255,0.68); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
-    .bp-txn-form input, .bp-txn-form select { background: rgba(0,0,0,0.28); border: 1px solid rgba(0,245,255,0.2); color: white; border-radius: 9px; padding: 8px 12px; font-family: inherit; font-size: 13px; width: 100%; }
+    .bp-txn-form label { display: grid; gap: 5px; color: rgba(246,235,203,0.68); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+    .bp-txn-form input, .bp-txn-form select { background: rgba(0,0,0,0.28); border: 1px solid rgba(232,201,120,0.2); color: white; border-radius: 9px; padding: 8px 12px; font-family: inherit; font-size: 13px; width: 100%; }
     .bp-txns { display: grid; gap: 8px; max-height: 420px; overflow-y: auto; }
     .bp-txns::-webkit-scrollbar { width: 6px; }
     .bp-txns::-webkit-scrollbar-track { background: transparent; }
-    .bp-txns::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.3); border-radius: 6px; }
-    .bp-txn { display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 11px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); }
-    .bp-txn-icon { font-size: 18px; }
+    .bp-txns::-webkit-scrollbar-thumb { background: rgba(232,201,120,0.3); border-radius: 6px; }
+    .bp-txn { display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(232,201,120,0.1); }
+    .bp-txn-icon { font-size: 11px; font-weight: 900; color: var(--gold); letter-spacing: 0.06em; }
     .bp-txn-info strong { display: block; color: white; font-size: 13px; }
-    .bp-txn-info span { display: block; color: rgba(222,244,255,0.5); font-size: 11px; margin-top: 2px; }
-    .bp-txn-amount { color: var(--neo-amber); font-weight: 900; font-size: 14px; white-space: nowrap; }
+    .bp-txn-info span { display: block; color: rgba(246,235,203,0.5); font-size: 11px; margin-top: 2px; }
+    .bp-txn-amount { color: var(--gold); font-weight: 900; font-size: 14px; white-space: nowrap; }
     .bp-txn-del { border: none; background: transparent; color: rgba(255,100,100,0.6); cursor: pointer; font-size: 15px; padding: 4px; line-height: 1; }
-    .bp-txn-del:hover { color: var(--neo-red); }
-    .bp-empty { color: rgba(222,244,255,0.4); font-size: 13px; text-align: center; padding: 24px 0; }
+    .bp-txn-del:hover { color: #ff314f; }
+    .bp-empty { color: rgba(246,235,203,0.4); font-size: 13px; text-align: center; padding: 24px 0; }
 
     /* ── Savings goal ── */
     .bp-goal-section { padding: 20px; margin-bottom: 20px; }
     .bp-goal-bar-wrap { height: 12px; background: rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; margin: 12px 0 6px; }
-    .bp-goal-bar { height: 100%; border-radius: 12px; background: linear-gradient(90deg, var(--neo-mint), var(--neo-cyan)); transition: width 0.4s ease; }
-    .bp-goal-labels { display: flex; justify-content: space-between; color: rgba(222,244,255,0.55); font-size: 12px; }
+    .bp-goal-bar { height: 100%; border-radius: 12px; background: linear-gradient(90deg, #b8872e, #f4d779); transition: width 0.4s ease; }
+    .bp-goal-labels { display: flex; justify-content: space-between; color: rgba(246,235,203,0.55); font-size: 12px; }
 
     /* ── Charts ── */
     .bp-donut-section { padding: 20px; margin-bottom: 20px; }
     .bp-donut-wrap { display: flex; gap: 20px; align-items: center; }
     .bp-donut-canvas { flex-shrink: 0; }
     .bp-legend { display: grid; gap: 7px; flex: 1; }
-    .bp-legend-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(222,244,255,0.75); }
+    .bp-legend-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(246,235,203,0.75); }
     .bp-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .bp-legend-pct { margin-left: auto; font-weight: 800; }
 
     /* ── Global form inputs ── */
     input, select { outline: none; }
-    input:focus, select:focus { border-color: var(--neo-cyan) !important; box-shadow: 0 0 0 2px rgba(0,245,255,0.18); }
+    input:focus, select:focus { border-color: var(--gold) !important; box-shadow: 0 0 0 2px rgba(232,201,120,0.18); }
 
     /* ── Buttons ── */
-    .btn-primary { border: 0; border-radius: 10px; padding: 10px 16px; background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint)); color: #02030a; font-weight: 900; cursor: pointer; font-size: 13px; font-family: inherit; white-space: nowrap; }
-    .btn-ghost { border: 1px solid rgba(0,245,255,0.24); background: rgba(5,9,22,0.72); color: #dffcff; border-radius: 10px; padding: 10px 14px; cursor: pointer; font-size: 13px; font-family: inherit; font-weight: 700; white-space: nowrap; }
+    .btn-primary { border: 0; border-radius: 10px; padding: 10px 16px; background: linear-gradient(135deg, #f4d779, #b8872e); color: #070500; font-weight: 900; cursor: pointer; font-size: 13px; font-family: inherit; white-space: nowrap; }
+    .btn-ghost { border: 1px solid rgba(232,201,120,0.24); background: rgba(5,5,6,0.72); color: rgba(246,235,203,0.86); border-radius: 10px; padding: 10px 14px; cursor: pointer; font-size: 13px; font-family: inherit; font-weight: 700; white-space: nowrap; }
 
     /* ── Responsive ── */
     @media (max-width: 1024px) { .bp-main { grid-template-columns: 1fr; } }
@@ -135,12 +135,15 @@
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
-      <div class="nav-links">
-        <a href="/everyday-tools.html" class="nav-link" style="color:var(--neo-amber);">Tools</a>
-        <a href="/natural-cures.html" class="nav-link">Wellness</a>
+            <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
         <a href="/social.html" class="nav-link">Social</a>
         <a href="/market.html" class="nav-link">Market</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link" style="color:var(--gold);" aria-current="page">Tools</a>
+        <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
       </div>
       <div class="nav-right"><a href="/dashboard.html" class="btn-gold">Dashboard</a></div>
     </div>
@@ -151,11 +154,11 @@
     <!-- Hero -->
     <section class="bp-hero">
       <div class="bp-card bp-hero-copy">
-        <span class="bp-kicker">Everyday App &mdash; Money</span>
+        <span class="bp-kicker">Sophia Private Ledger</span>
         <h1>Home Budget<br/>Planner</h1>
-        <p>Track your monthly income, set spending limits by category, log every expense, and watch your savings grow — 100% in your browser. Nothing leaves this device.</p>
+        <p>Set a monthly income floor, assign category limits, log expenses, and keep savings visible in a private ledger stored on this device.</p>
         <p style="margin-top:12px;">
-          <a href="/everyday-tools.html" style="color:var(--neo-cyan);font-weight:700;font-size:13px;">&larr; Back to Everyday Tools</a>
+          <a href="/everyday-tools.html" style="color:var(--gold);font-weight:700;font-size:13px;">Back to Everyday Tools</a>
         </p>
       </div>
       <aside class="bp-card bp-stats">
@@ -192,7 +195,7 @@
               <input type="number" id="bp-extra-income" min="0" step="0.01" placeholder="0" />
             </label>
           </div>
-          <div id="income-note" style="font-size:13px;color:rgba(222,244,255,0.5);"></div>
+          <div id="income-note" style="font-size:13px;color:rgba(246,235,203,0.5);"></div>
         </div>
 
         <!-- Category budgets -->
@@ -201,9 +204,9 @@
           <div class="bp-categories" id="bp-categories"></div>
           <div class="bp-add-cat" style="margin-top:12px;">
             <input type="text" id="new-cat-name" placeholder="New category name…" />
-            <input type="text" id="new-cat-icon" placeholder="Emoji" style="width:64px;text-align:center;" />
+            <input type="text" id="new-cat-icon" placeholder="Code" maxlength="3" style="width:64px;text-align:center;text-transform:uppercase;" />
             <input type="number" id="new-cat-budget" min="0" step="0.01" placeholder="Budget $" style="width:110px;" />
-            <button class="btn-primary" id="btn-add-cat">+ Add</button>
+            <button class="btn-primary" id="btn-add-cat">Add</button>
           </div>
         </div>
 
@@ -211,11 +214,11 @@
         <div class="bp-card bp-goal-section">
           <p class="bp-section-title">Savings Goal</p>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
-            <label style="display:grid;gap:5px;color:rgba(222,244,255,0.7);font-size:12px;font-weight:800;">
+            <label style="display:grid;gap:5px;color:rgba(246,235,203,0.7);font-size:12px;font-weight:800;">
               Goal amount
               <input type="number" id="bp-goal" min="0" step="0.01" placeholder="e.g. 1000" />
             </label>
-            <label style="display:grid;gap:5px;color:rgba(222,244,255,0.7);font-size:12px;font-weight:800;">
+            <label style="display:grid;gap:5px;color:rgba(246,235,203,0.7);font-size:12px;font-weight:800;">
               Already saved this month
               <input type="number" id="bp-saved" min="0" step="0.01" placeholder="e.g. 250" />
             </label>
@@ -263,7 +266,7 @@
               Category
               <select id="txn-cat"></select>
             </label>
-            <button class="btn-primary" id="btn-add-txn" style="width:100%;">+ Add Transaction</button>
+            <button class="btn-primary" id="btn-add-txn" style="width:100%;">Add Transaction</button>
           </div>
 
           <p class="bp-section-title" style="margin-top:6px;" id="txn-list-title">Transactions</p>
@@ -278,29 +281,29 @@
   (() => {
     'use strict';
 
-    /* ─── Storage key helpers ─── */
+    /* Storage key helpers */
     const monthKey = (m) => `sophia_budget_v2_${m}`;
 
-    /* ─── Default category set ─── */
+    /* Default category set */
     const DEFAULT_CATS = [
-      { id: 'housing',   icon: '🏠', name: 'Housing',        budget: 1400 },
-      { id: 'food',      icon: '🛒', name: 'Food',           budget: 600  },
-      { id: 'transport', icon: '🚗', name: 'Transport',      budget: 350  },
-      { id: 'utilities', icon: '💡', name: 'Utilities',      budget: 220  },
-      { id: 'health',    icon: '❤️', name: 'Health',         budget: 150  },
-      { id: 'entertain', icon: '🎬', name: 'Entertainment',  budget: 120  },
-      { id: 'clothing',  icon: '👕', name: 'Clothing',       budget: 80   },
-      { id: 'savings',   icon: '💰', name: 'Savings',        budget: 400  },
-      { id: 'other',     icon: '📦', name: 'Other',          budget: 100  },
+      { id: 'housing',   icon: 'HS', name: 'Housing',        budget: 1400 },
+      { id: 'food',      icon: 'FD', name: 'Food',           budget: 600  },
+      { id: 'transport', icon: 'TR', name: 'Transport',      budget: 350  },
+      { id: 'utilities', icon: 'UT', name: 'Utilities',      budget: 220  },
+      { id: 'health',    icon: 'HE', name: 'Health',         budget: 150  },
+      { id: 'entertain', icon: 'EN', name: 'Entertainment',  budget: 120  },
+      { id: 'clothing',  icon: 'CL', name: 'Clothing',       budget: 80   },
+      { id: 'savings',   icon: 'SV', name: 'Savings',        budget: 400  },
+      { id: 'other',     icon: 'OT', name: 'Other',          budget: 100  },
     ];
 
-    /* ─── Palette for donut ─── */
+    /* Palette for donut */
     const PALETTE = [
-      '#00f5ff','#25ffb3','#ffd84d','#ff3df2','#8a5cff',
-      '#ff314f','#4dffad','#ff8c42','#42b9ff','#c084fc',
+      '#f4d779','#b8872e','#fff8df','#8f6a24','#d8b85f',
+      '#ff314f','#c9a646','#7b6122','#efe1b5','#a98837',
     ];
 
-    /* ─── State ─── */
+    /* State */
     let activeMonth = (() => {
       const now = new Date();
       return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2,'0')}`;
@@ -328,7 +331,7 @@
 
     let state = loadMonth(activeMonth);
 
-    /* ─── DOM refs ─── */
+    /* DOM refs */
     const monthInput    = document.getElementById('bp-month');
     const incomeInput   = document.getElementById('bp-income');
     const extraInput    = document.getElementById('bp-extra-income');
@@ -350,10 +353,10 @@
     const legendEl      = document.getElementById('bp-legend');
     const incomeNote    = document.getElementById('income-note');
 
-    /* ─── Money formatter ─── */
+    /* Money formatter */
     const fmt = (v) => Number(v || 0).toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
-    /* ─── Category spent totals ─── */
+    /* Category spent totals */
     function spentByCategory() {
       const map = {};
       state.categories.forEach(c => { map[c.id] = 0; });
@@ -364,7 +367,7 @@
       return map;
     }
 
-    /* ─── Render categories ─── */
+    /* Render categories */
     function renderCategories() {
       const spent = spentByCategory();
       catsEl.innerHTML = '';
@@ -374,9 +377,9 @@
       header.style.cssText = 'display:grid;grid-template-columns:26px 1fr 120px 120px auto;gap:10px;padding:4px 14px;';
       header.innerHTML = `
         <span></span>
-        <span style="color:rgba(222,244,255,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Category</span>
-        <span style="color:rgba(222,244,255,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Budget</span>
-        <span style="color:rgba(222,244,255,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;text-align:right;">Spent</span>
+        <span style="color:rgba(246,235,203,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Category</span>
+        <span style="color:rgba(246,235,203,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Budget</span>
+        <span style="color:rgba(246,235,203,0.4);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;text-align:right;">Spent</span>
         <span></span>
       `;
       catsEl.appendChild(header);
@@ -400,7 +403,7 @@
           </div>
           <div class="bp-cat-budget"><input type="number" min="0" step="0.01" value="${b || ''}" placeholder="$0" data-cat-idx="${idx}" data-field="budget" /></div>
           <div class="bp-cat-spent">${fmt(s)}</div>
-          <div class="bp-cat-del"><button data-cat-del="${idx}" title="Remove category">✕</button></div>
+          <div class="bp-cat-del"><button data-cat-del="${idx}" title="Remove category">Remove</button></div>
         `;
         catsEl.appendChild(row);
       });
@@ -430,12 +433,12 @@
       renderCatSelect();
     }
 
-    /* ─── Render transaction category select ─── */
+    /* Render transaction category select */
     function renderCatSelect() {
       txnCatSel.innerHTML = state.categories.map(c => `<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
     }
 
-    /* ─── Render transaction list ─── */
+    /* Render transaction list */
     function renderTransactions() {
       const title = document.getElementById('txn-list-title');
       if (!state.transactions.length) {
@@ -448,7 +451,7 @@
       const sorted = [...state.transactions].sort((a, b) => b.date.localeCompare(a.date));
       txnsEl.innerHTML = sorted.map(t => {
         const cat = state.categories.find(c => c.id === t.catId);
-        const icon = cat ? cat.icon : '📦';
+        const icon = cat ? cat.icon : 'OT';
         const catName = cat ? cat.name : t.catId;
         const d = t.date ? new Date(t.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
         return `
@@ -474,7 +477,7 @@
       });
     }
 
-    /* ─── Render summary stats ─── */
+    /* Render summary stats */
     function renderSummary() {
       const totalIncome = (Number(state.income) || 0) + (Number(state.extraIncome) || 0);
       const totalSpent = state.transactions.reduce((s, t) => s + (Number(t.amount) || 0), 0);
@@ -484,7 +487,7 @@
       statIncome.textContent = fmt(totalIncome);
       statSpent.textContent = fmt(totalSpent);
       statLeft.textContent = `${fmt(left)} (${rate}%)`;
-      statLeft.style.color = left >= 0 ? 'var(--neo-cyan)' : 'var(--neo-red)';
+      statLeft.style.color = left >= 0 ? '#f4d779' : '#ff314f';
 
       if (totalIncome > 0) {
         incomeNote.textContent = `${fmt(totalSpent)} spent of ${fmt(totalIncome)} income · ${rate}% remaining`;
@@ -499,11 +502,11 @@
       goalBar.style.width = pct.toFixed(1) + '%';
       goalPct.textContent = pct.toFixed(0) + '% complete';
       goalRemaining.textContent = `Goal: ${fmt(goal)}`;
-      if (goal > 0 && saved >= goal) goalPct.style.color = 'var(--neo-mint)';
+      if (goal > 0 && saved >= goal) goalPct.style.color = '#f4d779';
       else goalPct.style.color = '';
     }
 
-    /* ─── Render donut chart ─── */
+    /* Render donut chart */
     function renderDonut() {
       const spent = spentByCategory();
       const ctx = donutCanvas.getContext('2d');
@@ -524,7 +527,7 @@
         ctx.strokeStyle = 'rgba(255,255,255,0.1)';
         ctx.lineWidth = R - r;
         ctx.stroke();
-        ctx.fillStyle = 'rgba(222,244,255,0.3)';
+        ctx.fillStyle = 'rgba(246,235,203,0.34)';
         ctx.font = '500 12px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -550,7 +553,7 @@
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(fmt(grand), cx, cy - 8);
-      ctx.fillStyle = 'rgba(222,244,255,0.5)';
+      ctx.fillStyle = 'rgba(246,235,203,0.54)';
       ctx.font = '600 10px Inter, sans-serif';
       ctx.fillText('total spent', cx, cy + 10);
 
@@ -561,7 +564,7 @@
       }).join('');
     }
 
-    /* ─── Full render ─── */
+    /* Full render */
     function render() {
       renderCategories();
       renderTransactions();
@@ -569,7 +572,7 @@
       renderDonut();
     }
 
-    /* ─── Populate form inputs from state ─── */
+    /* Populate form inputs from state */
     function syncInputs() {
       monthInput.value = activeMonth;
       incomeInput.value = state.income || '';
@@ -578,12 +581,12 @@
       savedInput.value = state.saved || '';
     }
 
-    /* ─── Persist current state ─── */
+    /* Persist current state */
     function persist() {
       saveMonth(activeMonth, state);
     }
 
-    /* ─── Switch month ─── */
+    /* Switch month */
     function switchMonth(m) {
       persist();
       activeMonth = m;
@@ -592,15 +595,15 @@
       render();
     }
 
-    /* ─── Escape HTML ─── */
+    /* Escape HTML */
     function escHtml(s) {
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    /* ─── Generate unique ID ─── */
+    /* Generate unique ID */
     function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
 
-    /* ─── Event wiring ─── */
+    /* Event wiring */
     monthInput.addEventListener('change', () => switchMonth(monthInput.value));
 
     document.getElementById('bp-prev-month').addEventListener('click', () => {
@@ -628,7 +631,7 @@
 
     document.getElementById('btn-add-cat').addEventListener('click', () => {
       const name = document.getElementById('new-cat-name').value.trim();
-      const icon = document.getElementById('new-cat-icon').value.trim() || '📦';
+      const icon = (document.getElementById('new-cat-icon').value.trim() || name.slice(0, 2)).slice(0, 3).toUpperCase();
       const budget = Number(document.getElementById('new-cat-budget').value) || 0;
       if (!name) return;
       const id = 'cat_' + uid();
@@ -661,7 +664,7 @@
       el.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('btn-add-txn').click(); });
     });
 
-    /* ─── Bootstrap ─── */
+    /* Bootstrap */
     // Set today's date as default for transaction date
     txnDate.value = new Date().toISOString().slice(0, 10);
 

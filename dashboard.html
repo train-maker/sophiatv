@@ -20,7 +20,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="config.js"></script>
-  <script src="/api/public-config"></script>
+  <script>
+    (function () {
+      window.SOPHIA_PUBLIC_CONFIG_READY = new Promise(function (resolve) {
+        if (/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(window.location.hostname)) { resolve(); return; }
+        var publicConfig = document.createElement('script');
+        publicConfig.src = '/api/public-config';
+        publicConfig.onload = resolve;
+        publicConfig.onerror = resolve;
+        document.head.appendChild(publicConfig);
+      });
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <style>
     body { background: var(--sv-page, #06070a); }
@@ -138,10 +149,15 @@
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="/" class="nav-link">Home</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/video.html" class="nav-link">Video</a>
+        <a href="/social.html" class="nav-link">Social</a>
+        <a href="/market.html" class="nav-link">Market</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link" style="color:var(--gold);" aria-current="page">Dashboard</a>
       </div>
     </div>
   </nav>
@@ -335,8 +351,19 @@
   <script>
     const SUPABASE_URL = window.SOPHIA_CONFIG?.SUPABASE_URL || 'https://wftxhojlvrymtdtekhdx.supabase.co';
     const SUPABASE_ANON_KEY = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || '';
-    const supabaseReady = Boolean(window.supabase && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes('YOUR_'));
-    const sophiaAuth = supabaseReady ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    let sophiaAuthClient = null;
+
+    async function getSophiaAuth() {
+      if (window.SOPHIA_PUBLIC_CONFIG_READY) await window.SOPHIA_PUBLIC_CONFIG_READY.catch(() => {});
+      for (let i = 0; i < 20 && !window.supabase; i += 1) {
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+      const supabaseUrl = window.SOPHIA_CONFIG?.SUPABASE_URL || SUPABASE_URL;
+      const supabaseAnonKey = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || SUPABASE_ANON_KEY;
+      if (!window.supabase || !supabaseAnonKey || supabaseAnonKey.includes('YOUR_')) return null;
+      if (!sophiaAuthClient) sophiaAuthClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+      return sophiaAuthClient;
+    }
 
     const TIER_LABELS = {
       free: 'Observer',
@@ -347,15 +374,16 @@
     };
 
     async function initDashboard() {
+      const sophiaAuth = await getSophiaAuth();
       if (!sophiaAuth) {
-        window.location.href = '/login.html?setup=supabase';
+        window.location.href = '/login.html?setup=supabase&preview=local';
         return;
       }
 
       const { data: { session }, error } = await sophiaAuth.auth.getSession();
 
       if (error || !session) {
-        window.location.href = '/login.html';
+        window.location.href = '/login.html?auth=required';
         return;
       }
 
@@ -441,6 +469,7 @@
     });
 
     async function handleSignOut() {
+      const sophiaAuth = await getSophiaAuth();
       if (!sophiaAuth) {
         window.location.href = '/';
         return;

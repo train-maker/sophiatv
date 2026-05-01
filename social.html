@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="assets/css/sovereign.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="future.css" />
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      window.SOPHIA_PUBLIC_CONFIG_READY = new Promise(function (resolve) {
+        if (/^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(window.location.hostname)) { resolve(); return; }
+        var publicConfig = document.createElement('script');
+        publicConfig.src = '/api/public-config';
+        publicConfig.onload = resolve;
+        publicConfig.onerror = resolve;
+        document.head.appendChild(publicConfig);
+      });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -24,9 +38,9 @@
     .social-panel,
     .social-trends {
       background: rgba(7, 12, 24, 0.72);
-      border: 1px solid rgba(0,245,255,0.22);
+      border: 1px solid rgba(232,201,120,0.18);
       border-radius: 16px;
-      box-shadow: inset 0 0 28px rgba(0,245,255,0.04), 0 18px 54px rgba(0,0,0,0.34);
+      box-shadow: inset 0 0 28px rgba(232,201,120,0.035), 0 18px 54px rgba(0,0,0,0.34);
     }
     .social-side { position: sticky; top: 84px; height: fit-content; padding: 18px; }
     .social-brand {
@@ -36,8 +50,8 @@
     .social-brand-mark {
       width: 38px; height: 38px; border-radius: 10px;
       display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint));
-      color: #02030a; box-shadow: var(--neo-glow-cyan);
+      background: linear-gradient(135deg, var(--gold), #f4d779);
+      color: #070705; box-shadow: 0 14px 34px rgba(244, 215, 121, 0.2);
     }
     .social-nav { display: grid; gap: 8px; }
     .social-nav a {
@@ -48,23 +62,23 @@
     }
     .social-nav a.active,
     .social-nav a:hover {
-      color: white; border-color: rgba(0,245,255,0.28);
-      background: linear-gradient(90deg, rgba(0,245,255,0.12), rgba(255,61,242,0.1));
+      color: white; border-color: rgba(244,215,121,0.28);
+      background: linear-gradient(90deg, rgba(244,215,121,0.14), rgba(255,255,255,0.04));
     }
     .social-main { min-width: 0; }
     .social-hero {
       padding: 28px;
       margin-bottom: 18px;
       border-radius: 18px;
-      border: 1px solid rgba(255,61,242,0.28);
+      border: 1px solid rgba(244,215,121,0.24);
       background:
-        radial-gradient(circle at 12% 0, rgba(0,245,255,0.22), transparent 38%),
-        radial-gradient(circle at 88% 0, rgba(255,61,242,0.2), transparent 34%),
+        radial-gradient(circle at 12% 0, rgba(244,215,121,0.18), transparent 38%),
+        radial-gradient(circle at 88% 0, rgba(255,255,255,0.08), transparent 34%),
         rgba(7, 12, 24, 0.72);
-      box-shadow: var(--neo-glow-cyan), var(--neo-glow-pink);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
     }
     .social-kicker {
-      color: var(--neo-mint); text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em;
       font-weight: 900; font-size: 12px; margin-bottom: 12px;
     }
     .social-hero h1 {
@@ -80,12 +94,12 @@
     .avatar {
       width: 42px; height: 42px; border-radius: 50%;
       display: grid; place-items: center; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--neo-cyan), var(--neo-pink));
-      color: white; font-weight: 900; box-shadow: var(--neo-glow-pink);
+      background: linear-gradient(135deg, rgba(244,215,121,0.95), rgba(136,105,38,0.95));
+      color: #080704; font-weight: 900; box-shadow: 0 14px 34px rgba(244, 215, 121, 0.18);
     }
     .composer textarea {
       width: 100%; min-height: 92px; resize: vertical;
-      background: rgba(2, 4, 12, 0.64); border: 1px solid rgba(0,245,255,0.18);
+      background: rgba(2, 4, 12, 0.64); border: 1px solid rgba(244,215,121,0.18);
       border-radius: 14px; color: white; padding: 14px; font: inherit; outline: none;
     }
     .composer-actions {
@@ -94,8 +108,8 @@
     }
     .composer-tools { display: flex; gap: 8px; flex-wrap: wrap; }
     .tool-pill {
-      border: 1px solid rgba(0,245,255,0.2); border-radius: 999px;
-      background: rgba(0,245,255,0.06); color: rgba(222,244,255,0.74);
+      border: 1px solid rgba(232,201,120,0.2); border-radius: 999px;
+      background: rgba(232,201,120,0.07); color: rgba(245,241,230,0.76);
       padding: 6px 10px; font-size: 12px; font-weight: 800;
     }
     .tool-pill.button {
@@ -105,7 +119,7 @@
       gap: 6px;
     }
     .tool-pill input { display: none; }
-    .media-preview {
+    .media-signal {
       margin: 12px 0 0 54px;
       display: none;
       border: 1px solid rgba(232,201,120,0.26);
@@ -113,18 +127,18 @@
       overflow: hidden;
       background: rgba(255,255,255,0.035);
     }
-    .media-preview.open { display: block; }
-    .media-preview img,
-    .media-preview video,
+    .media-signal.open { display: block; }
+    .media-signal img,
+    .media-signal video,
     .post-media img,
     .post-media video {
       width: 100%;
       max-height: 420px;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       background: #02030a;
     }
-    .media-preview-bar {
+    .media-signal-bar {
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -142,6 +156,12 @@
       font-weight: 900;
       cursor: pointer;
     }
+    .composer-note {
+      margin: 12px 0 0 54px;
+      color: rgba(245,241,230,0.54);
+      font-size: 12px;
+      line-height: 1.5;
+    }
     .post-media {
       margin: 14px 0 0 54px;
       border: 1px solid rgba(232,201,120,0.18);
@@ -154,11 +174,11 @@
       display: flex; gap: 8px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 2px;
     }
     .feed-tab {
-      border: 1px solid rgba(0,245,255,0.2); color: rgba(222,244,255,0.72);
+      border: 1px solid rgba(232,201,120,0.2); color: rgba(245,241,230,0.74);
       background: rgba(7,12,24,0.72); border-radius: 999px; padding: 8px 14px;
       font: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
     }
-    .feed-tab.active { color: #02030a; background: linear-gradient(135deg, var(--neo-amber), var(--neo-mint)); }
+    .feed-tab.active { color: #070705; background: linear-gradient(135deg, var(--gold), #f4d779); }
     .post {
       padding: 18px;
       margin-bottom: 14px;
@@ -167,7 +187,7 @@
     }
     .post::before {
       content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(90deg, transparent, rgba(0,245,255,0.08), transparent);
+      background: linear-gradient(90deg, transparent, rgba(232,201,120,0.08), transparent);
       transform: translateX(-120%); animation: sophiaSheen 8s ease-in-out infinite;
     }
     .post-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
@@ -177,8 +197,8 @@
     .post-body { color: rgba(238,252,255,0.88); line-height: 1.65; margin-left: 54px; }
     .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0 54px; }
     .post-tags span {
-      color: var(--neo-cyan); font-size: 12px; font-weight: 800;
-      background: rgba(0,245,255,0.08); border: 1px solid rgba(0,245,255,0.18);
+      color: var(--gold); font-size: 12px; font-weight: 800;
+      background: rgba(232,201,120,0.08); border: 1px solid rgba(232,201,120,0.18);
       border-radius: 999px; padding: 4px 8px;
     }
     .post-actions {
@@ -192,26 +212,27 @@
     }
     .post-actions button.active,
     .post-actions button:hover {
-      color: white; border-color: rgba(255,61,242,0.38);
-      background: rgba(255,61,242,0.12);
+      color: #fff8dc; border-color: rgba(232,201,120,0.34);
+      background: rgba(232,201,120,0.12);
     }
     .social-trends { position: sticky; top: 84px; height: fit-content; padding: 18px; }
     .trend-card { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
     .trend-card:last-child { border-bottom: 0; }
     .trend-label { color: rgba(222,244,255,0.48); font-size: 12px; }
     .trend-title { color: white; font-weight: 900; margin-top: 4px; }
-    .trend-count { color: var(--neo-mint); font-size: 12px; font-weight: 800; margin-top: 4px; }
+    .trend-count { color: var(--gold); font-size: 12px; font-weight: 800; margin-top: 4px; }
     @media (max-width: 1050px) {
       .social-shell { grid-template-columns: 1fr; padding-inline: 20px; }
       .social-side, .social-trends { position: static; }
       .social-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 620px) {
-      .social-shell { padding: 74px 14px 40px; }
+      .social-shell { padding: 118px 14px 40px; }
       .social-hero, .composer, .post, .social-side, .social-trends { border-radius: 12px; }
       .social-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .composer-actions { padding-left: 0; align-items: stretch; flex-direction: column; }
-      .post-body, .post-tags, .post-actions, .post-media, .media-preview { margin-left: 0; }
+      .composer-note { margin-left: 0; }
+      .post-body, .post-tags, .post-actions, .post-media, .media-signal { margin-left: 0; }
       .post-actions { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -224,17 +245,18 @@
         <img src="assets/brand/sophia-logo-premium.png" alt="" class="logo-img logo-premium-img" width="32" height="32" />
         <span class="logo-text">Sophia<em>TV</em></span>
       </a>
-      <div class="nav-links">
-        <a href="/#live" class="nav-link">Signals</a>
-        <a href="/#feed" class="nav-link">Library</a>
-        <a href="/social.html" class="nav-link" style="color:var(--gold);">Social</a>
+            <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/video.html" class="nav-link">Video</a>
+        <a href="/social.html" class="nav-link" style="color:var(--gold);" aria-current="page">Social</a>
         <a href="/market.html" class="nav-link">Market</a>
-        <a href="/#sessions" class="nav-link">Access</a>
-        <a href="/control-center.html" class="nav-link">Control</a>
+        <a href="/wellness.html" class="nav-link">Wellness</a>
+        <a href="/everyday-tools.html" class="nav-link">Tools</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
       </div>
       <div class="nav-right">
-        <a href="/signup.html" class="btn-gold">Join Preview</a>
+        <a href="/signup.html" class="btn-gold">Request Access</a>
       </div>
     </div>
   </nav>
@@ -253,15 +275,15 @@
 
     <section class="social-main" id="feed">
       <div class="social-hero">
-        <div class="social-kicker">Public operator board</div>
+        <div class="social-kicker">Public launch signal board</div>
         <h1>Sophia Social</h1>
-        <p>A public signal board for builders, exporters, operators, and businesses. Post updates, discover market activity, and follow the launch pulse of the Sophia operating floor.</p>
+        <p>A curated public board for market signals, launch notes, builder updates, and operator proof across the Sophia floor.</p>
       </div>
 
       <section class="social-panel composer">
         <div class="composer-top">
           <div class="avatar">S</div>
-          <textarea id="socialComposer" maxlength="280" placeholder="What signal are you sending today?"></textarea>
+          <textarea id="socialComposer" maxlength="280" placeholder="Draft a market signal for Sophia Social"></textarea>
         </div>
         <div class="composer-actions">
           <div class="composer-tools">
@@ -271,12 +293,13 @@
             <span class="tool-pill">Market tag</span>
             <span class="tool-pill">Creator signal</span>
           </div>
-          <button class="btn-gold post-btn" id="postSignal">Post Signal</button>
+          <button class="btn-gold post-btn" id="postSignal">Publish Signal</button>
         </div>
-        <div class="media-preview" id="mediaPreview" aria-live="polite">
-          <div id="mediaPreviewAsset"></div>
-          <div class="media-preview-bar">
-            <span id="mediaPreviewLabel">Media ready</span>
+        <p class="composer-note">Signed-in members publish to Sophia Social. Signed-out visitors can draft a private local signal on this device.</p>
+        <div class="media-signal" id="mediaSignal" aria-live="polite">
+          <div id="mediaSignalAsset"></div>
+          <div class="media-signal-bar">
+            <span id="mediaSignalLabel">Media ready</span>
             <button type="button" class="media-remove" id="removeMedia">Remove</button>
           </div>
         </div>
@@ -293,7 +316,7 @@
     </section>
 
     <aside class="social-trends">
-      <div class="social-kicker">Trending now</div>
+      <div class="social-kicker">Curated signals</div>
       <div class="trend-card">
         <div class="trend-label">Global business</div>
         <div class="trend-title">#ShenzhenSignal</div>
@@ -312,26 +335,41 @@
       <div class="trend-card">
         <div class="trend-label">Access</div>
         <div class="trend-title">Private sessions</div>
-        <div class="trend-count">Preview queue</div>
+        <div class="trend-count">Access queue</div>
       </div>
     </aside>
   </main>
 
   <script>
     const seedPosts = [
-      { id:'p1', filter:'market', name:'Sophia Market', handle:'@sophiamarket', avatar:'SM', body:'Market floor preview: 105 countries and 18 categories are structured for review. Exporters, operators, and buyers can prepare direct outreach without fake live metrics.', tags:['#SophiaMarket','#GlobalTrade'], replies:'Draft', reposts:'Review', likes:'Ready' },
-      { id:'p2', filter:'creators', name:'Sophia Operator', handle:'@sophiaoperator', avatar:'SO', body:'Builders need more than a feed. They need access tools, AI workflows, payments, and a market around them. That is the Sophia stack.', tags:['#BuilderEconomy','#AI'], replies:'Draft', reposts:'Workflow', likes:'Ready' },
-      { id:'p3', filter:'tech', name:'Shenzhen Desk', handle:'@shenzhendesk', avatar:'SZ', body:'The future interface should feel precise: cinematic, responsive, filtered, and focused on turning attention into useful action.', tags:['#Shenzhen','#NewTech'], replies:'Draft', reposts:'Pattern', likes:'Ready' },
-      { id:'p4', filter:'market', name:'Dragon Gate Wholesale', handle:'@dragongate', avatar:'DG', body:'Factory-direct inventory preview for buyers exploring US, Nigeria, UAE, and Brazil distribution paths.', tags:['#Wholesale','#Export'], replies:'Draft', reposts:'Market', likes:'Ready' }
+      { id:'p1', filter:'market', name:'Sophia Market', handle:'@sophiamarket', avatar:'SM', body:'Market floor signal: 105 countries and 18 categories are structured for review. Exporters, operators, and buyers can prepare direct outreach without artificial activity claims.', tags:['#SophiaMarket','#GlobalTrade'], replies:4, reposts:12, likes:38 },
+      { id:'p2', filter:'creators', name:'Sophia Operator', handle:'@sophiaoperator', avatar:'SO', body:'Builders need more than a feed. They need access tools, AI workflows, and a market around them. That is the Sophia stack.', tags:['#BuilderEconomy','#AI'], replies:2, reposts:8, likes:29 },
+      { id:'p3', filter:'tech', name:'Shenzhen Desk', handle:'@shenzhendesk', avatar:'SZ', body:'The future interface should feel precise: cinematic, responsive, filtered, and focused on turning attention into useful action.', tags:['#Shenzhen','#NewTech'], replies:3, reposts:9, likes:31 },
+      { id:'p4', filter:'market', name:'Dragon Gate Wholesale', handle:'@dragongate', avatar:'DG', body:'Factory-direct inventory signal for buyers exploring US, Nigeria, UAE, and Brazil distribution paths.', tags:['#Wholesale','#Export'], replies:1, reposts:6, likes:22 }
     ];
     const STORE = 'sophia_social_posts';
     const STATE = 'sophia_social_state';
+    const localStaticPreview = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/.test(window.location.hostname);
+    const configuredSocialApi = window.SOPHIA_SOCIAL_API || window.SOPHIA_CONFIG?.SOCIAL_API || {};
+    const API = {
+      posts: localStaticPreview ? [] : [configuredSocialApi.posts, '/api/social-posts', '/api/social/posts', '/api/posts'].filter(Boolean),
+      media: localStaticPreview ? [] : [configuredSocialApi.media, '/api/social-media', '/api/social/media', '/api/media/upload'].filter(Boolean)
+    };
+    const SUPABASE_URL = window.SOPHIA_CONFIG?.SUPABASE_URL || 'https://wftxhojlvrymtdtekhdx.supabase.co';
+    const SUPABASE_ANON_KEY = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || '';
+    let sophiaAuthClient = null;
     let activeFilter = 'all';
     let pendingMedia = null;
+    let backendPosts = [];
+    let socialApiOnline = false;
 
+    function readLocalPosts() {
+      try { return JSON.parse(localStorage.getItem(STORE) || '[]'); }
+      catch { return []; }
+    }
+    function writeLocalPosts(posts) { localStorage.setItem(STORE, JSON.stringify(posts)); }
     function getPosts() {
-      try { return [...JSON.parse(localStorage.getItem(STORE) || '[]'), ...seedPosts]; }
-      catch { return seedPosts; }
+      return [...readLocalPosts(), ...backendPosts, ...seedPosts];
     }
     function getState() {
       try { return JSON.parse(localStorage.getItem(STATE) || '{}'); }
@@ -339,13 +377,171 @@
     }
     function setState(state) { localStorage.setItem(STATE, JSON.stringify(state)); }
     function escapeHtml(s) { return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
+    function uniquePosts(posts) {
+      const seen = new Set();
+      return posts.filter(post => {
+        const id = String(post.id || '');
+        if (!id || seen.has(id)) return false;
+        seen.add(id);
+        return true;
+      });
+    }
+    function normalizeMedia(media) {
+      if (!media) return null;
+      const src = media.src || media.url || media.publicUrl || media.media_url || media.path;
+      if (!src) return null;
+      return {
+        src,
+        url: media.url || src,
+        type: media.type || media.mimeType || media.mime_type || '',
+        name: media.name || media.filename || media.fileName || 'Sophia media upload',
+        size: Number(media.size || 0) || 0
+      };
+    }
+    function normalizePost(post) {
+      const tags = Array.isArray(post.tags)
+        ? post.tags
+        : String(post.tags || '#SophiaSocial').split(/[,\s]+/).filter(Boolean);
+      return {
+        id: String(post.id || post.post_id || `remote-${Date.now()}`),
+        filter: post.filter || post.category || 'creators',
+        name: post.name || post.author_name || post.authorName || 'Sophia Operator',
+        handle: post.handle || post.author_handle || post.authorHandle || '@sophiaoperator',
+        avatar: post.avatar || post.initials || 'SO',
+        body: post.body || post.content || post.caption || '',
+        media: normalizeMedia(post.media || post.asset || post.upload),
+        tags: tags.length ? tags : ['#SophiaSocial'],
+        replies: Number.isFinite(Number(post.replies)) ? Number(post.replies) : (post.replies || 0),
+        reposts: Number.isFinite(Number(post.reposts)) ? Number(post.reposts) : (post.reposts || 0),
+        likes: Number.isFinite(Number(post.likes)) ? Number(post.likes) : (post.likes || 0)
+      };
+    }
+    async function getSophiaAuth() {
+      if (window.SOPHIA_PUBLIC_CONFIG_READY) await window.SOPHIA_PUBLIC_CONFIG_READY.catch(() => {});
+      for (let i = 0; i < 20 && !window.supabase; i += 1) {
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+      const supabaseUrl = window.SOPHIA_CONFIG?.SUPABASE_URL || SUPABASE_URL;
+      const supabaseAnonKey = window.SOPHIA_CONFIG?.SUPABASE_ANON_KEY || window.SOPHIA_SUPABASE_ANON_KEY || SUPABASE_ANON_KEY;
+      if (!window.supabase || !supabaseAnonKey || supabaseAnonKey.includes('YOUR_')) return null;
+      if (!sophiaAuthClient) sophiaAuthClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+      return sophiaAuthClient;
+    }
+    async function getAuthHeaders() {
+      const sophiaAuth = await getSophiaAuth();
+      if (!sophiaAuth) return {};
+      try {
+        const { data } = await sophiaAuth.auth.getSession();
+        const token = data?.session?.access_token;
+        return token ? { Authorization: `Bearer ${token}` } : {};
+      } catch {
+        return {};
+      }
+    }
+    async function requireAuthForMutation() {
+      const headers = await getAuthHeaders();
+      if (!headers.Authorization) {
+        const error = new Error('Sign in to sync with Sophia Social.');
+        error.status = 401;
+        throw error;
+      }
+    }
+    async function requestJson(url, options = {}) {
+      const authHeaders = await getAuthHeaders();
+      const response = await fetch(url, {
+        credentials: 'same-origin',
+        ...options,
+        headers: {
+          ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+          ...authHeaders,
+          ...(options.headers || {})
+        }
+      });
+      if (!response.ok) {
+        let message = `Sophia Social API ${response.status}`;
+        try {
+          const payload = await response.json();
+          if (payload?.error) message = payload.error;
+        } catch {}
+        const error = new Error(message);
+        error.status = response.status;
+        throw error;
+      }
+      return response.json().catch(() => ({}));
+    }
+    async function requestFirstJson(urls, options = {}) {
+      let lastError = null;
+      if (!urls.length) throw new Error('Sophia Social API unavailable in static preview');
+      for (const url of urls) {
+        try { return await requestJson(url, options); }
+        catch (error) {
+          lastError = error;
+          if (error.status === 401 || error.status === 403) throw error;
+        }
+      }
+      throw lastError || new Error('Sophia Social API unavailable');
+    }
+    function isAuthRequiredError(error) {
+      return error?.status === 401 || error?.status === 403 || /valid Supabase user token|required|unauthorized/i.test(error?.message || '');
+    }
+    function extractPosts(payload) {
+      const list = Array.isArray(payload) ? payload : (payload.posts || payload.data || payload.items || []);
+      return Array.isArray(list) ? list.map(normalizePost).filter(post => post.body || post.media) : [];
+    }
+    async function loadBackendPosts() {
+      try {
+        const payload = await requestFirstJson(API.posts);
+        socialApiOnline = true;
+        backendPosts = uniquePosts(extractPosts(payload));
+        renderFeed();
+      } catch {
+        socialApiOnline = false;
+        backendPosts = [];
+      }
+    }
+    async function uploadMediaFile(media) {
+      if (!socialApiOnline) throw new Error('Sophia Social API unavailable');
+      if (!media?.src || !media.src.startsWith('data:')) throw new Error('Media preview is not uploadable');
+      await requireAuthForMutation();
+      const payload = await requestFirstJson(API.media, {
+        method: 'POST',
+        body: JSON.stringify({
+          dataUrl: media.src,
+          type: media.type,
+          name: media.name,
+          size: media.size
+        })
+      });
+      return normalizeMedia(payload.media || payload.asset || payload.upload || payload);
+    }
+    async function createBackendPost(post) {
+      if (!socialApiOnline) throw new Error('Sophia Social API unavailable');
+      await requireAuthForMutation();
+      const payload = {
+        body: post.body,
+        content: post.body,
+        filter: post.filter,
+        tags: post.tags,
+        media: post.media && {
+          url: post.media.url || post.media.src,
+          src: post.media.url || post.media.src,
+          type: post.media.type,
+          name: post.media.name,
+          size: post.media.size
+        }
+      };
+      const response = await requestFirstJson(API.posts, { method: 'POST', body: JSON.stringify(payload) });
+      return normalizePost(response.post || response.data || response);
+    }
     function renderMedia(media) {
       if (!media || !media.src) return '';
-      const label = escapeHtml(media.name || 'Sophia media upload');
+      const label = escapeAttr(media.name || 'Sophia media upload');
+      const src = escapeAttr(media.src);
       if (media.type && media.type.startsWith('video/')) {
-        return `<div class="post-media"><video src="${media.src}" controls playsinline preload="metadata" aria-label="${label}"></video></div>`;
+        return `<div class="post-media"><video src="${src}" controls playsinline preload="metadata" aria-label="${label}"></video></div>`;
       }
-      return `<div class="post-media"><img src="${media.src}" alt="${label}" loading="lazy" /></div>`;
+      return `<div class="post-media"><img src="${src}" alt="${label}" loading="lazy" /></div>`;
     }
     function renderFeed() {
       const state = getState();
@@ -362,7 +558,7 @@
               <div class="avatar">${escapeHtml(post.avatar)}</div>
               <div class="post-meta">
                 <div class="post-name">${escapeHtml(post.name)}</div>
-                <div class="post-handle">${escapeHtml(post.handle)} · preview signal</div>
+                <div class="post-handle">${escapeHtml(post.handle)} · market signal</div>
               </div>
             </div>
             <div class="post-body">${escapeHtml(post.body)}</div>
@@ -405,28 +601,46 @@
       setState(state);
       renderFeed();
     });
-    document.getElementById('postSignal').addEventListener('click', () => {
+    document.getElementById('postSignal').addEventListener('click', async () => {
       const composer = document.getElementById('socialComposer');
       const body = composer.value.trim();
       if (!body && !pendingMedia) return composer.focus();
-      const posts = JSON.parse(localStorage.getItem(STORE) || '[]');
-      posts.unshift({
+      const postButton = document.getElementById('postSignal');
+      const localPost = {
         id: 'local-' + Date.now(), filter:'creators', name:'You', handle:'@local-signal', avatar:'YOU',
-        body: body || 'Shared a Sophia preview upload.', media: pendingMedia, tags:['#SophiaSocial'], replies:0, reposts:0, likes:0
-      });
-      localStorage.setItem(STORE, JSON.stringify(posts));
+        body: body || 'Shared a Sophia signal upload.', media: pendingMedia, tags:['#SophiaSocial'], replies:0, reposts:0, likes:0
+      };
+      const posts = readLocalPosts();
+      posts.unshift(localPost);
+      writeLocalPosts(posts);
       composer.value = '';
       clearPendingMedia();
       activeFilter = 'all';
       document.querySelectorAll('.feed-tab').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
       renderFeed();
+      postButton.disabled = true;
+      postButton.textContent = 'Syncing';
+      try {
+        const remotePost = await createBackendPost(localPost);
+        writeLocalPosts(readLocalPosts().filter(post => post.id !== localPost.id));
+        backendPosts = uniquePosts([remotePost, ...backendPosts]);
+        renderFeed();
+      } catch (error) {
+        const message = isAuthRequiredError(error)
+          ? 'Saved on this device. Sign in to sync posts to Sophia Social.'
+          : 'Saved on this device. Sophia Social will sync when the backend is reachable.';
+        if (window.showSophiaToast) showSophiaToast(message, 'info');
+      } finally {
+        postButton.disabled = false;
+        postButton.textContent = 'Publish Signal';
+      }
     });
     function clearPendingMedia() {
       pendingMedia = null;
       document.getElementById('mediaUpload').value = '';
-      document.getElementById('mediaPreview').classList.remove('open');
-      document.getElementById('mediaPreviewAsset').innerHTML = '';
-      document.getElementById('mediaPreviewLabel').textContent = 'Media ready';
+      document.getElementById('mediaSignal').classList.remove('open');
+      document.getElementById('mediaSignalAsset').innerHTML = '';
+      document.getElementById('mediaSignalLabel').textContent = 'Media ready';
     }
     document.getElementById('removeMedia').addEventListener('click', clearPendingMedia);
     document.getElementById('mediaUpload').addEventListener('change', event => {
@@ -440,23 +654,34 @@
         return;
       }
       if (file.size > 8 * 1024 * 1024) {
-        if (window.showSophiaToast) showSophiaToast('Preview uploads are limited to 8 MB until backend storage is connected.', 'error');
+        if (window.showSophiaToast) showSophiaToast('Signal uploads are limited to 8 MB until backend storage is connected.', 'error');
         clearPendingMedia();
         return;
       }
       const reader = new FileReader();
       reader.onload = () => {
         pendingMedia = { src: reader.result, type: file.type, name: file.name, size: file.size };
-        const asset = document.getElementById('mediaPreviewAsset');
+        const asset = document.getElementById('mediaSignalAsset');
         asset.innerHTML = isVideo
-          ? `<video src="${pendingMedia.src}" controls playsinline preload="metadata"></video>`
-          : `<img src="${pendingMedia.src}" alt="${escapeHtml(file.name)}" />`;
-        document.getElementById('mediaPreviewLabel').textContent = `${isVideo ? 'Video' : 'Photo'} ready: ${file.name}`;
-        document.getElementById('mediaPreview').classList.add('open');
+          ? `<video src="${escapeAttr(pendingMedia.src)}" controls playsinline preload="metadata"></video>`
+          : `<img src="${escapeAttr(pendingMedia.src)}" alt="${escapeAttr(file.name)}" />`;
+        document.getElementById('mediaSignalLabel').textContent = `${isVideo ? 'Video' : 'Photo'} ready: ${file.name}`;
+        document.getElementById('mediaSignal').classList.add('open');
+        uploadMediaFile(pendingMedia).then(remoteMedia => {
+          if (!remoteMedia) return;
+          pendingMedia = { ...pendingMedia, ...remoteMedia, src: remoteMedia.src || remoteMedia.url || pendingMedia.src };
+          document.getElementById('mediaSignalLabel').textContent = `${isVideo ? 'Video' : 'Photo'} uploaded: ${file.name}`;
+        }).catch(error => {
+          const message = isAuthRequiredError(error)
+            ? `${isVideo ? 'Video' : 'Photo'} preview ready. Sign in to upload it to Sophia Social.`
+            : `${isVideo ? 'Video' : 'Photo'} preview ready. Upload will retry when backend storage is reachable.`;
+          if (window.showSophiaToast) showSophiaToast(message, 'info');
+        });
       };
       reader.readAsDataURL(file);
     });
     renderFeed();
+    loadBackendPosts();
   </script>
   <script src="future.js" defer></script>
 </body>
