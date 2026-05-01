@@ -21,14 +21,14 @@ const NAV_LINKS_SAVED = NAV_LINKS.replace('class="nav-link" style="color:var(--g
 
 // 8 starter clips — synthetic counts make the page feel populated. Real backend can override.
 const CLIPS = [
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', creator: 'sophia_operator', creatorName: 'Sophia Operator', caption: 'SophiaMarket is live in 105 countries. Free listings, $29.99 Featured. Tap to learn how to list your business in under 60 seconds.', tag: 'Market', tags: ['#sophiamarket','#listings','#globalbusiness'], views: 18420, likes: 1240, comments: 86 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4', creator: 'global_signals', creatorName: 'Global Signals', caption: 'How African markets are shifting in 2026. The next wave of B2B trade is going direct.', tag: 'Signals', tags: ['#africa','#trade','#b2b'], views: 9210, likes: 612, comments: 41 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', creator: 'natural_cures', creatorName: 'Natural Cures', caption: 'Three foods that change everything. Watch the full breakdown on /wellness.', tag: 'Wellness', tags: ['#wellness','#health','#operatorlife'], views: 24310, likes: 2103, comments: 198 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4', creator: 'operator_daily', creatorName: 'Operator Daily', caption: 'A Lagos importer sourced electronics from Shenzhen using SophiaMarket. Story in the comments.', tag: 'Story', tags: ['#story','#lagos','#shenzhen'], views: 6745, likes: 488, comments: 73 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4', creator: 'sophia_creators', creatorName: 'Sophia Creators', caption: 'Become a Builder — stream up to 4 hrs/day, paid sessions, custom landing page.', tag: 'Creators', tags: ['#creators','#builder','#sophiatv'], views: 4129, likes: 290, comments: 22 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4', creator: 'sophia_film', creatorName: 'Sophia Film', caption: 'Operator-curated short film of the week. New drops every Friday.', tag: 'Film', tags: ['#film','#friday','#shortfilm'], views: 11892, likes: 904, comments: 132 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4', creator: 'budget_brain', creatorName: 'Budget Brain', caption: 'Quick budget hack for operators living between countries. 60 seconds.', tag: 'Tools', tags: ['#budget','#tools'], views: 5420, likes: 412, comments: 38 },
-  { src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4', creator: 'sophia_signals', creatorName: 'Sophia Signals', caption: 'AI-generated daily signals for your industry. Subscribe in the dashboard.', tag: 'AI', tags: ['#ai','#signals','#daily'], views: 14280, likes: 1102, comments: 89 },
+  { src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4', creator: 'sophia_operator', creatorName: 'Sophia Operator', caption: 'SophiaMarket is live in 105 countries. Free listings, $29.99 Featured. Tap to learn how to list your business in under 60 seconds.', tag: 'Market', tags: ['#sophiamarket','#listings','#globalbusiness'], views: 18420, likes: 1240, comments: 86 },
+  { src: 'https://test-videos.co.uk/vids/sintel/mp4/h264/720/Sintel_720_10s_5MB.mp4', creator: 'global_signals', creatorName: 'Global Signals', caption: 'How African markets are shifting in 2026. The next wave of B2B trade is going direct.', tag: 'Signals', tags: ['#africa','#trade','#b2b'], views: 9210, likes: 612, comments: 41 },
+  { src: 'https://test-videos.co.uk/vids/jellyfish/mp4/h264/720/Jellyfish_720_10s_5MB.mp4', creator: 'natural_cures', creatorName: 'Natural Cures', caption: 'Three foods that change everything. Watch the full breakdown on /wellness.', tag: 'Wellness', tags: ['#wellness','#health','#operatorlife'], views: 24310, likes: 2103, comments: 198 },
+  { src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4', creator: 'operator_daily', creatorName: 'Operator Daily', caption: 'A Lagos importer sourced electronics from Shenzhen using SophiaMarket. Story in the comments.', tag: 'Story', tags: ['#story','#lagos','#shenzhen'], views: 6745, likes: 488, comments: 73 },
+  { src: 'https://test-videos.co.uk/vids/sintel/mp4/h264/360/Sintel_360_10s_1MB.mp4', creator: 'sophia_creators', creatorName: 'Sophia Creators', caption: 'Become a Builder — stream up to 4 hrs/day, paid sessions, custom landing page.', tag: 'Creators', tags: ['#creators','#builder','#sophiatv'], views: 4129, likes: 290, comments: 22 },
+  { src: 'https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4', creator: 'sophia_film', creatorName: 'Sophia Film', caption: 'Operator-curated short film of the week. New drops every Friday.', tag: 'Film', tags: ['#film','#friday','#shortfilm'], views: 11892, likes: 904, comments: 132 },
+  { src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4', creator: 'budget_brain', creatorName: 'Budget Brain', caption: 'Quick budget hack for operators living between countries. 60 seconds.', tag: 'Tools', tags: ['#budget','#tools'], views: 5420, likes: 412, comments: 38 },
+  { src: 'https://test-videos.co.uk/vids/sintel/mp4/h264/720/Sintel_720_10s_5MB.mp4', creator: 'sophia_signals', creatorName: 'Sophia Signals', caption: 'AI-generated daily signals for your industry. Subscribe in the dashboard.', tag: 'AI', tags: ['#ai','#signals','#daily'], views: 14280, likes: 1102, comments: 89 },
 ];
 
 const SHARED_CSS = `
@@ -440,7 +440,7 @@ const head = (title, desc, canonical) => `<!DOCTYPE html>
 <link rel="stylesheet" href="/future.css" />
 <link rel="icon" href="/assets/brand/sophia-logo-premium.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://commondatastorage.googleapis.com" crossorigin />
+<link rel="preconnect" href="https://test-videos.co.uk" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>${SHARED_CSS}</style>
 </head><body>
