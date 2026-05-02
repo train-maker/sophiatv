@@ -40,6 +40,8 @@
   .sv-section-nav-link:hover { color: #f5f1e6; }
   .sv-section-nav-link.is-active { color: #d8b34f; border-bottom-color: #d8b34f; font-weight:600; }
   @media (max-width:640px) { .sv-section-nav-inner { padding:0 12px; } .sv-section-nav-link { padding:12px 12px; font-size:0.8rem; } }
+
+.landing-unity-video { display: block; width: 100%; height: 100%; object-fit: cover; }
 </style>
 <nav class="sv-section-nav" aria-label="SophiaTV sections">
   <div class="sv-section-nav-inner">
@@ -121,15 +123,29 @@
 
       <div class="landing-hero-visual">
         <section class="landing-unity-banner" aria-label="Unity hands banner">
-          <img
-            src="assets/brand/sophia-world-unity-hands-1200.jpg"
-            alt="Hands from around the world joined together in unity"
-            class="landing-unity-image"
-            width="1200"
-            height="515"
-            loading="eager"
-            decoding="async"
-          />
+          <video
+            class="landing-unity-image landing-unity-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="assets/brand/sophia-unity-hands-poster.jpg"
+            width="1920"
+            height="1080"
+            aria-label="Hands from around the world joined together in unity"
+          >
+            <source src="assets/video/sophia-unity-hands.mp4" type="video/mp4" />
+            <img
+              src="assets/brand/sophia-world-unity-hands-1200.jpg"
+              alt="Hands from around the world joined together in unity"
+              class="landing-unity-image"
+              width="1200"
+              height="515"
+              loading="eager"
+              decoding="async"
+            />
+          </video>
           <div class="landing-unity-overlay" aria-hidden="true"></div>
           <div class="landing-unity-brand">
             <img
