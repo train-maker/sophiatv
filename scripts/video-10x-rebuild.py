@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""Rebuild /video.html as 10x-TikTok for SophiaTV operators.
+
+Adds on top of existing autoplay/scroll/like/save/comment/share/follow/keyboard:
+1. Reusable shell — gold-trim header, hamburger drawer, chat FAB, language picker.
+2. Multi-language caption layer — every clip's caption translates live (/api/translate).
+3. Per-clip Sophia AI summary — operator-grade 1-line "what this clip is about" via /api/chat.
+4. Speed control (0.5x · 1x · 1.5x · 2x) cycle button.
+5. Picture-in-picture button.
+6. Verified operator badge per clip.
+7. View business + Direct contact inline CTAs (link creator → their market listing + email).
+8. Save-to-project with a personal note (localStorage namespaced project bins).
+"""
+import os
+ROOT = "/Users/tarencea.rainey/outputs/sophiatv"
+VIDEO = os.path.join(ROOT, "video.html")
+
+NEW = '''<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -452,3 +469,9 @@
 
 <script src="/assets/js/sophia-shell.js" defer data-active="video"></script>
 </body></html>
+'''
+
+with open(VIDEO, 'w', encoding='utf-8') as f:
+    f.write(NEW)
+print('video.html rebuilt — 10x TikTok with shell + captions + AI summary + speed/PiP/quality + verified + view-business + save-to-project')
+print('lines:', sum(1 for _ in open(VIDEO)))
