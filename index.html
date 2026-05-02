@@ -153,6 +153,82 @@
   .sv-brand span em { font-style: normal !important; color: var(--gold) !important; margin-left: 6px; font-weight: 500; letter-spacing: 0.04em; font-size: 0.78em; vertical-align: 2px; }
   /* Hairline gold underline below entire header band — luxury cartouche feel */
   .sv-section-nav-inner { position: relative; }
+
+  /* ------------ LUXURY V2 (2026-05-01) ------------ */
+  :root { --ease-edit: cubic-bezier(0.16, 1, 0.3, 1); --ease-quick: cubic-bezier(0.4, 0, 0.2, 1); --rule: rgba(216,179,79,0.22); }
+  html { font-feature-settings: "ss01", "kern", "liga", "tnum"; }
+  body { -webkit-font-smoothing: antialiased; line-height: 1.65; }
+  h1 { font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+  h2 { font-weight: 400; letter-spacing: -0.015em; line-height: 1.15; }
+  h3 { font-weight: 500; letter-spacing: -0.01em; }
+  .sv-eyebrow, .pill, .lbl, .stat-label, .listing-meta {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 11px !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .stat-label, .lbl { color: rgba(245,241,230,0.55) !important; }
+  .listing-meta { color: rgba(245,241,230,0.55) !important; letter-spacing: 0.18em !important; }
+  /* Tabular numerals on every number surface */
+  .num, .big-num, .listing-meta, .hero-ticker .num { font-variant-numeric: tabular-nums; }
+  /* Section spacing — editorial */
+  section.sv { padding: clamp(96px, 12vw, 160px) 0; }
+  /* Hero: NO button. Single underlined Discover link. */
+  .hero { min-height: 90vh; padding: 0; align-items: center; justify-content: center; text-align: center; }
+  .hero .container { max-width: 920px; }
+  .hero h1 { max-width: 16ch; margin-left: auto; margin-right: auto; font-weight: 500; }
+  .hero .lead { margin-left: auto; margin-right: auto; max-width: 56ch; }
+  .hero-actions { justify-content: center; }
+  .hero-eyebrow { background: transparent !important; border: 0 !important; padding: 0 !important; color: var(--gold); display: inline-block; }
+  /* Buttons — kill pill radius, square edges */
+  .btn { border-radius: 2px !important; padding: 16px 30px !important; font-weight: 500 !important; font-size: 12px !important; letter-spacing: 0.18em !important; text-transform: uppercase; }
+  .btn.gold { background: var(--bone) !important; color: var(--ink, #06070a) !important; }
+  .btn.gold:hover { background: var(--gold) !important; color: #000 !important; }
+  .btn.ghost { background: transparent !important; color: var(--bone) !important; border: 1px solid rgba(245,241,230,0.35) !important; }
+  .btn.ghost:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
+  /* Section nav top — luxury restraint */
+  .sv-section-nav { background: rgba(6,7,10,0.65) !important; backdrop-filter: blur(20px) saturate(150%); border-bottom: 1px solid var(--rule); }
+  .sv-section-nav-link { padding: 12px 16px !important; font-size: 11px !important; letter-spacing: 0.22em !important; text-transform: uppercase; font-weight: 500 !important; color: rgba(245,241,230,0.6) !important; border-radius: 0 !important; background: transparent !important; }
+  .sv-section-nav-link.is-active { color: var(--gold) !important; background: transparent !important; }
+  .sv-section-nav-link.is-active::after { content: ''; display: block; height: 1px; background: var(--gold); margin-top: 8px; }
+  .sv-actions a { font-size: 11px !important; letter-spacing: 0.22em !important; text-transform: uppercase; padding: 10px 18px !important; border-radius: 2px !important; font-weight: 500 !important; }
+  .sv-actions .gold { background: var(--bone) !important; color: var(--ink, #06070a) !important; }
+  .sv-actions .gold:hover { background: var(--gold) !important; }
+  /* Hairline rule between sections */
+  .hairline { display: block; height: 1px; background: var(--rule); border: 0; margin: 0; max-width: 1280px; margin-left: auto; margin-right: auto; }
+  /* Section cards — flatten, kill shadows + dramatic hovers */
+  .sv-card { box-shadow: none !important; border-radius: 0 !important; padding: 36px 32px !important; background: transparent !important; border: 1px solid var(--rule) !important; transition: border-color .35s var(--ease-quick); }
+  .sv-card:hover { transform: none !important; box-shadow: none !important; border-color: var(--gold) !important; }
+  .sv-card .pill { color: var(--gold); margin-bottom: 22px; }
+  .sv-card h3 { margin-bottom: 14px; font-weight: 500; }
+  .sv-card .open { color: var(--bone); position: relative; padding-bottom: 4px; }
+  .sv-card .open::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-edit); }
+  .sv-card:hover .open::after { transform: scaleX(1); }
+  .sv-card .open::before { content: none; }
+  /* Listings — flatten badges, no pill */
+  .listing { box-shadow: none !important; border-radius: 0 !important; padding: 28px 24px !important; }
+  .listing:hover { transform: none !important; box-shadow: none !important; border-color: var(--gold) !important; }
+  .listing-tag { border-radius: 0 !important; background: transparent !important; }
+  .featured-badge { border-radius: 0 !important; padding: 4px 10px !important; }
+  /* Why cells — flatten */
+  .why-cell { box-shadow: none !important; border-radius: 0 !important; padding: 36px 32px !important; background: transparent !important; }
+  /* Stats band — calm down */
+  .stats-band { background: transparent !important; border-top: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule) !important; }
+  .big-num { font-weight: 500; }
+  /* CTA band — kill the radial backdrop wash */
+  .cta-band { background: transparent !important; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: clamp(96px, 12vw, 144px) 0; }
+  /* Reveal — slow editorial fade */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease-edit), transform .9s var(--ease-edit); }
+  .reveal.is-in { opacity: 1; transform: none; }
+  /* Footer — restrained */
+  footer.sv-footer { background: transparent; padding-top: clamp(72px, 10vw, 120px); border-top: 1px solid var(--rule); }
+  .foot-bottom { color: rgba(245,241,230,0.45); }
+  /* Section padding spec match */
+  .container { padding: 0 32px; }
+  /* Container alignment */
+  /* ------------ END LUXURY V2 ------------ */
 </style>
 </head><body>
 
@@ -185,12 +261,11 @@
     </video>
   </div>
   <div class="container">
-    <span class="hero-eyebrow">Live in 105 countries · 18 categories</span>
+    <span class="hero-eyebrow" style="display:inline-block;margin-bottom:32px;">Live in 105 countries · 18 industries</span>
     <h1>The global business <em>floor.</em></h1>
-    <p class="lead">List, source, broadcast, and earn — across 105 countries and 18 industries. SophiaTV is where operators meet, deals close, and creators get paid. Free to list, $29.99 a month for the front row.</p>
+    <p class="lead">A global business floor for operators in 105 countries. List free, take the front row at $29.99 a month.</p>
     <div class="hero-actions">
-      <a class="btn gold" href="/market">Open SophiaMarket <span class="arrow">→</span></a>
-      <a class="btn ghost" href="/video">Watch the floor <span class="arrow">▶</span></a>
+      <a class="link-underline" href="/market" style="color:var(--bone); text-decoration:none; font-size:13px; letter-spacing:0.22em; text-transform:uppercase; padding-bottom:8px; border-bottom:1px solid var(--gold);">Discover the floor</a>
     </div>
     <div class="hero-ticker">
       <div class="stat"><span class="num">105</span><span class="lbl">Countries</span></div>
@@ -214,7 +289,7 @@
 
 <section class="sv reveal">
   <div class="container">
-    <div class="sv-eyebrow">The platform</div>
+    <div class="sv-eyebrow">01 — The platform</div>
     <h2 class="sv-h">One floor. Eight rooms. Built for operators.</h2>
     <p class="sv-sub">Every section of SophiaTV is designed to be simple enough for a child to navigate and advanced enough that an engineer pauses to admire the wiring underneath.</p>
 
@@ -233,7 +308,7 @@
 
 <section class="sv reveal" style="padding-top:0;">
   <div class="container">
-    <div class="sv-eyebrow">Featured</div>
+    <div class="sv-eyebrow">02 — Featured</div>
     <h2 class="sv-h">A few of the operators on the floor.</h2>
     <p class="sv-sub">Live businesses listed on SophiaMarket — refreshed daily.</p>
     <div class="listings-track" id="featuredTrack" aria-label="Featured listings">
@@ -247,7 +322,7 @@
 
 <section class="sv reveal" style="padding-top:0;">
   <div class="container">
-    <div class="sv-eyebrow">Why operators choose Sophia</div>
+    <div class="sv-eyebrow">03 — Why operators choose Sophia</div>
     <h2 class="sv-h">Reach the next economy without leaving the room.</h2>
     <div class="why">
       <div class="why-cell"><h3>Global reach</h3><p>105 countries spanning Africa, Asia-Pacific, Americas, Europe, and the Middle East. Real listings in real cities.</p></div>
