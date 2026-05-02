@@ -1,215 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sophia Operator</title>
-  <meta
-    name="description"
-    content="Sophia Operator is the landing page for signup, login, and language access across Sophia's global web and future mobile experience."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sophiatv.vercel.app/" />
-  <meta property="og:title" content="Sophia Operator" />
-  <meta
-    property="og:description"
-    content="Enter Sophia Operator through a clean, language-aware landing page built for account access and a mobile-aligned product future."
-  />
-  <meta property="og:image" content="https://sophiatv.vercel.app/og-image.png" />
-  <meta property="og:site_name" content="Sophia Operator" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sophia Operator" />
-  <meta
-    name="twitter:description"
-    content="Sign up, log in, and choose your language from Sophia Operator's first-layer landing page."
-  />
-  <meta name="twitter:image" content="https://sophiatv.vercel.app/og-image.png" />
-  <link rel="canonical" href="https://sophiatv.vercel.app/" />
-  <link rel="icon" href="/assets/brand/sophia-favicon-64.png" type="image/png" />
-  <link rel="stylesheet" href="assets/css/sovereign.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="future.css" />
-</head>
-<body class="landing-shell">
-<!-- SOPHIA-SECTION-NAV start -->
+<html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sophia — The Global Business Floor</title>
+<meta name="description" content="SophiaTV is the global business floor for operators in 105 countries. List, source, broadcast, and earn — Free, or Featured at $29.99/mo. Built for the next economy." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sophiatv.vercel.app/" />
+<meta property="og:title" content="Sophia — The Global Business Floor" />
+<meta property="og:description" content="The global business floor for operators in 105 countries. List, source, broadcast, and earn." />
+<meta property="og:image" content="https://sophiatv.vercel.app/og-image.png" />
+<meta property="og:site_name" content="SophiaTV" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sophia — The Global Business Floor" />
+<meta name="twitter:description" content="105 countries. 18 categories. 1,890 city pages. The marketplace operators trust." />
+<meta name="twitter:image" content="https://sophiatv.vercel.app/og-image.png" />
+<link rel="canonical" href="https://sophiatv.vercel.app/" />
+<link rel="icon" href="/assets/brand/sophia-mark-128.png" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/sovereign.css" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="future.css" />
 <style>
-  .sv-section-nav { position:sticky; top:0; z-index:60; background: rgba(6,7,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,162,74,0.18); }
-  .sv-section-nav-inner { max-width:1280px; margin:0 auto; display:flex; gap:2px; padding:0 24px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-  .sv-section-nav-inner::-webkit-scrollbar { display:none; }
-  .sv-section-nav-link { padding:14px 16px; color:rgba(245,241,230,0.66); text-decoration:none; font-size:0.85rem; font-weight:500; letter-spacing:0.04em; white-space:nowrap; border-bottom:2px solid transparent; transition:color .2s, border-color .2s; font-family: Inter, system-ui, sans-serif; }
-  .sv-section-nav-link:hover { color: #f5f1e6; }
-  .sv-section-nav-link.is-active { color: #d8b34f; border-bottom-color: #d8b34f; font-weight:600; }
-  @media (max-width:640px) { .sv-section-nav-inner { padding:0 12px; } .sv-section-nav-link { padding:12px 12px; font-size:0.8rem; } }
+  :root { --bg: #06070a; --panel: #0d0e13; --bone: #f5f1e6; --bone-2: #9ca3af; --gold: #d8b34f; --gold-soft: rgba(216,179,79,0.18); --line: rgba(200,162,74,0.22); --line-strong: rgba(216,179,79,0.45); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--bone); font-family: Inter, system-ui, sans-serif; line-height: 1.55; overflow-x: hidden; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; line-height: 1.05; margin: 0 0 12px; }
+  p { margin: 0 0 14px; color: rgba(245,241,230,0.78); font-size: 1rem; }
+  a { color: inherit; }
 
-.landing-unity-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* SECTION NAV STRIP (sticky top) */
+  .sv-section-nav { position: sticky; top: 0; z-index: 80; background: rgba(6,7,10,0.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .sv-section-nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 4px; padding: 10px 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .sv-section-nav-inner::-webkit-scrollbar { display: none; }
+  .sv-brand { display: flex; align-items: center; gap: 10px; margin-right: 18px; text-decoration: none; flex-shrink: 0; }
+  .sv-brand img { width: 34px; height: 34px; }
+  .sv-brand span { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 500; color: var(--bone); letter-spacing: -0.01em; }
+  .sv-brand span em { font-style: normal; color: var(--gold); }
+  .sv-section-nav-link { padding: 10px 14px; color: rgba(245,241,230,0.68); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; border-radius: 4px; transition: color .18s, background .18s; }
+  .sv-section-nav-link:hover { color: var(--bone); background: rgba(255,245,194,0.04); }
+  .sv-section-nav-link.is-active { color: var(--gold); background: var(--gold-soft); font-weight: 600; }
+  .sv-actions { display: flex; gap: 8px; margin-left: auto; flex-shrink: 0; }
+  .sv-actions a { padding: 8px 14px; font-size: 0.82rem; font-weight: 600; text-decoration: none; border-radius: 999px; transition: all .15s; white-space: nowrap; }
+  .sv-actions .ghost { color: var(--bone-2); }
+  .sv-actions .ghost:hover { color: var(--gold); }
+  .sv-actions .gold { background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #8a5a13); color: #000; }
+  .sv-actions .gold:hover { opacity: 0.92; }
+  @media (max-width: 720px) { .sv-actions .ghost { display: none; } .sv-brand span { display: none; } }
+
+  /* HERO */
+  .hero { position: relative; min-height: clamp(620px, 96vh, 980px); display: flex; align-items: flex-end; padding: 96px 0 56px; overflow: hidden; isolation: isolate; }
+  .hero-bg { position: absolute; inset: 0; z-index: -2; }
+  .hero-bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65) saturate(1.15); }
+  .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,7,10,0.55) 0%, rgba(6,7,10,0.15) 35%, rgba(6,7,10,0.95) 100%); z-index: 1; }
+  .hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(216,179,79,0.18), transparent 55%); z-index: 1; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: rgba(216,179,79,0.12); border: 1px solid var(--line-strong); color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 0.45; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.1); } }
+  .hero h1 { font-size: clamp(44px, 8vw, 104px); font-weight: 600; max-width: 14ch; margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .lead { font-size: clamp(17px, 1.6vw, 22px); max-width: 56ch; color: rgba(245,241,230,0.86); margin-bottom: 32px; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none; border: 0; font-family: inherit; transition: transform .12s, opacity .15s, background .15s; letter-spacing: 0.01em; }
+  .btn:active { transform: scale(0.98); }
+  .btn.gold { background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #8a5a13); color: #000; }
+  .btn.gold:hover { opacity: 0.92; }
+  .btn.ghost { background: rgba(255,255,255,0.04); color: var(--bone); border: 1px solid rgba(255,245,194,0.22); backdrop-filter: blur(6px); }
+  .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .btn .arrow { display: inline-block; transition: transform .15s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+  .hero-ticker { display: flex; flex-wrap: wrap; gap: 4px 24px; padding-top: 24px; border-top: 1px solid rgba(255,245,194,0.14); max-width: 720px; }
+  .hero-ticker .stat { display: flex; flex-direction: column; }
+  .hero-ticker .num { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; color: var(--bone); }
+  .hero-ticker .lbl { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,241,230,0.55); }
+
+  /* SECTION HEAD */
+  section.sv { padding: clamp(64px, 9vw, 128px) 0; position: relative; }
+  .sv-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+  .sv-h { font-size: clamp(34px, 5vw, 60px); margin-bottom: 18px; max-width: 18ch; }
+  .sv-sub { color: rgba(245,241,230,0.7); font-size: clamp(16px, 1.4vw, 19px); max-width: 64ch; margin-bottom: 48px; }
+
+  /* STATS BAND */
+  .stats-band { background: linear-gradient(135deg, rgba(216,179,79,0.05), rgba(0,0,0,0)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 0; }
+  .stats-band .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; }
+  .big-num { font-family: 'Playfair Display', serif; font-size: clamp(40px, 6vw, 78px); font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .big-num small { font-size: 0.42em; color: var(--bone-2); margin-left: 6px; font-weight: 500; }
+  .stat-label { font-size: 0.82rem; letter-spacing: 0.06em; color: rgba(245,241,230,0.7); }
+
+  /* SECTION CARDS */
+  .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .sv-card { position: relative; padding: 32px 28px 28px; border-radius: 12px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0)) , var(--panel); overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; min-height: 240px; }
+  .sv-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 0% 100%, rgba(216,179,79,0.15), transparent 55%); opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .sv-card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
+  .sv-card:hover::before { opacity: 1; }
+  .sv-card .pill { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-weight: 700; }
+  .sv-card h3 { font-size: 1.5rem; font-family: 'Playfair Display', serif; font-weight: 500; margin-bottom: 10px; }
+  .sv-card p { color: rgba(245,241,230,0.7); font-size: 0.95rem; flex: 1; margin-bottom: 18px; }
+  .sv-card .open { display: inline-flex; align-items: center; gap: 6px; color: var(--gold); font-weight: 600; font-size: 0.88rem; }
+  .sv-card .open::after { content: '→'; transition: transform .15s; }
+  .sv-card:hover .open::after { transform: translateX(4px); }
+
+  /* FEATURED LISTINGS CAROUSEL */
+  .listings-track { display: flex; gap: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--gold-soft) transparent; }
+  .listings-track::-webkit-scrollbar { height: 6px; }
+  .listings-track::-webkit-scrollbar-thumb { background: var(--gold-soft); border-radius: 99px; }
+  .listing { flex: 0 0 320px; scroll-snap-align: start; padding: 22px 22px 20px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, transform .2s; text-decoration: none; color: inherit; }
+  .listing:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+  .listing-flag { font-size: 1.3rem; }
+  .listing-name { font-size: 1.05rem; font-weight: 600; color: var(--bone); }
+  .listing-meta { font-size: 0.78rem; color: var(--bone-2); letter-spacing: 0.04em; }
+  .listing-desc { font-size: 0.86rem; color: rgba(245,241,230,0.65); line-height: 1.5; flex: 1; }
+  .listing-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .listing-tag { font-size: 10px; padding: 3px 8px; background: rgba(216,179,79,0.08); border: 1px solid var(--line); color: var(--gold); border-radius: 999px; letter-spacing: 0.06em; }
+  .featured-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; background: linear-gradient(135deg, #fff0a6, #d8b34f); color: #000; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; border-radius: 99px; }
+
+  /* WHY SOPHIA */
+  .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .why-cell { padding: 28px 26px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); }
+  .why-cell .icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; background: linear-gradient(135deg, rgba(255,240,166,0.4), rgba(216,179,79,0.18)); border: 1px solid var(--line-strong); border-radius: 50%; color: var(--gold); font-weight: 700; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+  .why-cell h3 { font-size: 1.3rem; margin-bottom: 8px; }
+
+  /* CTA BAND */
+  .cta-band { padding: 88px 0; text-align: center; background: linear-gradient(135deg, rgba(216,179,79,0.08), rgba(0,0,0,0) 60%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cta-band h2 { font-size: clamp(38px, 6vw, 72px); font-weight: 600; margin-bottom: 14px; }
+  .cta-band h2 em { font-style: normal; color: var(--gold); }
+  .cta-band p { max-width: 56ch; margin: 0 auto 28px; font-size: 1.05rem; }
+  .cta-band .actions { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  /* FOOTER */
+  footer.sv-footer { padding: 64px 0 40px; border-top: 1px solid var(--line); }
+  .foot-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 36px; margin-bottom: 36px; }
+  .foot-grid h4 { font-family: Inter, system-ui, sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 14px; }
+  .foot-grid a { display: block; color: rgba(245,241,230,0.6); text-decoration: none; font-size: 0.88rem; padding: 4px 0; transition: color .15s; }
+  .foot-grid a:hover { color: var(--gold); }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--line); color: var(--bone-2); font-size: 0.82rem; flex-wrap: wrap; gap: 12px; }
+  @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+
+  /* SCROLL FADE-IN */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease-out, transform .8s ease-out; }
+  .reveal.is-in { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) { .container { padding: 0 18px; } .hero { padding: 80px 0 48px; min-height: 92vh; } }
 </style>
+</head><body>
+
 <nav class="sv-section-nav" aria-label="SophiaTV sections">
   <div class="sv-section-nav-inner">
+    <a href="/" class="sv-brand" aria-label="Sophia home">
+      <img src="/assets/brand/sophia-mark-128.png" alt="" />
+      <span>Sophia<em>TV</em></span>
+    </a>
     <a href="/" class="sv-section-nav-link is-active" aria-current="page">Home</a>
     <a href="/video" class="sv-section-nav-link">Video</a>
     <a href="/social" class="sv-section-nav-link">Social</a>
     <a href="/market" class="sv-section-nav-link">Market</a>
     <a href="/wellness" class="sv-section-nav-link">Wellness</a>
     <a href="/everyday-tools" class="sv-section-nav-link">Tools</a>
+    <a href="/camera" class="sv-section-nav-link">Vision</a>
     <a href="/pricing" class="sv-section-nav-link">Pricing</a>
     <a href="/dashboard" class="sv-section-nav-link">Dashboard</a>
+    <div class="sv-actions">
+      <a class="ghost" href="/login.html">Sign in</a>
+      <a class="gold" href="/signup.html">Get started</a>
+    </div>
   </div>
 </nav>
-<!-- SOPHIA-SECTION-NAV end -->
 
-  <a class="skip-main landing-skip" href="#main-content">Skip to main content</a>
-
-  <header class="landing-topbar" aria-label="Sophia Operator entry">
-    <a href="/" class="landing-brand" aria-label="Sophia Operator home">
-      <img
-        src="assets/brand/sophia-logo-approved-2026-04-29.png"
-        alt="Sophia logo"
-        class="landing-brand-plaque"
-        width="1904"
-        height="826"
-      />
-      <span class="landing-brand-text">Sophia Operator</span>
-    </a>
-
-    <div class="landing-topbar-actions">
-      <label class="landing-language-picker" for="landingLanguage">
-        <span class="landing-language-label">Language</span>
-        <select id="landingLanguage" class="landing-language-select" aria-label="Choose your language">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="pt">Português</option>
-          <option value="ar">العربية</option>
-          <option value="zh">中文</option>
-          <option value="hi">हिन्दी</option>
-          <option value="sw">Kiswahili</option>
-        </select>
-      </label>
-      <a href="/login.html" class="landing-link-button">Log In</a>
-      <a href="/signup.html" class="landing-primary-button">Sign Up</a>
+<header class="hero">
+  <div class="hero-bg">
+    <video autoplay loop muted playsinline preload="metadata" poster="/assets/brand/sophia-unity-hands-poster.jpg">
+      <source src="/assets/video/sophia-unity-hands.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="container">
+    <span class="hero-eyebrow">Live in 105 countries · 18 categories</span>
+    <h1>The global business <em>floor.</em></h1>
+    <p class="lead">List, source, broadcast, and earn — across 105 countries and 18 industries. SophiaTV is where operators meet, deals close, and creators get paid. Free to list, $29.99 a month for the front row.</p>
+    <div class="hero-actions">
+      <a class="btn gold" href="/market">Open SophiaMarket <span class="arrow">→</span></a>
+      <a class="btn ghost" href="/video">Watch the floor <span class="arrow">▶</span></a>
     </div>
-  </header>
+    <div class="hero-ticker">
+      <div class="stat"><span class="num" data-count="105">105</span><span class="lbl">Countries live</span></div>
+      <div class="stat"><span class="num" data-count="18">18</span><span class="lbl">Categories</span></div>
+      <div class="stat"><span class="num" data-count="1890">1,890</span><span class="lbl">City pages</span></div>
+      <div class="stat"><span class="num" data-count="120">120</span><span class="lbl">Listings active</span></div>
+      <div class="stat"><span class="num">$29.99</span><span class="lbl">Featured / mo</span></div>
+    </div>
+  </div>
+</header>
 
-  <main id="main-content" class="landing-main" tabindex="-1">
-    <section class="landing-hero" aria-labelledby="landingHeroTitle">
-      <div class="landing-hero-copy">
-        <div class="landing-kicker">Layer 1 · Landing Page</div>
-        <h1 id="landingHeroTitle">A clean first step into Sophia Operator.</h1>
-        <p class="landing-hero-body">
-          Start with account access, language choice, and a brand surface that can scale cleanly across
-          web and mobile without fighting the codebase later.
-        </p>
+<section class="stats-band reveal">
+  <div class="container">
+    <div class="row">
+      <div><div class="big-num" data-count="105">105</div><div class="stat-label">Countries operating</div></div>
+      <div><div class="big-num" data-count="18">18</div><div class="stat-label">Industry verticals</div></div>
+      <div><div class="big-num" data-count="1890">1,890</div><div class="stat-label">SEO city pages</div></div>
+      <div><div class="big-num">120<small>+</small></div><div class="stat-label">Active listings</div></div>
+      <div><div class="big-num">24<small>/7</small></div><div class="stat-label">AI assistance</div></div>
+    </div>
+  </div>
+</section>
 
-        <div class="landing-hero-actions">
-          <a href="/signup.html" class="landing-primary-button landing-hero-button">Create Account</a>
-          <a href="/login.html" class="landing-secondary-button landing-hero-button">Enter Existing Account</a>
-        </div>
+<section class="sv reveal">
+  <div class="container">
+    <div class="sv-eyebrow">The platform</div>
+    <h2 class="sv-h">One floor. Eight rooms. Built for operators.</h2>
+    <p class="sv-sub">Every section of SophiaTV is designed to be simple enough for a child to navigate and advanced enough that an engineer pauses to admire the wiring underneath.</p>
 
-        <div class="landing-support-points" aria-label="Sophia Operator landing page foundations">
-          <article class="landing-support-card">
-            <span>Account Access</span>
-            <strong>Sign up and log in without confusion.</strong>
-          </article>
-          <article class="landing-support-card">
-            <span>Language Ready</span>
-            <strong>Choose language at the front door.</strong>
-          </article>
-          <article class="landing-support-card">
-            <span>Mobile Alignment</span>
-            <strong>Use one visual system that can carry into the app.</strong>
-          </article>
-        </div>
+    <div class="grid-cards">
+      <a class="sv-card" href="/market"><div class="pill">Marketplace</div><h3>SophiaMarket</h3><p>Global B2B directory. 105 countries. Free listing or Featured at $29.99/mo. Browse by region, category, or city.</p><span class="open">Open Market</span></a>
+      <a class="sv-card" href="/video"><div class="pill">Video</div><h3>Vertical feed</h3><p>TikTok-style scroll feed for operator updates, market signals, and creator drops. Autoplay-on-scroll, comments, share, follow.</p><span class="open">Watch feed</span></a>
+      <a class="sv-card" href="/social"><div class="pill">Social</div><h3>Sophia Social</h3><p>The community floor. Public signal board for listings, builders, operators. Announce, react, network.</p><span class="open">Open Social</span></a>
+      <a class="sv-card" href="/wellness"><div class="pill">Wellness</div><h3>Operator wellness</h3><p>Natural cures, longevity protocols, food and movement frameworks. Built for operators who carry weight.</p><span class="open">Open Wellness</span></a>
+      <a class="sv-card" href="/everyday-tools"><div class="pill">Tools</div><h3>Everyday tools</h3><p>Translator, budget planner, calculators, converters. Fast, free, accessible — ready when the deal needs it.</p><span class="open">Open Tools</span></a>
+      <a class="sv-card" href="/camera"><div class="pill">Vision</div><h3>Sophia Vision</h3><p>Live camera + AI. Point at a product, sign, document, or storefront. Sophia tells you what matters.</p><span class="open">Try Vision</span></a>
+      <a class="sv-card" href="/pricing"><div class="pill">Pricing</div><h3>Plans</h3><p>Free, Featured ($29.99/mo), Enterprise ($299/mo). Plus creator tiers — Operator, Builder, Founder.</p><span class="open">View Plans</span></a>
+      <a class="sv-card" href="/dashboard"><div class="pill">Dashboard</div><h3>Your console</h3><p>Listings, inquiries, performance, plan, AI assistant. Everything you need to operate from one place.</p><span class="open">Open Dashboard</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sv reveal" style="padding-top:0;">
+  <div class="container">
+    <div class="sv-eyebrow">Featured</div>
+    <h2 class="sv-h">A few of the operators on the floor.</h2>
+    <p class="sv-sub">Live businesses listed on SophiaMarket — refreshed daily.</p>
+    <div class="listings-track" id="featuredTrack" aria-label="Featured listings">
+      <div class="listing"><div class="listing-flag">⏳</div><div class="listing-meta">Loading featured listings…</div></div>
+    </div>
+    <div style="margin-top:22px;">
+      <a class="btn ghost" href="/market">Browse all 105 countries <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sv reveal" style="padding-top:0;">
+  <div class="container">
+    <div class="sv-eyebrow">Why operators choose Sophia</div>
+    <h2 class="sv-h">Reach the next economy without leaving the room.</h2>
+    <div class="why">
+      <div class="why-cell"><div class="icon">G</div><h3>Global reach</h3><p>105 countries spanning Africa, Asia-Pacific, Americas, Europe, and the Middle East. Real listings in real cities.</p></div>
+      <div class="why-cell"><div class="icon">P</div><h3>Premium positioning</h3><p>Featured at $29.99/mo gets you to the top of your country and category. The badge is a real signal of trust.</p></div>
+      <div class="why-cell"><div class="icon">A</div><h3>Operator-grade tools</h3><p>Sophia AI assistant, vision camera, 10-language translation, pipeline metrics — all wired in.</p></div>
+      <div class="why-cell"><div class="icon">F</div><h3>Frictionless</h3><p>List in under 60 seconds. No sales call. No demo. No setup fee. Free tier stays free forever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band reveal">
+  <div class="container">
+    <h2>Take the <em>front row.</em></h2>
+    <p>Free listing keeps you on the floor. $29.99 a month gets you Featured — top placement, performance analytics, priority support. Cancel anytime.</p>
+    <div class="actions">
+      <a class="btn gold" href="/signup.html">Create your account <span class="arrow">→</span></a>
+      <a class="btn ghost" href="/pricing">See all plans</a>
+    </div>
+  </div>
+</section>
+
+<footer class="sv-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><img src="/assets/brand/sophia-mark-128.png" width="40" height="40" alt="" /><span style="font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--bone);">Sophia<em style="font-style:normal; color:var(--gold);">TV</em></span></div>
+        <p style="font-size:0.86rem; color:var(--bone-2); max-width:30ch; margin:0;">The global business floor. Operators, creators, and builders connecting across 105 countries.</p>
       </div>
-
-      <div class="landing-hero-visual">
-        <section class="landing-unity-banner" aria-label="Unity hands banner">
-          <video
-            class="landing-unity-image landing-unity-video"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            poster="assets/brand/sophia-unity-hands-poster.jpg"
-            width="1920"
-            height="1080"
-            aria-label="Hands from around the world joined together in unity"
-          >
-            <source src="assets/video/sophia-unity-hands.mp4" type="video/mp4" />
-            <img
-              src="assets/brand/sophia-world-unity-hands-1200.jpg"
-              alt="Hands from around the world joined together in unity"
-              class="landing-unity-image"
-              width="1200"
-              height="515"
-              loading="eager"
-              decoding="async"
-            />
-          </video>
-          <div class="landing-unity-overlay" aria-hidden="true"></div>
-          </section>
+      <div>
+        <h4>Platform</h4>
+        <a href="/market">Market</a><a href="/video">Video</a><a href="/social">Social</a><a href="/wellness">Wellness</a><a href="/everyday-tools">Tools</a><a href="/camera">Vision</a>
       </div>
-    </section>
-
-    <section class="landing-foundation-strip" aria-label="Landing page structure">
-      <div class="landing-foundation-item">
-        <span>01</span>
-        <p>White foundation for clarity and product confidence.</p>
+      <div>
+        <h4>Company</h4>
+        <a href="/pricing">Pricing</a><a href="/listing-guidelines">Guidelines</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/copyright">Copyright</a>
       </div>
-      <div class="landing-foundation-item">
-        <span>02</span>
-        <p>24kt gold brand treatment for the logo and the Sophia Operator name.</p>
+      <div>
+        <h4>Account</h4>
+        <a href="/login.html">Sign in</a><a href="/signup.html">Sign up</a><a href="/dashboard">Dashboard</a><a href="/settings">Settings</a><a href="mailto:t.rain@sophiaoperator.com">Contact</a>
       </div>
-      <div class="landing-foundation-item">
-        <span>03</span>
-        <p>Simple structure so code can be added, changed, or removed without damage.</p>
-      </div>
-    </section>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sophia Operator. The global business floor.</span>
+      <span style="color:var(--gold);">Live in 105 countries</span>
+    </div>
+  </div>
+</footer>
 
-    <section class="landing-contact-section" aria-labelledby="landingContactTitle">
-      <div class="landing-contact-copy">
-        <div class="landing-kicker">Contact Us</div>
-        <h2 id="landingContactTitle">Reach Sophia Operator directly.</h2>
-        <p>
-          Use this landing layer to open the relationship clearly. If someone needs help before creating
-          an account, the contact path should be visible and simple.
-        </p>
-      </div>
+<script>
+  // Reveal-on-scroll
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 
-      <div class="landing-contact-card">
-        <div class="landing-contact-row">
-          <span>Email</span>
-          <a href="mailto:t.rain@sophiaoperator.com">t.rain@sophiaoperator.com</a>
-        </div>
-        <div class="landing-contact-row">
-          <span>Phone</span>
-          <a href="tel:+17042152819">+1 (704) 215-2819</a>
-        </div>
-        <div class="landing-contact-row">
-          <span>Next Step</span>
-          <a href="/signup.html">Create an account</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    (function () {
-      var languageSelect = document.getElementById('landingLanguage');
-      if (!languageSelect) return;
-
-      var storedLanguage = localStorage.getItem('sophia-language');
-      if (storedLanguage) {
-        languageSelect.value = storedLanguage;
-        document.documentElement.lang = storedLanguage;
+  // Animate counter numbers in hero ticker + stats band
+  (function () {
+    var els = document.querySelectorAll('[data-count]');
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      if (!isFinite(target)) return;
+      var start = performance.now(), duration = 1100;
+      function tick(t) {
+        var p = Math.min(1, (t - start) / duration);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var n = Math.round(target * eased);
+        el.textContent = n.toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
       }
+      requestAnimationFrame(tick);
+    }
+    if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 
-      languageSelect.addEventListener('change', function (event) {
-        var nextLanguage = event.target.value;
-        localStorage.setItem('sophia-language', nextLanguage);
-        document.documentElement.lang = nextLanguage;
-      });
-    })();
-  </script>
-</body>
-</html>
+  // Featured listings — pull from sample-listings.json
+  (function () {
+    fetch('/sample-listings.json').then(function (r) { return r.json(); }).then(function (data) {
+      var list = (Array.isArray(data) ? data : (data.listings || []));
+      var featured = list.filter(function (x) { return x.featured; }).slice(0, 12);
+      if (!featured.length) featured = list.slice(0, 12);
+      var track = document.getElementById('featuredTrack');
+      if (!track) return;
+      track.innerHTML = featured.map(function (x) {
+        var tags = (x.tags || []).slice(0, 3).map(function (t) { return '<span class="listing-tag">' + t + '</span>'; }).join('');
+        return '<a class="listing" href="/market-listing.html?id=' + (x.id || '') + '">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center;">' +
+          '<span class="listing-flag">' + (x.flag || '🌐') + '</span>' +
+          (x.featured ? '<span class="featured-badge">Featured</span>' : '') +
+          '</div>' +
+          '<div class="listing-name">' + (x.name || 'Listing') + '</div>' +
+          '<div class="listing-meta">' + (x.city || '') + (x.city ? ' · ' : '') + (x.country || '') + ' · ' + (x.category || '') + '</div>' +
+          '<div class="listing-desc">' + ((x.description || '').slice(0, 140) + (x.description && x.description.length > 140 ? '…' : '')) + '</div>' +
+          '<div class="listing-tags">' + tags + '</div>' +
+          '</a>';
+      }).join('');
+    }).catch(function () {
+      var track = document.getElementById('featuredTrack');
+      if (track) track.innerHTML = '<div class="listing"><div class="listing-meta">Could not load listings.</div></div>';
+    });
+  })();
+</script>
+</body></html>
