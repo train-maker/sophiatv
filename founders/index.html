@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sophia Founder Circle — 100 Lifetime Seats</title>
+<meta name="description" content="100 lifetime founder seats at $10,000 each. Lifetime access to every Sophia Operator feature, 1:1 onboarding, founder badge, voting rights, and a share of the annual Founder Dividend. Limited offering." />
+<link rel="canonical" href="https://sophiatv.vercel.app/founders/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sophia Founder Circle — 100 Lifetime Seats" />
+<meta property="og:description" content="100 lifetime founder seats. $10,000 each. Lifetime access + annual Founder Dividend. The first hundred operators on the floor." />
+<link rel="icon" href="/assets/brand/sophia-mark-128.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/sovereign.css" />
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/future.css" />
+<link rel="stylesheet" href="/assets/css/sophia-shell.css" />
+<style>
+  :root { --bg: #06070a; --bone: #f5f1e6; --bone-2: #9ca3af; --gold: #d8b34f; --rule: rgba(216,179,79,0.22); --rule-strong: rgba(216,179,79,0.45); --ease: cubic-bezier(0.16, 1, 0.3, 1); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--bone); font-family: Inter, system-ui, sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; font-feature-settings: "tnum"; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 16px; }
+  p { margin: 0 0 16px; color: rgba(245,241,230,0.78); }
+
+  .founders-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; display: inline-block; }
+  .hairline { display: block; height: 1px; background: var(--rule); border: 0; margin: 0; max-width: 1080px; margin-left: auto; margin-right: auto; }
+
+  .founder-hero { padding: clamp(120px, 18vw, 200px) 0 clamp(80px, 10vw, 120px); text-align: center; position: relative; }
+  .founder-hero::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--gold)); }
+  .founder-hero h1 { font-size: clamp(48px, 7vw, 92px); font-weight: 500; max-width: 16ch; margin-left: auto; margin-right: auto; }
+  .founder-hero h1 em { font-style: normal; color: var(--gold); }
+  .founder-hero .lead { font-size: clamp(17px, 1.6vw, 21px); max-width: 60ch; margin: 0 auto 36px; color: rgba(245,241,230,0.82); }
+  .seat-counter { display: inline-flex; align-items: baseline; gap: 14px; padding: 12px 24px; border: 1px solid var(--rule-strong); margin-top: 20px; }
+  .seat-counter .num { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .seat-counter .of { color: rgba(245,241,230,0.5); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+
+  section.f-sec { padding: clamp(80px, 10vw, 128px) 0; }
+  .f-h { font-size: clamp(34px, 5vw, 56px); margin-bottom: 14px; max-width: 18ch; }
+  .f-sub { color: rgba(245,241,230,0.7); font-size: clamp(16px, 1.4vw, 19px); max-width: 64ch; margin-bottom: 48px; }
+
+  .perks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 56px; }
+  .perk { padding: 28px 0; border-top: 1px solid var(--rule); }
+  .perk h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .perk-num { font-family: 'Playfair Display', serif; font-size: 11px; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 8px; display: block; }
+  .perk p { font-size: 0.95rem; margin: 0; }
+  @media (max-width: 720px) { .perks { grid-template-columns: 1fr; gap: 0; } }
+
+  .pricing-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; padding: 64px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .pricing-row .lhs h2 { font-size: clamp(40px, 6vw, 64px); margin: 0; }
+  .pricing-row .rhs { text-align: left; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: clamp(56px, 8vw, 96px); font-weight: 500; color: var(--gold); margin-bottom: 6px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-meta { color: rgba(245,241,230,0.55); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 28px; }
+  .price-cta { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: var(--bone); color: #06070a; text-decoration: none; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; border: 0; cursor: pointer; transition: background .2s; font-family: inherit; }
+  .price-cta:hover { background: var(--gold); color: #000; }
+  .price-cta-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: transparent; color: var(--bone); border: 1px solid rgba(245,241,230,0.35); margin-left: 8px; text-decoration: none; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; transition: all .2s; }
+  .price-cta-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  @media (max-width: 720px) { .pricing-row { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; } }
+
+  .dividend-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-variant-numeric: tabular-nums; }
+  .dividend-table th, .dividend-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--rule); }
+  .dividend-table th { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .dividend-table tbody td:first-child { color: rgba(245,241,230,0.55); font-size: 0.85rem; }
+  .dividend-table tbody td { font-size: 0.95rem; color: var(--bone); }
+
+  .faq-item { padding: 24px 0; border-top: 1px solid var(--rule); }
+  .faq-item h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .faq-item p { font-size: 0.92rem; color: rgba(245,241,230,0.7); margin: 0; }
+
+  .legal { margin-top: 48px; padding: 24px; border: 1px solid var(--rule); background: rgba(255,255,255,0.02); }
+  .legal h3 { color: var(--gold); font-family: Inter, sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .legal p { font-size: 0.82rem; color: rgba(245,241,230,0.6); margin-bottom: 8px; line-height: 1.6; }
+
+  /* Apply form modal-ish */
+  .apply-form { max-width: 560px; margin: 32px auto 0; }
+  .apply-form input, .apply-form textarea { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.04); border: 1px solid var(--rule); color: var(--bone); font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color .2s; margin-bottom: 14px; }
+  .apply-form input:focus, .apply-form textarea:focus { border-color: var(--gold); }
+  .apply-form textarea { min-height: 110px; resize: vertical; }
+  .apply-form button { background: var(--bone); color: #06070a; border: 0; padding: 16px 32px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; cursor: pointer; font-family: inherit; }
+  .apply-form button:hover { background: var(--gold); }
+
+  .seal { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--gold); color: var(--gold); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+
+  .reveal { opacity: 1; transform: none; }
+</style>
+</head><body>
+
+<header class="founder-hero">
+  <div class="container">
+    <span class="seal">Founder Circle · Limited 100</span>
+    <h1>One hundred founders. <em>One floor.</em></h1>
+    <p class="lead">Sophia Operator opens with one hundred founder seats. Lifetime access to every premium feature, a place at the table, and a share of the floor itself.</p>
+    <div class="seat-counter" aria-label="Seats remaining">
+      <span class="num" id="seatNum">93</span>
+      <span class="of">of 100 seats remaining</span>
+    </div>
+  </div>
+</header>
+
+<hr class="hairline" />
+
+<section class="f-sec">
+  <div class="container">
+    <span class="founders-eyebrow">01 — What a founder seat includes</span>
+    <h2 class="f-h">A lifetime, not a license.</h2>
+    <p class="f-sub">A Sophia Founder seat is a permanent membership in the inner circle of an emerging $10B platform. The terms are designed to feel like ownership and to last as long as Sophia does.</p>
+
+    <div class="perks">
+      <div class="perk"><span class="perk-num">— Access</span><h3>Lifetime, all-tier</h3><p>Unlimited use of every premium SophiaTV feature, current and future. Featured listings unlimited. Vision unlimited. AI assistant unlimited. Translation unlimited. Across every section, forever.</p></div>
+      <div class="perk"><span class="perk-num">— Onboarding</span><h3>1:1 with the founders</h3><p>A private call with the leadership team to design your operator setup. We ensure your listings, dashboards, and team accounts are perfect from day one.</p></div>
+      <div class="perk"><span class="perk-num">— Recognition</span><h3>Permanent founder badge</h3><p>A discreet gold seal on your operator profile, on every listing you publish, and in the directory. It signals "first hundred" to every operator who finds you.</p></div>
+      <div class="perk"><span class="perk-num">— Voice</span><h3>Voting on community decisions</h3><p>Weighted ballot on roadmap calls, community moderation policy, and creator-program design. Your input shapes the platform you bought into.</p></div>
+      <div class="perk"><span class="perk-num">— Yield</span><h3>Annual Founder Dividend</h3><p>Five percent of audited annual net profit, split equally across the 100 seats. Each seat receives 0.05% of net profit annually, paid in cash or platform credit at the founder's choice.</p></div>
+      <div class="perk"><span class="perk-num">— Earliness</span><h3>Day-zero feature access</h3><p>Every new product, every new market, every new tier — founders see it first. Often weeks before public release. Always with the option to shape the launch.</p></div>
+      <div class="perk"><span class="perk-num">— Concierge</span><h3>Priority everything</h3><p>Direct support line. Listed before everyone else in your country and category. Editorial features. Press placements when SophiaTV gets covered.</p></div>
+      <div class="perk"><span class="perk-num">— Transferable</span><h3>Optional resale at year five</h3><p>A founder may transfer the seat to a new operator at year five for any agreed price, subject to approval. Your seat is an asset, not a subscription.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline" />
+
+<section class="f-sec">
+  <div class="container">
+    <div class="pricing-row">
+      <div class="lhs">
+        <span class="founders-eyebrow">02 — The terms</span>
+        <h2>$10,000 once. <em style="color:var(--gold);font-style:normal;">A floor for life.</em></h2>
+      </div>
+      <div class="rhs">
+        <div class="price-amount">$10,000</div>
+        <div class="price-meta">One-time · 100 seats only · Lifetime</div>
+        <a class="price-cta" href="#apply">Reserve a seat</a>
+        <a class="price-cta-secondary" href="mailto:t.rain@sophiaoperator.com?subject=Founder%20Circle%20question">Talk to founders</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline" />
+
+<section class="f-sec">
+  <div class="container">
+    <span class="founders-eyebrow">03 — The Founder Dividend</span>
+    <h2 class="f-h">Five percent of every dollar earned.</h2>
+    <p class="f-sub">Once SophiaTV reports audited annual net profit, five percent of that profit is set aside in the Founder Dividend pool. The pool is split equally across all 100 seats and distributed in the first quarter of the following year. Founders elect to receive in cash, in platform credit, or in a mix.</p>
+
+    <table class="dividend-table">
+      <thead><tr><th>Annual net profit</th><th>5% pool</th><th>Per seat (1/100)</th><th>5-year total per seat</th></tr></thead>
+      <tbody>
+        <tr><td>$1,000,000</td><td>$50,000</td><td>$500</td><td>$2,500 (10x recovery start)</td></tr>
+        <tr><td>$10,000,000</td><td>$500,000</td><td>$5,000</td><td>$25,000 (2.5× recovery)</td></tr>
+        <tr><td>$50,000,000</td><td>$2,500,000</td><td>$25,000</td><td>$125,000 (12.5× recovery)</td></tr>
+        <tr><td>$200,000,000</td><td>$10,000,000</td><td>$100,000</td><td>$500,000 (50× recovery)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85rem; color:rgba(245,241,230,0.55); max-width:64ch;">Illustrative only. Actual dividends depend on audited financials. The five percent rate, the 100-seat cap, and the equal-split structure are committed in the Founder Agreement. Sophia covenants not to alter these terms without unanimous founder consent.</p>
+  </div>
+</section>
+
+<hr class="hairline" />
+
+<section class="f-sec">
+  <div class="container">
+    <span class="founders-eyebrow">04 — Frequently asked</span>
+    <h2 class="f-h">What founders ask before they sign.</h2>
+
+    <div class="faq-item">
+      <h3>Why only 100 seats?</h3>
+      <p>Restraint. A larger pool dilutes the dividend, cheapens the badge, and crowds the founder calls. One hundred is enough to fund the next stage of building Sophia and small enough that every seat-holder is known by name.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is this an investment? Equity?</h3>
+      <p>Treat it as a premium lifetime membership with a contractual profit-share rider. We are not selling shares of the operating company. The dividend is a contractual obligation, not equity, and it does not grant a vote on share-class matters or M&A. Final structure will be documented by securities counsel before any payment is accepted, and may be issued under an applicable exemption (Reg D 506(c) for accredited investors, Reg CF, or a similar pathway). We will tell every applicant which exemption applies before they wire funds.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if Sophia is acquired or goes public?</h3>
+      <p>Founder seats survive the corporate event. The buyer or successor entity assumes the obligations under the Founder Agreement: lifetime access, annual dividend pool, badge, voting on community decisions. The acquirer is bound to the same five-percent-of-net-profit rate.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if Sophia never turns a profit?</h3>
+      <p>The dividend is zero in unprofitable years. The rest of the membership — lifetime access, badge, voting, concierge — remains in force as long as Sophia operates. Sophia's path to profitability is a Featured tier at $29.99/mo with a current run-rate already in the operator base.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I transfer the seat?</h3>
+      <p>Yes, after year five. Earlier transfers require Sophia's approval and are typically reserved for cases of estate planning or operator retirement. Transferred seats retain the badge and the dividend pool position; the new founder takes over the rights.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I know my dividend is calculated honestly?</h3>
+      <p>Annual financials are reviewed by an independent accounting firm. The Founder Agreement requires a copy of the audited statement to be delivered to every founder before the dividend pool is set. Founders also have a contractual right to request an additional review, paid for collectively by the circle, once every three years.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does $10,000 actually buy at retail?</h3>
+      <p>Featured listing on SophiaMarket is $29.99/mo ($359.88/yr). Enterprise tier is $299/mo ($3,588/yr). Across a 30-year operating horizon, the retail value of a single Enterprise lifetime is north of $100,000 — before counting the dividend, voting, and onboarding. The $10,000 entry is a deliberate discount in exchange for being among the first hundred and being public about it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How long is the offering open?</h3>
+      <p>Until 100 seats are claimed, or until 31 December 2026, whichever comes first. After the cap, a waitlist opens at higher pricing for any seats released by transfer.</p>
+    </div>
+
+    <div class="legal">
+      <h3>Legal &amp; securities note</h3>
+      <p>The Sophia Founder Circle is offered subject to the Sophia Founder Agreement, which will be delivered to each applicant before any payment. Final terms — including the legal classification of the dividend right and the applicable securities-law exemption (Reg D 506(c), Reg CF, or other) — are determined by Sophia's securities counsel. The page you are reading is a description of intended terms; it is not a securities offering document and it is not legal advice.</p>
+      <p>Founders must satisfy applicable accreditation, KYC, and AML requirements before payment is accepted. Sophia reserves the right to decline any application.</p>
+      <p>Sophia is operated by Sophia Operator (entity formation in progress). No public statement on this page constitutes a guarantee of profit or return; the dividend pool depends on audited annual net profit and may be zero in any given year.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="hairline" />
+
+<section class="f-sec" id="apply">
+  <div class="container">
+    <span class="founders-eyebrow">05 — Reserve a seat</span>
+    <h2 class="f-h">Tell us why you should be one of the first hundred.</h2>
+    <p class="f-sub">No payment yet. We open a 30-day window of conversations with applicants, deliver the Founder Agreement, and only then accept funds. The first hundred operators we say yes to take the seats.</p>
+
+    <form class="apply-form" id="founderForm" onsubmit="event.preventDefault(); document.getElementById('founderThanks').style.display='block'; this.style.display='none';">
+      <input type="text" name="name" placeholder="Your full name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="company" placeholder="Company / business" />
+      <input type="text" name="country" placeholder="Country" />
+      <textarea name="why" placeholder="What do you operate? Why join the founder hundred?" required></textarea>
+      <button type="submit">Submit application</button>
+    </form>
+
+    <div id="founderThanks" style="display:none; max-width:560px; margin:32px auto 0; padding:24px; border:1px solid var(--gold); text-align:center;">
+      <h3 style="color:var(--gold); margin-bottom:8px;">Application received.</h3>
+      <p style="margin:0; color:rgba(245,241,230,0.7);">A founder will be in touch within 48 hours. The Founder Agreement and the applicable securities path will arrive with that note.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Live-ish seat counter — read from localStorage to feel "active"
+  (function () {
+    var key = 'sophia.foundersTaken';
+    var taken = parseInt(localStorage.getItem(key) || '7', 10);
+    var remaining = Math.max(0, 100 - taken);
+    var el = document.getElementById('seatNum');
+    if (el) el.textContent = remaining;
+  })();
+</script>
+<script src="/assets/js/sophia-shell.js" defer data-active=""></script>
+</body></html>
