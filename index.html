@@ -57,14 +57,13 @@
   .hero-bg video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65) saturate(1.15); }
   .hero-bg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,7,10,0.55) 0%, rgba(6,7,10,0.15) 35%, rgba(6,7,10,0.95) 100%); z-index: 1; }
   .hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(216,179,79,0.18), transparent 55%); z-index: 1; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: rgba(216,179,79,0.12); border: 1px solid var(--line-strong); color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
-  .hero-eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 0.45; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.1); } }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 2px; background: rgba(216,179,79,0.12); border: 1px solid var(--line-strong); color: var(--gold); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+  50% { opacity: 1; transform: scale(1.1); } }
   .hero h1 { font-size: clamp(44px, 8vw, 104px); font-weight: 600; max-width: 14ch; margin-bottom: 18px; }
   .hero h1 em { font-style: normal; color: var(--gold); }
   .hero .lead { font-size: clamp(17px, 1.6vw, 22px); max-width: 56ch; color: rgba(245,241,230,0.86); margin-bottom: 32px; }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
-  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none; border: 0; font-family: inherit; transition: transform .12s, opacity .15s, background .15s; letter-spacing: 0.01em; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; border-radius: 2px; font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none; border: 0; font-family: inherit; transition: transform .12s, opacity .15s, background .15s; letter-spacing: 0.01em; }
   .btn:active { transform: scale(0.98); }
   .btn.gold { background: linear-gradient(135deg, #fff0a6, #d8b34f 44%, #8a5a13); color: #000; }
   .btn.gold:hover { opacity: 0.92; }
@@ -92,10 +91,8 @@
 
   /* SECTION CARDS */
   .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-  .sv-card { position: relative; padding: 32px 28px 28px; border-radius: 12px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0)) , var(--panel); overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; min-height: 240px; }
-  .sv-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 0% 100%, rgba(216,179,79,0.15), transparent 55%); opacity: 0; transition: opacity .3s; pointer-events: none; }
-  .sv-card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
-  .sv-card:hover::before { opacity: 1; }
+  .sv-card { position: relative; padding: 32px 28px 28px; border-radius: 4px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0)) , var(--panel); overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; min-height: 240px; }
+  .sv-card:hover { transform: translateY(-1px); border-color: var(--line-strong); box-shadow: 0 18px 40px rgba(0,0,0,0.25); }
   .sv-card .pill { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-weight: 700; }
   .sv-card h3 { font-size: 1.5rem; font-family: 'Playfair Display', serif; font-weight: 500; margin-bottom: 10px; }
   .sv-card p { color: rgba(245,241,230,0.7); font-size: 0.95rem; flex: 1; margin-bottom: 18px; }
@@ -107,7 +104,7 @@
   .listings-track { display: flex; gap: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--gold-soft) transparent; }
   .listings-track::-webkit-scrollbar { height: 6px; }
   .listings-track::-webkit-scrollbar-thumb { background: var(--gold-soft); border-radius: 99px; }
-  .listing { flex: 0 0 320px; scroll-snap-align: start; padding: 22px 22px 20px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, transform .2s; text-decoration: none; color: inherit; }
+  .listing { flex: 0 0 320px; scroll-snap-align: start; padding: 22px 22px 20px; border-radius: 4px; border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, transform .2s; text-decoration: none; color: inherit; }
   .listing:hover { border-color: var(--line-strong); transform: translateY(-3px); }
   .listing-flag { font-size: 1.3rem; }
   .listing-name { font-size: 1.05rem; font-weight: 600; color: var(--bone); }
@@ -115,12 +112,11 @@
   .listing-desc { font-size: 0.86rem; color: rgba(245,241,230,0.65); line-height: 1.5; flex: 1; }
   .listing-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .listing-tag { font-size: 10px; padding: 3px 8px; background: rgba(216,179,79,0.08); border: 1px solid var(--line); color: var(--gold); border-radius: 999px; letter-spacing: 0.06em; }
-  .featured-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; background: linear-gradient(135deg, #fff0a6, #d8b34f); color: #000; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; border-radius: 99px; }
+  .featured-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; background: transparent; color: var(--gold); border: 1px solid var(--gold); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px; }
 
   /* WHY SOPHIA */
   .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-  .why-cell { padding: 28px 26px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); }
-  .why-cell .icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; background: linear-gradient(135deg, rgba(255,240,166,0.4), rgba(216,179,79,0.18)); border: 1px solid var(--line-strong); border-radius: 50%; color: var(--gold); font-weight: 700; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+  .why-cell { padding: 28px 26px; border-radius: 4px; border: 1px solid var(--line); background: var(--panel); }
   .why-cell h3 { font-size: 1.3rem; margin-bottom: 8px; }
 
   /* CTA BAND */
@@ -140,7 +136,7 @@
   @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
 
   /* SCROLL FADE-IN */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease-out, transform .8s ease-out; }
+  .reveal { opacity: 1; transform: none; }
   .reveal.is-in { opacity: 1; transform: none; }
 
   /* RESPONSIVE */
@@ -197,11 +193,9 @@
       <a class="btn ghost" href="/video">Watch the floor <span class="arrow">▶</span></a>
     </div>
     <div class="hero-ticker">
-      <div class="stat"><span class="num" data-count="105">105</span><span class="lbl">Countries live</span></div>
-      <div class="stat"><span class="num" data-count="18">18</span><span class="lbl">Categories</span></div>
-      <div class="stat"><span class="num" data-count="1890">1,890</span><span class="lbl">City pages</span></div>
-      <div class="stat"><span class="num" data-count="120">120</span><span class="lbl">Listings active</span></div>
-      <div class="stat"><span class="num">$29.99</span><span class="lbl">Featured / mo</span></div>
+      <div class="stat"><span class="num">105</span><span class="lbl">Countries</span></div>
+      <div class="stat"><span class="num">18</span><span class="lbl">Categories</span></div>
+      <div class="stat"><span class="num">$29.99<small>/mo</small></span><span class="lbl">Featured tier</span></div>
     </div>
   </div>
 </header>
@@ -209,9 +203,9 @@
 <section class="stats-band reveal">
   <div class="container">
     <div class="row">
-      <div><div class="big-num" data-count="105">105</div><div class="stat-label">Countries operating</div></div>
-      <div><div class="big-num" data-count="18">18</div><div class="stat-label">Industry verticals</div></div>
-      <div><div class="big-num" data-count="1890">1,890</div><div class="stat-label">SEO city pages</div></div>
+      <div><div class="big-num">105</div><div class="stat-label">Countries operating</div></div>
+      <div><div class="big-num">18</div><div class="stat-label">Industry verticals</div></div>
+      <div><div class="big-num">1,890</div><div class="stat-label">SEO city pages</div></div>
       <div><div class="big-num">120<small>+</small></div><div class="stat-label">Active listings</div></div>
       <div><div class="big-num">24<small>/7</small></div><div class="stat-label">AI assistance</div></div>
     </div>
@@ -256,10 +250,10 @@
     <div class="sv-eyebrow">Why operators choose Sophia</div>
     <h2 class="sv-h">Reach the next economy without leaving the room.</h2>
     <div class="why">
-      <div class="why-cell"><div class="icon">G</div><h3>Global reach</h3><p>105 countries spanning Africa, Asia-Pacific, Americas, Europe, and the Middle East. Real listings in real cities.</p></div>
-      <div class="why-cell"><div class="icon">P</div><h3>Premium positioning</h3><p>Featured at $29.99/mo gets you to the top of your country and category. The badge is a real signal of trust.</p></div>
-      <div class="why-cell"><div class="icon">A</div><h3>Operator-grade tools</h3><p>Sophia AI assistant, vision camera, 10-language translation, pipeline metrics — all wired in.</p></div>
-      <div class="why-cell"><div class="icon">F</div><h3>Frictionless</h3><p>List in under 60 seconds. No sales call. No demo. No setup fee. Free tier stays free forever.</p></div>
+      <div class="why-cell"><h3>Global reach</h3><p>105 countries spanning Africa, Asia-Pacific, Americas, Europe, and the Middle East. Real listings in real cities.</p></div>
+      <div class="why-cell"><h3>Premium positioning</h3><p>Featured at $29.99/mo gets you to the top of your country and category. The badge is a real signal of trust.</p></div>
+      <div class="why-cell"><h3>Operator-grade tools</h3><p>Sophia AI assistant, vision camera, 10-language translation, pipeline metrics — all wired in.</p></div>
+      <div class="why-cell"><h3>Frictionless</h3><p>List in under 60 seconds. No sales call. No demo. No setup fee. Free tier stays free forever.</p></div>
     </div>
   </div>
 </section>
@@ -313,30 +307,8 @@
     els.forEach(function (el) { io.observe(el); });
   })();
 
-  // Animate counter numbers in hero ticker + stats band
-  (function () {
-    var els = document.querySelectorAll('[data-count]');
-    function animate(el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      if (!isFinite(target)) return;
-      var start = performance.now(), duration = 1100;
-      function tick(t) {
-        var p = Math.min(1, (t - start) / duration);
-        var eased = 1 - Math.pow(1 - p, 3);
-        var n = Math.round(target * eased);
-        el.textContent = n.toLocaleString();
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }
-    if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
-    }, { threshold: 0.4 });
-    els.forEach(function (el) { io.observe(el); });
-  })();
-
-  // Featured listings — pull from sample-listings.json
+  // Counter animation removed — numbers shown immediately.
+// Featured listings — pull from sample-listings.json
   (function () {
     fetch('/sample-listings.json').then(function (r) { return r.json(); }).then(function (data) {
       var list = (Array.isArray(data) ? data : (data.listings || []));
